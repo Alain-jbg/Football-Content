@@ -1,0 +1,563 @@
+/* ------------------
+   Adding Fonts 
+--------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+/* ---------------------------
+common styles or utilities
+-----------------------------*/
+
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    text-transform: capitalize;
+    transition: all .2s linear;
+}
+
+html {
+    overflow-y: auto;
+    scroll-padding-top: 5.5rem;
+    scroll-behavior: smooth;
+}
+
+html,body{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+}
+
+body{
+    /*font-family: 'Poppins', sans-serif;*/
+    background: #FFFFFF;
+    overflow-y: scroll;
+    scrollbar-width:auto;
+    scrollbar-color: #888 #f1f1f1;
+}
+
+main{
+    align-items: center;
+    margin-bottom: 15px;
+    display: block;
+}
+
+section {
+    padding: 2rem 9%;
+    margin-top: 50px;
+    width: 100%;
+}
+
+section.live {
+    display: block;
+    padding: 2rem 9%;
+    margin-top: 50px;
+    width: 100%;
+}
+
+#home {
+    padding: 0% !important;
+}
+
+.heading {
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: #2D25A0;
+}
+
+.sub-heading{
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+h3{
+    font-weight: bold;
+    font-size: 28px
+}
+
+p{
+    font-size: 2rem;
+    color: #6C6C6C;
+    font-weight: normal;
+}
+
+.btn {
+    color: white;
+    background-color: #E02C6D;
+}
+
+.btn:hover {
+    background-color: #e02c6ebe;
+    color: white;
+}
+
+.para {
+    font-size: 16px;
+    text-transform: none;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    height: 60px;
+    top: 0;
+    margin-bottom: 10px;
+    background: #2D25A0; 
+    padding: 1rem 7%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.link-button{
+    background: #E02C6D;
+    padding: 10px 24px;
+    text-decoration: none;
+    color: white;
+    margin-right: 0px;
+}
+
+.link-button:hover{
+    background: #ff005d;
+}
+
+/* -----------------------
+Top Header Styles Start
+--------------------------*/
+.top-header {
+    padding-bottom: 7%;
+}
+/*.top-header{
+    background: #2D25A0; 
+}
+
+.top-header:hover{
+    animation: slider 4s linear 0.3s infinite normal;
+}*/
+
+/*@keyframes slider {
+    0%{
+        background-color: #FFD55A;
+    }
+    50%{
+        background-color: #293250;
+    }
+    100%{
+       background-color: #6DD47E;
+    }
+}*/
+
+/* Top Navigation Styles Start */
+nav{
+    padding-bottom: 3rem;
+    margin: 30px;
+    /*margin-left: 5rem;*/
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.menu-icon{
+    display: none;
+    color: white;
+    font-size: 24px;
+}
+
+nav a{
+    text-decoration: none;
+    color: white;
+    margin-right: 30px;
+    font-weight: 500;
+    font-size: 16px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    border: none;
+    padding:  .3rem .5rem;
+    width: 100%;
+}
+
+nav a:hover, nav a.active{
+    color: black;
+    background: white;
+}
+
+/* Top Navigation Styles Ends */
+
+.top-section {
+    height: 100vh;
+}
+
+.top-section:hover{
+    animation: slider 4s linear 0.3s infinite normal;
+}
+
+@keyframes slider {
+    0%{
+        background-color: #FFD55A;
+    }
+    50%{
+        background-color: #293250;
+    }
+    100%{
+       background-color: #6DD47E;
+    }
+}
+
+
+.top-banner{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.top-banner-text h1{
+    width: 485px;
+    margin-top: 0px;
+    margin-bottom: 27px;
+}
+
+.top-banner-text p {
+    margin-bottom: 20px;
+}
+
+
+.top-banner-image img{
+    /*transform: scaleX(-1);*/
+    width: 556.01px;
+    height: 500px;
+}
+/*-----------------------
+Top Header Styles End
+-----------------------*/
+
+/* Testimonials section */
+#testimonials {
+    text-align: center;
+    background-color: #0A0826;
+    color: white;
+    margin-top: 0;
+    text-transform: none;
+}
+
+.testimonial-image {
+    width: 10%;
+    border-radius: 50%;
+    margin: 20px;
+}
+
+.carousel-item {
+    padding: 7% 15%;
+}
+
+/* Crowd funding */
+#crowd-fund {
+    align-self: center;
+    display: block;
+}
+
+#crowd-fund .wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distribute items evenly */
+  }  
+
+.fund-type {
+    display: flex;
+    align-items: flex-start;
+    border: .1rem solid rgba(0,0,0,.2);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: .5rem;
+    padding-top: 1.5rem;
+    padding-right: 1%;
+}
+
+.fund-type .btn-2 {
+    color: #E02C6D;
+    align-self: flex-end; 
+    margin-top: auto;
+    margin-bottom: 20px;
+}
+
+.fund-type p {
+    font-size: 1.3rem;
+    text-transform: none;
+}
+
+.fund-type img {
+    margin-right: 10px;
+    width: 30%;
+    height: 20%;
+    padding: 0 1.5rem 1.5rem;
+    overflow: hidden;
+    position: relative;
+    object-fit: cover; 
+}
+
+.campaign-type {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.fund-content {
+    flex: 1;
+}
+
+.fund-content h3 {
+    color: #2D25A0;
+}
+
+.na {
+    color: red;
+    font-size: .7rem;
+}
+
+/* Membership and sponsorship section */
+#membership-sponsor a {
+    color: #E02C6D;
+}
+
+#mem-spons {
+    padding: 100px;
+    padding-top: 30px;
+    text-align: center;
+}
+
+#mem-spons .row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#mem-spons .spon-column {
+    flex: 1;
+    padding: 10px;
+}
+
+#mem-spons .card {
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+}
+  
+#mem-spons .card-body {
+    flex-grow: 1;
+}
+  
+#mem-spons .card-header, #mem-spons .card-body {
+    text-align: center;
+}
+
+#mem-spons h3 {
+    color: #2D25A0;
+}
+
+#mem-spons {
+    font-size: 16px;
+}
+
+#mem-spons img {
+    width: 100%;
+    height: 30%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+#mem-spons p {
+    text-align: left;
+}
+
+#mem-spons .btn {
+    width: 100%;
+    color: white;
+    background-color: #E02C6D;
+    border: none;
+}
+
+.spon-column {
+    padding: 3% 2%;
+}
+
+
+
+/*----------------------
+Footer Style Starts
+---------------------- */
+footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer img{
+    width: 483.87px;
+}
+
+footer a{
+    color: black;
+}
+
+.fab{
+    font-size: 32px;
+    margin-right: 20px;
+}
+
+footer .social-media a i em {
+    font-size: 20px;
+}
+
+footer p{
+    color: #000000;
+    font-size: 18px;
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*----------------------
+Footer Style Ends
+---------------------- */
+
+.others, #crowd-fund {
+    display: none;
+}
+
+/* Media Query For Phone Device */
+
+@media only screen and (max-width: 688px){
+    h1{
+        font-size: 36px;
+    }
+    h2{
+        font-size: 30px;
+    }
+    /* -----------------------
+    Top Header Styles Start
+    --------------------------*/
+    .top-header{
+        width: 100%;
+        height: 695px;
+    }
+    nav{
+        padding-top: 33px;
+        padding-bottom: 0px;
+        display: flex;
+        justify-content: space-between;
+        padding-left: 16px;
+        padding-right: 21px;
+    }
+    .nav-links{
+        display: none;
+    }
+    .menu-icon{
+        margin: 3px;
+        display: contents;
+    }
+    nav .link-button{
+        padding: 7.47253px 17.9341px;
+        margin-right: 0px;
+    }
+    .top-banner{
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    .top-banner-text h1{
+        width: 278px;
+        height: 138px;
+        margin-bottom: 57px;
+        margin-top: 46px;
+    }
+    .top-banner-text a{
+        width: 168px;
+        height: 100%;
+        
+    }
+    .top-banner-image img{
+        margin-top: 50px;
+        width: 329px;
+        height: 259.17px; 
+    }
+    /*-----------------------
+    Top Header Styles End
+    -----------------------*/
+
+    
+    /*----------------------
+    Footer Style Starts
+    ---------------------- */
+    footer img{
+        width: 275.8px;
+    }
+    footer p{
+        text-align: center;
+    }
+    /*----------------------
+    Footer Style Starts
+    ---------------------- */
+}
+
+/* Media Query For Ipad/Tablets */
+
+@media (min-width: 689px) and (max-width: 1024px){
+    h1{
+        font-size: 36px;
+    }
+    h2{
+        font-size: 30px;
+    }
+    /* -----------------------
+    Top Header Styles Start
+    --------------------------*/
+    .top-header{
+        width: 100%;
+        height: 500px;
+    }
+    .top-banner{
+        display: flex;
+        align-items: center;
+        width: 100%;
+    }
+    .top-banner-text h1{
+        width: 278px;
+        height: 138px;
+        margin-bottom: 57px;
+        margin-top: 46px;
+    }
+    .top-banner-text a{
+        width: 168px;
+        height: 100%;
+        
+    }
+    .top-banner-image img{
+        margin-top: 50px;
+        width: 329px;
+        height: 259.17px; 
+    }
+    /*-----------------------
+    Top Header Styles End
+    -----------------------*/
+
+
+
+    /*----------------------
+    Footer Style Starts
+    ---------------------- */
+    footer img{
+        width: 275.8px;
+    }
+
+    
+    footer p{
+        text-align: center;
+    }
+    /*----------------------
+    Footer Style Starts
+    ---------------------- */
+}
