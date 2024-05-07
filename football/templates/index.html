@@ -1,0 +1,449 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="{% static 'images/li__1_-removebg-preview.ico' %}">
+    <title>Ligi Open </title>
+
+    <!-- Font awesome -->
+    <script src="https://kit.fontawesome.com/456d64337e.js" crossorigin="anonymous"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <!-- Header section -->
+    <header>
+        <img src="{% static 'images/li__1_-removebg-preview.png' %}" alt="logo">
+        <nav class="navbar">
+            <a class="active" href="#home">Home</a>
+            <a href="#financing">Financing</a>
+            <a href="#fixtures">Fixtures</a>
+            <a href="#clubs">Clubs</a>
+            <a href="#highlights">Highlights</a>
+            <a href="#faqs">FAQS</a>
+
+
+        </nav>
+        <div class="icons">
+            <a href="pages/login.html">Login</a>
+            <i class="fas fa-bars" id="menu-bars"></i>
+        </div>
+    </header>
+
+    <!--Home section-->
+    <section class="home live" id="home">
+        <div class="background-image">
+            <div>
+                <h1 class="heading">Welcome to  LIGI OPEN!</h1>
+                <a href="#about-section" class="btn">Get involved</a>
+            </div>
+        </div>
+
+        <div class="about-section" id="about-section">
+            <h1 class="heading">About Ligi Open</h1>
+            <div class="container">
+                <div class="whole">
+                    <img src="{% static 'images/socer-removebg-preview.png' %}" alt="Soccer" class="soccer-img"/>
+
+                  <div class="text">
+                    <div class="top">
+                      <div class="para">
+                        <p>At Ligi Open, we believe in revolutionizing the way football is funded and supported. Our Open Financing Initiative represents a groundbreaking approach to sustaining and developing the sport we all love, football. With open financing, we're not just asking for financial support; we're inviting you to be an integral part of our journey. This initiative is about more than just money; it's about transparency, community involvement, and the collective passion that drives us forward. Join us in building a brighter future for football in kenya.</p>        
+                    </div>
+                    </div>
+                  </div>
+                </div>  
+            </div>
+        </div>
+
+        <div id="features">
+          <div class="feature-box">
+              <i class="icon fas fa-check-circle fa-4x"></i>
+              <h3>Transparency.</h3>
+              <p>Gain access to our financial operations.</p>
+          </div>
+          <div class="feature-box">
+              <i class="icon fas fa-solid fa-people-group fa-4x"></i>
+              <h3>Community Engagement.</h3>
+              <p>Be part of a thriving football community.</p>
+          </div>
+          <div class="feature-box">
+              <i class="icon fas fa-bullseye fa-4x"></i>
+              <h3>Financial Opportunities.</h3>
+              <p>Unlock a world of financial opportunities.</p>
+          </div>
+        </div>
+
+        <div class="teams">
+            <div class="container">
+                <h2 class="heading">Our Clubs</h2>
+                <div class="row">
+                  <div class="col-lg-3" >
+                    <div class="team-member">
+                        <img src="{% static 'images/logo-1.jpg' %}" alt="Image" class="img-fluid" />
+
+                      <div>
+                        <div class="inner-div">
+                          <h3>Lorem Ipsum</h3>
+                          <i class="fa-solid fa-angle-right"></i>
+                        </div>
+                      </div>
+                    </div>
+                    </a>
+                  </div>
+        
+                  <div class="col-lg-3" >
+                    <a href="pages/club-staff.html" target="_blank">
+                      <div class="team-member">
+                        <img src="{% static 'images/logo-1.jpg' %}" alt="Image" class="img-fluid" />
+
+                        <div>
+                          <div class="inner-div">
+                            <h3>Lorem Ipsum</h3>
+                            <i class="fa-solid fa-angle-right"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+        
+                  <div class="col-lg-3" >
+                    <a href="pages/club-staff.html" target="_blank">
+                      <div class="team-member">
+                        <img src="{% static 'images/logo-1.jpg' %}" alt="Image" class="img-fluid" />
+
+                        <div>
+                          <div class="inner-div">
+                            <h3>Lorem Ipsum</h3>
+                            <i class="fa-solid fa-angle-right"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+
+                  <div class="col-lg-3" >
+                    <a href="pages/club-staff.html" target="_blank">
+                      <div class="team-member">
+                        <img src="{% static 'images/logo-1.jpg' %}" alt="Image" class="img-fluid" />
+
+                        <div>
+                          <div class="inner-div">
+                            <h3>Lorem Ipsum</h3>
+                            <i class="fa-solid fa-angle-right"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+        </div>
+        
+        
+        
+        
+    </section>
+
+    <!--Financing section-->
+    <section class="financing" id="financing">
+        <div class="container">
+            <h1 class="heading-2">Not available come back later.</h1>
+        </div>
+    </section>
+
+    <!--Fixtures section-->
+    <section class="fixtures" id="fixtures">
+      <div class="container">
+        <h2 class="heading">Fixtures</h2>
+        
+        <!-- Fixture 1 -->
+        <div class="fixture">
+          <div class="date">
+            <p class="date-fix">Thu January 1 2025</p>
+            <p class="venue">Venue</p>
+            <p class="comp">Competition</p>
+          </div>
+          <div class="inner-team">
+            <div class="team">
+                <img src="{% static 'images/logo-1.jpg' %}" alt="Team A Logo">
+
+              <span class="team-name">Team A</span>
+            </div>
+            <div class="vs">19:30pm</div>
+            <div class="team">
+                <img src="{% static 'images/logo-1.jpg' %}" alt="Team B Logo">
+
+              <span class="team-name">Team B</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Fixture 2 -->
+        <div class="fixture">
+          <div class="date">
+            <p class="date-fix">Sat January 3 2025</p>
+            <p class="venue">Venue</p>
+            <p class="comp">Competition</p>
+          </div>
+          <div class="inner-team">
+            <div class="team">
+                <img src="{% static 'images/logo-1.jpg' %}" alt="Team A Logo">
+
+              <span class="team-name">Team A</span>
+            </div>
+            <div class="vs">12:30pm</div>
+            <div class="team">
+                <img src="{% static 'images/logo-1.jpg' %}" alt="Team B Logo">
+
+              <span class="team-name">Team B</span>
+            </div>
+          </div>
+        </div>     
+        
+      </div>
+    </section>
+    <div class="teams">
+
+    <section class="clubs" id="clubs">
+
+      <div class="container">
+          <h2 class="heading">Different Clubs</h2>
+          <p>Click on each club to get the information of the club</p>
+          <div class="row">
+              <div class="col-lg-3">
+                  <a href="pages/club-staff.html" target="_blank">
+                      <div class="team-member">
+                        <img src="{% static 'images/logo-1.jpg' %}" alt="Image" class="img-fluid" />
+
+                          <div>
+                              <div class="inner-div">
+                                  <h3>Club 1</h3>
+                                  <i class="fa-solid fa-angle-right"></i>
+                              </div>
+                          </div>
+                      </div>
+                  </a>
+              </div>
+  
+              <div class="col-lg-3">
+                  <a href="pages/club-staff.html" target="_blank">
+                      <div class="team-member">
+                        <img src="{% static 'images/club1-removebg-preview.png' %}" alt="Image" class="img-fluid" />
+
+                          <div>
+                              <div class="inner-div">
+                                  <h3>Club 2</h3>
+                                  <i class="fa-solid fa-angle-right"></i>
+                              </div>
+                          </div>
+                      </div>
+                  </a>
+              </div>
+  
+              <div class="col-lg-3">
+                  <a href="pages/club-staff.html" target="_blank">
+                    <img src="{% static 'images/logo-1.jpg' %}" alt="Image" class="img-fluid" />
+
+
+                      <div class="team-member">
+                          <div>
+                              <div class="inner-div">
+                                  <h3>Club 3</h3>
+                                  <i class="fa-solid fa-angle-right"></i>
+                              </div>
+                          </div>
+                      </div>
+                  </a>
+              </div>
+  
+              <div class="col-lg-3">
+                  <a href="pages/club-staff.html" target="_blank">
+                      <div class="team-member">
+                        <img src="{% static 'images/club1-removebg-preview.png' %}" alt="Image" class="img-fluid" />
+
+
+                          <div>
+                              <div class="inner-div">
+                                  <h3>Club 4</h3>
+                                  <i class="fa-solid fa-angle-right"></i>
+                              </div>
+                          </div>
+                      </div>
+                  </a>
+              </div>
+          </div>
+      </div>
+  </section>
+  
+
+    <!-- Highlights section content -->
+    <section class="highlights" id="highlights">
+      <h2 class="heading">Gameweek highlights</h2>
+      <div class="container">
+        <!-- Example article -->
+        <div class="news-card">
+          <div class="news-image-container">
+            <img src="{% static 'images/newspaper.jpg' %}" alt="news-image" />
+
+          </div>
+          <div class="news-content">
+            <div class="news-title">Headline</div>
+            <div class="news-description">Description goes here.</div>
+            <a href="#" target="_blank" class="btn">Read More</a>
+          </div>
+        </div>
+
+        <div class="news-card">
+          <div class="news-image-container">
+            <img src="{% static 'images/newspaper.jpg' %}" alt="news-image" />
+
+          </div>
+          <div class="news-content">
+            <div class="news-title">Headline</div>
+            <div class="news-description">Description goes here.</div>
+            <a href="#" target="_blank" class="btn">Read More</a>
+          </div>
+        </div>
+
+        <div class="news-card">
+          <div class="news-image-container">
+            <img src="{% static 'images/newspaper.jpg' %}" alt="news-image" />
+
+          </div>
+          <div class="news-content">
+            <div class="news-title">Headline</div>
+            <div class="news-description">Description goes here.</div>
+            <a href="#" target="_blank" class="btn">Read More</a>
+          </div>
+        </div>
+
+        <div class="news-card">
+          <div class="news-image-container">
+            <img src="{% static 'images/newspaper.jpg' %}" alt="news-image" />
+
+          </div>
+          <div class="news-content">
+            <div class="news-title">Headline</div>
+            <div class="news-description">Description goes here.</div>
+            <a href="#" target="_blank" class="btn">Read More</a>
+          </div>
+        </div>
+      </div>
+    </section>
+        
+    <section class="faqs" id="faqs">
+      <h2 class="heading">Frequently Asked Questions</h2>
+
+      <div class="wrapper">
+  
+          <div class="faq">
+              <button class="accordion">
+                  What is ligiopen?
+                  <i class="fa-solid fa-chevron-down"></i>
+              </button>
+              <div class="panel">
+                  <p>
+                    At LigiOpen we believe in revolutionizing the way football is funded and supported. 
+                    Our Open Financing Initiative represents a groundbreaking approach to sustaining and developing the sport we all love, football. 
+                  </p>
+              </div>
+          </div>
+  
+          <div class="faq">
+              <button class="accordion">
+                  How can one be a member of Ligi Open?
+                  <i class="fa-solid fa-chevron-down"></i>
+              </button>
+              <div class="panel">
+                  <p>
+                      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facilis
+                      saepe molestiae distinctio asperiores cupiditate consequuntur dolor
+                      ullam, iure eligendi harum eaque hic corporis debitis porro
+                      consectetur voluptate rem officiis architecto.
+                  </p>
+              </div>
+          </div>
+  
+          <!-- Add more FAQ items as needed -->
+  
+      </div>
+  </section>
+  <script>
+    // JavaScript to toggle panel visibility
+    const accordions = document.querySelectorAll('.accordion');
+
+    accordions.forEach(accordion => {
+        accordion.addEventListener('click', () => {
+            const panel = accordion.nextElementSibling;
+            panel.classList.toggle('show');
+        });
+    });
+</script>
+    <!--Contact Us -->
+    <section class="order" id="order">
+      <h1 class="heading">Ask here</h1>
+
+      <form action="" method="post" id="submit-form">
+          <div class="inputBox">
+              <div class="input">
+                  <span>your name</span>
+                  <input type="text" placeholder="Enter your name" name="name">
+              </div>
+          </div>
+
+          <div class="inputBox">
+              <div class="input">
+                  <span>Email address</span>
+                  <input type="text" id="email-textbox" placeholder="Enter email address" name="email">
+              </div>
+          </div>
+
+          <div class="inputBox">
+              <div class="input">
+                  <span>your issue</span>
+                  <textarea name="issue" placeholder="Enter your message" id="" cols="30" rows="10"></textarea>
+              </div>
+          </div>
+
+          <input type="submit" value="submit" class="btn">
+      </form>
+
+  </section>
+
+    <!--Footer section-->
+    <div class="footer">
+        <div class="box-container">
+            <div class="box bottom-nav">
+                <h3>Quick Links</h3>
+                <a href="#home">Home</a>
+                <a href="#financing">Financing</a>
+                <a href="#fixtures">Fixtures</a>
+                <a href="#highlights">Highlights</a>
+                <a href="#faqs">FAQS</a>
+
+                <a href="#order">Contact us</a>
+            </div>
+
+            <div class="box">
+                <h3>Contact Info</h3>
+                <a href="mailto:info@jay4t.org">info@jay4t.org</a>
+                <a href="#">Kisumu, Kenya</a>
+            </div>
+
+            <div class="box">
+                <h3>Follow us</h3>
+                <a href="https://twitter.com/Jabulani_Youths" target="_blank">Twitter</a>
+            </div>
+        </div>
+
+        <div class="credit">copyright &copy; 2024 by <span>Jabulani Youths For Transformation</span></div>
+    </div>
+    <script src="{% static 'js/index.js' %}"></script>
+
+</body>
+</html>

@@ -1,0 +1,344 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap');
+
+:root {
+    --green: #27ae60;
+    --black: #192a56;
+    --light-color: grey;
+    --white: #F6F2F2;
+    --box-shadow: 0.5rem 1.5rem rgba(0,0,0,.1)
+}
+
+* {
+    font-family: 'Nunito', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    transition: all .2s linear;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 5.5rem;
+    scroll-behavior: smooth;
+}
+
+section {
+    display: none;
+}
+
+section.live {
+    display: block;
+    margin-top: 9%;
+}
+
+section:nth-child(even){
+    background: #eee;
+}
+
+.sub-heading {
+    text-align: center;
+    color: var(--green);
+    font-size: 2rem;
+    padding-top: 1rem;
+}
+
+.heading {
+    text-align: center;
+    color: var(--black);
+    font-size: 3rem;
+    padding-bottom: 2rem;
+    text-transform: uppercase;
+}
+
+.btn {
+    margin-top: 1rem;
+    display: inline-block;
+    font-size: 1.7rem;
+    color: #fff;
+    background: var(--black);
+    cursor: pointer;
+    padding: 1rem 3rem;
+    border-radius: 5px;
+    text-transform: capitalize;
+}
+
+.btn:hover {
+    background: var(--green);
+    letter-spacing: .1rem;
+}
+
+/*Header section */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin-bottom: 10px;
+    background: #fff;
+    padding: 1rem 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    text-transform: capitalize;
+}
+
+header .navbar {
+    padding: 10px 0;
+}
+
+header .navbar a {
+    font-size: 1.7rem;
+    border-radius: .5rem;
+    padding: .5rem 1.5rem;
+    color: var(--light-color);
+}
+
+header .navbar a.active, header .navbar a:hover {
+    color: #fff;
+    background: var(--green);
+}
+
+
+header .icons i {
+    cursor: pointer;
+    margin-left: 5rem;
+    height: 4.5rem;
+    line-height: 4.5rem;
+    width: 4.5rem;
+    text-align: center;
+    font-size: 1.7rem;
+    color: var(--black);
+    border-radius: 50%;
+    background: #eee;
+}
+
+header img {
+    width: 50px;
+    height: 50px;
+}
+
+header .icons a {
+    color: var(--white);
+    background-color: var(--black);
+    font-size: 1.7rem;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+header .icons i:hover, header .icons a:hover {
+    color: #fff;
+    background: var(--green);
+    transform: rotate(360deg);
+}
+
+header .icons #menu-bars {
+    display: none;
+}
+
+section.live {
+    display: block;
+    margin-top: 5%;
+}
+
+/*Teams section*/
+
+.team {
+    padding: 3% 9%;
+}
+
+.teams .container {
+    max-width: 960px;
+    margin: 0 auto;
+    font-size: 1.5rem;
+}
+
+.teams .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -15px;
+}
+
+.teams .col-lg-3 {
+    flex: 0 0 calc(25% - 30px);
+    max-width: calc(25% - 30px);
+    margin: 15px;
+}
+
+.teams img {
+    width: 100%;
+    height: auto;
+}
+
+.teams .other {
+    margin-top: 5%;
+}
+
+.teams .inner-div {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+
+/*Matches section*/
+header .navbar, .navbar2 {
+    padding: 10px 0;
+}
+
+header .navbar a , .navbar2 a{
+    font-size: 1.7rem;
+    border-radius: .5rem;
+    padding: .5rem 1.5rem;
+    color: var(--light-color);
+}
+
+header .navbar a.active, .matches .navbar2 a.active, .matches .navbar2 a:hover, header .navbar a:hover {
+    color: #fff;
+    background: var(--green);
+}
+
+.matches {
+    padding: 5% 9%;
+    background-color: var(--white);
+}
+
+.team-fixtures {
+    position: relative;
+    margin-top: 50px;
+}
+
+.fixture-dropdown {
+    position: absolute;
+    top: -60px; 
+    right: 0;
+    padding: 5px; 
+    border-bottom: 2px solid #ccc;
+}
+
+#competition-select {
+    width: 150px; 
+    padding: 5px; 
+    font-size: 16px;
+    background-color: var(--white);
+    color: var(--black);
+}
+
+#competition-select:focus {
+    outline: none; 
+    background-color: var(--white); 
+}
+
+.fixtures-container {
+    display: flex;
+    flex-direction: column;
+}
+
+  
+.fixture {
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+  
+.fixture-date {
+    font-weight: bold;
+}
+  
+.fixture-opponent {
+    margin-top: 5px;
+    font-size: 2.0rem;
+}
+  
+.fixture-venue {
+    margin-top: 5px;
+    font-style: italic;
+}
+
+/*Results section*/
+
+.results-section {
+    font-size: 2rem;
+}
+
+.results-section .container {
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.results-section .fixture {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.results-section .fixture .inner-team {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 50%;
+}
+
+.results-section  .team {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.results-section .fixture .date {
+    text-align: center;
+}
+
+.results-section .fixtures .team span {
+    margin-top: 10px;
+}
+
+.results-section  .team img {
+    width: 70px;
+    height: 70px;
+    margin-right: 10px;
+}
+
+.results-section  .team-name {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.results-section .vs {
+    font-size: 2rem;
+    margin-right: 10px;
+    border: 1px solid var(--light-color);
+    padding: 10px;
+}
+
+.results-section .date {
+    font-size: 14px;
+}
+
+.results-section .date .date-fix, .venue {
+    font-weight: bold;
+}
+
+.results-section .date .comp {
+    color: var(--light-color);
+}  
+
+
+/*Footer section*/
+footer {
+    padding: 2% 9%;
+    text-align: center;
+    font-size: 2.0rem;
+}
