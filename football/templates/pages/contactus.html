@@ -1,0 +1,57 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="{% static 'images/li__1_-removebg-preview.ico' %}">
+
+    <title>Contact Us</title>
+
+    <!--Font awesome-->
+    <script src="https://kit.fontawesome.com/456d64337e.js" crossorigin="anonymous"></script>
+
+    <!--Css-->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/contactus.css' %}">
+
+</head>
+<body>
+    <a href="../index.html" class="btn">Home</a> 
+
+    <!--Contact us section-->
+    <section class="order" id="order">
+        <h3 class="sub-heading">Contact Us</h3>
+        <h1 class="heading">Ask here</h1>
+
+        <form action="" method="post" id="myForm">
+            <div class="inputBox">
+                <div class="input">
+                    <span>your name</span>
+                    <input type="text" placeholder="Enter your name" name="name">
+                </div>
+            </div>
+
+            <div class="inputBox">
+                <div class="input">
+                    <span>Email address</span>
+                    <input type="email" placeholder="Enter email address" name="email">
+                </div>
+            </div>
+
+            <div class="inputBox">
+                <div class="input">
+                    <span>your issue</span>
+                    <textarea name="issue" placeholder="Enter your message" id="" cols="30" rows="10"></textarea>
+                </div>
+            </div>
+
+            <input type="submit" value="submit" class="btn">
+        </form>
+
+    </section>
+
+</body>
+</html>
