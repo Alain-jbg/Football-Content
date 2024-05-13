@@ -1,0 +1,342 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/fontawesome.min.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+
+    <link rel="icon" type="image/x-icon" href="{% static 'images/li__1_-removebg-preview.ico' %}">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        .logout-link {
+    color: #fff; /* Text color */
+    background-color:  #020e29; /* Background color */
+    padding: 8px 16px; /* Padding around the text */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; 
+    font-size: 15px;/* Remove underline */
+}
+
+.logout-link:hover {
+    background-color: #020e29; 
+}
+
+        /* Sidebar styling */
+        .sidebar {
+            height: calc(200vh - 60px); /* Adjusted height to fill remaining space below header */
+            width: 200px;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            background-color:#53AF61;
+            padding-top: 60px;
+            font-size: 18px;
+        }
+
+        .sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            display: block;
+            color: rgb(20, 20, 20);
+            font-weight: 400;
+            
+        }
+
+        .sidebar a:hover {
+            background-color: #ddd;
+        }
+
+        /* Sticky footer */
+        html, body {
+            height: 100%;
+        }
+
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            min-height: 100%;
+        }
+
+        /* .footer {
+            background-color: #fff;
+            padding: 1px 1px; /* Reduced padding of footer details */
+            /* margin-top: auto; */
+            /* width: 100%; */
+            /* position: fixed; */
+            /* bottom: 0; */
+            /* left: 0; */
+            /* font-size: 10px;  */
+        /* }  */
+
+        /* Header styling */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 20px;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .admin-icon {
+            width: 32px; /* Increased width of the admin icon */
+            height: 32px; /* Increased height of the admin icon */
+            margin-right: 10px;
+        }
+        /* Styles for sidebar and content */
+      
+
+        .content {
+            margin-left: 200px;
+            padding-left: 20px;
+            /* Add styles for content */
+        }
+
+        /* Active link style */
+        .active {
+            background-color: #fff;
+            color: white;
+        }
+
+        /* Style the links inside the sidebar */
+           
+
+        
+    .table-container {
+        margin-top: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        overflow: auto;
+    }
+    h3 {
+        background-color: #f1f1f1;
+        padding: 10px;
+        font-weight: bold;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+    th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+    }
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+    .buttons-below-table {
+        margin-top: 10px;
+        text-align: center;
+    }
+    .buttons-below-table button {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <div class="header">
+        <img src="{% static 'images/iconfot.png' %}" alt="Admin Icon" class="admin-icon">
+        <a href="#" class="logout-link" onclick="logout()">Logout</a>
+
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <a class="active" href="#" onclick="showContent('dashboard')">Dashboard</a>
+        <a href="#" onclick="showContent('teams')">
+            <i class="fas fa-trophy"></i> Teams
+        </a>
+        
+        
+        <a href="#" onclick="showContent('fixtures')">
+            <i class="fas fa-calendar-alt"></i> Fixtures
+        </a>
+        <a href="#" onclick="showContent('clubs')">
+            <i class="fas fa-flag"></i> Clubs
+        </a>
+        
+        <a href="#" onclick="showContent('players')">
+            <i class="fas fa-users"></i> Players
+        </a>
+        
+        <a href="#" onclick="showContent('table')">
+            <i class="fas fa-chart-bar"></i> Table
+        </a>
+        
+       <a href="#" onclick="showContent('managers')">
+       <i class="fas fa-user-tie"></i> Managers
+        </a>
+
+        <a href="#" onclick="showContent('communication')">
+            <i class="fas fa-comments"></i> Communication
+        </a>
+        
+    </div>
+    
+    <div class="content" id="content">
+        <!-- Content will be dynamically loaded here based on the sidebar link clicked -->
+    </div>
+    
+    <script>
+        function showContent(section) {
+            // Get the content div
+            var contentDiv = document.getElementById('content');
+    
+            // Clear previous content
+            contentDiv.innerHTML = '';
+    
+            // Add new content based on the section clicked
+            switch (section) {
+                case 'dashboard':
+                    contentDiv.innerHTML = '<h2>Dashboard Content</h2><p>This is the dashboard section.</p>';
+                    break;
+                case 'teams':
+                    contentDiv.innerHTML = '<h2>Teams Content</h2><p>This is the teams section.</p>';
+                    break;
+                case 'fixtures':
+                    contentDiv.innerHTML = '<h2>Fixtures Content</h2><p>This is the fixtures section.</p>';
+                    break;
+                case 'clubs':
+                    contentDiv.innerHTML = '<h2>Clubs</h2><p>This is the clubs section.</p>';
+                    break;
+                    case 'players':
+    contentDiv.innerHTML = `
+    <div class="table-container">
+        <h3>Players</h3>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Date of Birth</th>
+                <th>Nationality</th>
+                <th>Team</th>
+                <th>Club Name</th> <!-- Added Club Name column -->
+                <th>Upload Photo</th>
+                <th>Actions</th>
+            </tr>
+            <tr>
+                <td>James</td>
+                <td>Club Captain</td>
+                <td>1990-05-15</td>
+                <td>Kenya</td>
+                <td>Team A</td>
+                <td>Club XYZ</td> <!-- Sample Club Name -->
+                <td>
+                    <input type="file" id="photoUpload">
+                </td>
+                <td>
+                    <button onclick="editPlayerDetails()"> <!-- Updated onclick function -->
+                        &#9998; Edit
+                    </button>
+                </td>
+            </tr>
+            <!-- Additional rows can be added here -->
+        </table>
+        <div class="buttons-below-table">
+            <button onclick="addPlayer()" style="border-radius: 10%;">Add New Player</button>
+        </div>
+    </div>
+    `;
+    break;
+      
+         
+
+    case 'table':
+    contentDiv.innerHTML = `
+    <h3>League Standings</h3>
+                <table>
+                    <tr>
+                        <th>Position</th>
+                        <th>Team</th>
+                        <th>MP</th>
+                        <th>W</th>
+                        <th>D</th>
+                        <th>L</th>
+                        <th>GF</th>
+                        <th>GA</th>
+                        <th>GD</th>
+                        <th>Pts</th>
+                    </tr>
+                    {% for standing in standings %}
+                    <tr>
+                        <td>{{ standing.position }}</td>
+                        <td>{{ standing.team }}</td>
+                        <td>{{ standing.matches_played }}</td>
+                        <td>{{ standing.wins }}</td>
+                        <td>{{ standing.draws }}</td>
+                        <td>{{ standing.losses }}</td>
+                        <td>{{ standing.goals_for }}</td>
+                        <td>{{ standing.goals_against }}</td>
+                        <td>{{ standing.goal_difference }}</td>
+                        <td>{{ standing.points }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+                <div class="buttons-below-table">
+                    <div class="buttons-below-table">
+        <button onclick="addLeague()">Add New League</button>  
+        <button onclick="editLeagues()">Edit Leagues</button>  
+        <button onclick="deleteLeagues()">Delete Leagues</button>  
+    </div> 
+   
+</div>
+           
+    `;
+    break;
+   
+                
+                case 'managers':
+                    contentDiv.innerHTML = '<h2>Managers Content</h2><p>This is the managers section.</p>';
+                    break;
+                case 'communication':
+                    contentDiv.innerHTML = '<h2>Communication Content</h2><p>This is the communication section.</p>';
+                    break;
+            }
+        }
+    
+        function logout() {
+    // Add logout logic here
+    window.location.replace("http://127.0.0.1:8000");
+}
+
+    </script>
+
+    <!-- Main content -->
+    <!-- Add your main content sections here -->
+    
+    <!-- Footer section -->
+    <div class="footer">
+        <div class="box-container">
+            <div class="box">
+                <!-- <h3>Locations</h3>
+                <a href="#">Le Rosey - Miwani Road, Kisumu, Kenya</a> -->
+            </div>
+
+            
+
+            
+
+            <div class="box">
+                
+            </div>
+        </div>
+
+         <div class="credit">Copyright &copy; 2024 by <span>Jabulani Youths For Transformation</span></div>  
+    </div>
+
+    <script src="{% static 'js/index.js' %}"></script>
+</body>
+</html>
