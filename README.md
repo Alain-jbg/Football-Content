@@ -3,9 +3,17 @@ LigiOpen is a community initiative supporting small sports clubs in organizing l
 
 # Accessing LigiOpen
 Installing LigiOpen on windows machine
+
+
 git clone https://github.com/JAY4T/ligiopen.git
+
+
 Create python environment:
+
+
 python -m venv venv
+
+
 Activate:
 .\venv\Scripts\activate 
 pip install Django
