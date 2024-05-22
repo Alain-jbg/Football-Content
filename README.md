@@ -7,7 +7,6 @@ Installing LigiOpen on windows machine
 
 git clone https://github.com/JAY4T/ligiopen.git
 
-![Uploading Screenshot (158).png…]()
 Create python environment:
 
 python -m venv venv
@@ -25,7 +24,12 @@ Database
 MySQL database
 
 
- Have xampp installed as your webserver
+ Have xampp installed as your web server
+
+ Navigate to your local browser and access ligiopen as shown 
+
+ ![Screenshot (158)](https://github.com/JAY4T/ligiopen/assets/79142184/c7c7fbe9-1e41-453c-bf41-6511b9e9b8e1)
+
 
 # Contributing 
 
