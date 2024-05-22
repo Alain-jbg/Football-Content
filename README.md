@@ -15,7 +15,7 @@ Activate:
 
 .\venv\Scripts\activate 
 
-pip install Django
+pip install django and requirements.txt
 
 
 Database 
