@@ -6,6 +6,8 @@ from django.http import HttpResponse
 from django.core.mail import send_mail 
 from django.conf import settings
 from .forms import ContactForm
+from .models import Player
+
 
 
 # Create your views here.
@@ -44,8 +46,8 @@ def player_detail_view(request, slug):
 
 
 def player_stats_view(request):
-    players = Player.objects.all()
-    return render(request, 'club-staff.html', {'players': players})
+    stats = Stat.objects.all()
+    return render(request, 'club-staff.html', {'stats': stats})
 
 def contact_us_view(request):
     if request.method == 'POST':
