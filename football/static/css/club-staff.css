@@ -66,7 +66,7 @@ section:nth-child(even){
     text-transform: capitalize;
 }
 
-.btn:hover {
+.btn:hover, .results-section .match-centre:hover {
     background: var(--green);
     letter-spacing: .1rem;
 }
@@ -88,22 +88,21 @@ header {
     text-transform: capitalize;
 }
 
-header .navbar {
+header .navbar, .navbar2 {
     padding: 10px 0;
 }
 
-header .navbar a {
+header .navbar a , .navbar2 a{
     font-size: 1.7rem;
     border-radius: .5rem;
     padding: .5rem 1.5rem;
     color: var(--light-color);
 }
 
-header .navbar a.active, header .navbar a:hover {
+header .navbar a.active, .matches .navbar2 a.active, .matches .navbar2 a:hover, header .navbar a:hover {
     color: #fff;
     background: var(--green);
 }
-
 
 header .icons i {
     cursor: pointer;
@@ -119,19 +118,11 @@ header .icons i {
 }
 
 header img {
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
 }
 
-header .icons a {
-    color: var(--white);
-    background-color: var(--black);
-    font-size: 1.7rem;
-    padding: 10px;
-    border-radius: 5px;
-}
-
-header .icons i:hover, header .icons a:hover {
+header .icons i:hover {
     color: #fff;
     background: var(--green);
     transform: rotate(360deg);
@@ -150,6 +141,16 @@ section.live {
 
 .team {
     padding: 3% 9%;
+}
+
+.team .top-logo {
+    width: 100%;
+    text-align: center;
+}
+
+.team .top-logo .logo {
+    width: 100px;
+    height: 100px;
 }
 
 .teams .container {
@@ -173,6 +174,7 @@ section.live {
 .teams img {
     width: 100%;
     height: auto;
+    object-fit: cover;
 }
 
 .teams .other {
@@ -185,27 +187,10 @@ section.live {
     text-align: center;
 }
 
-
 /*Matches section*/
-header .navbar, .navbar2 {
-    padding: 10px 0;
-}
-
-header .navbar a , .navbar2 a{
-    font-size: 1.7rem;
-    border-radius: .5rem;
-    padding: .5rem 1.5rem;
-    color: var(--light-color);
-}
-
-header .navbar a.active, .matches .navbar2 a.active, .matches .navbar2 a:hover, header .navbar a:hover {
-    color: #fff;
-    background: var(--green);
-}
-
 .matches {
     padding: 5% 9%;
-    background-color: var(--white);
+    background-color: #eee;
 }
 
 .team-fixtures {
@@ -225,13 +210,13 @@ header .navbar a.active, .matches .navbar2 a.active, .matches .navbar2 a:hover, 
     width: 150px; 
     padding: 5px; 
     font-size: 16px;
-    background-color: var(--white);
+    background-color: #eee;
     color: var(--black);
 }
 
 #competition-select:focus {
     outline: none; 
-    background-color: var(--white); 
+    background-color: #eee; 
 }
 
 .fixtures-container {
@@ -276,7 +261,7 @@ header .navbar a.active, .matches .navbar2 a.active, .matches .navbar2 a:hover, 
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 5px;
-    padding: 20px;
+    padding-top: 20px;
     margin-bottom: 20px;
     display: flex;
     align-items: center;
@@ -288,7 +273,7 @@ header .navbar a.active, .matches .navbar2 a.active, .matches .navbar2 a:hover, 
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    width: 50%;
+    width: 100%;
 }
 
 .results-section  .team {
@@ -321,6 +306,7 @@ header .navbar a.active, .matches .navbar2 a.active, .matches .navbar2 a:hover, 
     margin-right: 10px;
     border: 1px solid var(--light-color);
     padding: 10px;
+    width: 100%;
 }
 
 .results-section .date {
@@ -329,16 +315,420 @@ header .navbar a.active, .matches .navbar2 a.active, .matches .navbar2 a:hover, 
 
 .results-section .date .date-fix, .venue {
     font-weight: bold;
+    margin-top: 5px;
 }
 
 .results-section .date .comp {
     color: var(--light-color);
 }  
 
+.results-section .goal-details {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.4rem;
+    padding: 0 9%;
+    margin-top: 20px;
+    color: var(--light-color);
+    font-weight: bold;
+}
+
+.results-section .goal-details i {
+    color: var(--black);
+}
+
+.results-section .demo {
+    text-align: center;
+}
+
+/*Stats section*/
+.stats {
+    padding: 5% 9%;
+  }
+
+  .table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  table {
+    font-size: 1.5rem;
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    background-color: white;
+  }
+
+  th, td {
+    padding: 8px;
+    border: 1px solid #ddd;
+  }
+
+  /* Alternate row colors */
+  tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+/*Careers section*/
+.careers {
+    padding: 5% 9%;
+    background-color: #eee;
+}
+
+#no-match {
+    color: red;
+    text-align: center;
+    font-size: 2rem;
+    display: none;
+}
+
+.careers .jobs-list-container {
+    max-width: 900px;
+    margin: 20px auto;
+}
+  
+.careers .jobs-list-container h2 {
+    font-size: 30px;
+    border-left: 4px solid var(--black);
+    padding-left: 20px;
+}
+  
+.careers .jobs-list-container .jobs {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+}
+  
+.careers .jobs-list-container .job {
+    box-shadow: 0 4px 24px -8px rgba(2, 48, 71, 0.2);
+    padding: 24px;
+    border-radius: 16px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    transition: all 400ms ease;
+    background-color: white;
+}
+  
+.careers .jobs-list-container .job:hover {
+    transform: scale(1.03);
+}
+  
+.careers .jobs-list-container .open-positions {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    color: #e63946;
+    font-size: 12px;
+}
+  
+.careers .jobs-list-container .job-title {
+    font-size: 20px;
+    padding: 10px 0;
+    margin: 0;
+    color: #023047;
+}
+  
+.careers .jobs-list-container .details {
+    margin-top: 6px;
+    font-size: 14px;
+    color: #333;
+    line-height: 1.8;
+    flex: 1;
+}
+  
+.careers .jobs-list-container .details-btn {
+    text-decoration: none;
+    background-color: var(--black);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 8px;
+    text-align: center;
+    margin-top: 20px;
+    transition: all 400ms ease;
+    font-size: 1.7rem;
+}
+
+.hidden {
+    display: none;
+}
+  
+.careers .jobs-list-container .details-btn:hover {
+    background: var(--green);
+}
+  
+.careers .jobs-list-container .job-search {
+    width: 100%;
+    padding: 12px 24px;
+    font-size: 18px;
+    font-family: "Rubik", sans-serif;
+    box-sizing: border-box;
+    border: 1px solid #333;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
 
 /*Footer section*/
-footer {
-    padding: 2% 9%;
+/*Footer section*/
+.footer {
+    display: block;
+    padding: 2rem 9%;
+    margin-top: 50px;
+}
+
+.footer .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 1.5rem;
+}
+
+.footer img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.footer .box-container .box h3 {
+    padding: .5rem 0;
+    font-size: 2.5rem;
+    color: var(--black);
+}
+
+.footer .box-container .box a {
+    display: block;
+    padding: .5rem 0;
+    font-size: 1.5rem;
+    color: var(--light-color);
+}
+
+.footer .box-container .box a:hover {
+    color: var(--green);
+    text-decoration: underline;
+}
+
+.footer .credit {
     text-align: center;
-    font-size: 2.0rem;
+    border-top: .1rem solid rgba(0,0,0,.1);
+    font-size: 2rem;
+    color: var(--black);
+    padding: .5rem;
+    padding-top: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.footer .credit span {
+    color: var(--green);
+}
+
+@media (max-width: 1100px) {
+    .live {
+        padding-top: 10%;
+    }
+}
+
+@media (max-width: 1024px) {
+    table {
+      font-size: 1.3rem;
+    }
+
+    th, td {
+      padding: 6px;
+    }
+}
+
+@media (max-width: 991px) {
+
+    html {
+        font-size: 55%;
+    }
+
+    header {
+        padding: 2rem;
+    }
+}
+
+@media (max-width: 940px) {
+    .careers .jobs-list-container .jobs {
+      grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 910px) {
+    .teams .col-lg-3 {
+        flex: 0 0 calc(33.333% - 30px);
+        max-width: calc(33.333% - 30px);
+    }
+}
+
+@media (max-width: 830px) {
+    .live {
+        padding-top: 15%;
+    }
+}
+
+@media (max-width: 768px) {
+
+    header .icons #menu-bars {
+        display: inline-block;
+    }
+
+    header .navbar {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #fff;
+        border-top: .1rem solid rgba(0,0,0,.2);
+        border-bottom: .1rem solid rgba(0,0,0,.2);
+        padding: 1rem;
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+
+    header .navbar.active {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+
+    header .navbar a {
+        display: block;
+        padding: 1.5rem;
+        margin: 1rem;
+        font-size: 2rem;
+        background: #eee;
+    }
+
+    .stats {
+        padding-left: 3%;
+        padding-right: 3%;
+    }
+
+    table {
+        font-size: 1.1rem;
+    }
+  
+    th, td {
+        padding: 5px;
+    }
+}
+  
+@media (max-width: 640px) {
+    .careers .jobs-list-container .jobs {
+      grid-template-columns: 1fr;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+}
+
+@media (max-width: 620px) {
+    .live {
+        padding-top: 20%;
+    }
+}
+
+@media (max-width: 600px) {
+    .teams .col-lg-3 {
+        flex: 0 0 calc(100% - 30px);
+        max-width: calc(100% - 30px);
+    }
+
+    .teams .container {
+        padding: 0 15px;
+    }
+
+    .results-section .goal-details {
+        padding: 0 5%;
+        font-size: 1.2rem;
+    }
+
+}
+
+@media (max-width: 500px) {
+    .live {
+        padding-top: 25%;
+    }
+}
+
+@media (max-width: 480px) {
+    .results-section .demo {
+        width: 100%;
+    }
+    .results-section .demo .vs {
+        font-size: 1.5rem;
+    }
+
+    .results-section .demo .venue {
+        font-size: 1.5rem;
+    }
+
+    .stats {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    table {
+        font-size: 1rem;
+    }
+  
+    th, td {
+        padding: 4px;
+    }
+}
+
+@media (max-width: 462px) {
+    .results-section .container {
+        padding: 0 5px;
+    }
+
+    .results-section .inner-team img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .results-section .team-name {
+        font-size: 1.2rem;
+    }
+
+    .results-section .demo .venue {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 450px) {
+
+    html {
+        font-size: 50%;
+    }
+}
+
+@media (max-width: 400px) {
+    .live {
+        padding-top: 30%;
+    }
+}
+
+@media (max-width: 376px) {
+    .results-section .demo .vs {
+        padding: 3px;
+    }
+}
+
+@media (max-width: 346px) {
+    .results-section .inner-team img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .results-section .team-name {
+        font-size: 1.2rem;
+    }
+
+    .results-section .demo .venue {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 340px) {
+    .live {
+        padding-top: 35%;
+    }
 }

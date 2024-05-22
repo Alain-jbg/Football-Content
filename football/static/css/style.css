@@ -52,7 +52,6 @@ section:nth-child(even){
     font-size: 3rem;
     padding-bottom: 2rem;
     text-transform: uppercase;
-    
 }
 
 .btn {
@@ -106,6 +105,23 @@ header .navbar a.active, header .navbar a:hover {
     background: var(--green);
 }
 
+.navbar2 {
+    padding: 10px 0;
+}
+
+.navbar2 a{
+    font-size: 1.7rem;
+    border-radius: .5rem;
+    padding: .5rem 1.5rem;
+    color: var(--light-color);
+}
+
+.fixtures .navbar2 a.active, .fixtures .navbar2 a:hover {
+    color: #fff;
+    background: var(--green);
+}
+
+
 header .icons i {
     cursor: pointer;
     margin-left: 5rem;
@@ -125,9 +141,15 @@ header .icons a {
     font-size: 1.7rem;
     padding: 10px;
     border-radius: 5px;
+    width: 200px;
 }
 
-header .icons i:hover, header .icons a:hover {
+header .icons a:hover {
+    color: #fff;
+    background: var(--green);
+}
+
+header .icons i:hover {
     color: #fff;
     background: var(--green);
     transform: rotate(360deg);
@@ -154,6 +176,7 @@ section .home {
     display: flex;
     justify-content: center;
     align-items: center;
+    object-fit: cover;
 }
 
 .home .background-image .heading {
@@ -238,6 +261,12 @@ section .home {
     margin: 15px;
 }
 
+.teams .col-lg-3 a :hover {
+    letter-spacing: .1rem;
+    transform: scale(1.02);
+    opacity: 0.8;
+}
+
 /* Placeholder styles for images and icons */
 .teams img {
     width: 100%;
@@ -247,6 +276,10 @@ section .home {
 .inner-div {
     display: flex;
     justify-content: space-between;
+}
+
+.inner-div h3 {
+    color: black;
 }
 
 .underline-button {
@@ -276,8 +309,6 @@ section .home {
 .financing .container .heading-2 {
     color: red;
 }
-
-/*Fixtures section*/
 
 /*Fixtures section*/
 
@@ -359,32 +390,97 @@ section .home {
     color: var(--light-color);
 }
 
-
-/*Table section*/
-.table {
-    padding: 2% 9%;
-    background-color: var(--white);
+/*Results section*/
+.results-section {
     font-size: 2rem;
 }
 
-.table .container {
-    border: 1px solid black;
+.results-section .container {
+    margin: 0 auto;
+    padding: 20px 0;
 }
 
-table {
+.results-section .fixture {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.results-section .fixture .inner-team {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
     width: 100%;
-    border-collapse: collapse;
-    background-color: white;
 }
 
-th, td {
-    padding: 8px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
+.results-section  .team {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-th {
-    background-color: #f2f2f2;
+.results-section .fixture .date {
+    text-align: center;
+}
+
+.results-section .fixtures .team span {
+    margin-top: 10px;
+}
+
+.results-section  .team img {
+    width: 70px;
+    height: 70px;
+    margin-right: 10px;
+}
+
+.results-section  .team-name {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.results-section .vs {
+    font-size: 2rem;
+    margin-right: 10px;
+    border: 1px solid var(--light-color);
+    padding: 10px;
+}
+
+.results-section .date {
+    font-size: 14px;
+}
+
+.results-section .date .date-fix, .venue {
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.results-section .date .comp {
+    color: var(--light-color);
+}  
+
+.results-section .goal-details {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.4rem;
+    padding: 0 ;
+    margin-top: 20px;
+    color: var(--light-color);
+    font-weight: bold;
+}
+
+.results-section .goal-details i {
+    color: var(--black);
+}
+
+.results-section .demo {
+    text-align: center;
 }
 
 /*Highlights*/
@@ -395,7 +491,7 @@ th {
 }
 
 .highlights img {
-    width: 80%;
+    width: 100%;
     height: 30vh;
     object-fit: cover;
 }
@@ -415,6 +511,7 @@ th {
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
     margin: 1em 0;
     border-radius: 15px;
+    background-color: white;
 }
 
 .news-card img {
@@ -445,196 +542,65 @@ th {
     text-align: center;
 }
 
-/*Footer section*/
-.footer {
+/*Contact us*/
+.order {
+    text-transform: capitalize;
+    height: 100vh;
+    padding-top: 2%;
+}
+
+.order form {
+    max-width: 50rem;
+    border-radius: .5rem;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    border: .1rem solid rgba(0, 0, 0, 0.2);
+    background: #fff;
+    padding: 1.5rem;
+    margin: 0 auto;
+    font-size: 2.0rem;
+}
+
+.order form .inputBox {
     display: block;
-    padding: 2rem 9%;
-    margin-top: 50px;
 }
 
-.footer .box-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
-    gap: 1.5rem;
+.order form .inputBox .input {
+    width: 100%;
 }
 
-.footer .box-container .box h3 {
-    padding: .5rem 0;
-    font-size: 2.5rem;
-    color: var(--black);
-}
-
-.footer .box-container .box a {
+.order form .inputBox .input span {
     display: block;
     padding: .5rem 0;
     font-size: 1.5rem;
-    color: var(--light-color);
-}
-
-.footer .box-container .box a:hover {
-    color: var(--green);
-    text-decoration: underline;
-}
-
-.footer .credit {
-    text-align: center;
-    border-top: .1rem solid rgba(0,0,0,.1);
-    font-size: 2rem;
     color: var(--black);
-    padding: .5rem;
-    padding-top: 1.5rem;
-    margin-top: 1.5rem;
+    font-weight: bold;
 }
 
-.footer .credit span {
-    color: var(--green);
-}
-
-/*Media queries*/
-@media (max-width: 991px) {
-
-    html {
-        font-size: 55%;
-    }
-
-    header {
-        padding: 2rem;
-    }
-
-    section {
-        padding: 1rem 2rem;
-    }
-
-    .habit-type {
-        padding-left: 5%;
-    }
-}
-
-@media (max-width: 768px) {
-
-    header .icons #menu-bars {
-        display: inline-block;
-    }
-
-    header .navbar {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: #fff;
-        border-top: .1rem solid rgba(0,0,0,.2);
-        border-bottom: .1rem solid rgba(0,0,0,.2);
-        padding: 1rem;
-        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-    }
-
-    header .navbar.active {
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-    }
-
-    header .navbar a {
-        display: block;
-        padding: 1.5rem;
-        margin: 1rem;
-        font-size: 2rem;
-        background: #eee;
-    }
-
-    #search-form #search-box {
-        width: 90%;
-        margin: 0 1rem;
-    }
-
-    .home .home-slider .slide .content h3 {
-        font-size: 5rem;
-    }
-}
-
-@media (max-width: 450px) {
-
-    html {
-        font-size: 50%;
-    }
-
-    .Meal .box-container .box img {
-        height: auto !important;
-        width: 100%;
-    }
-
-    .order form .inputBox .input {
-        width: 100%;
-    }
-}
-
-
-  /* style.css */
-
-.login .container{
-    padding: 50px 0;
-    background-color: #f5f5f5;
-    max-width: 400px;
-    margin: 0 auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-top: 200px;
-}
-.login {
-    margin-top: 200px; /* Add margin to the top */
-}
-
-
-
-
-.heading {
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 20px;
-}
-
-form {
-    margin-bottom: 20px;
-}
-
-label {
-    display: block;
-    margin-bottom: 10px;
-    font-size: 15px;
-}
-
-input[type="text"],
-input[type="password"] {
+.order form .inputBox .input input, .order form .inputBox .input textarea {
+    background: #eee;
+    border-radius: .5rem;
+    padding: 1rem;
+    font-size: 1.6rem;
+    color: var(--black);
+    text-transform: none;
+    margin-bottom: 1rem;
     width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
 }
 
-.wrap {
-    text-align: center;
+.order form .inputBox .input input:focus, .order form .inputBox .input textarea:focus {
+    border: .1rem solid var(--green);
 }
 
-button[type="submit"] {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+.order form .inputBox .input textarea {
+    height: 20rem;
+    resize: none;
 }
 
-button[type="submit"]:hover {
-    background-color: #0056b3;
+.order form .btn {
+    margin-top: 0;
 }
 
-p {
-    text-align: center;
-}
 
-  
 /* Style for FAQs section */
 .faqs {
     max-width: 800px;
@@ -686,4 +652,322 @@ p {
 .fa-chevron-down {
     float: right;
     margin-top: 3px;
+}
+
+
+/*Footer section*/
+.footer {
+    display: block;
+    padding: 2rem 9%;
+    margin-top: 50px;
+}
+
+.footer .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 1.5rem;
+}
+
+.footer .box-container .box h3 {
+    padding: .5rem 0;
+    font-size: 2.5rem;
+    color: var(--black);
+}
+
+.footer .box-container .box a {
+    display: block;
+    padding: .5rem 0;
+    font-size: 1.5rem;
+    color: var(--light-color);
+}
+
+.footer .box-container .box a:hover {
+    color: var(--green);
+    text-decoration: underline;
+}
+
+.footer .credit {
+    text-align: center;
+    border-top: .1rem solid rgba(0,0,0,.1);
+    font-size: 2rem;
+    color: var(--black);
+    padding: .5rem;
+    padding-top: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.footer .credit span {
+    color: var(--green);
+}
+
+/*Media queries*/
+@media (max-width: 1100px) {
+    .highlights .btn {
+        width: 35%;
+        text-align: center;
+    }
+
+    .order {
+        padding-top: 5%;
+    }
+}
+
+@media (max-width: 1020px) {
+    .highlights .heading {
+        margin-top: 5%;
+    }
+
+    .highlights .btn {
+        width: 40%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 991px) {
+
+    html {
+        font-size: 55%;
+    }
+
+    header {
+        padding: 2rem;
+    }
+
+    .home .about-section .container .whole {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .home .about-section .container .whole .para {
+        text-align: justify;
+    }
+    
+    .home .about-section .container .whole img {
+        width: 100%;
+        height: 30%;
+        margin-right: 5rem;
+    }    
+    
+    .fixtures .container {
+        margin-top: 5%;
+    }  
+
+    .order {
+        padding-top: 10%;
+    }
+    
+}
+
+@media (max-width: 930px) {
+    .table .heading {
+        margin-top: 10%;
+    }
+}
+
+@media (max-width: 900px) {
+    .highlights .btn {
+        width: 45%;
+    }
+}
+
+@media (max-width: 880px) {
+    .highlights .heading {
+        margin-top: 10%;
+    }
+}
+
+@media (max-width: 800px){
+    .fixtures .container {
+        margin-top: 10%;
+    }
+}
+
+@media (max-width: 768px) {
+
+    header .icons #menu-bars {
+        display: inline-block;
+    }
+
+    header .navbar {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #fff;
+        border-top: .1rem solid rgba(0,0,0,.2);
+        border-bottom: .1rem solid rgba(0,0,0,.2);
+        padding: 1rem;
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+
+    header .navbar.active {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+
+    header .navbar a {
+        display: block;
+        padding: 1.5rem;
+        margin: 1rem;
+        font-size: 2rem;
+        background: #eee;
+    }
+
+    .table .heading {
+        margin-top: 15%;
+    }
+
+    .order {
+        padding-top: 15%;
+    }
+}
+
+@media (max-width: 720px) {
+    .highlights .btn {
+        width: 50%;
+    }
+}
+
+@media (max-width: 680px) {
+    .highlights .heading {
+        margin-top: 15%;
+    }
+}
+
+@media (max-width: 658px) {
+    #features {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .feature-box {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .highlights .btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 620px){
+    .fixtures .container {
+        margin-top: 20%;
+    }
+
+    .fixtures .date {
+        font-size: 1rem;
+    }
+
+    .table .heading {
+        margin-top: 20%;
+    }
+
+    .table table {
+        font-size: 1.5rem;
+    }
+
+    .order {
+        padding-top: 20%;
+    }
+}
+
+@media (max-width: 600px) {
+    .highlights .container {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 550px) {
+    .highlights .heading {
+        margin-top: 20%;
+    }
+}
+
+@media (max-width: 520px) {
+    .table .heading {
+        margin-top: 25%;
+    }
+
+    .table table {
+        font-size: 1.3rem;
+    }
+
+    header img {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+    }
+
+    .order {
+        padding-top: 12%;
+    }
+}
+
+@media (max-width: 465px) {
+    .highlights .heading {
+        margin-top: 25%;
+    }
+}
+
+@media (max-width: 450px) {
+
+    html {
+        font-size: 50%;
+    }
+
+    .fixtures .team {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .fixtures .container {
+        margin-top: 30%;
+    }
+
+    .team-name {
+        font-size: 1.2rem;
+    }
+
+    .table {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+@media (max-width: 430px) {
+    .order {
+        padding-top: 15%;
+    }
+}
+
+@media (max-width: 400px) {
+    .table .heading {
+        margin-top: 30%;
+    }
+
+    .table table {
+        font-size: 1.2rem;
+        overflow-x: scroll;
+    }
+
+    .highlights .heading {
+        margin-top: 30%;
+    }
+}
+
+@media (max-width: 390px) {
+    .order {
+        padding-top: 18%;
+    }
+}
+
+@media (max-width: 350px) {
+    .highlights .heading {
+        margin-top: 35%;
+    }
+
+    .order {
+        padding-top: 20%;
+    }
 }
