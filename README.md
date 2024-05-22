@@ -15,11 +15,21 @@ python -m venv venv
 
 
 Activate:
+
+
 .\venv\Scripts\activate 
+
+
 pip install Django
-Database Name:
+
+
+Database 
+
+
 MySQL database
-Make sure to have xampp installed as your webserver
+
+
+ Have xampp installed as your webserver
 
 # Contributing 
 
