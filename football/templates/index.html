@@ -20,16 +20,18 @@
         <img src="{% static 'images/li__1_-removebg-preview.png' %}" alt="logo">
         <nav class="navbar">
             <a class="active" href="#home">Home</a>
-            <a href="#financing">Financing</a>
+            <!-- <a href="#financing">Financing</a> -->
             <a href="#fixtures">Fixtures</a>
             <a href="#clubs">Clubs</a>
             <a href="#highlights">Highlights</a>
             <a href="#faqs">FAQS</a>
+            <a href="#order">Contact us</a>
+
 
 
         </nav>
         <div class="icons">
-            <a href="pages/login.html">Login</a>
+            <!-- <a href="pages/login.html">Login</a> -->
             <i class="fas fa-bars" id="menu-bars"></i>
         </div>
     </header>
@@ -79,82 +81,222 @@
         </div>
 
         <div class="teams">
-            <div class="container">
-                <h2 class="heading">Our Clubs</h2>
-                <div class="row">
-                  <div class="col-lg-3" >
+          <div class="container">
+              <h2 class="heading">Our Clubs</h2>
+              <div class="row">
+                <div class="col-lg-3" >
+                  <a href="pages/club-staff.html" target="_blank">
+                  <div class="team-member">
+                    <img src="{% static 'images/logo-1.jpg' %}" alt="Image" class="img-fluid" />
+
+                    <div>
+                      <div class="inner-div">
+                        <h3>ob club</h3>
+                        <i class="fa-solid fa-angle-right"></i>
+                      </div>
+                    </div>
+                  </div>
+                  </a>
+                </div>
+      
+                <div class="col-lg-3" >
+                  <a href="pages/club-staff.html" target="_blank">
                     <div class="team-member">
-                        <img src="{% static 'images/logo-1.jpg' %}" alt="Image" class="img-fluid" />
+                      <img src="{% static 'images/logo-1.jpg' %}" alt="Image" class="img-fluid" />
 
                       <div>
                         <div class="inner-div">
-                          <h3>Lorem Ipsum</h3>
+                          <h3>sh club</h3>
                           <i class="fa-solid fa-angle-right"></i>
                         </div>
                       </div>
                     </div>
-                    </a>
-                  </div>
-        
-                  <div class="col-lg-3" >
-                    <a href="pages/club-staff.html" target="_blank">
-                      <div class="team-member">
-                        <img src="{% static 'images/logo-1.jpg' %}" alt="Image" class="img-fluid" />
+                  </a>
+                </div>
+      
+                <div class="col-lg-3" >
+                  <a href="pages/club-staff.html" target="_blank">
+                    <div class="team-member">
+                      <img src="{% static 'images/logo-1.jpg' %}" alt="Image" class="img-fluid" />
 
-                        <div>
-                          <div class="inner-div">
-                            <h3>Lorem Ipsum</h3>
-                            <i class="fa-solid fa-angle-right"></i>
-                          </div>
+                      <div>
+                        <div class="inner-div">
+                          <h3>nyc club</h3>
+                          <i class="fa-solid fa-angle-right"></i>
                         </div>
                       </div>
-                    </a>
-                  </div>
-        
-                  <div class="col-lg-3" >
-                    <a href="pages/club-staff.html" target="_blank">
-                      <div class="team-member">
-                        <img src="{% static 'images/logo-1.jpg' %}" alt="Image" class="img-fluid" />
+                    </div>
+                  </a>
+                </div>
 
-                        <div>
-                          <div class="inner-div">
-                            <h3>Lorem Ipsum</h3>
-                            <i class="fa-solid fa-angle-right"></i>
-                          </div>
+                <div class="col-lg-3" >
+                  <a href="pages/club-staff.html" target="_blank">
+                    <div class="team-member">
+                      <img src="{% static 'images/logo-1.jpg' %}" alt="Image" class="img-fluid" />
+
+                      <div>
+                        <div class="inner-div">
+                          <h3>mny club</h3>
+                          <i class="fa-solid fa-angle-right"></i>
                         </div>
                       </div>
-                    </a>
-                  </div>
-
-                  <div class="col-lg-3" >
-                    <a href="pages/club-staff.html" target="_blank">
-                      <div class="team-member">
-                        <img src="{% static 'images/logo-1.jpg' %}" alt="Image" class="img-fluid" />
-
-                        <div>
-                          <div class="inner-div">
-                            <h3>Lorem Ipsum</h3>
-                            <i class="fa-solid fa-angle-right"></i>
-                          </div>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
+                    </div>
+                  </a>
                 </div>
               </div>
-        </div>
+            </div>
+      </div>
+  </section>
+       
         
-        
-        
-        
-    </section>
-
     <!--Financing section-->
     <section class="financing" id="financing">
         <div class="container">
-            <h1 class="heading-2">Not available come back later.</h1>
+            <!-- <h1 class="heading-2">Not available come back later.</h1> -->
         </div>
+    </section> 
+
+     <!--Fixtures section-->
+     <section class="fixtures" id="fixtures">
+      <h2 class="heading">Ligi Open Fixtures & Results</h2>
+      <nav class="navbar2">
+          <a class="active" href="#fixtures-section" id="fixtures-link">Fixtures</a></li>
+          <a href="#results-section" id="results-link">Results</a></li>
+      </nav>
+      <div class="fixtures-section" id="fixtures-section">
+        <div class="container">        
+          <!-- Fixture 1 -->
+          <div class="fixture">
+            <div class="date">
+              <p class="date-fix">Thu January 1 2025</p>
+              <p class="venue">Venue</p>
+              <p class="comp">Competition</p>
+            </div>
+            <div class="inner-team">
+              <div class="team">
+                <a href="pages/club-staff.html" target="_blank">
+                  <img src="{% static 'images/logo-1.jpg' %}" alt="Image" class="img-fluid" />
+              </a>
+
+                <span class="team-name">Team A</span>
+              </div>
+              <div class="vs">19:30pm</div>
+              <div class="team">
+                <a href="pages/club-staff.html" target="_blank">
+                  <img src="{% static 'images/logo-1.jpg' %}" alt="Image" class="img-fluid" />
+              </a>
+                <span class="team-name">Team B</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Fixture 2 -->
+          <div class="fixture">
+            <div class="date">
+              <p class="date-fix">Sat January 3 2025</p>
+              <p class="venue">Venue</p>
+              <p class="comp">Competition</p>
+            </div>
+            <div class="inner-team">
+              <div class="team">
+                <a href="pages/club-staff.html" target="_blank">
+                  <img src="{% static 'images/logo-1.jpg' %}" alt="Image" class="img-fluid" />
+              </a>
+                <span class="team-name">Team A</span>
+              </div>
+              <div class="vs">12:30pm</div>
+              <div class="team">
+                <a href="pages/club-staff.html" target="_blank">
+                  <img src="{% static 'images/logo-1.jpg' %}" alt="Image" class="img-fluid" />
+              </a>
+
+                <span class="team-name">Team B</span>
+              </div>
+            </div>
+          </div>     
+          
+        </div>
+      </div>
+      
+      <div class="results-section" id="results-section">
+        <div class="container">          
+          <!-- Fixture 1 -->
+          <div class="fixture">
+            <div class="date">
+              <p class="date-fix">Thu January 1 2025</p>
+              <p class="comp">Competition</p>
+            </div>
+            <div class="inner-team">
+              <div class="team">
+                <a href="pages/club-staff.html" target="_blank">
+                  <img src="{% static 'images/logo-1.jpg' %}" alt="Image" class="img-fluid" />
+              </a>
+                <span class="team-name">Team A</span>
+              </div>
+              <div class="demo">
+                <div class="vs">2 - 2</div>
+                <p class="venue">Venue</p>
+              </div>
+              <div class="team">
+                <a href="pages/club-staff.html" target="_blank">
+                  <img src="{% static 'images/logo-1.jpg' %}" alt="Image" class="img-fluid" />
+              </a>
+                <span class="team-name">Team B</span>
+              </div>
+            </div>
+            <div class="goal-details">
+              <div class="home">
+                <p>M. Cucurella 4' <i class="fa-solid fa-futbol"></i></p>
+                <p>Rogers 42' <i class="fa-solid fa-futbol"></i></p>
+              </div>
+              <p></p>
+              <div class="away">
+                <p>James 7' <i class="fa-solid fa-futbol"></i></p>
+                <p>Lukaku 67' <i class="fa-solid fa-futbol"></i></p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Fixture 2 -->
+          <div class="fixture">
+            <div class="date">
+              <p class="date-fix">Sat December 17 2024</p>
+              <p class="comp">Competition</p>
+            </div>
+            <div class="inner-team">
+              <div class="team">
+                <a href="pages/club-staff.html" target="_blank">
+                  <img src="{% static 'images/logo-1.jpg' %}" alt="Image" class="img-fluid" />
+              </a>
+
+                <span class="team-name">Team A</span>
+              </div>
+              <div class="demo">
+                <div class="vs">1 - 0</div>
+                <p class="venue">Venue</p>
+              </div>
+              <div class="team">
+                
+
+                <span class="team-name">Team B </span>
+              </div>
+            </div>
+            <div class="goal-details">
+              <div class="home">
+                <p>M. Cucurella 50' <i class="fa-solid fa-futbol"></i></p>
+              </div>
+              <p></p>
+              <div class="away">
+                <p></p>
+              </div>
+            </div> 
+          </div>  
+          
+        </div>
+      </div>
     </section>
+
+    
 
     <!--Fixtures section-->
     <section class="fixtures" id="fixtures">
@@ -213,16 +355,18 @@
 
       <div class="container">
           <h2 class="heading">Different Clubs</h2>
-          <p>Click on each club to get the information of the club</p>
+          <p style="font-size: 16px; color: #333; text-align: center;">Click on each club to get the information associated with the player</p>
+
           <div class="row">
               <div class="col-lg-3">
-                  <a href="pages/club-staff.html" target="_blank">
+                    <a href="{% url 'club_staff_page' %}" target="_blank">
+
                       <div class="team-member">
                         <img src="{% static 'images/logo-1.jpg' %}" alt="Image" class="img-fluid" />
 
                           <div>
                               <div class="inner-div">
-                                  <h3>Club 1</h3>
+                                  <h3>ob club</h3>
                                   <i class="fa-solid fa-angle-right"></i>
                               </div>
                           </div>
@@ -233,11 +377,11 @@
               <div class="col-lg-3">
                   <a href="pages/club-staff.html" target="_blank">
                       <div class="team-member">
-                        <img src="{% static 'images/club1-removebg-preview.png' %}" alt="Image" class="img-fluid" />
+                        <img src="{% static 'images/logo-1.jpg' %}" alt="Image" class="img-fluid" />
 
                           <div>
                               <div class="inner-div">
-                                  <h3>Club 2</h3>
+                                  <h3>sh club</h3>
                                   <i class="fa-solid fa-angle-right"></i>
                               </div>
                           </div>
@@ -250,10 +394,11 @@
                     <img src="{% static 'images/logo-1.jpg' %}" alt="Image" class="img-fluid" />
 
 
+
                       <div class="team-member">
                           <div>
                               <div class="inner-div">
-                                  <h3>Club 3</h3>
+                                  <h3>nyc club</h3>
                                   <i class="fa-solid fa-angle-right"></i>
                               </div>
                           </div>
@@ -264,12 +409,13 @@
               <div class="col-lg-3">
                   <a href="pages/club-staff.html" target="_blank">
                       <div class="team-member">
-                        <img src="{% static 'images/club1-removebg-preview.png' %}" alt="Image" class="img-fluid" />
+                        <img src="{% static 'images/logo-1.jpg' %}" alt="Image" class="img-fluid" />
+
 
 
                           <div>
                               <div class="inner-div">
-                                  <h3>Club 4</h3>
+                                  <h3>mny club</h3>
                                   <i class="fa-solid fa-angle-right"></i>
                               </div>
                           </div>
@@ -384,37 +530,54 @@
         });
     });
 </script>
-    <!--Contact Us -->
-    <section class="order" id="order">
-      <h1 class="heading">Ask here</h1>
-
-      <form action="" method="post" id="submit-form">
-          <div class="inputBox">
-              <div class="input">
-                  <span>your name</span>
-                  <input type="text" placeholder="Enter your name" name="name">
-              </div>
+<section class="order" id="order">
+  <form action="" name="contactForm" method="POST" onsubmit="return validateForm()">
+      {% csrf_token %}
+      <div class="contact-box">
+          <div class="left"></div>
+          <div class="right">
+              <h2>Contact US</h2>
+              <input type="text" class="field" placeholder="Your Name" name="name">
+              <input type="text" class="field" placeholder="Your Email" name="email">
+              <input type="text" class="field" placeholder="Phone" name="phone">
+              <textarea placeholder="Message" class="field" name="message"></textarea>
+              <button class="btn">Send</button>
           </div>
-
-          <div class="inputBox">
-              <div class="input">
-                  <span>Email address</span>
-                  <input type="text" id="email-textbox" placeholder="Enter email address" name="email">
-              </div>
-          </div>
-
-          <div class="inputBox">
-              <div class="input">
-                  <span>your issue</span>
-                  <textarea name="issue" placeholder="Enter your message" id="" cols="30" rows="10"></textarea>
-              </div>
-          </div>
-
-          <input type="submit" value="submit" class="btn">
-      </form>
-
-  </section>
-
+      </div>
+  </form>
+  <script>
+    function validateForm(){
+        let name = document.forms['contactForm']['name'].value;
+        let email = document.forms['contactForm']['email'].value;
+        let phone = document.forms['contactForm']['phone'].value;
+        let message = document.forms['contactForm']['message'].value;
+  
+        if (name == '' || hasNumber(name)){
+            alert('Name must be filled out and must only contain letters');
+            return false;
+        } else if (email == '' && phone == ''){
+            alert('Email or phone must be filled out');
+            return false;
+        } else if (!(email.includes('@'))){
+            alert('Email does not seem to be valid');
+            return false;
+        }else if (isNaN(phone)){
+            alert('Phone number seems to contain letters');
+            return false;
+        } else if (message == ''){
+            alert('Message must be filled out');
+            return false;
+        } else {
+            // confirm or cancel
+            return confirm('Do you really want to sent the message?')
+        }
+    }
+  
+    function hasNumber(myString) {
+        return /\d/.test(myString);
+    }
+  </script>
+</section>
     <!--Footer section-->
     <div class="footer">
         <div class="box-container">
