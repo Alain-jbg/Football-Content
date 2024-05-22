@@ -18,7 +18,7 @@ Activate:
 pip install django and requirements.txt
 
 
-Database 
+Database:
 
 
 MySQL database
