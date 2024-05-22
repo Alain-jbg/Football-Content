@@ -201,58 +201,75 @@
     </div>
   </section>
 
-  <!--Player stats-->
-  <section class="stats" id="stats">
-    <h2 class="heading">Overall stats</h2>
-    <table id="player-stats">
+  <!-- your_template.html -->
+<section class="stats" id="stats">
+  <h2 class="heading">Overall stats</h2>
+  <table id="player-stats">
       <thead>
-        <tr>
-          <th>Player</th>
-          <th>Position</th>
-          <th>CM</th>
-          <th>KG</th>
-          <th>Apps</th>
-          <th>Mins</th>
-          <th>Goals</th>
-          <th>Assists</th>
-          <th>Yel</th>
-          <th>Red</th>
-          <th>MotM</th>
-          <th>Rating</th>
-        </tr>
+          <tr>
+              <th>Player</th>
+              <th>Position</th>
+              <th>CM</th>
+              <th>KG</th>
+              <th>Apps</th>
+              <th>Mins</th>
+              <th>Goals</th>
+              <th>Assists</th>
+              <th>Yel</th>
+              <th>Red</th>
+              <th>MotM</th>
+              <th>Rating</th>
+          </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>1. Cole Palmer</td>
-          <td>22, AM,FW</td>
-          <td>182</td>
-          <td>74</td>
-          <td>26(4)</td>
-          <td>2349</td>
-          <td>21</td>
-          <td>9</td>
-          <td>7</td>
-          <td>-</td>
-          <td>5</td>
-          <td>7.48</td>
-        </tr>
-        <tr>
-          <td>2. Conor Gallagher</td>
-          <td>24, M</td>
-          <td>182</td>
-          <td>77</td>
-          <td>34</td>
-          <td>2878</td>
-          <td>5</td>
-          <td>7</td>
-          <td>6</td>
-          <td>1</td>
-          <td>1</td>
-          <td>7.15</td>
-        </tr>
+          {% for player in players %}
+          <tr>
+              <td>{{ player.id }}. {{ player.name }}</td>
+              <td>{{ player.position }}</td>
+              <td>{{ player.height_cm }}</td>
+              <td>{{ player.weight_kg }}</td>
+              <td>{{ player.apps }}</td>
+              <td>{{ player.mins }}</td>
+              <td>{{ player.goals }}</td>
+              <td>{{ player.assists }}</td>
+              <td>{{ player.yellow_cards }}</td>
+              <td>{{ player.red_cards }}</td>
+              <td>{{ player.motm }}</td>
+              <td>{{ player.rating }}</td>
+          </tr>
+          {% endfor %}
       </tbody>
-    </table>
-  </section>
+  </table>
+</section>
+
+<section class="team live" id="team">
+  <div class="teams">
+      <div class="container">
+          <h2 class="heading">Players Profile</h2>
+          <div class="row">
+              {% for player in players %}
+              <div class="col-lg-3">
+                  <div class="team-member">
+                      <img src="{{ player.photo.url }}" alt="{{ player.name }} Photo" class="img-fluid" />
+                      <div>
+                          <div class="inner-div">
+                              <h3>{{ player.name }}</h3>
+                              <p>Name: {{ player.name }}</p>
+                              <p>Height: {{ player.height_cm }} cm</p>
+                              <p>Weight: {{ player.weight_kg }} kg</p>
+                              <p>D.O.B: {{ player.date_of_birth }}</p>
+                              <p>Nationality: {{ player.nationality }}</p>
+                              <p>Club: {{ player.club }}</p>
+                              <p>Team: {{ player.team }}</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              {% endfor %}
+          </div>
+      </div>
+  </div>
+</section>
 
   <!--Careers-->
   <section class="careers" id="careers">

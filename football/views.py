@@ -42,6 +42,11 @@ def player_detail_view(request, slug):
     return render(request, 'pages/club-staff.html', context)
 
 
+
+def player_stats_view(request):
+    players = Player.objects.all()
+    return render(request, 'club-staff.html', {'players': players})
+
 def contact_us_view(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
