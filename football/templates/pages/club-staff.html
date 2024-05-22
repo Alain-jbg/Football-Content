@@ -13,334 +13,308 @@
 </head>
 <body>
     <header>
-      <a href="..index.html">
+      <a href="http://127.0.0.1:8000">
 
       <img src="{% static 'images/li__1_-removebg-preview.png' %}" alt="logo">
       </a>
 
         <!-- Navigation bar -->
-        <nav class="navbar">
+        <nav class="navbar" style="display: flex; justify-content: center;">
+
+
             <a class="active" href="#team">Team</a>
-            <a href="#matches">Matches</a>            
+            <a href="#matches">Matches</a> 
+            <a href="#stats">Stats</a>
+            <a href="#careers">Careers</a>           
         </nav>
     </header>
-
+    
     <section class="team live" id="team">
-        <!-- Homepage content -->
-        <div class="teams">
-            <div class="container">
-                <h2 class="heading">Coaching Staff</h2>
-                <div class="row">
+      <div class="teams">
+          <div class="container">
+            <div style="padding-top: 30px;">
+
+              <h2 class="heading">Coaching Staff</h2>
+              <div class="row">
+                  {% for coach in coaching_staff %}
                   <div class="col-lg-3">
+                      <div class="team-member">
+                          <img src="{{ coach.photo.url }}" alt="{{ coach.name }} Photo" style="border-radius: 50%; object-fit: cover;" class="img-fluid" />
+                          <div>
+                              <div class="inner-div">
+                                  <h3>{{ coach.club_name }}</h3>
+                                  <p>Name: {{ coach.name }}</p>
+                                  <p>Role: {{ coach.role }}</p>
+                                  <p>Nationality: {{ coach.nationality }}</p>
+                                  <p>Experience: {{ coach.experience }}</p>
+                                  <p>Club: {{ coach.club }}</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  {% endfor %}
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <section class="team live" id="team">
+    <div class="teams">
+        <div class="container">
+            <h2 class="heading">Players Profile</h2>
+            <div class="row">
+                {% for player in players %}
+                <div class="col-lg-3">
                     <div class="team-member">
-                        <img src="{% static 'images/fut1.png' %}" alt="Image" class="img-fluid" />
-                
+                        <img src="{{ player.photo.url }}" alt="{{ player.name }} Photo" class="img-fluid" />
                         <div>
                             <div class="inner-div">
-                                <h3>Club Name</h3>
-                                <p>Stadium/Venue: Club Stadium</p>
-                                <p>Manager: John Doe</p>
-                                <h3>League Position</h3>
-                                <a class="underline-button">Title</a>
+                                <h3>{{ coach.player_name }}</h3>
+                                <p>Name: {{ player.name }}</p>
+                                <p>Height: {{ player.height_cm }}</p>
+                                <p>weight: {{ player.weight_kg}}</p>
+                                <p>D.O.B: {{ player.date_of_birth }}</p>
+                                <p>Nationality: {{ player.nationality }}</p>
+                                <p>Club: {{ player.club }}</p>
+                                <p>Team: {{ player.team }}</p>
+
+
+
                             </div>
                         </div>
                     </div>
                 </div>
-                
-        
-                  <div class="col-lg-3" >
-                    <div class="team-member">
-                      <img src="{% static 'images/fut1.png' %}" alt="Image" class="img-fluid" />
-
-                      <div>
-                        <div class="inner-div">
-                          <h3>Club Name</h3>
-                          <p>Stadium/Venue: Club Stadium</p>
-                          <p>Manager: John Doe</p>
-                          <h3>League Position</h3>
-                          <a class="underline-button">Title</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-        
-                  <div class="col-lg-3" >
-                    <div class="team-member">
-                      <img src="{% static 'images/fut1.png' %}" alt="Image" class="img-fluid" />
-
-                      <div>
-                        <div class="inner-div">
-                          <h3>Club Name</h3>
-                          <p>Stadium/Venue: Club Stadium</p>
-                          <p>Manager: John Doe</p>
-                          <h3>League Position</h3>
-                          <a class="underline-button">Title</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-lg-3" >
-                    <div class="team-member">
-                      <img src="{% static 'images/fut1.png' %}" alt="Image" class="img-fluid" />
-
-                      <div>
-                        <div class="inner-div">
-                          <h3>Club Name</h3>
-                          <p>Stadium/Venue: Club Stadium</p>
-                          <p>Manager: John Doe</p>
-                          <h3>League Position</h3>
-                          <a class="underline-button">Title</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                {% endfor %}
             </div>
-
-            <div class="container other">
-                <h2 class="heading">Players Profile</h2>
-                <div class="row">
-                  <div class="col-lg-3" >
-                    <div class="team-member">
-                      <img src="{% static 'images/fut7.jpg' %}" alt="Image" class="img-fluid" />
-
-                      <div>
-                          <div class="inner-div">
-                            <h3>Lorem Ipsum</h3>
-                            <p>Position: Forward</p>
-                            <p>Number: 10</p>
-                            <p>Nationality: Example Country</p>
-                            <p>Club: Example Club</p>
-                            <p>Team: Example Team</p>
-                          <a class="underline-button">Position<i class="fa-solid fa-angle-right"></i></a>
-                        </div>
-                      </div>
-                    </div>
         </div>
-                  <div class="col-lg-3" >
-                    <div class="team-member">
-                      <img src="{% static 'images/fut7.jpg' %}" alt="Image" class="img-fluid" />
+    </div>
+</section>
 
-                      <div>
-                        <div class="inner-div">
-                          <h3>Lorem Ipsum</h3>
-                            <p>Position: Forward</p>
-                            <p>Number: 10</p>
-                            <p>Nationality: Example Country</p>
-                            <p>Club: Example Club</p>
-                            <p>Team: Example Team</p> 
-                          <a class="underline-button">Position<i class="fa-solid fa-angle-right"></i></a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-        
-                  <div class="col-lg-3" >
-                    <div class="team-member">
-                      <img src="{% static 'images/fut7.jpg' %}" alt="Image" class="img-fluid" />
-
-                      <div>
-                        <div class="inner-div">
-                          <h3>Lorem Ipsum</h3>
-                            <p>Position: Forward</p>
-                            <p>Number: 10</p>
-                            <p>Nationality: Example Country</p>
-                            <p>Club: Example Club</p>
-                            <p>Team: Example Team</p> 
-                          <a class="underline-button">Position<i class="fa-solid fa-angle-right"></i></a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-lg-3" >
-                    <div class="team-member">
-                      <img src="{% static 'images/fut7.jpg' %}" alt="Image" class="img-fluid" />
-
-                      <div>
-                        <div class="inner-div">
-                          <h3>Lorem Ipsum</h3>
-                          <p>Position: Forward</p>
-                          <p>Number: 10</p>
-                          <p>Nationality: Example Country</p>
-                          <p>Club: Example Club</p>
-                          <p>Team: Example Team</p>
-                          <a class="underline-button">Position<i class="fa-solid fa-angle-right"></i></a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+   <!-- Matches section content -->
+   <section class="matches" id="matches">
+    <h2 class="heading">Fixtures & Results</h2>
+    <nav class="navbar2">
+        <a class="active" href="#fixtures-section" id="fixtures-link">Fixtures</a></li>
+        <a href="#results-section" id="results-link">Results</a></li>
+    </nav>
+    <div id="fixtures-section" class="content-section">
+      <div id="fixtures-container" class="fixtures-container">
+        <!-- Fixtures for Team 1 -->
+        <div class="team-fixtures" id="team1-fixtures">
+            <div class="fixture-dropdown">
+                <select id="competition-select">
+                    <option value="all">All competitions</option>
+                    <option value="ligi-open">Ligi Open</option>
+                    <option value="competition-2">Competition 2</option>
+                </select>
             </div>
-
-            <div class="container other">
-                <h2 class="heading">Other Staff Profiles</h2>
-                <div class="row">
-                  <div class="col-lg-3" >
-                    <div class="team-member">
-                      <img src="{% static 'images/fut4.jpg' %}" alt="Image" class="img-fluid" />
-
-                      <div>
-                        <div class="inner-div">
-                          <h3>Jane Smith</h3>
-                        <p>Position: Physiotherapist</p>
-                        <p>Nationality: Another Country</p>
-                        <p>Experience: 8 years</p>
-                        <p>Club: Example Club</p>
-                          <a class="underline-button">Title<i class="fa-solid fa-angle-right"></i></a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-        
-                  <div class="col-lg-3" >
-                    <div class="team-member">
-                      <img src="{% static 'images/fut4.jpg' %}" alt="Image" class="img-fluid" />
-
-                      <div>
-                        <div class="inner-div">
-                          <h3>John Doe</h3>
-                        <p>Position: Manager</p>
-                        <p>Nationality: Example Country</p>
-                        <p>Experience: 10 years</p>
-                        <p>Club: Example Club</p>
-                          <a class="underline-button">Title<i class="fa-solid fa-angle-right"></i></a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-        
-                  <div class="col-lg-3" >
-                    <div class="team-member">
-                      <img src="{% static 'images/fut4.jpg' %}" alt="Image" class="img-fluid" />
-
-                      <div>
-                        <div class="inner-div">
-                          <h3>John Doe</h3>
-                        <p>Position: Manager</p>
-                        <p>Nationality: Example Country</p>
-                        <p>Experience: 10 years</p>
-                        <p>Club: Example Club</p>
-                          <a class="underline-button">Title<i class="fa-solid fa-angle-right"></i></a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-lg-3" >
-                    <div class="team-member">
-                      <img src="{% static 'images/fut4.jpg' %}" alt="Image" class="img-fluid" />
-
-                      <div>
-                        <div class="inner-div">
-                          <h3>John Doe</h3>
-                        <p>Position: Manager</p>
-                        <p>Nationality: Example Country</p>
-                        <p>Experience: 10 years</p>
-                        <p>Club: Example Club</p>
-                          <a class="underline-button">Title<i class="fa-solid fa-angle-right"></i></a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-            </div>            
-        </div>
-    </section>
-
-    <!-- Matches section content -->
-    <section class="matches" id="matches">
-      <h2 class="heading">Fixtures & Results</h2>
-      <nav class="navbar2">
-          <a class="active" href="#fixtures-section" id="fixtures-link">Fixtures</a></li>
-          <a href="#results-section" id="results-link">Results</a></li>
-      </nav>
-      <div id="fixtures-section" class="content-section">
-        <div id="fixtures-container" class="fixtures-container">
-          <!-- Fixtures for Team 1 -->
-          <div class="team-fixtures" id="team1-fixtures">
-              <div class="fixture-dropdown">
-                  <select id="competition-select">
-                      <option value="all">All competitions</option>
-                      <option value="ligi-open">Ligi Open</option>
-                      <option value="competition-2">Competition 2</option>
-                  </select>
-              </div>
-              <div class="fixture" data-competition="ligi-open">
-                  <div class="fixture-date">SUN 05 MAY 2025, 10:30am</div>
-                  <div class="fixture-opponent">Team X</div>
-                  <div class="fixture-venue">Stadium A</div>
-              </div>
-              <div class="fixture" data-competition="ligi-open">
-                  <div class="fixture-date">WED 08 MAY 2025, 12:30pm</div>
-                  <div class="fixture-opponent">Team Y</div>
-                  <div class="fixture-venue">Stadium B</div>
-              </div>
-              <div class="fixture" data-competition="competition-2">
-                  <div class="fixture-date">SUN 10 MAY 2025, 3:30pm</div>
-                  <div class="fixture-opponent">Team Z</div>
-                  <div class="fixture-venue">Stadium C</div>
-              </div>
-          </div> 
-        </div>
-      
+            <div class="fixture" data-competition="ligi-open">
+                <div class="fixture-date">SUN 05 MAY 2025, 10:30am</div>
+                <div class="fixture-opponent">Team X</div>
+                <div class="fixture-venue">Stadium A</div>
+            </div>
+            <div class="fixture" data-competition="ligi-open">
+                <div class="fixture-date">WED 08 MAY 2025, 12:30pm</div>
+                <div class="fixture-opponent">Team Y</div>
+                <div class="fixture-venue">Stadium B</div>
+            </div>
+            <div class="fixture" data-competition="competition-2">
+                <div class="fixture-date">SUN 10 MAY 2025, 3:30pm</div>
+                <div class="fixture-opponent">Team Z</div>
+                <div class="fixture-venue">Stadium C</div>
+            </div>
+        </div> 
       </div>
-      
-      <div class="results-section" id="results-section">
-        <div class="container">          
-          <!-- Fixture 1 -->
-          <div class="fixture">
-            <div class="date">
-              <p class="date-fix">Thu January 1 2025</p>
-              <p class="venue">Venue</p>
-              <p class="comp">Competition</p>
+    
+    </div>
+    
+    <div class="results-section" id="results-section">
+      <div class="container">          
+        <!-- Fixture 1 -->
+        <div class="fixture">
+          <div class="date">
+            <p class="date-fix">Thu January 1 2025</p>
+            <p class="comp">Competition</p>
+          </div>
+          <div class="inner-team">
+            <div class="team">
+              <img src="{% static 'images/logo-1.jpg' %}" alt="Team A Logo">
+
+              <span class="team-name">Team A</span>
             </div>
-            <div class="inner-team">
-              <div class="team">
-                <img src="{% static 'images/logo-1.jpg' %}" alt="Team A Logo">
-
-                <span class="team-name">Team A</span>
-              </div>
+            <div class="demo">
               <div class="vs">3 - 4</div>
-              <div class="team">
-                <img src="{% static 'images/logo-1.jpg' %}" alt="Team B Logo">
+              <p class="venue">Venue</p>
+            </div>
+            <div class="team">
+              <img src="{% static 'images/logo-1.jpg' %}" alt="Team B Logo">
 
-                <span class="team-name">Team B</span>
-              </div>
+              <span class="team-name">Team B</span>
             </div>
           </div>
-          
-          <!-- Fixture 2 -->
-          <div class="fixture">
-            <div class="date">
-              <p class="date-fix">Sat January 3 2025</p>
-              <p class="venue">Venue</p>
-              <p class="comp">Competition</p>
+          <div class="goal-details">
+            <div class="home">
+              <p>M. Cucurella 4' <i class="fa-solid fa-futbol"></i></p>
+              <p>Rogers 42' <i class="fa-solid fa-futbol"></i></p>
+              <p>Ogbona 52' <i class="fa-solid fa-futbol"></i></p>
             </div>
-            <div class="inner-team">
-              <div class="team">
-                <img src="{% static 'images/logo-1.jpg' %}" alt="Team A Logo">
-
-                <span class="team-name">Team A</span>
-              </div>
-              <div class="vs">1 - 0</div>
-              <div class="team">
-                <img src="{% static 'images/logo-1.jpg' %}" alt="Team B Logo">
-
-                <span class="team-name">Team B</span>
-              </div>
+            <div class="away">
+              <p>James 7' <i class="fa-solid fa-futbol"></i></p>
+              <p>Lukaku 67' <i class="fa-solid fa-futbol"></i></p>
+              <p>Musa 70' <i class="fa-solid fa-futbol"></i></p>
+              <p>Messi 85' <i class="fa-solid fa-futbol"></i></p>
             </div>
-          </div>     
-          
+          </div>
         </div>
-      </div>
-    </section>
-    <footer>
-        <!-- Footer content -->
-        <p>&copy; 2024 ClubName FC. All rights reserved.</p>
-    </footer>
-    <script src="{% static 'js/club-staff.js' %}"></script>
+        
+        <!-- Fixture 2 -->
+        <div class="fixture">
+          <div class="date">
+            <p class="date-fix">Sat December 17 2024</p>
+            <p class="comp">Competition</p>
+          </div>
+          <div class="inner-team">
+            <div class="team">
+              <img src="{% static 'images/logo-1.jpg' %}" alt="Team A Logo">
 
-</body>
-</html>
+              <span class="team-name">Team A</span>
+            </div>
+            <div class="demo">
+              <div class="vs">1 - 0</div>
+              <p class="venue">Venue</p>
+            </div>
+            <div class="team">
+              <img src="{% static 'images/logo-1.jpg' %}" alt="Team B Logo">
+
+              <span class="team-name">Team B </span>
+            </div>
+          </div>
+          <div class="goal-details">
+            <div class="home">
+              <p>M. Cucurella 50' <i class="fa-solid fa-futbol"></i></p>
+            </div>
+            <div class="away"></div>
+          </div>
+        </div>   
+        
+      </div>
+    </div>
+  </section>
+
+  <!--Player stats-->
+  <section class="stats" id="stats">
+    <h2 class="heading">Overall stats</h2>
+    <table id="player-stats">
+      <thead>
+        <tr>
+          <th>Player</th>
+          <th>Position</th>
+          <th>CM</th>
+          <th>KG</th>
+          <th>Apps</th>
+          <th>Mins</th>
+          <th>Goals</th>
+          <th>Assists</th>
+          <th>Yel</th>
+          <th>Red</th>
+          <th>MotM</th>
+          <th>Rating</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1. Cole Palmer</td>
+          <td>22, AM,FW</td>
+          <td>182</td>
+          <td>74</td>
+          <td>26(4)</td>
+          <td>2349</td>
+          <td>21</td>
+          <td>9</td>
+          <td>7</td>
+          <td>-</td>
+          <td>5</td>
+          <td>7.48</td>
+        </tr>
+        <tr>
+          <td>2. Conor Gallagher</td>
+          <td>24, M</td>
+          <td>182</td>
+          <td>77</td>
+          <td>34</td>
+          <td>2878</td>
+          <td>5</td>
+          <td>7</td>
+          <td>6</td>
+          <td>1</td>
+          <td>1</td>
+          <td>7.15</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!--Careers-->
+  <section class="careers" id="careers">
+    <h2 class="heading">Careers</h2>
+    <div class="jobs-list-container">
+      <h2 class="jobs-heading">3 Jobs</h2>
+      <input type="text" class="job-search" placeholder="Search jobs...">
+      <p id="no-match">No match found.</p>
+      <div class="jobs">
+          <div class="job">
+              <h3 class="job-title">Head of Performance Support</h3>
+              <div class="details">Focused on the delivery of performance support within ClubName FC. The role will oversee this newly created and merged department to enable the collective and integrated delivery to, and a holistic approach for players.</div>
+              <a href="#" class="details-btn job1" onclick="redirectToStaffPage('club1')">More Details</a>
+              <span class="open-positions">2 open positions</span>
+          </div>
+          <div class="job">
+              <h3 class="job-title">Football Projects Officer</h3>
+              <div class="details">Responsible for  support and lead on the various football projects activities to further develop and grow the business and to deliver high quality sports provision</div>
+              <a href="#" class="details-btn job1" onclick="redirectToStaffPage('club2')">More Details</a>
+              <span class="open-positions">3 open positions</span>
+          </div>
+          
+          <div class="job">
+              <h3 class="job-title">Sponsorship Administrator</h3>
+              <div class="details">Responsible for coordinating travel logistics for sales teams and VIP clients, managing matchday invite lists, organizing client dinners, and handling internal bookings and expenses.</div>
+              <a href="#" class="details-btn" onclick="redirectToStaffPage('club3')">More Details</a>
+              <span class="open-positions">1 open position</span>
+          </div>
+          
+      </div>
+    </div>
+  
+  </section>
+
+  <section class="footer">
+    <div class="box-container">
+      <div class="box bottom-nav">
+        <h3>ob club</h3>
+        <a href="club-staff.html" target="_blank">
+          <img src="{% static 'images/logo-1.jpg' %}" alt="Image" class="img-fluid" />
+        </a>
+        <a href="#">Home Stadium</a>
+        <a href="#financing">Location</a>
+      </div>
+  
+      <div class="box">
+        <h3>More Info</h3>
+        <a href="">About the Club</a>
+        <a href="tel:+254702664629">Contact us</a>
+      </div>
+  
+      <div class="box">
+        <h3>Follow us</h3>
+        <a href="#" target="_blank">Twitter</a>
+        <a href="#" target="_blank">Facebook</a>
+      </div>
+    </div>
+  
+    <div class="credit">
+      <p>&copy; 2024 ClubName FC. All rights reserved. No part of this site may be reproduced without our written permission.</p>
+    </div>
+  </section>
+  
+  <script src="{% static 'js/club-staff.js' %}"></script>
+  

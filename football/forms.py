@@ -1,21 +1,9 @@
 from django import forms
-# from .models import Team, Season
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import get_user_model
-from .models import Fixture
+from .models import Club, Player, CoachingStaff
 
 
-# class TeamForm(forms.ModelForm):
-#     class Meta:
-#         model = Team
-#         fields = ['name']
-
-# class SeasonForm(forms.ModelForm):
-#     teams = forms.ModelMultipleChoiceField(queryset=Team.objects.all(), widget=forms.CheckboxSelectMultiple)
-
-#     class Meta:
-#         model = Season
-#         fields = ['name', 'teams']
 
 
 
@@ -86,7 +74,27 @@ class SignUpForm(UserCreationForm):
         model = User
         fields = ('first_name', 'last_name', 'username', 'email', 'password1', 'password2')
 
-class FixtureForm(forms.ModelForm):
+# forms for the players, staffs and coaches
+
+
+class ClubForm(forms.ModelForm):
     class Meta:
-        model = Fixture
-        fields = ['home_team', 'away_team', 'venue', 'date', 'time']
+        model = Club
+        fields = ['name', 'location', 'established_date', 'stadium']
+
+class PlayerForm(forms.ModelForm):
+    class Meta:
+        model = Player
+        fields = ['name', 'team', 'date_of_birth', 'nationality', 'club', 'photo']
+
+class CoachingStaffForm(forms.ModelForm):
+    class Meta:
+        model = CoachingStaff
+        fields = ['name', 'role', 'experience', 'nationality', 'club']
+
+
+class ContactForm(forms.Form):
+    name = forms.CharField(max_length=100)
+    email = forms.EmailField()
+    phone = forms.CharField(max_length=20)
+    message = forms.CharField(widget=forms.Textarea)

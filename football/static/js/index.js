@@ -10,6 +10,8 @@ menu.onclick = () => {
 
 links.forEach(function(link) {
     link.addEventListener('click', function(event) {
+        event.preventDefault(); 
+
         links.forEach(function(link) {
             link.classList.remove('active');
         });
@@ -22,283 +24,96 @@ links.forEach(function(link) {
         var targetSection = document.querySelector('.' + targetSectionClass);
         targetSection.classList.add('live');
 
-        // Scroll to the top of the target section
-        targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // Scroll to the top of the page
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+
     });
 });
 
-(function($){
-    
-    $.fn.passwordstrength = function(options) {
-        
-        // Options
-        var settings = $.extend({
-            'minlength': 6,
-            'number'   : true,
-            'lowercase'  : true,
-            'uppercase'  : true,
-            'special'  : true,
-            'labels'   : {
-                'general'   : 'The password must have:',
-                'minlength' : 'At least 6 characters',
-                'number'    : 'At least one number',
-                'lowercase'   : 'At least one lowercase letter',
-                'uppercase'   : 'At least one uppercase letter',
-                'special'   : 'At least one special character'
-            }
-        }, options);
+// Bottom footer navbar toggling
+let footerLinks = document.querySelectorAll('.bottom-nav a');
 
-        
-        return this.each(function(){
-            
-            var $this = $(this);
+footerLinks.forEach(function(footerLink) {
+    footerLink.addEventListener('click', function(event) {
+        event.preventDefault(); 
 
-            // HTML
-            $('<div id="passwordstrength-wrap" />').insertAfter($this);
-            $('#passwordstrength-wrap').append('<strong>'+settings.labels.general+'</strong><ul></ul>');
+        var targetSectionId = this.getAttribute('href');
+        var targetSection = document.querySelector(targetSectionId);
 
-            if (settings.minlength > 0)
-                $('#passwordstrength-wrap ul').append('<li id="length">'+settings.labels.minlength.replace('{{minlength}}', settings.minlength)+'</li>');
-            if (settings.number)
-                $('#passwordstrength-wrap ul').append('<li id="pnum">'+settings.labels.number+'</li>');
-            if (settings.lowercase)
-                $('#passwordstrength-wrap ul').append('<li id="lowercase">'+settings.labels.lowercase+'</li>');
-            if (settings.uppercase)
-                $('#passwordstrength-wrap ul').append('<li id="uppercase">'+settings.labels.uppercase+'</li>');
-            if (settings.special)
-                $('#passwordstrength-wrap ul').append('<li id="spchar">'+settings.labels.special+'</li>');
-
-
-            $this.on('focus keyup', function() {
-                var value = $this.val();
-
-                $('#passwordstrength-wrap').fadeIn(400);
-
-                // password length
-                if (value.length > 0)
-                {
-                    if (value.length >= settings.minlength)
-                        $('#passwordstrength-wrap #length').addClass('valid');
-                    else
-                        $('#passwordstrength-wrap #length').removeClass('valid');
-                }
-         
-                // at least 1 digit
-                if (settings.number)
-                {
-                    if (value.match(/\d/))
-                        $('#passwordstrength-wrap #pnum').addClass('valid');
-                    else
-                        $('#passwordstrength-wrap #pnum').removeClass('valid');
-                }
-         
-                // at least 1 lowercase
-                if (settings.lowercase)
-                {
-                    if (value.match(/[a-z]/))
-                        $('#passwordstrength-wrap #lowercase').addClass('valid');
-                    else
-                        $('#passwordstrength-wrap #lowercase').removeClass('valid');
-                }
-
-                // at least 1 uppercase
-                if (settings.uppercase)
-                {
-                    if (value.match(/[A-Z]/))
-                        $('#passwordstrength-wrap #uppercase').addClass('valid');
-                    else
-                        $('#passwordstrength-wrap #uppercase').removeClass('valid');
-                }
-         
-                // at least 1 special character
-                if (settings.special)
-                {
-                    if (value.match(/[^\w]/))
-                        $('#passwordstrength-wrap #spchar').addClass('valid');
-                    else
-                        $('#passwordstrength-wrap #spchar').removeClass('valid');
-                }
-            });
-
-
-            $this.blur(function () {
-                $('#passwordstrength-wrap').fadeOut(400);
-            });
+        sections.forEach(function(section) {
+            section.classList.remove('live');
         });
-    }
 
-})(jQuery);
+        if (targetSection) {
+            targetSection.classList.add('live');
+        }
 
-(function($){
-    
-    $.fn.passwordstrength2 = function(options) {
-        
-        // Options
-        var settings = $.extend({
-            'minlength': 6,
-            'number'   : true,
-            'lowercase'  : true,
-            'uppercase'  : true,
-            'special'  : true,
-            'labels'   : {
-                'general'   : 'The password must have:',
-                'minlength' : 'At least 6 characters',
-                'number'    : 'At least one number',
-                'lowercase'   : 'At least one lowercase letter',
-                'uppercase'   : 'At least one uppercase letter',
-                'special'   : 'At least one special character'
-            }
-        }, options);
-
-        
-        return this.each(function(){
-            
-            var $this = $(this);
-
-            // HTML
-            $('<div id="passwordstrength-wrap-2" />').insertAfter($this);
-            $('#passwordstrength-wrap-2').append('<strong>'+settings.labels.general+'</strong><ul></ul>');
-
-            if (settings.minlength > 0)
-                $('#passwordstrength-wrap-2 ul').append('<li id="length">'+settings.labels.minlength.replace('{{minlength}}', settings.minlength)+'</li>');
-            if (settings.number)
-                $('#passwordstrength-wrap-2 ul').append('<li id="pnum">'+settings.labels.number+'</li>');
-            if (settings.lowercase)
-                $('#passwordstrength-wrap-2 ul').append('<li id="lowercase">'+settings.labels.lowercase+'</li>');
-            if (settings.uppercase)
-                $('#passwordstrength-wrap-2 ul').append('<li id="uppercase">'+settings.labels.uppercase+'</li>');
-            if (settings.special)
-                $('#passwordstrength-wrap-2 ul').append('<li id="spchar">'+settings.labels.special+'</li>');
-
-
-            $this.on('focus keyup', function() {
-                var value = $this.val();
-
-                $('#passwordstrength-wrap-2').fadeIn(400);
-
-                // password length
-                if (value.length > 0)
-                {
-                    if (value.length >= settings.minlength)
-                        $('#passwordstrength-wrap-2 #length').addClass('valid');
-                    else
-                        $('#passwordstrength-wrap-2 #length').removeClass('valid');
-                }
-         
-                // at least 1 digit
-                if (settings.number)
-                {
-                    if (value.match(/\d/))
-                        $('#passwordstrength-wrap-2 #pnum').addClass('valid');
-                    else
-                        $('#passwordstrength-wrap-2 #pnum').removeClass('valid');
-                }
-         
-                // at least 1 lowercase
-                if (settings.lowercase)
-                {
-                    if (value.match(/[a-z]/))
-                        $('#passwordstrength-wrap-2 #lowercase').addClass('valid');
-                    else
-                        $('#passwordstrength-wrap-2 #lowercase').removeClass('valid');
-                }
-
-                // at least 1 uppercase
-                if (settings.uppercase)
-                {
-                    if (value.match(/[A-Z]/))
-                        $('#passwordstrength-wrap-2 #uppercase').addClass('valid');
-                    else
-                        $('#passwordstrength-wrap-2 #uppercase').removeClass('valid');
-                }
-         
-                // at least 1 special character
-                if (settings.special)
-                {
-                    if (value.match(/[^\w]/))
-                        $('#passwordstrength-wrap-2 #spchar').addClass('valid');
-                    else
-                        $('#passwordstrength-wrap-2 #spchar').removeClass('valid');
-                }
-            });
-
-
-            $this.blur(function () {
-                $('#passwordstrength-wrap-2').fadeOut(400);
-            });
+        links.forEach(function(navbarLink) {
+            navbarLink.classList.remove('active');
         });
-    }
 
-})(jQuery);
+        links.forEach(function(navbarLink) {
+            if (navbarLink.getAttribute('href') === targetSectionId) {
+                navbarLink.classList.add('active');
+            }
+        });
 
-function toggl1(){
-    let password1 = document.getElementById("pwd1");
-    let eye1 = document.getElementById("toggle1");
+        // Scroll to the top of the page
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+});
 
-    if(password1.getAttribute("type") == "password"){
-        password1.setAttribute("type","text");
-        eye1.style.color = "#0be881";
+//Contact us form
+let submitForm = document.getElementById("submit-form");
+submitForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    let emailAddress = document.getElementById("email-textbox");
+    var regExpression = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+/;
+    if(emailAddress.value.match(regExpression)){
+        alert("Successful")
+    } else {
+        document.querySelector("#email-textbox").style.border = "1px solid hsl(4, 100%, 67%)";
+        document.querySelector("#email-textbox").style.color = "hsl(4, 100%, 67%)";
+        //document.querySelector("span").classList.add("fail-email");
+        //document.querySelector("span").classList.add("active");
+        setTimeout(function() {
+            document.querySelector("span").classList.remove("active");
+            document.querySelector("#email-textbox").style.color = "black";
+            document.querySelector("#email-textbox").style.border = "1px solid hsl(231, 7%, 60%)";
+
+        }, 2000);
     }
-    else{
-        password1.setAttribute("type","password");
-        eye1.style.color = "#808080";
-    }
+    
+});
+
+// Function to toggle visibility of fixtures and results sections
+const fixturesLink = document.getElementById("fixtures-link");
+const resultsLink = document.getElementById("results-link");
+const fixturesSection = document.getElementById("fixtures-section");
+const resultsSection = document.getElementById("results-section");
+
+function toggleSection(sectionToShow) {
+    const sections = [fixturesSection, resultsSection];
+    sections.forEach(section => {
+        section.style.display = "none";
+    });
+    sectionToShow.style.display = "block";
 }
 
-function toggl2(){
+// Event listeners for toggling content sections
+fixturesLink.addEventListener("click", function(event) {
+    event.preventDefault();
+    resultsLink.classList.remove('active');
+    fixturesLink.classList.add('active')
+    toggleSection(fixturesSection);
+});
 
-    let password2 = document.getElementById("pwd2");
-    let eye2 = document.getElementById("toggle2");
+resultsLink.addEventListener("click", function(event) {
+    event.preventDefault();
+    fixturesLink.classList.remove('active');
+    resultsLink.classList.add('active')
+    toggleSection(resultsSection);
+});
 
-    if(password2.getAttribute("type") == "password"){
-        password2.setAttribute("type","text");
-        eye2.style.color = "#0be881";
-    }
-    else{
-        password2.setAttribute("type","password");
-        eye2.style.color = "#808080";
-    }
-}
-
-function toggl3(){
-    let password1 = document.getElementById("pwd1");
-    let eye1 = document.getElementById("toggle3");
-
-    if(password1.getAttribute("type") == "password"){
-        password1.setAttribute("type","text");
-        eye1.style.color = "#0be881";
-    }
-    else{
-        password1.setAttribute("type","password");
-        eye1.style.color = "#808080";
-    }
-}
-
-function toggl4(){
-    let password1 = document.getElementById("id_new_password1");
-    let eye1 = document.getElementById("toggle4");
-
-    if(password1.getAttribute("type") == "password"){
-        password1.setAttribute("type","text");
-        eye1.style.color = "#0be881";
-    }
-    else{
-        password1.setAttribute("type","password");
-        eye1.style.color = "#808080";
-    }
-}
-
-function toggl5(){
-    let password1 = document.getElementById("id_new_password2");
-    let eye1 = document.getElementById("toggle5");
-
-    if(password1.getAttribute("type") == "password"){
-        password1.setAttribute("type","text");
-        eye1.style.color = "#0be881";
-    }
-    else{
-        password1.setAttribute("type","password");
-        eye1.style.color = "#808080";
-    }
-}
-
+// By default, show fixtures section
+toggleSection(fixturesSection);
