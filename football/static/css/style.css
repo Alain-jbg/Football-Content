@@ -52,6 +52,7 @@ section:nth-child(even){
     font-size: 3rem;
     padding-bottom: 2rem;
     text-transform: uppercase;
+    
 }
 
 .btn {
@@ -97,7 +98,7 @@ header .navbar a {
     font-size: 1.7rem;
     border-radius: .5rem;
     padding: .5rem 1.5rem;
-    color: var(--light-color);
+    color: var(--dark-color);
 }
 
 header .navbar a.active, header .navbar a:hover {
@@ -449,6 +450,7 @@ section .home {
     margin-right: 10px;
     border: 1px solid var(--light-color);
     padding: 10px;
+    width: 100%;
 }
 
 .results-section .date {
@@ -482,6 +484,7 @@ section .home {
 .results-section .demo {
     text-align: center;
 }
+
 
 /*Highlights*/
 /*News Section*/
@@ -541,17 +544,16 @@ section .home {
     width: 30%;
     text-align: center;
 }
-
 /*Contact us*/
 .order {
-    text-transform: capitalize;
-    height: 100vh;
+    height: 120vh;
     padding-top: 2%;
+    background-color: #eee;
 }
 
 .order form {
     max-width: 50rem;
-    border-radius: .5rem;
+    border-radius: 20px; 
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
     border: .1rem solid rgba(0, 0, 0, 0.2);
     background: #fff;
@@ -599,14 +601,74 @@ section .home {
 .order form .btn {
     margin-top: 0;
 }
-
+#name-invalid, #email-invalid, #issue-invalid {
+    display: none;
+    color: hsl(4, 100%, 67%);
+}
+.order {
+    padding: 40px 20px;
+  }
+  
+  
+  
+  .image-wrapper {
+    max-width: 500px; /* Adjust this value as needed */
+    text-align: left; /* Align image to the left */
+    position: relative; /* Add position relative for absolute positioning of social media icons */
+  }
+  
+  .image-wrapper img.big-image {
+    width: 100%; /* Make the image take full width of its container */
+    height: auto; /* Maintain aspect ratio */
+  }
+  
+  .social-media {
+    position: absolute; /* Position the social media icons absolutely */
+    bottom: 10px; /* Adjust the distance from the bottom */
+    right: 10px; /* Adjust the distance from the right */
+    text-align: center; /* Center align the social media content */
+  }
+  
+  .social-media p {
+    margin-bottom: 10px; /* Adjust spacing between text and icons */
+  }
+  
+  .social-media .icons {
+    display: flex;
+    flex-direction: row; /* Align icons horizontally */
+    justify-content: center; /* Center align the icons */
+  }
+  
+  .social-media .icons a {
+    margin: 0 10px; /* Add spacing between icons */
+    font-size: 30px;
+  }
+  
+  .social-media .icons a.whatsapp {
+    color: #25D366; /* WhatsApp green */
+  }
+  
+  .social-media .icons a.facebook {
+    color: #1877F2; /* Facebook blue */
+  }
+  
+  .social-media .icons a.instagram {
+    background: linear-gradient(45deg, #833ab4, #fd1d1d, #fcb045); /* Instagram gradient */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .social-media .icons a:hover {
+    opacity: 0.7;
+  }
 
 /* Style for FAQs section */
 .faqs {
-    max-width: 800px;
+    max-width: 600px;
     margin: 0 auto;
-    padding: 10px;
-    background-color: #f4f4f4;
+    padding: 20px;
+    background-color:#53AF61;
+
     border-radius: 10px;
     padding:3% 0;
 
@@ -616,13 +678,7 @@ section .home {
     margin-bottom: 20px;
 }
 
-.faq {
-    margin-bottom: 10px;
-    border-radius: 5px;
-    overflow: hidden;
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
+
 
 .accordion {
     width: 100%;
@@ -633,6 +689,9 @@ section .home {
     outline: none;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    font-weight: bold;
+    font-size: 15px;
+
 }
 
 .accordion:hover {
@@ -640,9 +699,10 @@ section .home {
 }
 
 .panel {
-    padding: 15px;
+    padding: 20px;
     display: none;
     background-color: #fff;
+    font-size: 15px;
 }
 
 .panel.show {
@@ -651,7 +711,82 @@ section .home {
 
 .fa-chevron-down {
     float: right;
-    margin-top: 3px;
+    /* margin-top: 3px; */
+}
+
+.faq-container {
+    background-color: #eef2f5;
+    padding: 100px 20px;
+}
+
+.faqs-header {
+    max-width: 800px;
+    margin: 0 auto 20px;
+    text-align: center;
+}
+
+.faqs-header h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.faqs-header p {
+    font-size: 18px;
+    color: #666;
+}
+
+.faqs {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.faq {
+    margin-bottom: 20px;
+}
+
+.accordion {
+    width: 100%;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.accordion:hover {
+    background-color: #45a049;
+}
+
+.panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    margin-top: 5px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.panel.show {
+    padding: 20px;
+    max-height: 200px;
+}
+
+.panel p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.6;
 }
 
 
@@ -971,3 +1106,5 @@ section .home {
         padding-top: 20%;
     }
 }
+
+

@@ -642,6 +642,24 @@ section.live {
 
 }
 
+@media (max-width: 570px){
+    .footer .box-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .footer .box-container > * {
+        width: 100%; 
+    }
+
+    .footer .box-container .box a {
+        font-size: 2rem; 
+    }
+}
+
 @media (max-width: 500px) {
     .live {
         padding-top: 25%;

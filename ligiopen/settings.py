@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'football'
+    'football',  # Your app
 ]
 
 MIDDLEWARE = [
@@ -51,6 +51,11 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+DEBUG = True
+
+# Other settings
+
 
 ROOT_URLCONF = 'ligiopen.urls'
 
@@ -135,6 +140,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+APPEND_SLASH = False
 
 
 # Default primary key field type
@@ -142,11 +148,17 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_REDIRECT_URL = '/admin/dashboard/'  # Replace '/admin/dashboard/' with your actual dashboard URL
+LOGIN_REDIRECT_URL = '/admin/dashboard/'  
+# settings.py
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = ''
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+EMAIL_HOST_USER ='wangarraakoth@gmail' 
+EMAIL_HOST_PASSWORD ='lthrajattudtmynx' 
+DEFAULT_FROM_EMAIL = 'wangarraakoth@gmail.com'  
+
+
+

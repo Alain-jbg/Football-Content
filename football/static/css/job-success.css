@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap');
+
+:root {
+    --green: #27ae60;
+    --black: #192a56;
+    --light-color: grey;
+    --white: #F6F2F2;
+    --box-shadow: 0.5rem 1.5rem rgba(0,0,0,.1);
+}
+
+* {
+    font-family: 'Nunito', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    transition: all .2s linear;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 5.5rem;
+    scroll-behavior: smooth;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: hsl(234, 29%, 20%); 
+    margin: 0; 
+    text-align: center;
+}
+
+.success {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    text-align: center;
+    padding: 2%;
+    background-color: var(--white);
+    border-radius: 25px;
+    box-shadow: var(--box-shadow);
+    max-width: 80%;
+    font-size: 2rem;
+}
+
+.success i {
+    color: var(--green);
+    margin-bottom: 20px; 
+}
+
+#email2 {
+    font-weight: 700;
+}
+
+.success p {
+    margin-bottom: 30px;
+}
+
+.btn {
+    margin-top: 1rem;
+    display: inline-block;
+    font-size: 1.7rem;
+    color: #fff;
+    background: var(--black);
+    cursor: pointer;
+    padding: 1rem 3rem;
+    border-radius: 5px;
+    text-transform: capitalize;
+}
+
+.btn:hover {
+    background: var(--green);
+    letter-spacing: .1rem;
+}

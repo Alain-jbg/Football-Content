@@ -1,0 +1,27 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/li__1_-removebg-preview.ico' %}">
+    <title>Message Success</title>
+    <!-- css stylesheet-->
+    <link rel="stylesheet" href="{% static 'css/job-success.css' %}">
+
+    <!-- Font awesome for icons -->
+    <script src="https://kit.fontawesome.com/456d64337e.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container success">
+        <i class="icon fas fa-check-circle fa-4x"></i>
+        <h1>Successful!</h1>
+        <p>You will get a response on the email address <span id="email2">{{ email }}</span>.</p>
+        <a href="{% url 'home' %}" id="success-btn" class="btn" type="button">Dismiss message</a>
+    </div>
+    <!-- Javascript-->
+    <script src="{% static 'js/job-listing/job-success.js' %}"></script>
+</body>
+</html>
