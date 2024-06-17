@@ -29,6 +29,8 @@ MySQL database
  Navigate to your local browser and access ligiopen as shown 
 
  ![Screenshot (158)](https://github.com/JAY4T/ligiopen/assets/79142184/c7c7fbe9-1e41-453c-bf41-6511b9e9b8e1)
+ - These are mock data for testing our application, which we will update later.
+ - When one clicks on a specific club, they can view the players of that club.
  ![Screenshot (186)](https://github.com/JAY4T/ligiopen/assets/79142184/6f37c69b-700a-4dfd-aae1-4b09e8b4a719)
 
 
