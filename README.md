@@ -37,7 +37,7 @@ MySQL database
 
 ![Screenshot (187)](https://github.com/JAY4T/ligiopen/assets/79142184/82c798fa-8a52-40dc-bf26-3c6975c5b18a)
 
-Note: The application is still under development.
+Note: The application is still under development. Bear with us
 
 # Contributing 
 
