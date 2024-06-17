@@ -40,6 +40,10 @@ MySQL database
  - When one clicks on a specific club, they can view the players of that club.
 ![Screenshot (186)](https://github.com/JAY4T/ligiopen/assets/79142184/6f37c69b-700a-4dfd-aae1-4b09e8b4a719)
 
+- View our scheduled matches/games
+![Screenshot (189)](https://github.com/JAY4T/ligiopen/assets/79142184/3a0e5ea4-c756-4fe3-84db-6fa00833ee24)
+
+
 
 Note: The application is still under development. Bear with us
 
