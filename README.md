@@ -32,6 +32,9 @@ MySQL database
  - These are mock data for testing our application, which we will update later.
  - When one clicks on a specific club, they can view the players of that club.
  ![Screenshot (186)](https://github.com/JAY4T/ligiopen/assets/79142184/6f37c69b-700a-4dfd-aae1-4b09e8b4a719)
+- These are some of the clubs we currently have
+![Screenshot (187)](https://github.com/JAY4T/ligiopen/assets/79142184/82c798fa-8a52-40dc-bf26-3c6975c5b18a)
+
 
 
 
