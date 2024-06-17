@@ -27,7 +27,9 @@ MySQL database
  Have xampp installed as your web server
 
  Navigate to your local browser and access ligiopen as shown 
-![Uploading Screenshot (188).png…]()
+ ![Screenshot (188)](https://github.com/JAY4T/ligiopen/assets/79142184/66c5eddc-86c2-4b35-912a-c941714b75de)
+
+
 
 
  - These are mock data for testing our application, which we will update later.
