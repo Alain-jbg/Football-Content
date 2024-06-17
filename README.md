@@ -28,7 +28,7 @@ MySQL database
 
  Navigate to your local browser and access ligiopen as shown 
 
- ![Screenshot (158)](https://github.com/JAY4T/ligiopen/assets/79142184/c7c7fbe9-1e41-453c-bf41-6511b9e9b8e1)
+![Screenshot (158)](https://github.com/JAY4T/ligiopen/assets/79142184/c7c7fbe9-1e41-453c-bf41-6511b9e9b8e1)
  - These are mock data for testing our application, which we will update later.
  - Club captains will register players and, from there will be able to add them to our system
  - View some of our clubs
