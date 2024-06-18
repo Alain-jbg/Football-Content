@@ -1,0 +1,598 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="{% static 'images/li__1_-removebg-preview.ico' %}">
+    <title>Ligi Open </title>
+
+    <!-- Font awesome -->
+    <script src="https://kit.fontawesome.com/456d64337e.js" crossorigin="anonymous"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <!-- Header section -->
+    <header>
+        <img src="{% static 'images/li__1_-removebg-preview.png' %}" alt="logo">
+        <nav class="navbar">
+            <a class="active" href="#home">Home</a>
+            <a href="#fixtures">Fixtures</a>
+            
+
+            <a href="#clubs">Clubs</a>
+            <a href="#highlights">Highlights</a>
+            <a href="#faqs">FAQS</a>
+            <a href="#order">Contact us</a>
+
+
+
+        </nav>
+        <div class="icons">
+            <!-- <a href="pages/login.html">Login</a> -->
+            <i class="fas fa-bars" id="menu-bars"></i>
+        </div>
+    </header>
+
+    <!--Home section-->
+    <section class="home live" id="home">
+        <div class="background-image">
+            <div>
+                <h1 class="heading">Welcome to  LIGI OPEN!</h1>
+                <a href="#about-section" class="btn">Get involved</a>
+            </div>
+        </div>
+
+        <div class="about-section" id="about-section">
+            <h1 class="heading">About Ligi Open</h1>
+            <div class="container">
+                <div class="whole">
+                    <img src="{% static 'images/socer-removebg-preview.png' %}" alt="Soccer" class="soccer-img"/>
+
+                  <div class="text">
+                    <div class="top">
+                      <div class="para">
+                        <p>At Ligi Open, we believe in revolutionizing the way football is funded and supported. Our Open Financing Initiative represents a groundbreaking approach to sustaining and developing the sport we all love, football. With open financing, we're not just asking for financial support; we're inviting you to be an integral part of our journey. This initiative is about more than just money; it's about transparency, community involvement, and the collective passion that drives us forward. Join us in building a brighter future for football in kenya.</p>        
+                    </div>
+                    </div>
+                  </div>
+                </div>  
+            </div>
+        </div>
+
+        <div id="features">
+          <div class="feature-box">
+              <i class="icon fas fa-check-circle fa-4x"></i>
+              <h3>Transparency.</h3>
+              <p>Gain access to our financial operations.</p>
+          </div>
+          <div class="feature-box">
+              <i class="icon fas fa-solid fa-people-group fa-4x"></i>
+              <h3>Community Engagement.</h3>
+              <p>Be part of a thriving football community.</p>
+          </div>
+          <div class="feature-box">
+              <i class="icon fas fa-bullseye fa-4x"></i>
+              <h3>Financial Opportunities.</h3>
+              <p>Unlock a world of financial opportunities.</p>
+          </div>
+        </div>
+
+        <div class="teams">
+          <div class="container">
+              <h2 class="heading">Our Clubs</h2>
+              <div class="row">
+                <div class="col-lg-3" >
+                  <a href="pages/club-staff.html" target="_blank">
+                    
+                  <div class="team-member">
+                    <img src="{% static 'images/logo-1.jpg' %}" alt="Image" class="img-fluid" />
+
+                    <div>
+                      <div class="inner-div">
+                        <h3>Manyatta FC </h3>
+                        <!-- <i class="fa-solid fa-angle-right"></i> -->
+                      </div>
+                    </div>
+                  </div>
+                  </a>
+                </div>
+      
+                <div class="col-lg-3" >
+                  <a href="pages/club-staff.html" target="_blank">
+                    <div class="team-member">
+                      <img src="{% static 'images/logo-1.jpg' %}" alt="Image" class="img-fluid" />
+
+                      <div>
+                        <div class="inner-div">
+                          <h3>Obunga FC</h3>
+                          <!-- <i class="fa-solid fa-angle-right"></i> -->
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+      
+                <div class="col-lg-3" >
+                  <a href="pages/club-staff.html" target="_blank">
+                    <div class="team-member">
+                      <img src="{% static 'images/logo-1.jpg' %}" alt="Image" class="img-fluid" />
+
+                      <div>
+                        <div class="inner-div">
+                          <h3>Nyawita FC</h3>
+                          <!-- <i class="fa-solid fa-angle-right"></i> -->
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="col-lg-3" >
+                  <a href="pages/club-staff.html" target="_blank">
+                    <div class="team-member">
+                      <img src="{% static 'images/logo-1.jpg' %}" alt="Image" class="img-fluid" />
+
+                      <div>
+                        <div class="inner-div">
+                          <h3>ShuriMoyo FC</h3>
+                          <!-- <i class="fa-solid fa-angle-right"></i> -->
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+      </div>
+  </section>
+       
+        
+    <!--Financing section-->
+    <section class="financing" id="financing">
+        <div class="container">
+            <!-- <h1 class="heading-2">Not available come back later.</h1> -->
+        </div>
+    </section> 
+ <!--Fixtures section-->
+ <section class="fixtures" id="fixtures">
+  <h2 class="heading">Ligi Open Fixtures & Results</h2>
+  <nav class="navbar2">
+      <a class="active" href="#fixtures" id="fixtures">Fixtures</a>
+      <a href="#results-section" id="results-link">Results</a>
+
+  </nav>
+  <div class="fixtures" id="fixtures">
+      <div class="container">
+          {% for fixture in fixtures %}
+          <!-- Fixture -->
+          <div class="fixture">
+              <div class="date">
+                  <p class="date-fix">Date: {{ fixture.date }}</p>
+                  <p class="venue">Venue: {{ fixture.venue }}</p>
+                  <p class="comp">Competition: {{ fixture.competition }}</p>
+              </div>
+              <div class="inner-team">
+                  <div class="team">
+                      <img src="{{ fixture.team_a_logo.url }}" alt="{{ fixture.team_a_name }} Logo">
+                      <span class="team-name">{{ fixture.team_a_name }}</span>
+                  </div>
+                  <div class="vs">{{ fixture.time }}</div>
+                  <div class="team">
+                      <img src="{{ fixture.team_b_logo.url }}" alt="{{ fixture.team_b_name }} Logo">
+                      <span class="team-name">{{ fixture.team_b_name }}</span>
+                  </div>
+              </div>
+          </div>
+          {% endfor %}
+      </div>
+  </div>
+             
+
+  <!-- Results Section -->
+  <div class="results-section" id="results-section">
+      <div class="container">
+          {% for fixture in fixtures %}
+          <!-- Fixture -->
+          <div class="fixture">
+              <div class="date">
+                  <p class="date-fix">Date: {{ fixture.date }}</p>
+                  <p class="comp">Competition: {{ fixture.competition }}</p>
+              </div>
+              <div class="inner-team">
+                  <div class="team">
+                      <img src="{{ fixture.team_a_logo.url }}" alt="{{ fixture.team_a_name }} Logo">
+                      <span class="team-name">{{ fixture.team_a_name }}</span>
+                  </div>
+                  <div class="demo">
+                      <div class="vs">Score not available</div>
+                      <p class="venue">Venue: {{ fixture.venue }}</p>
+                  </div>
+                  <div class="team">
+                      <img src="{{ fixture.team_b_logo.url }}" alt="{{ fixture.team_b_name }} Logo">
+                      <span class="team-name">{{ fixture.team_b_name }}</span>
+                  </div>
+              </div>
+          </div>
+          {% endfor %}
+      </div>
+  </div>
+</section>
+
+<section class="clubs" id="clubs" style="padding: 40px 0; background-color: #f9f9f9;">
+  <div class="teams">
+    <div class="container">
+      <h2 class="heading text-center mb-4" style="font-size: 2.5rem; font-weight: bold; color:#53AF61;">Our Clubs</h2>
+      <p class="text-center mb-5" style="font-size: 20px; color: #777;">
+        Discover our diverse range of football clubs. Click on any club to learn more about their history, players, and achievements.
+      </p>
+      <br>
+      <br>
+      <div class="row">
+        {% for club in clubs %}
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+          <a href="{% url 'club_detail' club.id %}">
+            <div class="team-member" style="border: 1px solid #ddd; border-radius: 8px; padding: 20px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); transition: transform 0.3s;">
+              <img src="{{ club.photo.url }}" alt="{{ club.name }} Logo" class="img-fluid" style="width: 100%; height: auto; border-radius: 8px;" />
+              <div>
+                <div class="inner-div" style="text-align: center; margin-top: 10px;">
+                  <h3 style="font-size: 1.5rem; color: #333;">{{ club.name }}</h3>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+    <!-- Highlights section content -->
+    <section class="highlights" id="highlights">
+      <h2 class="heading">Gameweek highlights</h2>
+      <div class="container">
+        <!-- Example article -->
+        <div class="news-card">
+          <div class="news-image-container">
+            <img src="{% static 'images/newspaper.jpg' %}" alt="news-image" />
+
+          </div>
+          <div class="news-content">
+            <div class="news-title">Headline</div>
+            <div class="news-description">Description goes here.</div>
+            <a href="#" target="_blank" class="btn">Read More</a>
+          </div>
+        </div>
+
+        <div class="news-card">
+          <div class="news-image-container">
+            <img src="{% static 'images/newspaper.jpg' %}" alt="news-image" />
+
+          </div>
+          <div class="news-content">
+            <div class="news-title">Headline</div>
+            <div class="news-description">Description goes here.</div>
+            <a href="#" target="_blank" class="btn">Read More</a>
+          </div>
+        </div>
+
+        <div class="news-card">
+          <div class="news-image-container">
+            <img src="{% static 'images/newspaper.jpg' %}" alt="news-image" />
+
+          </div>
+          <div class="news-content">
+            <div class="news-title">Headline</div>
+            <div class="news-description">Description goes here.</div>
+            <a href="#" target="_blank" class="btn">Read More</a>
+          </div>
+        </div>
+
+        <div class="news-card">
+          <div class="news-image-container">
+            <img src="{% static 'images/newspaper.jpg' %}" alt="news-image" />
+
+          </div>
+          <div class="news-content">
+            <div class="news-title">Headline</div>
+            <div class="news-description">Description goes here.</div>
+            <a href="#" target="_blank" class="btn">Read More</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <br>
+    <br>
+  </br>
+  <br>
+
+    <style>
+      
+    
+      
+
+    
+      .faqs {
+        
+        max-width: 800px;
+        margin: 20px auto; 
+        padding: 20px;
+    }
+      
+    
+     
+    
+      .accordion {
+          width: 100%;
+          padding: 10px 20px;
+          font-size: 18px;
+          font-weight: bold;
+          text-align: left;
+          cursor: pointer;
+          outline: none;
+          border: none;
+          background-color: #4CAF50;
+          color: white;
+          border-radius: 5px;
+          transition: background-color 0.3s ease;
+      }
+    
+      .accordion:hover {
+          background-color: #45a049;
+      }
+    
+      .panel {
+          padding: 0 18px;
+          background-color: white;
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.2s ease-out;
+          margin-top: 5px;
+          border-radius: 5px;
+      }
+    
+      .panel.show {
+          padding: 20px;
+          max-height: 200px;
+      }
+    
+      .panel p {
+          margin: 0;
+          font-size: 16px;
+          line-height: 1.6;
+      }
+    </style>
+    
+      
+    
+      <section class="faqs">
+        <h2 class="heading">Frequently Asked Questions</h2>
+        <p style="font-size: 18px; color: #666; text-align: center;">Find answers to some of the most common questions about LigiOpen and our initiatives.</p>
+<br>
+<br>
+          <div class="faq">
+              <button class="accordion">
+                  What is LigiOpen?
+                  <i class="fa-solid fa-chevron-down"></i>
+              </button>
+              <div class="panel">
+                  <p>
+                      At LigiOpen we believe in revolutionizing the way football is funded and supported. 
+                      Our Open Financing Initiative represents a groundbreaking approach to sustaining and developing the sport we all love, football.
+                  </p>
+              </div>
+          </div>
+    
+          <!-- Section 2 -->
+          <div class="faq">
+              <button class="accordion">
+                  How can one be a member of Ligi Open?
+                  <i class="fa-solid fa-chevron-down"></i>
+              </button>
+              <div class="panel">
+                  <p>
+                      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facilis
+                      saepe molestiae distinctio asperiores cupiditate consequuntur dolor
+                      ullam, iure eligendi harum eaque hic corporis debitis porro
+                      consectetur voluptate rem officiis architecto.
+                  </p>
+              </div>
+          </div> 
+    
+          <!-- Section 3 -->
+          <div class="faq">
+              <button class="accordion">
+                  What are the benefits of joining Ligi Open?
+                  <i class="fa-solid fa-chevron-down"></i>
+              </button>
+              <div class="panel">
+                  <p>
+                      Joining Ligi Open offers numerous benefits, including access to exclusive content, participation in events, and more.
+                  </p>
+              </div>
+          </div> 
+    
+          <!-- Section 4 -->
+          <div class="faq">
+              <button class="accordion">
+                  How can I support Ligi Open?
+                  <i class="fa-solid fa-chevron-down"></i>
+              </button>
+              <div class="panel">
+                  <p>
+                      You can support Ligi Open by becoming a member, volunteering, donating, or spreading the word about our initiatives.
+                  </p>
+              </div>
+          </div> 
+    
+          <!-- Section 5 -->
+          <div class="faq">
+              <button class="accordion">
+                  What events does Ligi Open organize?
+                  <i class="fa-solid fa-chevron-down"></i>
+              </button>
+              <div class="panel">
+                  <p>
+                      Ligi Open organizes various events including football matches, fundraising events, and community outreach programs.
+                  </p>
+              </div>
+          </div>
+    
+          <!-- Section 6 -->
+          <div class="faq">
+              <button class="accordion">
+                  How can I volunteer with Ligi Open?
+                  <i class="fa-solid fa-chevron-down"></i>
+              </button>
+              <div class="panel">
+                  <p>
+                      Volunteering with Ligi Open is a great way to support our mission. You can sign up on our website to find opportunities that match your skills and interests.
+                  </p>
+              </div>
+          </div> 
+    
+          <!-- Section 7 -->
+          <div class="faq">
+              <button class="accordion">
+                  Can I donate to Ligi Open?
+                  <i class="fa-solid fa-chevron-down"></i>
+              </button>
+              <div class="panel">
+                  <p>
+                      Yes, donations are greatly appreciated and help us continue our work. You can donate online through our secure portal.
+                  </p>
+              </div>
+          </div> 
+    
+          <!-- Section 8 -->
+          <div class="faq">
+              <button class="accordion">
+                  What types of projects does Ligi Open fund?
+                  <i class="fa-solid fa-chevron-down"></i>
+              </button>
+              <div class="panel">
+                  <p>
+                      Ligi Open funds a variety of projects, including youth football programs, infrastructure improvements, and community engagement initiatives.
+                  </p>
+              </div>
+          </div> 
+    
+          <!-- Section 9 -->
+          <div class="faq">
+              <button class="accordion">
+                  How can I apply for funding from Ligi Open?
+                  <i class="fa-solid fa-chevron-down"></i>
+              </button>
+              <div class="panel">
+                  <p>
+                      To apply for funding, you can submit a proposal through our website. Make sure to include detailed information about your project and its impact.
+                  </p>
+              </div>
+          </div> 
+    
+          <!-- Section 10 -->
+          <div class="faq">
+              <button class="accordion">
+                  Does Ligi Open offer internships?
+                  <i class="fa-solid fa-chevron-down"></i>
+              </button>
+              <div class="panel">
+                  <p>
+                    No, we don't offer internships but will consider that in the near future
+                  </p>
+              </div>
+          </div>
+      </section>
+    </div>
+    
+    <script>
+      // JavaScript to toggle panel visibility
+      const accordions = document.querySelectorAll('.accordion');
+    
+      accordions.forEach(accordion => {
+          accordion.addEventListener('click', () => {
+              const panel = accordion.nextElementSibling;
+              panel.classList.toggle('show');
+              if (panel.style.maxHeight) {
+                  panel.style.maxHeight = null;
+              } else {
+                  panel.style.maxHeight = panel.scrollHeight + "px";
+              }
+          });
+      });
+    </script>
+<section class="order" id="order">
+<h2 style="font-size: 36px; color:#25D366;">Contact Us</h2>
+<p style="margin-top: 20px; font-size: 18px;  font-style: italic;">If you have comments, concerns, questions, or other feedback you would like to give us,</p>
+<p style="font-size: 18px;  font-style: italic;">feel free to contact us through any of the methods listed below.</p>
+
+
+<br>
+<br>
+     <div class="form-wrapper"> 
+      <h3 style="text-align: center; font-size: 20px;">Need Help? Get In Touch</h3>
+      <br>
+       <form action="{% url 'contact_us' %}" method="post" id="submit-form">
+        {% csrf_token %}
+        <div class="inputBox">
+          <div class="input">
+            <span> Full Name <span id="name-invalid" class="invalid-message">Name is required</span></span>
+            <input type="text" placeholder="Enter your name" name="name" id="name-textbox" style="width: 100%; padding: 10px;">
+          </div>
+        </div>
+        <div class="inputBox">
+          <div class="input">
+            <span>Email address <span id="email-invalid" class="invalid-message">Valid email required</span></span>
+            <input type="text" id="email-textbox" placeholder="Enter email address" name="email" style="width: 100%; padding: 10px;">
+          </div>
+        </div>
+        <div class="inputBox">
+          <div class="input">
+            <span>Subject <span id="issue-invalid" class="invalid-message">Issue description is required</span></span>
+            <textarea name="issue" placeholder="Enter your message" id="issue-textarea" cols="30" rows="10" style="width: 100%; padding: 10px;"></textarea>
+          </div>
+        </div>
+        <input type="submit" value="submit" class="btn" style="width: 100%; padding: 10px; font-size: 16px;">
+      </form>
+      
+    </div>
+
+      </section>
+ <!--Footer section-->
+    <div class="footer">
+        <div class="box-container">
+            <div class="box bottom-nav">
+                <h3>Quick Links</h3>
+                <a href="#home">Home</a>
+                <a href="#financing">Financing</a>
+                <a href="#fixtures">Fixtures</a>
+                <a href="#highlights">Highlights</a>
+                <a href="#faqs">FAQS</a>
+
+                <a href="#order">Contact us</a>
+            </div>
+
+            <div class="box">
+                <h3>Contact Info</h3>
+                <a href="mailto:info@jay4t.org">info@jay4t.org</a>
+                <a href="#">Kisumu, Kenya</a>
+            </div>
+
+            <div class="box">
+                <h3>Follow us</h3>
+                <a href="https://twitter.com/Jabulani_Youths" target="_blank">Twitter</a>
+            </div>
+        </div>
+
+        <div class="credit">copyright &copy; 2024 by <span>Jabulani Youths For Transformation</span></div>
+    </div>
+    <script src="{% static 'js/index.js' %}"></script>
+
+</body>
+</html>
