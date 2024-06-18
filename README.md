@@ -34,6 +34,8 @@ MySQL database
 
  - These are mock data for testing our application, which we will update later.
  - Club captains will register players and, from there will be able to add them to our system
+- When one clicks on a specific club, they can view the players of that club.
+
  - View some of our clubs
 ![Screenshot (187)](https://github.com/JAY4T/ligiopen/assets/79142184/82c798fa-8a52-40dc-bf26-3c6975c5b18a)
 
