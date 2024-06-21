@@ -3,6 +3,8 @@ from . import views
 from .views import player_stats_view
 # from .views import fixtures_view 
 from .views import contact_us_view, success_view
+from .views import fixtures_and_results
+
 
 
 
@@ -22,6 +24,9 @@ urlpatterns = [
     path('contact/success', views.success_view, name='success'),
     path('club', views.club_list_view, name='club_list'),
     path('club/<int:club_id>', views.club_detail_view, name='club_detail'),
+    path('fixtures-results/', fixtures_and_results, name='fixtures_results'),
+
+    
 ]
 
 

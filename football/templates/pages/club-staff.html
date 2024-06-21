@@ -48,6 +48,7 @@
       <h2 class="heading text-center mb-4" style="font-size: 20px; font-weight: bold; color:#53AF61;">{{ club.name }}</h2>
       <!-- Players Profile Section -->
       <h3 class="sub-heading">Players Profile</h3>
+
       <br>
       <br>
       <table class="table table-striped">
@@ -69,6 +70,7 @@
             <td>{{ player.date_of_birth }}</td>
             <td>{{ player.nationality }}</td>
             <td>{{ player.club.name }}</td>
+            
             <td><img src="{{ player.club.photo.url }}" alt="{{ player.club.name }} Photo" class="img-fluid" style="width: 50px; height: auto;" /></td>
           </tr>
           {% endfor %}
@@ -96,45 +98,44 @@
   </div>
 </section>
 <!-- Matches section content -->
-   <section class="matches" id="matches">
-    <h2 class="heading">Fixtures & Results</h2>
-    <nav class="navbar2">
-        <a class="active" href="#fixtures-section" id="fixtures-link">Fixtures</a></li>
-        <a href="#results-section" id="results-link">Results</a></li>
-    </nav>
-    <div id="fixtures-section" class="content-section">
-      <div id="fixtures-container" class="fixtures-container">
-        <!-- Fixtures for Team 1 -->
-        <div class="team-fixtures" id="team1-fixtures">
-            <div class="fixture-dropdown">
-                <select id="competition-select">
-                    <option value="all">All competitions</option>
-                    <option value="ligi-open">Ligi Open</option>
-                    <option value="competition-2">Competition 2</option>
-                </select>
-            </div>
-            <div class="fixture" data-competition="ligi-open">
-                <div class="fixture-date">SUN 05 MAY 2025, 10:30am</div>
-                <div class="fixture-opponent">Team A</div>
-                <div class="fixture-venue">Stadium A</div>
-            </div>
-            <div class="fixture" data-competition="ligi-open">
-                <div class="fixture-date">WED 08 MAY 2025, 12:30pm</div>
-                <div class="fixture-opponent">Team B</div>
-                <div class="fixture-venue">Stadium B</div>
-            </div>
-            <div class="fixture" data-competition="competition-2">
-                <div class="fixture-date">SUN 10 MAY 2025, 3:30pm</div>
-                <div class="fixture-opponent">Team C</div>
-                <div class="fixture-venue">Stadium C</div>
-            </div>
-        </div> 
-      </div>
-    
+<section class="matches" id="matches">
+  <h2 class="heading">Fixtures & Results</h2>
+  <nav class="navbar2">
+      <a class="active" href="#fixtures-section" id="fixtures-link">Fixtures</a></li>
+      <a href="#results-section" id="results-link">Results</a></li>
+  </nav>
+  <div id="fixtures-section" class="content-section">
+    <div id="fixtures-container" class="fixtures-container">
+      <!-- Fixtures for Team 1 -->
+      <div class="team-fixtures" id="team1-fixtures">
+          <div class="fixture-dropdown">
+              <select id="competition-select">
+                  <option value="all">All competitions</option>
+                  <option value="ligi-open">Ligi Open</option>
+                  <option value="competition-2">Competition 2</option>
+              </select>
+          </div>
+          <div class="fixture" data-competition="ligi-open">
+              <div class="fixture-date">SUN 05 MAY 2025, 10:30am</div>
+              <div class="fixture-opponent">Team X</div>
+              <div class="fixture-venue">Stadium A</div>
+          </div>
+          <div class="fixture" data-competition="ligi-open">
+              <div class="fixture-date">WED 08 MAY 2025, 12:30pm</div>
+              <div class="fixture-opponent">Team Y</div>
+              <div class="fixture-venue">Stadium B</div>
+          </div>
+          <div class="fixture" data-competition="competition-2">
+              <div class="fixture-date">SUN 10 MAY 2025, 3:30pm</div>
+              <div class="fixture-opponent">Team Z</div>
+              <div class="fixture-venue">Stadium C</div>
+          </div>
+      </div> 
     </div>
   
-
-<div class="results-section" id="results-section">
+  </div>
+  
+  <div class="results-section" id="results-section">
     <div class="container">          
       <!-- Fixture 1 -->
       <div class="fixture">
@@ -144,8 +145,7 @@
         </div>
         <div class="inner-team">
           <div class="team">
-            <img src="{% static 'images/logo-1.jpg' %}" alt="Team A Logo">
-
+            <img src="../images/logo-1.jpg" alt="Team A Logo">
             <span class="team-name">Team A</span>
           </div>
           <div class="demo">
@@ -153,8 +153,7 @@
             <p class="venue">Venue</p>
           </div>
           <div class="team">
-            <img src="{% static 'images/logo-1.jpg' %}" alt="Team B Logo">
-
+            <img src="../images/logo-1.jpg" alt="Team B Logo">
             <span class="team-name">Team B</span>
           </div>
         </div>
@@ -181,8 +180,7 @@
         </div>
         <div class="inner-team">
           <div class="team">
-            <img src="{% static 'images/logo-1.jpg' %}" alt="Team A Logo">
-
+            <img src="../images/logo-1.jpg" alt="Team A Logo">
             <span class="team-name">Team A</span>
           </div>
           <div class="demo">
@@ -190,9 +188,7 @@
             <p class="venue">Venue</p>
           </div>
           <div class="team">
-            <img src="{% static 'images/logo-1.jpg' %}" alt="Team B Logo">
-
-            
+            <img src="../images/logo-1.jpg" alt="Team B Logo">
             <span class="team-name">Team c</span>
           </div>
         </div>
@@ -207,6 +203,10 @@
     </div>
   </div>
 </section>
+
+
+      
+  
 <div class="teams">
 
   <!-- stats -->
