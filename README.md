@@ -26,8 +26,6 @@ MySQL database
 
  Have xampp installed as your web server
 
-Note: The application is still under development. Bear with us
-
 # Contributing 
 
 # Support
