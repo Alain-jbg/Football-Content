@@ -9,6 +9,8 @@ class Club(models.Model):
     stadium = models.CharField(max_length=100, default='Default Stadium')
     photo = models.ImageField(upload_to='club_photos/', default='default.jpg')
     coach_name = models.CharField(max_length=100, blank=True, null=True)
+    coach_photo = models.ImageField(upload_to='coach_photos/', default='coach_photos/default.jpg')
+
     
     def __str__(self):
         return self.name

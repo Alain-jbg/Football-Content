@@ -119,3 +119,4 @@ jobSearchInput.addEventListener("input", (e) => {
     // Redirect to job details page with job title as a parameter
     window.location.href = `job-listing/club1-job.html?job=${encodeURIComponent(jobTitle)}`;
 } */
+
