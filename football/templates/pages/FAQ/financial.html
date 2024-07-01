@@ -1,0 +1,83 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/li__1_-removebg-preview.ico' %}">
+    <title>Financial Transactions FAQ</title>
+    <link rel="stylesheet" href="{% static 'css/faq-sections.css' %}">
+</head>
+<body>
+    <header>
+        <a href="{% url 'home' %}">
+            <img src="{% static 'images/li__1_-removebg-preview.png' %}" alt="logo">
+        </a>
+    </header>
+    <section>
+        <h2 class="title">Financial Transactions FAQ</h2>
+
+        <div class="faq">
+            <div class="question">
+                <h3>How do I make a donation on the website?</h3>
+
+                <svg width="15" height="10" viewBox="0 0 42 25">
+                    <path d="M3 3L21 21L39 3" stroke="white" stroke-width="7" stroke-linecap="round" />
+                </svg>
+            </div>
+            <div class="answer">
+                <div class="p2">
+                    <p>Follow the following steps:</p>
+                    <ul>
+                        <li>Head back to the home page by clicking on the logo at the top.</li>
+                        <li>Click the "Finance" tab.</li>
+                        <li>Click the "Contribute Now" button.</li>
+                        <li>Select your payment method and proceed with the provided instructions.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="question">
+                <h3>Is my payment information secure?</h3>
+
+                <svg width="15" height="10" viewBox="0 0 42 25">
+                    <path d="M3 3L21 21L39 3" stroke="white" stroke-width="7" stroke-linecap="round" />
+                </svg>
+            </div>
+            <div class="answer">
+                <p>Yes, we use industry-standard encryption to protect your payment information. Our website is SSL certified, ensuring all transactions are secure.</p>
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="question">
+                <h3>What payment methods do you accept?</h3>
+
+                <svg width="15" height="10" viewBox="0 0 42 25">
+                    <path d="M3 3L21 21L39 3" stroke="white" stroke-width="7" stroke-linecap="round" />
+                </svg>
+            </div>
+            <div class="answer">
+                <p>We accept M-Pesa, credit/debit cards, checks, PayPal, Apple Pay, bank wire transfers, stock transfers, and private equity shares.</p>
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="question">
+                <h3>What are crowdfunding campaigns?</h3>
+
+                <svg width="15" height="10" viewBox="0 0 42 25">
+                    <path d="M3 3L21 21L39 3" stroke="white" stroke-width="7" stroke-linecap="round" />
+                </svg>
+            </div>
+            <div class="answer">
+                <p>These are campaigns where fans can directly contribute financially to specific projects or initiatives within the league. The platform provides tools for transparent fundraising, allowing donors to track how their contributions are being used.</p>
+            </div>
+        </div>
+    </section>
+    <script src="{% static 'js/website.js' %}"></script>
+</body>
+</html>

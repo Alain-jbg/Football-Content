@@ -93,7 +93,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'ligiopen',  
         'USER': 'root',  
-        'PASSWORD': '',  
+        'PASSWORD': '@Kukurella17',  
         'HOST': 'localhost',  
         'PORT': '3306',  
         

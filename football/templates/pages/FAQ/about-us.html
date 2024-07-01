@@ -1,0 +1,68 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/li__1_-removebg-preview.ico' %}">
+    <title>About Ligi Open FAQ</title>
+    <link rel="stylesheet" href="{% static 'css/faq-sections.css' %}" />
+</head>
+<body>
+    <header>
+        <a href="{% url 'home' %}">
+            <img src="{% static 'images/li__1_-removebg-preview.png' %}" alt="logo">
+        </a>
+    </header>
+    <section>
+        <h2 class="title">About Us FAQ</h2>
+
+        <div class="faq">
+            <div class="question">
+                <h3>What is Ligi Open?</h3>
+                <svg width="15" height="10" viewBox="0 0 42 25">
+                    <path d="M3 3L21 21L39 3" stroke="white" stroke-width="7" stroke-linecap="round" />
+                </svg>
+            </div>
+            <div class="answer">
+                <p>Ligi Open is a platform dedicated to providing funding and support to local grassroots football clubs in Kenya. Our aim is to develop and sustain football in Kenya through Open Financing which helps in ensuring financial support, transparency, and community involvement.</p>
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="question">
+                <h3>How can I contact Ligi Open?</h3>
+                <svg width="15" height="10" viewBox="0 0 42 25">
+                    <path d="M3 3L21 21L39 3" stroke="white" stroke-width="7" stroke-linecap="round" />
+                </svg>
+            </div>
+            <div class="answer">
+                <div class="p2">
+                    <p>Follow the following steps:</p>
+                    <ul>
+                        <li>Head back to the home page by clicking on the logo at the top.</li>
+                        <li>Click the "Contact Us" tab.</li>
+                        <li>Fill in the needed details with your message and click "Submit".</li>
+                        <li>Wait for a reply, we will reach back to you.</li>
+                    </ul>
+                    <p>Alternatively, you can email us at <a href="{% url 'contact_us' %}" target="_blank">support@ligiopen.com</a>.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="question">
+                <h3>Where is Ligi Open located?</h3>
+                <svg width="15" height="10" viewBox="0 0 42 25">
+                    <path d="M3 3L21 21L39 3" stroke="white" stroke-width="7" stroke-linecap="round" />
+                </svg>
+            </div>
+            <div class="answer">
+                <p>Currently we do not have a physical address but we will notify you once we set up one.</p>
+            </div>
+        </div>
+    </section>
+    <script src="{% static 'js/website.js' %}"></script>
+</body>
+</html>
