@@ -1,0 +1,68 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/li__1_-removebg-preview.ico' %}">
+    <title>Clubs FAQ</title>
+    <link rel="stylesheet" href="{% static 'css/faq-sections.css' %}">
+</head>
+<body>
+    <header>
+        <a href="{% url 'home' %}">
+            <img src="{% static 'images/li__1_-removebg-preview.png' %}" alt="logo">
+        </a>
+    </header>
+    <section>
+        <h2 class="title">Clubs FAQ</h2>
+
+        <div class="faq">
+            <div class="question">
+                <h3>How do I join a club?</h3>
+
+                <svg width="15" height="10" viewBox="0 0 42 25">
+                    <path d="M3 3L21 21L39 3" stroke="white" stroke-width="7" stroke-linecap="round" />
+                </svg>
+            </div>
+            <div class="answer">
+                <div class="p2">
+                    <p>Follow the following steps:</p>
+                    <ul>
+                        <li>Head back to the home page by clicking on the logo at the top.</li>
+                        <li>At the home section scroll down just above the footer, you will see our listed clubs.</li>
+                        <li>Clicked on the specific club you would wish to join.</li>
+                        <li>Scroll at the bottom of the club page to the footer.</li>
+                        <li>Under "More Info" click "Contact us" and fill in the form and submit.</li>
+                    </ul>
+                    <p>Wait for a response from the team.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="question">
+                <h3>Can I create my own club?</h3>
+
+                <svg width="15" height="10" viewBox="0 0 42 25">
+                    <path d="M3 3L21 21L39 3" stroke="white" stroke-width="7" stroke-linecap="round" />
+                </svg>
+            </div>
+            <div class="answer">
+                <div class="p2">
+                    <p>Yes, you can create your own club and register interest to take part in Ligi Open. After creating your club:</p>
+                    <ul>
+                        <li>Head back to the home page by clicking on the logo at the top.</li>
+                        <li>Scroll to the bottom of the page on the footer.</li>
+                        <li>Under "More" click "Register Club".</li>
+                        <li>Fill in the club details and submit.</li>
+                    </ul>
+                    <p>You can additionally <a href="#" target="_blank">Click here</a> to register your club's interest.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="{% static 'js/website.js' %}"></script>
+</body>
+</html>

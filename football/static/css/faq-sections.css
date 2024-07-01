@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap');
+
+:root {
+    --green: #27ae60;
+    --black: #192a56;
+    --light-color: grey;
+    --white: #F6F2F2;
+    --box-shadow: 0.5rem 1.5rem rgba(0,0,0,.1)
+}
+
+* {
+    font-family: 'Nunito', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    transition: all .2s linear;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 5.5rem;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #eee;
+}
+
+header {
+    padding: 1rem 7%;
+    background-color: white;
+    color: var(--black);
+    width: 100%;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+header img {
+    width: 70px;
+    height: 70px;
+}
+
+section {
+    height: fit-content;
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    color: var(--black);
+    font-size: 3rem;
+    margin: 2rem 0rem;
+}
+
+.faq {
+    width: 700px;
+    margin-top: 1rem;
+    padding: 2rem;
+    border-radius: 5px;
+    background-color: white;
+    cursor: pointer;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.question h3 {
+    font-size: 2rem;
+    color: black;
+}
+
+.answer {
+    color: var(--green);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .2s ease;
+}
+
+.answer p {
+    padding-top: 1rem;
+    line-height: 1.6;
+    font-size: 1.8rem;
+}
+
+.answer .p2 {
+    padding-top: 1rem;
+}
+
+.answer .p2 p {
+    margin-bottom: 1rem;
+}
+
+.answer .p2 ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    font-size: 1.8rem;
+}
+
+.answer a {
+    font-size: 1.7rem;
+}
+
+.answer a:hover {
+    text-decoration: underline;
+}
+
+.faq.active .answer {
+    max-height: 300px;
+    animation: fade 1s ease-in-out
+}
+
+.faq.active svg {
+    transform: rotate(180deg);
+}
+
+svg {
+    transition: transform 0.2s ease-in;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

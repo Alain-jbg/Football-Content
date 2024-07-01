@@ -110,3 +110,28 @@ def fixtures_and_results(request):
         'fixtures': fixtures,
         'results': results
     })
+
+#FAQ Section views
+def faq_page(request):
+    return render(request, 'pages/FAQ/faq.html')
+
+def website_page(request):
+    return render(request, 'pages/FAQ/website.html')
+
+def about_us_page(request):
+    return render(request, 'pages/FAQ/about-us.html')
+
+def financial_page(request):
+    return render(request, 'pages/FAQ/financial.html')
+
+def tickets_page(request):
+    return render(request, 'pages/FAQ/tickets.html')
+
+def support_page(request):
+    return render(request, 'pages/FAQ/support.html')
+
+def data_privacy_page(request):
+    return render(request, 'pages/FAQ/data-privacy.html')
+
+def clubs_page(request):
+    return render(request, 'pages/FAQ/clubs.html')
