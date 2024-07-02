@@ -1,0 +1,137 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/li__1_-removebg-preview.ico' %}">
+    <title>Website FAQ</title>
+    <link rel="stylesheet" href="{% static 'css/faq-sections.css' %}">
+</head>
+<body>
+    <header>
+        <a href="{% url 'home' %}">
+            <img src="{% static 'images/li__1_-removebg-preview.png' %}" alt="logo">
+        </a>
+    </header>
+    <section>
+        <h2 class="title">Our Website FAQ</h2>
+
+        <div class="faq">
+            <div class="question">
+                <h3>Can I watch matches live?</h3>
+                <svg width="15" height="10" viewBox="0 0 42 25">
+                    <path d="M3 3L21 21L39 3" stroke="white" stroke-width="7" stroke-linecap="round" />
+                </svg>
+            </div>
+            <div class="answer">
+                <p>Unfortunately, we are unable to stream live video coverage of our team's matches. However, we do provide extended matchday highlights and full match summary stats of each game (uploaded as 2 separate halves).</p>
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="question">
+                <h3>How can I register my interest to join as a sponsor?</h3>
+                <svg width="15" height="10" viewBox="0 0 42 25">
+                    <path d="M3 3L21 21L39 3" stroke="white" stroke-width="7" stroke-linecap="round" />
+                </svg>
+            </div>
+            <div class="answer">
+                <div class="p2">
+                    <p>Follow these steps:</p>
+                    <ul>
+                        <li>Head back to the home page by clicking on the logo at the top.</li>
+                        <li>Click the "Finance" tab.</li>
+                        <li>Scroll to the bottom of the page and you will see a description on sponsorship.</li>
+                        <li>Click the "Click Here" button.</li>
+                        <li>Try temporarily disabling any firewall software you have installed.</li>
+                        <li>Try a different browser.</li>
+                        <li>Clear the browser cache and reload the page.</li>
+                    </ul>
+                    <p>You can additionally <a href="{% url 'financial_page' %}" target="_blank">Click here</a> to let us know of your interest.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="question">
+                <h3>How can I register my club's interest to join Ligi Open?</h3>
+                <svg width="15" height="10" viewBox="0 0 42 25">
+                    <path d="M3 3L21 21L39 3" stroke="white" stroke-width="7" stroke-linecap="round" />
+                </svg>
+            </div>
+            <div class="answer">
+                <div class="p2">
+                    <p>Follow these steps:</p>
+                    <ul>
+                        <li>Head back to the home page by clicking on the logo at the top.</li>
+                        <li>Scroll to the bottom of the page on the footer.</li>
+                        <li>Under "More" click "Register Club".</li>
+                        <li>Fill in the club details and submit.</li>
+                    </ul>
+                    <p>You can additionally <a href="" target="_blank">Click here</a> to register your club's interest.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="question">
+                <h3>Why can't I view any images?</h3>
+                <svg width="15" height="10" viewBox="0 0 42 25">
+                    <path d="M3 3L21 21L39 3" stroke="white" stroke-width="7" stroke-linecap="round" />
+                </svg>
+            </div>
+            <div class="answer">
+                <div class="p2">
+                    <p>Before contacting us, try the following:</p>
+                    <ul>
+                        <li>Refresh the website.</li>
+                        <li>Try loading the page on a different network or check for internet connectivity issues.</li>
+                        <li>If you have AdBlock, don't run it on our website.</li>
+                        <li>Try an incognito/private window.</li>
+                        <li>Try temporarily disabling any firewall software you have installed.</li>
+                        <li>Try a different browser.</li>
+                        <li>Clear the browser cache and reload the page.</li>
+                    </ul>
+                    <p>If you still can't see images, let us know.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="question">
+                <h3>Why is the website loading slowly?</h3>
+                <svg width="15" height="10" viewBox="0 0 42 25">
+                    <path d="M3 3L21 21L39 3" stroke="white" stroke-width="7" stroke-linecap="round" />
+                </svg>
+            </div>
+            <div class="answer">
+                <div class="p2">
+                    <p>Before contacting us, try the following:</p>
+                    <ul>
+                        <li>Check your internet connection speed.</li>
+                        <li>Clear your browser cache and cookies.</li>
+                        <li>Try accessing the website during off-peak hours.</li>
+                    </ul>
+                    <p>If you still find the website loading slowly, let us know.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="question">
+                <h3>Is Ligi Open open source?</h3>
+                <svg width="15" height="10" viewBox="0 0 42 25">
+                    <path d="M3 3L21 21L39 3" stroke="white" stroke-width="7" stroke-linecap="round" />
+                </svg>
+            </div>
+            <div class="answer">
+                <p>Yes. We encourage contributions from the open-source community by providing clear guidelines for contributing to the project. Check out our GitHub repo down below:</p>
+                <a href="https://github.com/JAY4T/ligiOpen" target="_blank">https://github.com/JAY4T/ligiOpen</a>
+            </div>
+        </div>
+    </section>
+    <script src="{% static 'js/website.js' %}"></script>
+</body>
+</html>

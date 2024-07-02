@@ -1,0 +1,64 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/li__1_-removebg-preview.ico' %}">
+    <title>Support & Troubleshooting FAQ</title>
+    <link rel="stylesheet" href="{% static 'css/faq-sections.css' %}">
+</head>
+<body>
+    <header>
+        <a href="{% url 'home' %}">
+            <img src="{% static 'images/li__1_-removebg-preview.png' %}" alt="logo">
+        </a>
+    </header>
+    <section>
+        <h2 class="title">Support & Troubleshooting FAQ</h2>
+
+        <div class="faq">
+            <div class="question">
+                <h3>How do I report a bug on the website?</h3>
+
+                <svg width="15" height="10" viewBox="0 0 42 25">
+                    <path d="M3 3L21 21L39 3" stroke="white" stroke-width="7" stroke-linecap="round" />
+                </svg>
+            </div>
+            <div class="answer">
+                <div class="p2">
+                    <p>Follow the following steps:</p>
+                    <ul>
+                        <li>Head back to the home page by clicking on the logo at the top.</li>
+                        <li>Click the "Contact Us" tab.</li>
+                        <li>Fill in the needed details, provide detailed information about the issue and click "Submit".</li>
+                        <li>Wait for a reply, we will reach back to you.</li>
+                    </ul>
+                    <p>Alternatively, you can email us at <a href="../finance/sponsor.html" target="_blank">support@ligiopen.com</a>.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="question">
+                <h3>Why am I not receiving email notifications?</h3>
+
+                <svg width="15" height="10" viewBox="0 0 42 25">
+                    <path d="M3 3L21 21L39 3" stroke="white" stroke-width="7" stroke-linecap="round" />
+                </svg>
+            </div>
+            <div class="answer">
+                <div class="p2">
+                    <p>Follow the following steps:</p>
+                    <ul>
+                        <li>Check your spam or junk folder.</li>
+                        <li>Ensure your email address is correctly entered when contacting us.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="{% static 'js/website.js' %}"></script>
+</body>
+</html>
