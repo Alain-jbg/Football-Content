@@ -81,36 +81,38 @@
         </div>
 
         <div class="teams">
-          <div class="teams">
-            <div class="container">
-              <h2 class="heading text-center mb-4" style="font-size: 2.5rem; font-weight: bold; color:#192A56;">Our Clubs</h2>
-              <p class="text-center mb-5" style="font-size: 20px; color: #333333;">
-                Discover our diverse range of football clubs. Click on any club to learn more about their history, players, and achievements.
-              </p>
-              <br>
-              <br>
-              <div class="row">
-                {% for club in clubs %}
-                <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-                  <a href="{% url 'club_detail' club.id %}">
-                    <div class="team-member" style="  transition: transform 0.3s;">
-                      <img src="{{ club.photo.url }}" alt="{{ club.name }} Logo"  style="height:auto ; width: 200px;"/>
-                      <div>
-                        <div class="inner-div" style="text-align: center; margin-top: 10px;">
-                          <h3 style="font-size: 1.5rem; color: #333;">{{ club.name }}</h3>
-                        </div>
+          <div class="container">
+            <h2 class="heading text-center mb-4" style="font-size: 2.5rem; font-weight: bold; color:#192A56;">Our Clubs</h2>
+            <p class="text-center mb-5" style="font-size: 20px; color: #333333;">
+              Discover our diverse range of football clubs. Click on any club to learn more about their history, players, and achievements.
+            </p>
+            
+            <div class="row">
+              {% for club in clubs %}
+              <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <a href="{% url 'club_detail' club.id %}">
+                  <div class="team-member" style="transition: transform 0.3s;">
+                    <img src="{{ club.photo.url }}" alt="{{ club.name }} Logo" style="height:auto; width: 200px;"/>
+                    <div>
+                      <div class="inner-div" style="text-align: center; margin-top: 10px;">
+                        <h3 style="font-size: 1.5rem; color: #333;">{{ club.name }}</h3>
                       </div>
                     </div>
-                  </a>
-                </div>
-                {% endfor %}
+                  </div>
+                </a>
               </div>
+              {% endfor %}
             </div>
-          </div>
+            <br>
+            <!-- Button to view all players -->
+            
+            <div class="container center-button-container">
+            <a href="{% url 'all_players' %}" class="btn btn-custom">View All Players</a>
+            </div>
+            
+             </div>
+             </div>
         </section>
-        
-        
-       
         
     <!--Financing section-->
     <section class="financing" id="financing">

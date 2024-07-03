@@ -25,6 +25,10 @@ urlpatterns = [
     path('club', views.club_list_view, name='club_list'),
     path('club/<int:club_id>', views.club_detail_view, name='club_detail'),
     path('fixtures-results/', fixtures_and_results, name='fixtures_results'),
+    path('all-players/', views.all_players_view, name='all_players'),
+
+
+    
     path('pages/FAQ/faq.html', views.faq_page, name='faq_page'),
 
     # FAQ Section URLs

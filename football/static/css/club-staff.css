@@ -341,6 +341,62 @@ section.live {
     text-align: center;
 }
 
+.team-member {
+    position: relative;
+    text-align: center;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9; /* Optional: Add background color */
+    overflow: hidden; /* Ensures player details are hidden initially */
+  }
+  
+  .player-photo {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .player-details {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+  }
+  
+  .player-photo:hover .player-details {
+    transform: translateY(0);
+  }
+  
+  .player-details h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .player-details p {
+    font-size: 16px;
+    color: #777;
+    margin-bottom: 5px;
+  }
+  
+  .inner-div {
+    padding-top: 10px;
+  }
+  
+  .underline-button {
+    color: #007bff; /* Link color */
+    text-decoration: none;
+  }
+  
+  .underline-button:hover {
+    text-decoration: underline;
+  }
+  
+
 /*Stats section*/
 .stats {
     padding: 5% 9%;

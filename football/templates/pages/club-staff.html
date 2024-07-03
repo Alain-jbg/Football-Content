@@ -33,73 +33,87 @@
           <i class="fas fa-bars" id="menu-bars"></i>
         </div>
     </header>
-    
-    
-      
-  
-
-<!-- player_profiles.html -->
-<!-- club_detail.html -->
-
-<section class="team live" id="team">
-  <div class="teams">
-    <div class="container">
-      <!-- Club Name Section -->
-      <!-- <h2 class="heading text-center mb-4" style="font-size: 20px; font-weight: bold; color:#53AF61;">{{ club.name }}</h2> -->
-      <!-- Players Profile Section -->
-      <h3 class="sub-heading">Players Profile</h3>
-
-      <br>
-      <br>
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>Player</th>
-            <th>Name</th>
-            <th>D.O.B</th>
-            <th>Nationality</th>
-            <th>Club/Team</th>
-            <th>Club Photo</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for player in players %}
-          <tr>
-            <td><img src="{{ player.photo.url }}" alt="{{ player.name }} Photo" class="img-fluid" style="width: 50px; height: auto;" /></td>
-            <td>{{ player.name }}</td>
-            <td>{{ player.date_of_birth }}</td>
-            <td>{{ player.nationality }}</td>
-            <td>{{ player.club.name }}</td>
-            
-            <td><img src="{{ player.club.photo.url }}" alt="{{ player.club.name }} Photo" class="img-fluid" style="width: 50px; height: auto;" /></td>
-          </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-    </div>
-    <br>
-    <br>
-    <br>
-    <!-- Club Information Section -->
-    <div class="container mt-5">
-      <div class="club-info-box">
-        <h3 class="sub-heading text-center mb-4" style="font-size: 2.5rem; font-weight: bold; color:#53AF61;">{{ club.name }}</h3>
-        <div class="d-flex justify-content-center align-items-center mb-5" style="display: flex; justify-content: center; align-items: center; gap: 40px;">
-          <div class="text-center">
-            <img src="{{ club.photo.url }}" alt="{{ club.name }} Photo" class="img-fluid" style="width: 150px; height: auto; border-radius: 8px;" />
-            <p style="font-size: 20px; color: #777;">{{ club.name }}</p>
-          </div>
-          <div class="text-center">
-            <img src="{{ club.coach_photo.url }}" alt="{{ club.coach_name }} Photo" class="img-fluid" style="width: 150px; height: auto; border-radius: 8px;" />
-            <p style="font-size: 20px; color: #777;">Coach: {{ club.coach_name }}</p>
+    <section class="team live" id="team">
+      <div class="teams">
+        <!-- Club Information Section -->
+        <div class="container mt-5">
+          <div class="club-info-box">
+            <h3 class="sub-heading text-center mb-4" style="font-size: 2.5rem; font-weight: bold; color:#53AF61;">{{ club.name }}</h3>
+            <div class="d-flex justify-content-center align-items-center mb-5" style="display: flex; justify-content: center; align-items: center; gap: 40px;">
+              <div class="text-center">
+                <!-- <img src="{{ club.photo.url }}" alt="{{ club.name }} Photo" class="img-fluid" style="width: 150px; height: auto; border-radius: 8px;" /> -->
+                <!-- <p style="font-size: 20px; color: #777;">{{ club.name }}</p> -->
+              </div>
+              <div class="text-center">
+                <!-- <img src="{{ club.coach_photo.url }}" alt="{{ club.coach_name }} Photo" class="img-fluid" style="width: 150px; height: auto; border-radius: 8px;" /> -->
+                <!-- <p style="font-size: 20px; color: #777;">Coach: {{ club.coach_name }}</p> -->
+              </div>
+            </div>
           </div>
         </div>
-        <div class="text-center mb-5" style="font-size: 20px; color: #777; text-align: center;">
-          Location: {{ club.location }} | Established: {{ club.established_date }} | Stadium: {{ club.stadium }}
+        
+        <!-- Players Profile Section -->
+        <div class="container mt-5">
+          <h2 class="heading">Players</h2> 
+          <br>
+          <br>
+          <div class="row">
+            {% for player in players %}
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+              <div class="team-member">
+                <div class="player-photo">
+                  <img src="{{ player.photo.url }}" alt="{{ player.name }} Photo" style="width: 150px; height: 150px; object-fit: cover; border-radius: 50%; transition: transform 0.3s ease;" />
+                  <div class="player-details">
+                    <p>{{ player.date_of_birth }}</p>
+                    <p>{{ player.nationality }}</p>
+                    <p>Club: {{ player.club.name }}</p>
+                    <p>Coach: {{ player.club.coach_name }}</p>
+                  </div>
+                </div>
+                <div class="inner-div text-center">
+                  <h3>{{ player.name }}</h3>
+                  <a href="#" class="view-more" style="color: #53AF61; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#367c39'" onmouseout="this.style.color='#53AF61'">View More</a>
+
+
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+        
+        <!-- All Players Section -->
+        <div class="container mt-5">
+          <!-- <h2 class="heading">All Players</h2> -->
+          <br>
+          <br>
+          <div class="row">
+            {% for player in all_players %}
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+              <div class="team-member">
+                <div class="player-photo">
+                  <img src="{{ player.photo.url }}" alt="{{ player.name }} Photo" style="width: 150px; height: 150px; object-fit: cover; border-radius: 50%; transition: transform 0.3s ease;" />
+                  <div class="player-details">
+                    <p>{{ player.date_of_birth }}</p>
+                    <p>{{ player.nationality }}</p>
+                    <p>Club: {{ player.club.name }}</p>
+                    <p>Coach: {{ player.club.coach_name }}</p>
+                  </div>
+                </div>
+                <div class="inner-div text-center">
+                  <h3>{{ player.name }}</h3>
+                  <a href="#" class="view-more" style="color: #53AF61;">View More</a>
+
+                  
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+    
     
 <!-- Matches section content -->
 <section class="matches" id="matches">
@@ -316,8 +330,11 @@
         <a href="club-staff.html" target="_blank">
           <!-- <img src="{% static 'images/logo-1.jpg' %}" alt="Image" class="img-fluid" /> -->
         </a>
-        <a href="#">Home Stadium</a> 
-        <a href="#financing">Location</a> 
+        <div class="text-center mb-5" style="font-size: 15px; color: #777; text-align: center;">
+          <img src="{{ club.photo.url }}" alt="{{ club.name }} Photo" class="img-fluid" style="width: 50px; height: auto; border-radius: 8px;" />
+          <p style="font-size: 15px; color: #777;">{{ club.name }}</p>
+          Location: {{ club.location }} | Established: {{ club.established_date }} | Stadium: {{ club.stadium }}
+        </div>
       </div>
   
       <div class="box">
