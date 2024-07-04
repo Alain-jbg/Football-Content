@@ -8,6 +8,10 @@
     <link rel="icon" type="image/x-icon" href="{% static 'images/li__1_-removebg-preview.ico' %}">
 
     <title>ClubName FC</title>
+
+    <!-- Font awesome -->
+    <script src="https://kit.fontawesome.com/456d64337e.js" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="{% static 'css/club-staff.css' %}">
 
 </head>
@@ -19,7 +23,7 @@
       </a>
 
         <!-- Navigation bar -->
-        <nav class="navbar" style="display: flex; justify-content: center;">
+        <nav class="navbar">
 
 
             <a class="active" href="#team">Team</a>
@@ -42,11 +46,70 @@
 <!-- club_detail.html -->
 
 <section class="team live" id="team">
+  <div class="top-logo">
+    <img src="{{ club.photo.url }}" alt="{{ club.name }} Photo" class="logo">
+  </div>
+  <h1 class="sub-heading">{{ club.name }}</h1>
   <div class="teams">
     <div class="container">
-      <!-- Club Name Section -->
-      <!-- <h2 class="heading text-center mb-4" style="font-size: 20px; font-weight: bold; color:#53AF61;">{{ club.name }}</h2> -->
-      <!-- Players Profile Section -->
+      <h2 class="heading">Coaching Staff</h2>
+      <div class="row">
+        {% for staff in coaching_staff %}
+        <div class="col-lg-3">
+          <div class="team-member">
+            <img src="{{ staff.photo.url }}" alt="{{ staff.name }} Photo" class="img-fluid" />
+            <div>
+              <div class="inner-div">
+                <h3>{{ staff.name }}</h3>
+                <a class="underline-button">{{ staff.title }}</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="container other">
+      <h2 class="heading">Players</h2>
+      <div class="row">
+        {% for player in players %}
+        <div class="col-lg-3 players">
+          <div class="team-member">
+            <img src="{{ player.photo.url }}" alt="{{ player.name }} Photo" class="img-fluid" />
+            <div>
+              <div class="inner-div">
+                <h3>{{ player.name }}</h3>
+                <a class="underline-button">{{ player.position }}</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="container other">
+      <h2 class="heading">Other Staff</h2>
+      <div class="row">
+        {% for staff in other_staff %}
+        <div class="col-lg-3">
+          <div class="team-member">
+            <img src="{{ staff.photo.url }}" alt="{{ staff.name }} Photo" class="img-fluid" />
+            <div>
+              <div class="inner-div">
+                <h3>{{ staff.name }}</h3>
+                <a class="underline-button">{{ staff.title }}</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <!--
+    <div class="container">
       <h3 class="sub-heading">Players Profile</h3>
 
       <br>
@@ -80,7 +143,6 @@
     <br>
     <br>
     <br>
-    <!-- Club Information Section -->
     <div class="container mt-5">
       <div class="club-info-box">
         <h3 class="sub-heading text-center mb-4" style="font-size: 2.5rem; font-weight: bold; color:#53AF61;">{{ club.name }}</h3>
@@ -98,7 +160,7 @@
           Location: {{ club.location }} | Established: {{ club.established_date }} | Stadium: {{ club.stadium }}
         </div>
       </div>
-    </div>
+    </div>-->
   </section>
     
 <!-- Matches section content -->
@@ -220,13 +282,14 @@
   <!-- stats -->
   <section class="stats" id="stats">
     <h2 class="heading">Overall stats</h2>
-    <table id="player-stats">
+    <div class="table-wrapper">
+      <table id="player-stats">
         <thead>
             <tr>
                 <th>Player</th>
                 <th>Position</th>
-                <th>Club</th>
-                <th>Team</th>
+                <!--<th>Club</th>
+                <th>Team</th>-->
                 <th>CM</th>
                 <th>KG</th>
                 <th>Apps</th>
@@ -246,18 +309,18 @@
                     <!-- {{ player.id }}. {{ player.name }}
                     <img src="{{ player.photo.url }}" alt="{{ player.name }} Photo" style="width: 50px; height: 50px;"> -->
 
-                    <span style="display: inline-block;">
-                      <img src="{{ player.photo.url }}" alt="{{ player.name }} Photo" style="width: 50px; height: 50px;">
-                  </span>
-                  <span style="display: inline-block; vertical-align: middle; margin-left: 10px;">
+                    <!--<span style="display: inline-block;">
+                      <img src="{{ player.photo.url }}" alt="{{ player.name }} Photo" style="width: 80px; height: 80px; object-fit: contain;">
+                  </span>-->
+                  <span style="display: inline-block;">
                       {{ player.id }}. {{ player.name }}
                   </span>
 
                 </td>
 
                 <td>{{ player.position }}</td>
-                <td>{{ player.club }}</td>
-                <td>{{ player.team }}</td>
+                <!--<td>{{ player.club }}</td>
+                <td>{{ player.team }}</td>-->
                 <td>{{ player.height_cm }}</td>
                 <td>{{ player.weight_kg }}</td>
                 <td>{{ player.apps }}</td>
@@ -272,57 +335,21 @@
             {% endfor %}
         </tbody>
     </table>
-  </section>
-  
-
-
-  <!--Careers-->
-  <section class="careers" id="careers">
-    <h2 class="heading">Careers</h2>
-    <div class="jobs-list-container">
-      <h2 class="jobs-heading">3 Jobs</h2>
-      <input type="text" class="job-search" placeholder="Search jobs...">
-      <p id="no-match">No match found.</p>
-      <div class="jobs">
-          <div class="job">
-              <h3 class="job-title">Head of Performance Support</h3>
-              <div class="details">Focused on the delivery of performance support within ClubName FC. The role will oversee this newly created and merged department to enable the collective and integrated delivery to, and a holistic approach for players.</div>
-              <a href="#" class="details-btn job1" onclick="redirectToStaffPage('club1')">More Details</a>
-              <span class="open-positions">2 open positions</span>
-          </div>
-          <div class="job">
-              <h3 class="job-title">Football Projects Officer</h3>
-              <div class="details">Responsible for  support and lead on the various football projects activities to further develop and grow the business and to deliver high quality sports provision</div>
-              <a href="#" class="details-btn job1" onclick="redirectToStaffPage('club2')">More Details</a>
-              <span class="open-positions">3 open positions</span>
-          </div>
-          
-          <div class="job">
-              <h3 class="job-title">Sponsorship Administrator</h3>
-              <div class="details">Responsible for coordinating travel logistics for sales teams and VIP clients, managing matchday invite lists, organizing client dinners, and handling internal bookings and expenses.</div>
-              <a href="#" class="details-btn" onclick="redirectToStaffPage('club3')">More Details</a>
-              <span class="open-positions">1 open position</span>
-          </div>
-          
-      </div>
     </div>
-  
   </section>
 
   <section class="footer">
     <div class="box-container">
       <div class="box bottom-nav">
-        <!-- <h3>ShauriMoyo</h3> -->
-        <a href="club-staff.html" target="_blank">
-          <!-- <img src="{% static 'images/logo-1.jpg' %}" alt="Image" class="img-fluid" /> -->
-        </a>
-        <a href="#">Home Stadium</a> 
-        <a href="#financing">Location</a> 
+        <h3>{{ club.name }}</h3>
+        <img src="{{ club.photo.url }}" alt="{{ club.name }} Photo" class="logo"/>
+        <a href="https://maps.google.com/?q=YOUR_ADDRESS">{{ club.stadium }}</a> 
+        <a href="https://maps.google.com/?q=YOUR_ADDRESS">{{ club.location }}</a> 
       </div>
   
       <div class="box">
         <h3>More Info</h3>
-        <a href="">About the Club</a>
+        <a href="">Established: {{ club.established_date }}</a>
         <a href="tel:+254702664629">Contact us</a>
       </div>
   
@@ -334,7 +361,7 @@
     </div>
   
     <div class="credit">
-      <p>&copy; 2024 ClubName FC. All rights reserved. No part of this site may be reproduced without our written permission.</p>
+      <p>&copy; 2024 {{ club.name }}. All rights reserved. No part of this site may be reproduced without our written permission.</p>
     </div>
   </section>
   

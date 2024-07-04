@@ -31,6 +31,10 @@ links.forEach(function(link) {
 
         // Scroll to the top of the target section
         window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        // Close the navbar after a link is clicked
+        menu.classList.remove('fa-times');
+        navbar.classList.remove('active');
     });
 });
 
@@ -119,4 +123,3 @@ jobSearchInput.addEventListener("input", (e) => {
     // Redirect to job details page with job title as a parameter
     window.location.href = `job-listing/club1-job.html?job=${encodeURIComponent(jobTitle)}`;
 } */
-

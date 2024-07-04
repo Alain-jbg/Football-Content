@@ -1162,12 +1162,6 @@ section .home {
         font-size: 1.3rem;
     }
 
-    header img {
-        width: 50px;
-        height: 50px;
-        object-fit: cover;
-    }
-
     .order {
         padding-top: 12%;
     }
@@ -1213,6 +1207,8 @@ section .home {
     .order {
         padding-top: 15%;
     }
+
+    
 }
 
 @media (max-width: 400px) {
