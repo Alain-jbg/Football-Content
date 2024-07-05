@@ -135,3 +135,28 @@ def data_privacy_page(request):
 
 def clubs_page(request):
     return render(request, 'pages/FAQ/clubs.html')
+
+#Open Finance views
+def finance_about(request):
+    return render(request, 'pages/finance/about.html')
+
+def finance_payment_type(request):
+    return render(request, 'pages/finance/payment-type.html')
+
+def finance_sponsor(request):
+    return render(request, 'pages/finance/sponsor.html')
+
+def crowdfund_pay(request):
+    return render(request, 'pages/finance/crowdfund-pay.html')
+
+def mpesa_donate(request):
+    return render(request, 'pages/finance/mpesa-donate.html')
+
+def other_donate(request):
+    return render(request, 'pages/finance/donate.html')
+
+def crowdfund_mpesa(request):
+    return render(request, 'pages/finance/mpesa-pay.html')
+
+def crowdfund_other(request):
+    return render(request, 'pages/finance/crowdfund-card.html')

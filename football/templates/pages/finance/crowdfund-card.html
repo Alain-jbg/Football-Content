@@ -1,0 +1,35 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/li__1_-removebg-preview.ico' %}">
+    <title>Card Pay</title>
+    <link rel="stylesheet" href="{% static 'css/crowdfund-card.css' %}"/>
+</head>
+<body>
+    <header>
+        <a href="{% url 'home' %}">
+            <img src="{% static 'images/li__1_-removebg-preview.png' %}" alt="logo">
+        </a>
+    </header>
+    
+    <p class="instructions">Enter any amount between $10 and $85,000 USD</p>
+
+    <!-- GlobalGiving Custom Donation form for LigiOpen platform for youth footballers in Kenya -->
+    <form action="https://www.globalgiving.org/dy/cart/view/gg.html" method="post">
+        <!-- Do not change the hidden fields -->
+        <input type="hidden" name="cmd" value="addItem">
+        <input type="hidden" name="projid" value="63586">
+        <input type="hidden" name="frequency" value="ONCE">
+        <input type="hidden" name="rf" value="ggWidget_custom_donation_form">
+
+        <!-- You can add class and style attributes to the fields below -->
+        <label class="dola" for="amount">$</label>
+        <input class="enter-amt" name="amount" type="number" min="10" max="85000" length="5" required/>
+        <input class="btn" name="Donate" type="submit" value="Donate"/>
+    </form>
+</body>
+</html>
