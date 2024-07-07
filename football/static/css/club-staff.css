@@ -184,6 +184,12 @@ section {
     margin-top: 5%;
 }
 
+.team-member {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 .teams .inner-div {
     display: flex;
     flex-direction: column;

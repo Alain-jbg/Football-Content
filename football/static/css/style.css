@@ -1178,10 +1178,6 @@ section .home {
     .table table {
         font-size: 1.3rem;
     }
-
-    .order {
-        padding-top: 12%;
-    }
 }
 
 @media (max-width: 465px) {
@@ -1222,9 +1218,12 @@ section .home {
 
 @media (max-width: 430px) {
     .order {
-        padding-top: 15%;
+        padding-top: 25%;
     }
 
+    .fixtures .heading {
+        margin-top: 15%;
+    }
     
 }
 
@@ -1261,19 +1260,13 @@ section .home {
     }
 }
 
-@media (max-width: 390px) {
-    .order {
-        padding-top: 18%;
-    }
-}
-
 @media (max-width: 350px) {
     .highlights .heading {
         margin-top: 35%;
     }
 
     .order {
-        padding-top: 20%;
+        padding-top: 30%;
     }
 
     #hero .btn {
