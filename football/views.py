@@ -99,7 +99,7 @@ def club_list_view(request):
 def club_detail_view(request, club_id):
     club = get_object_or_404(Club, id=club_id)
     players = club.players.all()
-
+    
     return render(request, 'pages/club-staff.html', {'club': club, 'players': players})
 
 
@@ -135,6 +135,14 @@ def data_privacy_page(request):
 
 def clubs_page(request):
     return render(request, 'pages/FAQ/clubs.html')
+  
+def all_players_view(request):
+    all_players = Player.objects.all()
+    context = {
+        'all_players': all_players,
+        
+    }
+    return render(request, 'pages/club-staff.html', cont
 
 #Open Finance views
 def finance_about(request):
@@ -160,3 +168,4 @@ def crowdfund_mpesa(request):
 
 def crowdfund_other(request):
     return render(request, 'pages/finance/crowdfund-card.html')
+

@@ -17,6 +17,7 @@ class Club(models.Model):
 
 class Player(models.Model):
     name = models.CharField(max_length=100)
+    position = models.CharField(max_length=100, null=True)
     height_cm = models.PositiveIntegerField(null=True, blank=True)  
     weight_kg = models.PositiveIntegerField(null=True, blank=True)
     date_of_birth = models.DateField(default=datetime.date(2000, 1, 1))
@@ -24,6 +25,14 @@ class Player(models.Model):
     club = models.ForeignKey(Club, on_delete=models.CASCADE, related_name='players')
     team = models.CharField(max_length=100, blank=True, null=True)
     photo = models.ImageField(upload_to='photos/players/', default='photos/players/default.jpg')
+    apps = models.IntegerField(default=0)
+    mins = models.IntegerField(default=0)
+    goals = models.IntegerField(default=0)
+    assists = models.IntegerField(default=0)
+    yellow_cards = models.IntegerField(default=0, verbose_name='Yellow Cards')
+    red_cards = models.IntegerField(default=0, verbose_name='Red Cards')
+    motm = models.IntegerField(default=0, verbose_name='Man of the Match')
+    rating = models.FloatField(default=0.0)
     
     def __str__(self):
         return self.name
@@ -93,3 +102,5 @@ class ResultMatch(models.Model):
     
     def __str__(self):
         return f"{self.fixture} - {self.team_a_score} vs {self.team_b_score}"
+
+

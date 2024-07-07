@@ -151,9 +151,35 @@
             <img src="{{ club.photo.url }}" alt="{{ club.name }} Photo" class="img-fluid" style="width: 150px; height: auto; border-radius: 8px;" />
             <p style="font-size: 20px; color: #777;">{{ club.name }}</p>
           </div>
-          <div class="text-center">
-            <img src="{{ club.coach_photo.url }}" alt="{{ club.coach_name }} Photo" class="img-fluid" style="width: 150px; height: auto; border-radius: 8px;" />
-            <p style="font-size: 20px; color: #777;">Coach: {{ club.coach_name }}</p>
+        </div>
+        
+        <!-- Players Profile Section -->
+        <div class="container mt-5">
+          <h2 class="heading">Players</h2> 
+          <br>
+          <br>
+          <div class="row">
+            {% for player in players %}
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+              <div class="team-member">
+                <div class="player-photo">
+                  <img src="{{ player.photo.url }}" alt="{{ player.name }} Photo" style="width: 150px; height: 150px; object-fit: cover; border-radius: 50%; transition: transform 0.3s ease;" />
+                  <div class="player-details">
+                    <p>{{ player.date_of_birth }}</p>
+                    <p>{{ player.nationality }}</p>
+                    <p>Club: {{ player.club.name }}</p>
+                    <p>Coach: {{ player.club.coach_name }}</p>
+                  </div>
+                </div>
+                <div class="inner-div text-center">
+                  <h3>{{ player.name }}</h3>
+                  <a href="#" class="view-more" style="color: #53AF61; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#367c39'" onmouseout="this.style.color='#53AF61'">View More</a>
+
+
+                </div>
+              </div>
+            </div>
+            {% endfor %}
           </div>
         </div>
         <div class="text-center mb-5" style="font-size: 20px; color: #777; text-align: center;">
@@ -162,6 +188,7 @@
       </div>
     </div>-->
   </section>
+    
     
 <!-- Matches section content -->
 <section class="matches" id="matches">
