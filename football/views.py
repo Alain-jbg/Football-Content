@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import CoachingStaff, Player, Club, Fixture, Result
+from .models import CoachingStaff, Player, Club, Fixture, Result,OtherStaff
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponse
 from django.core.mail import send_mail 
@@ -15,36 +15,40 @@ def home(request):
     return render(request, 'index.html', {'clubs': clubs, 'fixtures': fixtures})
 
 
-def club_staff_view(request):
-    coaching_staff = CoachingStaff.objects.all()
-    players = Player.objects.all()
-    context = {
-        'coaching_staff': coaching_staff,
-        'players': players,
-    }
-    return render(request, 'pages/club-staff.html', context)
-
-
-def club_details_view(request, club_id):
+def club_staff_view(request, club_id):
     club = get_object_or_404(Club, id=club_id)
+    coaching_staff = CoachingStaff.objects.filter(club=club)
     players = Player.objects.filter(club=club)
-    return render(request, 'index.html', {'club': club, 'players': players})
-
-
-def player_detail_view(request, slug):
-    club = get_object_or_404(Club, slug=slug)
-    players = Player.objects.filter(club=club)
+    other_staff = OtherStaff.objects.filter(club=club)
+    
     context = {
         'club': club,
-        'players': players
-    }
+        'coaching_staff': coaching_staff,
+        'players': players,
+        'other_staff': other_staff,
+        
+        }
     return render(request, 'pages/club-staff.html', context)
+    
+    
+    def player_detail_view(request, slug):
+     club = get_object_or_404(Club, slug=slug)
+     players = Player.objects.filter(club=club)
+
+     context = {
+         'club': club,
+         'players': players,
+     }
+     
+     return render(request, 'pages/club-staff.html', context)
 
 
 def player_stats_view(request):
-    # Assuming Stat model exists, adjust this view accordingly
     stats = Stat.objects.all()
-    return render(request, 'club-staff.html', {'stats': stats})
+    players = Player.objects.all()
+
+    return render(request, 'club-staff.html', {'stats': stats,'players':player})
+
 
 
 def fixtures_view(request):
@@ -103,13 +107,16 @@ def club_detail_view(request, club_id):
     return render(request, 'pages/club-staff.html', {'club': club, 'players': players})
 
 
-def fixtures_and_results(request):
-    fixtures = Fixture.objects.all()
-    results = Result.objects.all()
-    return render(request, 'pages/club-staff.html', {
-        'fixtures': fixtures,
-        'results': results
-    })
+
+
+def all_players_view(request):
+    all_players = Player.objects.all()
+    context = {
+        'all_players': all_players,
+        
+    }
+    return render(request, 'pages/club-staff.html', context)
+
 
 #FAQ Section views
 def faq_page(request):
@@ -135,16 +142,8 @@ def data_privacy_page(request):
 
 def clubs_page(request):
     return render(request, 'pages/FAQ/clubs.html')
-  
-def all_players_view(request):
-    all_players = Player.objects.all()
-    context = {
-        'all_players': all_players,
-        
-    }
-    return render(request, 'pages/club-staff.html', cont
-
-#Open Finance views
+    
+    #Open Finance views
 def finance_about(request):
     return render(request, 'pages/finance/about.html')
 
