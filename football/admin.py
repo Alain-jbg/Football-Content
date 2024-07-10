@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import CoachingStaff, Player, Club
-from .models import Team, Fixture, Result, FixtureMatch, ResultMatch
+from .models import CoachingStaff, Player, Club, OtherStaff
+from .models import Team, Fixture, Result
 
 
 
@@ -9,9 +9,14 @@ admin.site.register(CoachingStaff)
 admin.site.register(Player)
 admin.site.register(Club)
 admin.site.register(Team)
+
+
 admin.site.register(Result)
-admin.site.register(ResultMatch)
-admin.site.register(FixtureMatch)
+admin.site.register(OtherStaff)
+
+
+
+admin.site.site_header = "LigiOpen Admin"
 
 
 
