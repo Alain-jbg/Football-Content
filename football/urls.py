@@ -44,8 +44,10 @@ urlpatterns = [
     path('pages/finance/mpesa-donate', views.mpesa_donate, name='mpesa_donate'),
     path('pages/finance/other-donate', views.other_donate, name='other_donate'),
     path('pages/finance/crowdfund-mpesa', views.crowdfund_mpesa, name='crowdfund_mpesa'),
-    path('pages/finance/crowdfund-other', views.crowdfund_other, name='crowdfund_other')
-    # ... other URL patterns ...
+    path('pages/finance/crowdfund-other', views.crowdfund_other, name='crowdfund_other'),
+    
+    # View all players URL...
+    path('pages/all-players', views.all_players, name='all_players')
 ]
 
 

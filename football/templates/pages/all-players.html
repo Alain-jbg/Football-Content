@@ -1,0 +1,86 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="{% static 'images/li__1_-removebg-preview.ico' %}">
+
+    <title>Ligi Open Players</title>
+    <link rel="stylesheet" href="{% static 'css/all-players.css' %}">
+</head>
+<body>
+    <header>
+        <a href="{% url 'home' %}">
+            <img src="{% static 'images/li__1_-removebg-preview.png' %}" alt="logo">
+        </a>
+    </header>
+    <div class="container-all">
+        <div class="search-container">
+            <h1 class="heading">Players</h1>
+            <input type="text" placeholder="Search for a Player" id="playerSearch">
+        </div>
+        <div class="filters">
+            <label for="season">Filter by Season</label>
+            <select id="season">
+                <option value="2024/25">2024/25</option>
+            </select>
+            <button id="resetFilters">RESET FILTERS</button>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Player</th>
+                    <th>Position</th>
+                    <th>Club</th>
+                </tr>
+            </thead>
+            <tbody id="playersTable">
+                <tr>
+                    <td><img src="{% static 'images/Player UI demo/foot1-removebg-preview.png' %}" alt="Player photo">Max Aarons</td>
+                    <td>Defender</td>
+                    <td>Obunga</td>
+                </tr>
+                <tr>
+                    <td><img src="{% static 'images/Player UI demo/foot3-removebg-preview.png' %}" alt="Player photo">Zach Abbott</td>
+                    <td>Defender</td>
+                    <td>Manyatta</td>
+                </tr>
+                <tr>
+                    <td><img src="{% static 'images/Player UI demo/foot4_BEP8ySg-removebg-preview.png' %}" alt="Player photo">Josh Acheampong</td>
+                    <td>Defender</td>
+                    <td>Chelsea</td>
+                </tr>
+                <tr>
+                    <td><img src="{% static 'images/Player UI demo/fut1-removebg-preview.png' %}" alt="Player photo">Adam Armstrong</td>
+                    <td>Forward</td>
+                    <td>Spurs</td>
+                </tr>
+                <tr>
+                    <td><img src="{% static 'images/Player UI demo/arsenal_34slaU9-removebg-preview.png' %}" alt="Player photo">Tyler Adams</td>
+                    <td>Midfielder</td>
+                    <td>Barca</td>
+                </tr>
+                <tr>
+                    <td><img src="{% static 'images/Player UI demo/Arsenali_Otieno_WgiEccu-removebg-preview.png' %}" alt="Player photo">Tosin Adarabioyo</td>
+                    <td>Defender</td>
+                    <td>Milwall</td>
+                </tr>
+                <tr>
+                    <td><img src="{% static 'images/Player UI demo/foot3-removebg-preview.png' %}" alt="Player photo">Tayo Adaramola</td>
+                    <td>Defender</td>
+                    <td>Ireland</td>
+                </tr>
+                <tr>
+                    <td><img src="{% static 'images/Player UI demo/foot4_BEP8ySg-removebg-preview.png' %}" alt="Player photo">Valintino Adedokun</td>
+                    <td>Defender</td>
+                    <td>Kisumu</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <script src="{% static 'js/all-players.js' %}"></script>
+</body>
+</html>

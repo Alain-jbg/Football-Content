@@ -36,7 +36,74 @@
         <div class="background-image">
             <div>
                 <h1 class="heading">Welcome to  LIGI OPEN!</h1>
-                <a href="#about-section" class="btn">Get involved</a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSeBRTji7N9EilFp3lmqjbNjSRPIIM_VwjiSYg6IcADWdSyOTQ/viewform?usp=sharing" target="_blank" class="btn">Register Club</a>
+            </div>
+        </div>
+
+        <div class="poster">
+            <div class="header">
+                <h1 class="heading">Ligi Open Matchday</h1>
+                <h2 class="sub-heading">Gameweek 1</h2>
+            </div>
+            <div class="slider">
+                <div class="slides">
+                    <div class="match">
+                        <div class="match-info">
+                            <h3>SEPT 15, 2023 | 6:30PM</h3>
+                            <h4>Aliu Mahama Stadium</h4>
+                        </div>
+                        <div class="teams">
+                            <div class="team">
+                                <img src="{% static 'images/logo-2-removebg-preview.png' %}" alt="Team 1">
+                                <h3>RTU</h3>
+                            </div>
+                            <div class="vs">VS</div>
+                            <div class="team">
+                                <img src="{% static 'images/logo-1-removebg-preview.png' %}" alt="Team 2">
+                                <h3>Hearts</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="match">
+                        <div class="match-info">
+                            <h3>DEC 05, 2023 | 6:30PM</h4>
+                            <h4>Sultan Stadium</h4>
+                        </div>
+                        <div class="teams">
+                            <div class="team">
+                                <img src="{% static 'images/fut1.png' %}" alt="Team 1">
+                                <h3>Mas</h3>
+                            </div>
+                            <div class="vs">VS</div>
+                            <div class="team">
+                                <img src="{% static 'images/logo-1-removebg-preview.png' %}" alt="Team 2">
+                                <h3>Hear</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="match">
+                        <div class="match-info">
+                            <h3>JUL 25, 2023 | 6:30PM</h3>
+                            <h4>Mahama Stadium</h4>
+                        </div>
+                        <div class="teams">
+                            <div class="team">
+                                <img src="{% static 'images/logo-2-removebg-preview.png' %}" alt="Team 1">
+                                <h3>RTU3</h3>
+                            </div>
+                            <div class="vs">VS</div>
+                            <div class="team">
+                                <img src="{% static 'images/logo-1-removebg-preview.png' %}" alt="Team 2">
+                                <h3>Hearts2</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="navigation-button">
+                <span class="dot active" onclick="changeSlide(0)"></span>
+                <span class="dot" onclick="changeSlide(1)"></span>
+                <span class="dot" onclick="changeSlide(2)"></span>
             </div>
         </div>
 
@@ -99,6 +166,10 @@
                 </div>
                 {% endfor %}
               </div>
+            </div>
+            <div class="player-view">
+                <p class="more-info">Want to checkout registered players in the league?</p>
+                <a href="{% url 'all_players' %}" target="_blank" class="btn">Click here</a>
             </div>
           </div>
     </section>       
