@@ -61,7 +61,7 @@
             <div>
               <div class="inner-div">
                 <h3>{{ staff.name }}</h3>
-                <a class="underline-button">{{ staff.title }}</a>
+                <a class="underline-button">{{ staff.role }}</a>
               </div>
             </div>
           </div>
@@ -80,7 +80,7 @@
             <div>
               <div class="inner-div">
                 <h3>{{ player.name }}</h3>
-                <a class="underline-button">{{ player.position }}</a>
+                <a class="underline-button">{{ player.club }}</a>
               </div>
             </div>
           </div>
@@ -99,7 +99,7 @@
             <div>
               <div class="inner-div">
                 <h3>{{ staff.name }}</h3>
-                <a class="underline-button">{{ staff.title }}</a>
+                <a class="underline-button">{{ staff.role }}</a>
               </div>
             </div>
           </div>
@@ -108,60 +108,9 @@
       </div>
     </div>
 
-    <!--
-    <div class="container">
-      <h3 class="sub-heading">Players Profile</h3>
-
-      <br>
-      <br>
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>Player</th>
-            <th>Name</th>
-            <th>D.O.B</th>
-            <th>Nationality</th>
-            <th>Club/Team</th>
-            <th>Club Photo</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for player in players %}
-          <tr>
-            <td><img src="{{ player.photo.url }}" alt="{{ player.name }} Photo" class="img-fluid" style="width: 50px; height: auto;" /></td>
-            <td>{{ player.name }}</td>
-            <td>{{ player.date_of_birth }}</td>
-            <td>{{ player.nationality }}</td>
-            <td>{{ player.club.name }}</td>
-            
-            <td><img src="{{ player.club.photo.url }}" alt="{{ player.club.name }} Photo" class="img-fluid" style="width: 50px; height: auto;" /></td>
-          </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-    </div>
-    <br>
-    <br>
-    <br>
-    <div class="container mt-5">
-      <div class="club-info-box">
-        <h3 class="sub-heading text-center mb-4" style="font-size: 2.5rem; font-weight: bold; color:#53AF61;">{{ club.name }}</h3>
-        <div class="d-flex justify-content-center align-items-center mb-5" style="display: flex; justify-content: center; align-items: center; gap: 40px;">
-          <div class="text-center">
-            <img src="{{ club.photo.url }}" alt="{{ club.name }} Photo" class="img-fluid" style="width: 150px; height: auto; border-radius: 8px;" />
-            <p style="font-size: 20px; color: #777;">{{ club.name }}</p>
-          </div>
-          <div class="text-center">
-            <img src="{{ club.coach_photo.url }}" alt="{{ club.coach_name }} Photo" class="img-fluid" style="width: 150px; height: auto; border-radius: 8px;" />
-            <p style="font-size: 20px; color: #777;">Coach: {{ club.coach_name }}</p>
-          </div>
-        </div>
-        <div class="text-center mb-5" style="font-size: 20px; color: #777; text-align: center;">
-          Location: {{ club.location }} | Established: {{ club.established_date }} | Stadium: {{ club.stadium }}
-        </div>
-      </div>
-    </div>-->
+                
   </section>
+    
     
 <!-- Matches section content -->
 <section class="matches" id="matches">

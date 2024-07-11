@@ -153,7 +153,10 @@
               <div class="row">
                 {% for club in clubs %}
                 <div class="col-lg-3">
-                  <a href="{% url 'club_detail' club.id %}" target="_blank">
+                  <!-- <a href="{% url 'club_detail' club.id %}" target="_blank">  -->
+                    <a href="{% url 'club_staff_view' club.id %}"target="_blank">
+
+                    
                     <div class="team-member">
                       <img src="{{ club.photo.url }}" alt="{{ club.name }} Logo"/>
                       <div>
@@ -306,9 +309,9 @@
           <!-- Fixture -->
           <div class="fixture">
               <div class="date">
-                  <p class="date-fix">Date: {{ fixture.date }}</p>
-                  <p class="venue">Venue: {{ fixture.venue }}</p>
-                  <p class="comp">Competition: {{ fixture.competition }}</p>
+                  <p class="date-fix">{{ fixture.date }}</p>
+                  <p class="venue">{{ fixture.venue }}</p>
+                  <p class="comp">{{ fixture.competition }}</p>
               </div>
               <div class="inner-team">
                   <div class="team">
@@ -334,7 +337,7 @@
           <!-- Fixture -->
           <div class="fixture">
               <div class="date">
-                  <p class="date-fix">Date: {{ fixture.date }}</p>
+                  <p class="date-fix">{{ fixture.date }}</p>
                   <p class="comp">Competition: {{ fixture.competition }}</p>
               </div>
               <div class="inner-team">
@@ -343,9 +346,13 @@
                       <span class="team-name">{{ fixture.team_a_name }}</span>
                   </div>
                   <div class="demo">
-                      <div class="vs">Score not available</div>
-                      <p class="venue">Venue: {{ fixture.venue }}</p>
-                  </div>
+                    {% if fixture.score %}
+                        <div class="vs">{{ fixture.score }}</div>
+                    {% else %}
+                        <div class="vs">Score not available</div>
+                    {% endif %}
+                    <p class="venue">{{ fixture.venue }}</p>
+                </div>
                   <div class="team">
                       <img src="{{ fixture.team_b_logo.url }}" alt="{{ fixture.team_b_name }} Logo">
                       <span class="team-name">{{ fixture.team_b_name }}</span>

@@ -3,7 +3,6 @@ from . import views
 from .views import player_stats_view
 # from .views import fixtures_view 
 from .views import contact_us_view, success_view
-from .views import fixtures_and_results
 
 
 
@@ -23,11 +22,27 @@ urlpatterns = [
     path('contact', views.contact_us_view, name='contact_us'),
     path('contact/success', views.success_view, name='success'),
     path('club', views.club_list_view, name='club_list'),
-    path('club/<int:club_id>', views.club_detail_view, name='club_detail'),
-    path('fixtures-results/', fixtures_and_results, name='fixtures_results'),
-    path('pages/FAQ/faq', views.faq_page, name='faq_page'),
+    path('club/<int:club_id>/', views.club_detail_view, name='club_detail'),
+    path('club/<int:club_id>', views.club_staff_view, name='club_staff_view'),
+    
 
-    # FAQ Section URLs
+
+    path('all-players/', views.all_players_view, name='all_players'),
+
+    
+
+
+
+   # FAQ Section URLs
+
+
+    path('pages/FAQ/faq.html', views.faq_page, name='faq_page'),
+
+    path('pages/FAQ/faq', views.faq_page, name='faq_page'),
+    
+    
+    
+    
     path('pages/FAQ/website', views.website_page, name='website_page'),
     path('pages/FAQ/about-us', views.about_us_page, name='about_us_page'),
     path('pages/FAQ/financial', views.financial_page, name='financial_page'),

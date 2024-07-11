@@ -10,23 +10,24 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
-from pathlib import Path
 import os
+from pathlib import Path
+from dotenv import load_dotenv
+from decouple import config
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Load environment variables from .env file
+env_path = BASE_DIR / '.env'
+load_dotenv(env_path)
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-2^%uhnyv5dkx(a7(5!o8z$1@hp4-&i(712wp!t8dt)69p-uwl#'
+# Load SECRET_KEY
+SECRET_KEY = config('SECRET_KEY', default='default_secret_key')
+DEBUG = config('DEBUG', default=False, cast=bool)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
 ALLOWED_HOSTS = []
 
 
@@ -39,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'football',  # Your app
+    'football',  
 ]
 
 MIDDLEWARE = [
@@ -88,18 +89,17 @@ WSGI_APPLICATION = 'ligiopen.wsgi.application'
 #     }
 # }
 
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'ligiopen',  
-        'USER': 'root',  
-        'PASSWORD': '@Kukurella17',  
-        'HOST': 'localhost',  
-        'PORT': '3306',  
-        
+        'NAME': config('DATABASE_NAME', default='ligiopen'),
+        'USER': config('DATABASE_USER', default='root'),
+        'PASSWORD': config('DATABASE_PASSWORD', default=''),
+        'HOST': config('DATABASE_HOST', default='localhost'),
+        'PORT': config('DATABASE_PORT', default='3306'),
     }
 }
-
 
 
 # Password validation
@@ -151,7 +151,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = '/admin/dashboard/'  
 # settings.py
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
 EMAIL_HOST = 'smtp.gmail.com'
