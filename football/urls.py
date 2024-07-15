@@ -27,7 +27,7 @@ urlpatterns = [
     
 
 
-    path('all-players/', views.all_players_view, name='all_players'),
+    path('pages/all-players', views.player_list, name='player_list'),
 
     
 

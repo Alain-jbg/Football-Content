@@ -7,12 +7,14 @@ from django.conf import settings
 from .forms import ContactForm
 from django.contrib import messages
 from django.urls import reverse
+from .models import Match
 
 
 def home(request):
     clubs = Club.objects.all()
     fixtures = Fixture.objects.all()
-    return render(request, 'index.html', {'clubs': clubs, 'fixtures': fixtures})
+    matches = Match.objects.all()
+    return render(request, 'index.html', {'clubs': clubs, 'fixtures': fixtures,'matches': matches})
 
 
 def club_staff_view(request, club_id):
@@ -108,14 +110,14 @@ def club_detail_view(request, club_id):
 
 
 
-
 def all_players_view(request):
-    all_players = Player.objects.all()
-    context = {
-        'all_players': all_players,
-        
-    }
-    return render(request, 'pages/club-staff.html', context)
+    players = Player.objects.all()  # Fetch all players from the database
+    return render(request, 'pages/all-players.html', {'players': players})
+
+def player_list(request):
+    players = Player.objects.all()
+    return render(request, 'pages/all-players.html', {'players': players})
+
 
 
 #FAQ Section views
