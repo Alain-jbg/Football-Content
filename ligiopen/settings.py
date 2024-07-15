@@ -45,6 +45,10 @@ INSTALLED_APPS = [
     'football',  
 ]
 
+
+
+
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -52,6 +56,7 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.locale.LocaleMiddleware',  
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
@@ -150,7 +155,8 @@ APPEND_SLASH = False
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_REDIRECT_URL = '/admin/dashboard/'  
+LOGIN_REDIRECT_URL = '/admin/dashboard/' 
+
 # settings.py
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

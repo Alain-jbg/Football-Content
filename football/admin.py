@@ -11,16 +11,12 @@ admin.site.register(Club)
 admin.site.register(Team)
 admin.site.register(Match)
 admin.site.register(Stadium)
-
-
-
-
 admin.site.register(Result)
 admin.site.register(OtherStaff)
 
 
 
-admin.site.site_header = "LigiOpen Admin"
+admin.site.site_header = 'LigiOpen Administration'
 
 
 
