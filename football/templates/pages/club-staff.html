@@ -292,8 +292,8 @@
       <div class="box bottom-nav">
         <h3>{{ club.name }}</h3>
         <img src="{{ club.photo.url }}" alt="{{ club.name }} Photo" class="logo"/>
-        <a href="https://maps.google.com/?q=YOUR_ADDRESS">{{ club.stadium }}</a> 
-        <a href="https://maps.google.com/?q=YOUR_ADDRESS">{{ club.location }}</a> 
+        <a href="https://maps.google.com/?q=YOUR_ADDRESS">Home ground: {{ club.stadium }}</a> 
+        <a href="https://maps.google.com/?q=YOUR_ADDRESS">Location: {{ club.location }}</a> 
       </div>
   
       <div class="box">
@@ -313,6 +313,6 @@
       <p>&copy; 2024 {{ club.name }}. All rights reserved. No part of this site may be reproduced without our written permission.</p>
     </div>
   </section>
-  
   <script src="{% static 'js/club-staff.js' %}"></script>
-  
+</body>
+</html>

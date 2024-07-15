@@ -33,6 +33,33 @@ links.forEach(function(link) {
     });
 });
 
+//Match poster sliding effect
+var matches = document.querySelectorAll('.slider .match');
+var dots = document.querySelectorAll('.dot');
+var currentMatch = 0; // index of the first match 
+const interval = 3000; // duration(speed) of the slide
+
+function changeSlide(n) {
+    if (n !== undefined) {
+        clearInterval(timer);
+        currentMatch = n;
+        timer = setInterval(() => changeSlide(), interval);
+    } else {
+        currentMatch = (currentMatch + 1) % matches.length; // update the index number
+    }
+
+    var slides = document.querySelector('.slides');
+    slides.style.transform = `translateX(-${currentMatch * 100}%)`;
+
+    for (var i = 0; i < dots.length; i++) { // reset dots
+        dots[i].className = dots[i].className.replace(' active', '');
+    }
+
+    dots[currentMatch].className += ' active';
+}
+
+var timer = setInterval(() => changeSlide(), interval);
+
 // Bottom footer navbar toggling
 let footerLinks = document.querySelectorAll('.bottom-nav a');
 

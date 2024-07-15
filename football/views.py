@@ -168,3 +168,6 @@ def crowdfund_mpesa(request):
 def crowdfund_other(request):
     return render(request, 'pages/finance/crowdfund-card.html')
 
+
+def all_players(request):
+    return render(request, 'pages/all-players.html')

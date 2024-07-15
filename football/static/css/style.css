@@ -205,6 +205,101 @@ section .home {
     text-align: center;
 }
 
+/* Poster and general styles */
+.home .poster {
+    width: 100%;
+    height: fit-content;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.home .poster .header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.home .poster .match-info {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+.home .poster .teams {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: white;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    border: 0.1rem solid var(--light-color);
+}
+
+.home .poster .team {
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.home .poster .team img {
+    max-width: 200px;
+    border-radius: 10px;
+}
+
+.home .poster .vs {
+    font-size: 3em;
+    font-weight: bold;
+}
+
+.home .poster .details {
+    text-align: center;
+}
+
+.home .poster .logos {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.home .poster .logos img {
+    max-width: 80px;
+    margin: 10px;
+}
+
+/* Slider styles */
+.home .poster .slider {
+    overflow: hidden;
+    width: 100%;
+}
+
+.home .poster .slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.home .poster .match {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+.home .poster .navigation-button {
+    text-align: center;
+    position: relative;
+}
+
+.home .poster .dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.home .poster .active, .dot:hover {
+    background-color: #717171;
+}
+
 .home .about-section {    
     text-align: center; 
     padding: 5% 9%; 
@@ -231,6 +326,18 @@ section .home {
 .home .about-section .container #features {
     position: relative;
     display: flex;
+}
+
+.home .player-view {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.home .player-view .more-info {
+    font-size: 2rem;
 }
 
 #features {
@@ -591,8 +698,8 @@ section .home {
 }
 
 .fixtures  .team img {
-    width: 70px;
-    height: 70px;
+    width: 150px;
+    height: 150px;
     margin-right: 10px;
 }
 
@@ -1168,6 +1275,11 @@ section .home {
     .highlights .heading {
         margin-top: 20%;
     }
+
+    .home .poster .team img {
+        width: 100px;
+    }
+
 }
 
 @media (max-width: 520px) {
