@@ -1,0 +1,137 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="{% static 'images/li__1_-removebg-preview.ico' %}">
+    <title>Game Highlights</title>
+
+    <!--Font awesome-->
+    <script src="https://kit.fontawesome.com/456d64337e.js" crossorigin="anonymous"></script>
+
+    <!--Css-->
+    <link rel="stylesheet" href="{% static 'css/match-report.css' %}">
+</head>
+<body>
+    <header>
+        <a href="{% url 'home' %}">
+            <img src="{% static 'images/li__1_-removebg-preview.png' %}" alt="logo">
+        </a>
+    </header>
+    <h1 class="heading">Ligi Open News & Highlights</h1>
+    <div class="results-section">
+        <div class="fixture">
+            <div class="date">
+              <p class="date-fix">Thu January 1 2025</p>
+              <p class="comp">Competition</p>
+            </div>
+            <div class="inner-team">
+              <div class="team">
+                <img src="{% static 'images/logo-1-removebg-preview.png' %}" alt="Team A Logo">
+                <span class="team-name">Team A</span>
+              </div>
+              <div class="demo">
+                <div class="vs">2 - 2</div>
+                <p class="venue">Venue</p>
+              </div>
+              <div class="team">
+                <img src="{% static 'images/logo-2-removebg-preview.png' %}" alt="Team B Logo">
+                <span class="team-name">Team B</span>
+              </div>
+            </div>
+            <div class="goal-details">
+              <div class="home">
+                <p>M. Cucurella 4' <i class="fa-solid fa-futbol"></i></p>
+                <p>Rogers 42' <i class="fa-solid fa-futbol"></i></p>
+              </div>
+              <p></p>
+              <div class="away">
+                <p>James 7' <i class="fa-solid fa-futbol"></i></p>
+                <p>Lukaku 67' <i class="fa-solid fa-futbol"></i></p>
+              </div>
+            </div>
+          </div>
+    </div>
+
+    <div class="news-content">
+        <h1 class="sub-heading">Report: Team A 2-2 Team B</h1>
+        <div class="author">
+          <div class="author-name"> 
+            <img src="{% static 'images/news-demo/avatar-mark-webber.webp' %}" alt="author-avatar">
+            <p>by James Wainaina</p>
+          </div>
+          <p class="news-date">Thu January 1 2025</p>
+        </div>
+        <hr />
+
+        <div class="top-images">
+            <img src="{% static 'images/news-demo/amenities.jpg' %}" alt="stadium-turf">
+            <div class="top-images-sub">
+                <img src="{% static 'images/news-demo/lineup-3.webp' %}" alt="team-lineup">
+                <img src="{% static 'images/news-demo/lineup-2.jpg' %}" alt="team-lineup">
+            </div>
+        </div>
+        <div class="main-content">
+            <h3>Team B are guaranteed European football next season after ending the season with a 2-2 draw at home to Team A.</h3>
+            <div class="first-half">
+              <h3 class="halves">First half</h3>
+              <p>Two changes were made to the starting XI by Pochettino. Thiago Silva returned to the defence for his final appearance, as Malo Gusto dropped to the bench. The other saw Raheem Sterling replace Mykhailo Mudryk, who was ruled out due to concussion protocols.</p>
+              <p>Silva's name reverberated around Stamford Bridge before kick-off – and it was a positive atmosphere the Blues fed off as two chances were created in the opening two minutes. Both were fashioned by Sterling. The first saw the England international evade pressure and slip the ball through to Jackson, whose left-footed shot was well saved by Neto.</p>
+              <p>The second was for Palmer, who was presented with his Premier League Young Player of the Year award before kick-off. The 22-year-old collected the ball inside the box and guided a shot toward the far corner, but it flew narrowly wide of the post.</p>
+            </div>
+            <div class="half-imgs" id="slider-1">
+              <div class="slider">
+                  <img id="img-1" src="{% static 'images/news-demo/preview-2.jpg' %}" alt="Image 1"/>
+                  <img id="img-2" src="{% static 'images/news-demo/player.JPG' %}" alt="Image 2"/>
+                  <img id="img-3" src="{% static 'images/news-demo/preview-3.webp' %}" alt="Image 3"/>
+              </div>
+              <div class="navigation-button">
+                  <span class="dot active" onclick="changeSlide1(0)"></span>
+                  <span class="dot" onclick="changeSlide1(1)"></span>
+                  <span class="dot" onclick="changeSlide1(2)"></span>
+              </div>
+            </div>
+            <div class="second-half">
+              <h3 class="halves">Second half</h3>
+              <p>Bournemouth continued attacking at the start of the second half and could have equalised when Lewis Cook's shot from outside the penalty area was diverted just wide by Unal.</p>
+              <p>But it was Chelsea who grabbed the next goal of the game when Sterling's fine wing play on the left saw him beat the full-back inside the penalty area and have a low shot from a tight angle which went in via the legs of Neto.</p>
+              <p>But Bournemouth responded immediately to make it 2-1 as a Unal shot, which was heading wide, was directed past the diving Petrovic by the left foot of Benoit Badiashile.</p>
+              <p>Pochettino made a triple change around the hour mark as Malo Gusto, Lesley Ugochukwu and Christopher Nkunku were all introduced. And it was the latter who had the next chance as he headed a Palmer free-kick over the bar.</p>
+              <p>Chelsea could have added a third during injury-time but yet again Neto was equal to it, as he pushed away Conor Gallagher's shot.</p>
+              <p>And the drama was not done there, as a swift Bournemouth counter-attack saw Petrovic parry Ouattara's shot into the path of Christie and he would have scored had Gallagher not slid in and made the challenge, with the goal empty. The ball then rolled to Solanke and somehow the striker lofted his shot from eight yards over the keeper to make it 2-2.</p>
+            </div>
+            <div class="half-imgs" id="slider-2">
+              <div class="slider">
+                  <img id="img-1" src="{% static 'images/news-demo/preview-4.jpg' %}" alt="Image 1"/>
+                  <img id="img-2" src="{% static 'images/news-demo/preview-5.jpg' %}" alt="Image 2"/>
+                  <img id="img-3" src="{% static 'images/news-demo/preview-6.webp' %}" alt="Image 3"/>
+              </div>
+              <div class="navigation-button">
+                  <span class="dot active" onclick="changeSlide2(0)"></span>
+                  <span class="dot" onclick="changeSlide2(1)"></span>
+                  <span class="dot" onclick="changeSlide2(2)"></span>
+              </div>
+          </div>
+            <div class="lineups">
+              <h3 class="halves">The Teams</h3>
+              <div class="lineups-home">
+                <p><strong>Team A: </strong>Petrovic; Chalobah, Thiago Silva, Badiashile, Cucurella; Caicedo (Ugochukwu 64), Gallagher; Madueke (Gusto 64), Palmer (Casadei 89), Sterling (Nkunku 64); Jackson:</p>
+                <p><strong>Unused substitutes: </strong>Bettinelli, Disasi, Colwill, Gilchrist, Chukwuemeka</p>
+                <p><strong>Booked: </strong>Cucurella 28, Gusto 78</p>
+                <p><strong>Goalscorers: </strong>Caicedo 17, Sterling 48</p>
+              </div>
+              <div class="lineups-away">
+                <p><strong>Team A: </strong>Petrovic; Chalobah, Thiago Silva, Badiashile, Cucurella; Caicedo (Ugochukwu 64), Gallagher; Madueke (Gusto 64), Palmer (Casadei 89), Sterling (Nkunku 64); Jackson:</p>
+                <p><strong>Unused substitutes: </strong>Bettinelli, Disasi, Colwill, Gilchrist, Chukwuemeka</p>
+                <p><strong>Booked: </strong>Cucurella 28, Gusto 78</p>
+                <p><strong>Goalscorers: </strong>Caicedo 17, Sterling 48</p>
+              </div>
+              <p class="referee"><strong>Referee: </strong>Anthony Taylor</p>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'js/match-report.js' %}"></script>
+</body>
+</html>
