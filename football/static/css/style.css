@@ -119,18 +119,18 @@ header .navbar a.active, header .navbar a:hover {
     background: var(--green);
 }
 
-.navbar2 {
+.navbar2, .navbar3 {
     padding: 10px 0;
 }
 
-.navbar2 a{
+.navbar2 a, .navbar3 a{
     font-size: 1.7rem;
     border-radius: .5rem;
     padding: .5rem 1.5rem;
     color: var(--light-color);
 }
 
-.fixtures .navbar2 a.active, .fixtures .navbar2 a:hover {
+.fixtures .navbar2 a.active, .fixtures .navbar2 a:hover, .highlights .navbar3 a.active, .highlights .navbar3 a:hover {
     color: #fff;
     background: var(--green);
 }
@@ -698,8 +698,8 @@ section .home {
 }
 
 .fixtures  .team img {
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
     margin-right: 10px;
 }
 
@@ -825,7 +825,7 @@ section .home {
 /*News Section*/
 .highlights {
     background-color: #eee;
-    padding: 3% 0;
+    padding: 3% 9%;
 }
 
 .highlights img {
@@ -835,7 +835,7 @@ section .home {
 }
 
 .highlights .container {
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -876,7 +876,6 @@ section .home {
 }
 
 .highlights .btn {
-    width: 30%;
     text-align: center;
 }
 
@@ -1002,10 +1001,6 @@ section .home {
 }
 
 @media (max-width: 1100px) {
-    .highlights .btn {
-        width: 35%;
-        text-align: center;
-    }
 
     .order, .fixtures {
         padding-top: 5%;
@@ -1049,11 +1044,6 @@ section .home {
 @media (max-width: 1020px) {
     .highlights .heading {
         margin-top: 5%;
-    }
-
-    .highlights .btn {
-        width: 40%;
-        text-align: center;
     }
     
     .teams .row {
@@ -1099,19 +1089,10 @@ section .home {
     }
 }
 
-@media (max-width: 900px) {
-    .highlights .btn {
-        width: 45%;
-    }
-    
-}
-
 @media (max-width: 880px) {
     .highlights .heading {
         margin-top: 10%;
-    }
-
-    
+    }    
 
     #transparency .trans {
         width: 40%;
@@ -1180,12 +1161,6 @@ section .home {
 
 }
 
-@media (max-width: 720px) {
-    .highlights .btn {
-        width: 50%;
-    }
-}
-
 @media (max-width: 680px) {
     .highlights .heading {
         margin-top: 15%;
@@ -1205,10 +1180,6 @@ section .home {
     .feature-box {
         width: 100%;
         margin-bottom: 20px;
-    }
-
-    .highlights .btn {
-        width: 100%;
     }
 
     #transparency .top {
@@ -1243,8 +1214,7 @@ section .home {
 
 @media (max-width: 600px) {
     .highlights .container {
-        display: flex;
-        flex-direction: column;
+        grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
     }
 
     .teams .col-lg-3 {

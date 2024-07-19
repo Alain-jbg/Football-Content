@@ -173,3 +173,9 @@ def crowdfund_other(request):
 
 def all_players(request):
     return render(request, 'pages/all-players.html')
+
+def matchday_highlights(request):
+    return render(request, 'pages/match-report.html')
+
+def blog(request):
+    return render(request, 'pages/blog.html')

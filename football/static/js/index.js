@@ -217,3 +217,35 @@ resultsLink.addEventListener("click", function(event) {
 
 // By default, show fixtures section
 toggleSection(fixturesSection);
+
+// Function to toggle game highlights and blogs sections
+const gamesLink = document.getElementById("games-link");
+const blogsLink = document.getElementById("blogs-link");
+const highlightsSection = document.getElementById("highlights-section");
+const blogsSection = document.getElementById("blogs-section");
+
+function toggleSectionBlog(sectionToShow) {
+    const sections = [highlightsSection, blogsSection];
+    sections.forEach(section => {
+        section.style.display = "none";
+    });
+    sectionToShow.style.display = "grid";
+}
+
+// Event listeners for toggling content sections
+gamesLink.addEventListener("click", function(event) {
+    event.preventDefault();
+    blogsLink.classList.remove('active');
+    gamesLink.classList.add('active')
+    toggleSectionBlog(highlightsSection);
+});
+
+blogsLink.addEventListener("click", function(event) {
+    event.preventDefault();
+    gamesLink.classList.remove('active');
+    blogsLink.classList.add('active')
+    toggleSectionBlog(blogsSection);
+});
+
+// By default, show fixtures highlights
+toggleSectionBlog(highlightsSection);

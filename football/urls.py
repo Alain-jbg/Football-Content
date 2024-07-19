@@ -34,10 +34,6 @@ urlpatterns = [
 
 
    # FAQ Section URLs
-
-
-    path('pages/FAQ/faq.html', views.faq_page, name='faq_page'),
-
     path('pages/FAQ/faq', views.faq_page, name='faq_page'),
     
     
@@ -62,7 +58,13 @@ urlpatterns = [
     path('pages/finance/crowdfund-other', views.crowdfund_other, name='crowdfund_other'),
     
     # View all players URL...
-    path('pages/all-players', views.all_players, name='all_players')
+    path('pages/all-players', views.all_players, name='all_players'),
+
+    #Matchday highlights url
+    path('pages/matchday-highlights', views.matchday_highlights, name='matchday_highlights'),
+
+    #Custom bloh url
+    path('pages/blog', views.blog, name='blog')
 ]
 
 
