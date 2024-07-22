@@ -17,7 +17,7 @@
 </head>
 <body>
     <header>
-      <a href="http://127.0.0.1:8000">
+      <a href="{% url 'home' %}">
 
       <img src="{% static 'images/li__1_-removebg-preview.png' %}" alt="logo">
       </a>
@@ -123,25 +123,18 @@
     <div id="fixtures-container" class="fixtures-container">
       <!-- Fixtures for Team 1 -->
       <div class="team-fixtures" id="team1-fixtures">
-          <div class="fixture-dropdown">
-              <select id="competition-select">
-                  <option value="all">All competitions</option>
-                  <option value="ligi-open">Ligi Open</option>
-                  <option value="competition-2">Competition 2</option>
-              </select>
-          </div>
-          <div class="fixture" data-competition="ligi-open">
-              <div class="fixture-date">SUN 05 MAY 2025, 10:30am</div>
+          <div class="fixture">
+              <div class="fixture-date"><span class="team-comp">Competition Name - </span>SUN 05 MAY 2025, 10:30am</div>
               <div class="fixture-opponent">Team X</div>
               <div class="fixture-venue">Stadium A</div>
           </div>
           <div class="fixture" data-competition="ligi-open">
-              <div class="fixture-date">WED 08 MAY 2025, 12:30pm</div>
+              <div class="fixture-date"><span class="team-comp">Competition Name - </span>WED 08 MAY 2025, 12:30pm</div>
               <div class="fixture-opponent">Team Y</div>
               <div class="fixture-venue">Stadium B</div>
           </div>
           <div class="fixture" data-competition="competition-2">
-              <div class="fixture-date">SUN 10 MAY 2025, 3:30pm</div>
+              <div class="fixture-date"><span class="team-comp">Competition Name - </span>SUN 10 MAY 2025, 3:30pm</div>
               <div class="fixture-opponent">Team Z</div>
               <div class="fixture-venue">Stadium C</div>
           </div>
