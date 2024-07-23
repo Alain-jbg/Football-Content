@@ -65,29 +65,6 @@ resultsLink.addEventListener("click", function(event) {
 // By default, show fixtures section
 toggleSection(fixturesSection);
 
-//Filter fixtures by competition
-const competitionSelect = document.getElementById("competition-select");
-const fixturesContainer = document.getElementById("fixtures-container");
-
-// Function to filter fixtures by competition
-function filterFixturesByCompetition(competition) {
-    const fixtures = fixturesContainer.querySelectorAll(".fixture");
-    fixtures.forEach(fixture => {
-        const fixtureCompetition = fixture.getAttribute("data-competition");
-        if (competition === "all" || competition === fixtureCompetition) {
-                fixture.style.display = "block";
-        } else {
-            fixture.style.display = "none";
-        }
-    });
-}
-
-// Event listener for dropdown change
-competitionSelect.addEventListener("change", function() {
-    const selectedCompetition = competitionSelect.value;
-    filterFixturesByCompetition(selectedCompetition);
-});
-
 // Job listings
 /* const jobSearchInput = document.querySelector(".job-search");
 const jobsContainer = document.querySelector(".jobs");

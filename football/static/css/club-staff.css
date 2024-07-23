@@ -207,27 +207,6 @@ section {
     margin-top: 50px;
 }
 
-.fixture-dropdown {
-    position: absolute;
-    top: -60px; 
-    right: 0;
-    padding: 5px; 
-    border-bottom: 2px solid #ccc;
-}
-
-#competition-select {
-    width: 150px; 
-    padding: 5px; 
-    font-size: 16px;
-    background-color: #eee;
-    color: var(--black);
-}
-
-#competition-select:focus {
-    outline: none; 
-    background-color: #eee; 
-}
-
 .fixtures-container {
     display: flex;
     flex-direction: column;
@@ -240,9 +219,14 @@ section {
     padding: 10px;
     margin-bottom: 10px;
 }
+
+.fixture .team-comp {
+    color: var(--green);
+}
   
 .fixture-date {
     font-weight: bold;
+    font-size: 1.2rem;
 }
   
 .fixture-opponent {
