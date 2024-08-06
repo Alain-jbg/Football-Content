@@ -1,4 +1,4 @@
-name: Deploy to Live Server
+name: Django CI
 
 on:
   push:
@@ -6,21 +6,40 @@ on:
       - main
 
 jobs:
-  deploy:
-    runs-on: windows-latest
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        python-version: [3.7, 3.8, 3.9]
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up SSH
-        uses: webfactory/ssh-agent@v0.5.3
+      - name: Set up Python
+        uses: actions/setup-python@v2
         with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          python-version: ${{ matrix.python-version }}
 
-      - name: Install SSH Client
-        run: choco install openssh
-
-      - name: Deploy to Live Server
+      - name: Install dependencies
         run: |
-          ssh -o StrictHostKeyChecking=no username@your-server-ip "bash -s" < ./deploy.sh
+          python -m venv venv
+          source venv/bin/activate
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run migrations
+        run: |
+          source venv/bin/activate
+          python manage.py migrate
+
+      - name: Run tests
+        run: |
+          source venv/bin/activate
+          python manage.py test
+
+      - name: Collect static files
+        run: |
+          source venv/bin/activate
+          python manage.py collectstatic --noinput
