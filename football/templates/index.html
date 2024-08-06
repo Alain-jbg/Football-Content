@@ -31,81 +31,55 @@
         </div>
     </header>
 
-    <!--Home section-->
-    <section class="home live" id="home">
-        <div class="background-image">
-            <div>
-                <h1 class="heading">Welcome to  LIGI OPEN!</h1>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSeBRTji7N9EilFp3lmqjbNjSRPIIM_VwjiSYg6IcADWdSyOTQ/viewform?usp=sharing" target="_blank" class="btn">Register Club</a>
-            </div>
-        </div>
+    <!--LigiOpen Day  section-->
+    <!-- templates/home.html -->
 
-        <div class="poster">
-            <div class="header">
-                <h1 class="heading">Ligi Open Matchday</h1>
-                <h2 class="sub-heading">Gameweek 1</h2>
-            </div>
-            <div class="slider">
-                <div class="slides">
-                    <div class="match">
-                        <div class="match-info">
-                            <h3>SEPT 15, 2023 | 6:30PM</h3>
-                            <h4>Aliu Mahama Stadium</h4>
-                        </div>
-                        <div class="teams">
-                            <div class="team">
-                                <img src="{% static 'images/logo-2-removebg-preview.png' %}" alt="Team 1">
-                                <h3>RTU</h3>
-                            </div>
-                            <div class="vs">VS</div>
-                            <div class="team">
-                                <img src="{% static 'images/logo-1-removebg-preview.png' %}" alt="Team 2">
-                                <h3>Hearts</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="match">
-                        <div class="match-info">
-                            <h3>DEC 05, 2023 | 6:30PM</h4>
-                            <h4>Sultan Stadium</h4>
-                        </div>
-                        <div class="teams">
-                            <div class="team">
-                                <img src="{% static 'images/fut1.png' %}" alt="Team 1">
-                                <h3>Mas</h3>
-                            </div>
-                            <div class="vs">VS</div>
-                            <div class="team">
-                                <img src="{% static 'images/logo-1-removebg-preview.png' %}" alt="Team 2">
-                                <h3>Hear</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="match">
-                        <div class="match-info">
-                            <h3>JUL 25, 2023 | 6:30PM</h3>
-                            <h4>Mahama Stadium</h4>
-                        </div>
-                        <div class="teams">
-                            <div class="team">
-                                <img src="{% static 'images/logo-2-removebg-preview.png' %}" alt="Team 1">
-                                <h3>RTU3</h3>
-                            </div>
-                            <div class="vs">VS</div>
-                            <div class="team">
-                                <img src="{% static 'images/logo-1-removebg-preview.png' %}" alt="Team 2">
-                                <h3>Hearts2</h3>
-                            </div>
-                        </div>
-                    </div>
+
+   
+        <section class="home live" id="home">
+            <div class="background-image">
+                <div>
+                    <h1 class="heading">Welcome to LIGI OPEN!</h1>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeBRTji7N9EilFp3lmqjbNjSRPIIM_VwjiSYg6IcADWdSyOTQ/viewform?usp=sharing" target="_blank" class="btn">Register Club</a>
                 </div>
             </div>
-            <div class="navigation-button">
-                <span class="dot active" onclick="changeSlide(0)"></span>
-                <span class="dot" onclick="changeSlide(1)"></span>
-                <span class="dot" onclick="changeSlide(2)"></span>
+        
+            <div class="poster">
+                <div class="header">
+                    <h1 class="heading">Ligi Open Matchday</h1>
+                    <h2 class="sub-heading">Gameweek 1</h2>
+                </div>
+                <div class="slider">
+                    <div class="slides">
+                        {% for match in matches %}
+                        <div class="match">
+                            <div class="match-info">
+                                <h3>{{ match.date_time|date:"M d, Y | h:iA" }}</h3>
+                                <h4>{{ match.stadium.name }}</h4>
+                            </div>
+                            <div class="teams">
+                                <div class="team">
+                                    <img src="{{ match.home_team_logo.url }}" alt="{{ match.home_team.name }} Logo">
+                                    <h3>{{ match.home_team.name }}</h3>
+                                </div>
+                                <div class="vs">VS</div>
+                                <div class="team">
+                                    <img src="{{ match.away_team_logo.url }}" alt="{{ match.away_team.name }} Logo">
+                                    <h3>{{ match.away_team.name }}</h3>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="navigation-button">
+                    <span class="dot active" onclick="changeSlide(0)"></span>
+                    <span class="dot" onclick="changeSlide(1)"></span>
+                    <span class="dot" onclick="changeSlide(2)"></span>
+                </div>
             </div>
-        </div>
+        
+        
 
         <div class="about-section" id="about-section">
             <h1 class="heading">About Ligi Open</h1>
@@ -368,98 +342,51 @@
   
 
     <!-- Highlights section content -->
-    <section class="highlights" id="highlights">
-      <h2 class="heading">Gameweek highlights & Blogs</h2>
+  <!-- Highlights section content -->
+  <section class="highlights" id="highlights">
+    <h2 class="heading">Gameweek highlights & Blogs</h2>
 
-      <nav class="navbar3">
-        <a class="active" href="#highlights-section" id="games-link">Game Highlights</a></li>
-        <a href="#blogs-section" id="blogs-link">Blogs</a></li>
-      </nav>
-      <div class="container highlights-section" id="highlights-section">
-        <!-- Example article -->
-        <div class="news-card">
+    <nav class="navbar3">
+      <a class="active" href="#highlights-section" id="games-link">Game Highlights</a></li>
+      <a href="#blogs-section" id="blogs-link">Blogs</a></li>
+    </nav>
+    <div class="container highlights-section" id="highlights-section">
+      {% for highlight in highlights %}
+      <div class="news-card">
           <div class="news-image-container">
-            <img src="{% static 'images/newspaper.jpg' %}" alt="news-image" />
+            <img src="{{ highlight.image.url }}" alt="news-image" />
 
           </div>
           <div class="news-content">
-            <div class="news-title">Headline</div>
-            <div class="news-description">Lorem Ipsum.</div>
+              <div class="news-title">{{ highlight.headline }}</div>
+              <div class="news-description">{{ highlight.description }}</div>
+              <a href="{% url 'matchday_highlights' %}" target="_blank" class="btn">Read More</a>
 
-            <a href="{% url 'matchday_highlights' %}" target="_blank" class="btn">Read More</a>
-          </div>
-        </div>
 
-        <div class="news-card">
-          <div class="news-image-container">
-            <img src="{% static 'images/outreach.jpg' %}" alt="news-image" />
 
           </div>
-          <div class="news-content">
-            <div class="news-title">Headline</div>
-            <div class="news-description">Lorem Ipsum.</div>
-
-            <a href="{% url 'matchday_highlights' %}" target="_blank" class="btn">Read More</a>
-          </div>
-        </div>
-
-        <div class="news-card">
-          <div class="news-image-container">
-            <img src="{% static 'images/newspaper.jpg' %}" alt="news-image" />
-
-          </div>
-          <div class="news-content">
-            <div class="news-title">Headline</div>
-            <div class="news-description">Lorem ipsum.</div>
-
-            <a href="{% url 'matchday_highlights' %}" target="_blank" class="btn">Read More</a>
-          </div>
-        </div>        
       </div>
+      {% endfor %}
+  </div>
 
-      <div class="container blogs-section" id="blogs-section">
-        <!-- Example article -->
-        <div class="news-card">
+    <div class="container blogs-section" id="blogs-section">
+      {% for blog in blogs %}
+      <div class="news-card">
           <div class="news-image-container">
-            <img src="{% static 'images/training-facilities.jpg' %}" alt="news-image" />
-
+              <img src="{{ blog.image.url }}" alt="news-image" />
           </div>
           <div class="news-content">
-            <div class="news-title">Headline</div>
-            <div class="news-description">Lorem Ipsum.</div>
+              <div class="news-title">{{ blog.headline }}</div>
+              <div class="news-description">{{ blog.description|truncatewords:20 }}</div>
+              <a href="{% url 'blog' %}" target="_blank" class="btn">Read More</a>
 
-            <a href="{% url 'blog' %}" target="_blank" class="btn">Read More</a>
-          </div>
-        </div>
-
-        <div class="news-card">
-          <div class="news-image-container">
-            <img src="{% static 'images/fut4.jpg' %}" alt="news-image" />
-
-          </div>
-          <div class="news-content">
-            <div class="news-title">Headline</div>
-            <div class="news-description">Lorem Ipsum.</div>
-
-            <a href="{% url 'blog' %}" target="_blank" class="btn">Read More</a>
-          </div>
-        </div>
-
-        <div class="news-card">
-          <div class="news-image-container">
-            <img src="{% static 'images/newspaper.jpg' %}" alt="news-image" />
-
-          </div>
-          <div class="news-content">
-            <div class="news-title">Headline</div>
-            <div class="news-description">Lorem ipsum.</div>
-
-            <a href="{% url 'blog' %}" target="_blank" class="btn">Read More</a>
-          </div>
-        </div>        
+              
+            </div>
       </div>
-    </section>
-    <!--Contact Us -->
+      {% endfor %}
+  </div>
+  </section>
+<!--Contact Us -->
     <section class="order" id="order">
       <h1 class="heading">Ask here</h1>
 

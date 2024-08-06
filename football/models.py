@@ -81,17 +81,88 @@ class Result(models.Model):
 
 class Fixture(models.Model):
     date = models.DateField()
-    time = models.TimeField(default=datetime.time(12, 0))
+    time = models.TimeField()
     competition = models.CharField(max_length=255)
     venue = models.CharField(max_length=255)
     score = models.CharField(max_length=20, blank=True, null=True)
-    team_a_name = models.CharField(max_length=255, default="")
+    team_a_name = models.CharField(max_length=255, null=True)
     team_a_logo = models.ImageField(upload_to='team_logos/', null=True)
-    team_b_name = models.CharField(max_length=255, default="")
+    team_b_name = models.CharField(max_length=255, null=True)
     team_b_logo = models.ImageField(upload_to='team_logos/', null=True)
+    club = models.ForeignKey(Club, related_name='fixtures', on_delete=models.CASCADE,null=True)
+
+    
     
     def __str__(self):
         return f"{self.team_a_name} vs {self.team_b_name} on {self.date}"
+
+
+class Stadium(models.Model):
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+
+class Match(models.Model):
+    date_time = models.DateTimeField()
+    stadium = models.ForeignKey(Stadium, on_delete=models.CASCADE)
+    home_team = models.ForeignKey(Club, related_name='home_matches', on_delete=models.CASCADE)
+    away_team = models.ForeignKey(Club, related_name='away_matches', on_delete=models.CASCADE)
+    home_team_logo = models.ImageField(upload_to='match_logos/', blank=True, null=True)
+    away_team_logo = models.ImageField(upload_to='match_logos/', blank=True, null=True)
+
+    def __str__(self):
+        return f"{self.home_team.name} vs {self.away_team.name} - {self.date_time.strftime('%b %d, %Y | %I:%M %p')}"
+    
+
+
+
+class Blog(models.Model):
+    headline = models.CharField(max_length=200)
+    description = models.TextField()
+    image = models.ImageField(upload_to='blog_images/',null=True,blank=True)
+
+
+
+
+    def __str__(self):
+        return self.headline
+
+
+class BlogPost(models.Model):
+    title = models.CharField(max_length=200)
+    author = models.CharField(max_length=100)
+    date_published = models.DateField()
+    day = models.CharField(max_length=20, null=True,blank=True) 
+    content = models.TextField()
+    image = models.ImageField(upload_to='blogpost_images/', null=True,blank=True)
+    author_image = models.ImageField(upload_to='author_images/', null=True, blank=True)
+
+
+    
+    
+    def __str__(self):
+        return self.title
+
+
+
+class Highlight(models.Model):
+    headline = models.CharField(max_length=200)
+    description = models.TextField()
+    image = models.ImageField(upload_to='highlights/',null=True,blank=True)
+
+
+    def __str__(self):
+        return self.headline
+
+
+
+class ClubMatch(models.Model):
+    name = models.CharField(max_length=100)
+    logo = models.ImageField(upload_to='club_logos/')
+
+    def __str__(self):
+        return self.name
 
 
 

@@ -7,12 +7,24 @@ from django.conf import settings
 from .forms import ContactForm
 from django.contrib import messages
 from django.urls import reverse
+from .models import Match
+from .models import Blog
+from .models import BlogPost
+from .models import Highlight
+from .models import Club, Result
+
+
+
+
 
 
 def home(request):
     clubs = Club.objects.all()
     fixtures = Fixture.objects.all()
-    return render(request, 'index.html', {'clubs': clubs, 'fixtures': fixtures})
+    matches = Match.objects.all()
+    blogs = Blog.objects.all()
+    highlights=Highlight.objects.all()
+    return render(request, 'index.html', {'clubs': clubs, 'fixtures': fixtures,'matches': matches,'blogs':blogs, 'highlights':highlights})
 
 
 def club_staff_view(request, club_id):
@@ -108,12 +120,57 @@ def club_detail_view(request, club_id):
 
 
 
-
 def all_players_view(request):
-    all_players = Player.objects.all()
+    players = Player.objects.all()  # Fetch all players from the database
+    return render(request, 'pages/all-players.html', {'players': players})
+
+def player_list(request):
+    players = Player.objects.all()
+    return render(request, 'pages/all-players.html', {'players': players})
+
+
+
+def blog_view(request):
+    blogs = Blog.objects.all()
+    return render(request, 'index.html', {'blogs': blogs})
+
+
+def blog_list(request):
+    blog_posts = BlogPost.objects.all()
+    return render(request, 'pages/blog.html', {'blog_posts': blog_posts})
+
+
+
+def highlight_list(request):
+    highlights = Highlight.objects.all()
+    return render(request, 'index.html', {'highlights': highlights})
+
+
+def matchday_highlights(request):
+    fixtures = Fixture.objects.all()
+    for fixture in fixtures:
+        fixture.home_goals = fixture.goals.filter(team='home')
+        fixture.away_goals = fixture.goals.filter(team='away')
+    return render(request, 'pages/match-report.html', {'fixtures': fixtures})
+
+
+
+def club_fixtures_results(request, club_id):
+    club = get_object_or_404(Club, pk=club_id)
+    fixtures = club.fixtures.all()
+    results = Result.objects.filter(fixture__club=club)
+
+
+    # Debugging output
+    print(f"Club: {club}")
+    print(f"Fixtures: {fixtures}")
+    print(f"Results: {results}")
+
+
     context = {
-        'all_players': all_players,
-        
+        'club': club,
+        'fixtures': fixtures,
+        'results': results,
     }
     return render(request, 'pages/club-staff.html', context)
 

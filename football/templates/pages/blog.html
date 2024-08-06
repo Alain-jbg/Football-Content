@@ -1,3 +1,4 @@
+<!-- templates/pages/blog.html -->
 {% load static %}
 
 <!DOCTYPE html>
@@ -19,33 +20,31 @@
             <img src="{% static 'images/li__1_-removebg-preview.png' %}" alt="logo">
         </a>
     </header>
+    
+    {% for article in blog_posts %}
     <div id="hero">
-        <h1 class="title">Story of the two footballing brothers</h1>
-    </div>   
+        <h1 class="title">{{ article.title }}</h1>
+    </div>
     <div class="container">
         <div class="author">
             <div class="author-name"> 
-                <img src="{% static 'images/news-demo/avatar-mark-webber.webp' %}" alt="author-avatar">
-                <p>by James Wainaina</p>
+                <img src="{{ article.author_image.url }}" alt="author-avatar">
+                <p>by {{ article.author }}</p>
             </div>
-            <p class="news-date">Thu January 1 2025</p>
+            <p class="news-date">{{ article.date_published|date:"D M d Y" }}</p>
         </div>
         <hr />
-
         <div class="main-content">
-            <h3>Kicking Up Dust: The Otieno Brothers Rise From Kamukunji</h3>
+            <!-- <img src="{{ article.image.url }}" alt="Blog Image" class="blog-image"> -->
             <div class="text">
-                <p>The midday sun beat down mercilessly on the rusty iron rooftops of Nairobi's Kamukunji neighborhood. But beneath the shade of a lone acacia tree, 12-year-old Jalil Otieno barely noticed the heat. His gaze was fixed on the dented football at his feet, mimicking the fancy footwork his older brother, Malik, was showcasing a few steps away. Malik, at 16, was already a legend in their dusty lot, his shifty dribbling and pinpoint passes leaving local wannabes in awe. Jalil, ever the shadow, mirrored Malik's every move, a silent language of feints, tackles, and celebratory fist bumps. Theirs was a bond forged on the red earth pitch, a silent symphony composed of dreams and determination.</p>
-                <p>Life wasn't a walk in Uhuru Park for the Otieno brothers. Their father, a matatu driver, battled Nairobi's notorious traffic jams to put food on the table. But football was their escape, their haven. They honed their skills on the uneven ground, their talent blooming despite the lack of fancy academies or imported boots.</p>
-                <p>Their big chance arrived during a local "chapa dimba" tournament. A renowned coach, scouting for raw talent, spotted Malik's brilliance. He saw not just a gifted player, but a potential star waiting to be polished. The offer was life-changing - a chance to train with a prestigious academy on the outskirts of Nairobi. There was only one spot available, though.</p>
-                <p>A heavy silence descended upon the cramped Otieno household as the news sunk in. Malik, always the voice of reason, knew Jalil belonged on the pitch just as much. A silent conversation passed between them, a shared look that spoke volumes. Malik, with a determined glint in his eyes, insisted Jalil come along.</p>
-                <p>The academy was a far cry from their dusty Kamukunji pitch. The brothers, used to relying on each other for support, now had to navigate a competitive environment filled with talented youngsters from across the country. But their bond remained their anchor. They pushed each other during training, celebrated each other's victories on the pitch, and offered solace after setbacks.</p>
-                <p>Years flew by. Malik, the dazzling winger, rose through the ranks, his electrifying pace and trickery turning heads. But Jalil, the quiet observer, blossomed as well. His tactical awareness and precise passing transformed him into a midfield maestro, the perfect foil to Malik's attacking flair.</p>
-                <p>Today, the Otieno brothers stand on the precipice of greatness. Malik, a highly sought-after prospect, is rumored to be on the radar of top Kenyan Premier League clubs. Jalil, a rising star in his own right, is the engine that drives the academy midfield.</p>
-                <p>Their journey, a testament to the power of brotherhood nurtured in the heart of Nairobi, is just beginning. The dusty pitch in Kamukunji seems a lifetime ago, yet it serves as a constant reminder - their dreams, chased together under the unforgiving sun, are taking flight, one deft pass, one dazzling run, at a time.</p>
+                {{ article.content|safe }}
             </div>
         </div>
     </div>
+    {% empty %}
+    <p>No blog posts available.</p>
+    {% endfor %}
+    
     <script src="{% static 'js/blog.js' %}"></script>
 </body>
 </html>

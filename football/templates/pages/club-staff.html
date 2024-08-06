@@ -80,7 +80,7 @@
             <div>
               <div class="inner-div">
                 <h3>{{ player.name }}</h3>
-                <a class="underline-button">{{ player.club }}</a>
+                <a class="underline-button">{{ player.position }}</a>
               </div>
             </div>
           </div>
@@ -113,111 +113,67 @@
     
     
 <!-- Matches section content -->
+<!-- club-staff.html -->
 <section class="matches" id="matches">
-  <h2 class="heading">Fixtures & Results</h2>
+  <h2 class="heading">{{ club.name }} - Fixtures & Results</h2>
   <nav class="navbar2">
-      <a class="active" href="#fixtures-section" id="fixtures-link">Fixtures</a></li>
-      <a href="#results-section" id="results-link">Results</a></li>
+    <a class="active" href="#fixtures-section" id="fixtures-link">Fixtures</a>
+    <a href="#results-section" id="results-link">Results</a>
   </nav>
   <div id="fixtures-section" class="content-section">
     <div id="fixtures-container" class="fixtures-container">
-      <!-- Fixtures for Team 1 -->
-      <div class="team-fixtures" id="team1-fixtures">
-          <div class="fixture">
-              <div class="fixture-date"><span class="team-comp">Competition Name - </span>SUN 05 MAY 2025, 10:30am</div>
-              <div class="fixture-opponent">Team X</div>
-              <div class="fixture-venue">Stadium A</div>
+      {% for fixture in fixtures %}
+        <div class="team-fixtures" id="team{{ forloop.counter }}-fixtures">
+          <div class="fixture" data-competition="{{ fixture.competition }}">
+            <div class="fixture-date"><span class="team-comp">{{ fixture.competition }} - </span>{{ fixture.date }} {{ fixture.time }}</div>
+            <div class="fixture-opponent">{{ fixture.team_b_name }}</div>
+            <div class="fixture-venue">{{ fixture.venue }}</div>
           </div>
-          <div class="fixture" data-competition="ligi-open">
-              <div class="fixture-date"><span class="team-comp">Competition Name - </span>WED 08 MAY 2025, 12:30pm</div>
-              <div class="fixture-opponent">Team Y</div>
-              <div class="fixture-venue">Stadium B</div>
-          </div>
-          <div class="fixture" data-competition="competition-2">
-              <div class="fixture-date"><span class="team-comp">Competition Name - </span>SUN 10 MAY 2025, 3:30pm</div>
-              <div class="fixture-opponent">Team Z</div>
-              <div class="fixture-venue">Stadium C</div>
-          </div>
-      </div> 
+        </div>
+      {% endfor %}
     </div>
-  
   </div>
-  
+
   <div class="results-section" id="results-section">
-    <div class="container">          
-      <!-- Fixture 1 -->
-      <div class="fixture">
-        <div class="date">
-          <p class="date-fix">Thu January 1 2025</p>
-          <p class="comp">Competition</p>
-        </div>
-        <div class="inner-team">
-          <div class="team">
-            <img src="{% static 'images/logo-1.jpg' %}" alt="Team A Logo">
-
-            <span class="team-name">Team A</span>
+    <div class="container">
+      {% for result in results %}
+        <div class="fixture">
+          <div class="date">
+            <p class="date-fix">{{ result.fixture.date }}</p>
+            <p class="comp">{{ result.fixture.competition }}</p>
           </div>
-          <div class="demo">
-            <div class="vs">3 - 4</div>
-            <p class="venue">Venue</p>
+          <div class="inner-team">
+            <div class="team">
+              <img src="{{ result.fixture.team_a_logo.url }}" alt="{{ result.fixture.team_a_name }} Logo">
+              <span class="team-name">{{ result.fixture.team_a_name }}</span>
+            </div>
+            <div class="demo">
+              <div class="vs">{{ result.home_team_score }} - {{ result.away_team_score }}</div>
+              <p class="venue">{{ result.fixture.venue }}</p>
+            </div>
+            <div class="team">
+              <span class="team-name">{{ result.fixture.team_b_name }}</span>
+              <img src="{{ result.fixture.team_b_logo.url }}" alt="{{ result.fixture.team_b_name }} Logo">
+            </div>
           </div>
-          <div class="team">
-            <img src="{% static 'images/logo-1.jpg' %}" alt="Team B Logo">
-
-            <span class="team-name">Team B</span>
-          </div>
-        </div>
-        <div class="goal-details">
-          <div class="home">
-            <p>M. Cucurella 4' <i class="fa-solid fa-futbol"></i></p>
-            <p>Rogers 42' <i class="fa-solid fa-futbol"></i></p>
-            <p>Ogbona 52' <i class="fa-solid fa-futbol"></i></p>
-          </div>
-          <div class="away">
-            <p>James 7' <i class="fa-solid fa-futbol"></i></p>
-            <p>Lukaku 67' <i class="fa-solid fa-futbol"></i></p>
-            <p>Musa 70' <i class="fa-solid fa-futbol"></i></p>
-            <p>Messi 85' <i class="fa-solid fa-futbol"></i></p>
+          <div class="goal-details">
+            <div class="home">
+              {% for goal in result.home_team_goals.splitlines %}
+                <p>{{ goal }} <i class="fa-solid fa-futbol"></i></p>
+              {% endfor %}
+            </div>
+            <div class="away">
+              {% for goal in result.away_team_goals.splitlines %}
+                <p>{{ goal }} <i class="fa-solid fa-futbol"></i></p>
+              {% endfor %}
+            </div>
           </div>
         </div>
-      </div>
-      
-      <!-- Fixture 2 -->
-      <div class="fixture">
-        <div class="date">
-          <p class="date-fix">Sat December 17 2024</p>
-          <p class="comp">Competition</p>
-        </div>
-        <div class="inner-team">
-          <div class="team">
-            <img src="{% static 'images/logo-1.jpg' %}" alt="Team A Logo">
-
-            <span class="team-name">Team A</span>
-          </div>
-          <div class="demo">
-            <div class="vs">1 - 0</div>
-            <p class="venue">Venue</p>
-          </div>
-          <div class="team">
-            <img src="{% static 'images/logo-1.jpg' %}" alt="Team B Logo">
-
-            <span class="team-name">Team c</span>
-          </div>
-        </div>
-        <div class="goal-details">
-          <div class="home">
-            <p>M. Cucurella 50' <i class="fa-solid fa-futbol"></i></p>
-          </div>
-          <div class="away"></div>
-        </div>
-      </div>   
-      
+      {% endfor %}
     </div>
   </div>
 </section>
 
-
-      
   
 <div class="teams">
 
