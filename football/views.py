@@ -174,6 +174,14 @@ def club_fixtures_results(request, club_id):
     }
     return render(request, 'pages/club-staff.html', context)
 
+def match_report(request):
+    fixtures = Fixture.objects.all()
+    return render(request, 'pages/match-report.html', {'fixtures': fixtures})
+
+
+
+
+
 
 #FAQ Section views
 def faq_page(request):
