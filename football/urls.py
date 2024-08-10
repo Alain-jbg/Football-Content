@@ -4,6 +4,8 @@ from .views import player_stats_view
 # from .views import fixtures_view 
 from .views import contact_us_view, success_view
 from .views import club_fixtures_results
+from .views import match_report
+
 
 
 
@@ -33,6 +35,7 @@ urlpatterns = [
     path('highlights/', views.highlight_list, name='highlight_list'),
     path('club/<int:club_id>/fixtures-results/', club_fixtures_results, name='club_fixtures_results'),
 
+    path('pages/matchday-highlights', match_report, name='match_report'),
 
 
 
