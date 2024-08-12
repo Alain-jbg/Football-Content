@@ -1,0 +1,54 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="{% static 'images/li__1_-removebg-preview.ico' %}">
+    <title>Ticket Booked Success</title>
+    <!-- Font awesome -->
+    <script src="https://kit.fontawesome.com/456d64337e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'css/ticket-qr.css' %}">
+    </script>
+</head>
+<body>
+    <!--Header section-->
+    <header>
+        <a href="{% url 'home' %}">
+            <img src="{% static 'images/li__1_-removebg-preview.png' %}" alt="logo">
+        </a>
+    </header>
+
+    <div class="container">
+        <div class="holder">
+            <h2 class="header">Thank you, {{ first_name }} {{ last_name }}!</h2>
+            <p class="desc">Your ticket QR code has been generated for {{ team_a }} vs {{ team_b }}.</p>
+            <img src="data:image/png;base64,{{ qr_code_base64 }}" alt="QR Code">
+            <div class="event-details">
+                <p class="head">TICKET CODE</p>
+                <p class="id">{{ unique_id }}</p>
+                <p class="head">Venue</p>
+                <p class="venue">{{ venue }}</p>
+                <p class="date">{{ date }}, {{ time }}</p>
+                <p class="add">Ticket sent to the email: <span>{{ email }}</span></p>
+            </div>
+        </div>
+    </div>
+
+    <!--<script>
+        const firstName = "{{ first_name }}";
+        const lastName = "{{ last_name }}";
+        const email = "{{ email }}";
+        const uniqueId = "{{ unique_id }}";
+        const qrData = `First Name: ${firstName}\nLast Name: ${lastName}\nEmail: ${email}\nID: ${uniqueId}`;
+
+        const qrcode = new QRCode(document.getElementById("qrcode"), {
+            text: qrData,
+            width: 128,
+            height: 128
+        });
+    </script>-->
+    
+</body>
+</html>

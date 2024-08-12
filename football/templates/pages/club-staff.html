@@ -37,275 +37,272 @@
           <i class="fas fa-bars" id="menu-bars"></i>
         </div>
     </header>
-    
-    
-      
-  
 
-<!-- player_profiles.html -->
-<!-- club_detail.html -->
-
-<section class="team live" id="team">
-  <div class="top-logo">
-    <img src="{{ club.photo.url }}" alt="{{ club.name }} Photo" class="logo">
-  </div>
-  <h1 class="sub-heading">{{ club.name }}</h1>
-  <div class="teams">
-    <div class="container">
-      <h2 class="heading">Coaching Staff</h2>
-      <div class="row">
-        {% for staff in coaching_staff %}
-        <div class="col-lg-3">
-          <div class="team-member">
-            <img src="{{ staff.photo.url }}" alt="{{ staff.name }} Photo" class="img-fluid" />
-            <div>
-              <div class="inner-div">
-                <h3>{{ staff.name }}</h3>
-                <a class="underline-button">{{ staff.role }}</a>
+    <section class="team live" id="team">
+      <div class="top-logo">
+        <img src="{{ club.photo.url }}" alt="{{ club.name }} Photo" class="logo">
+      </div>
+      <h1 class="sub-heading">{{ club.name }}</h1>
+      <div class="teams">
+        <div class="container">
+          <h2 class="heading">Coaching Staff</h2>
+          <div class="row">
+            {% for staff in coaching_staff %}
+            <div class="col-lg-3">
+              <div class="team-member">
+                <img src="{{ staff.photo.url }}" alt="{{ staff.name }} Photo" class="img-fluid" />
+                <div>
+                  <div class="inner-div">
+                    <h3>{{ staff.name }}</h3>
+                    <a class="underline-button">{{ staff.role }}</a>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-        {% endfor %}
-      </div>
-    </div>
-
-    <div class="container other">
-      <h2 class="heading">Players</h2>
-      <div class="row">
-        {% for player in players %}
-        <div class="col-lg-3 players">
-          <div class="team-member">
-            <img src="{{ player.photo.url }}" alt="{{ player.name }} Photo" class="img-fluid" />
-            <div>
-              <div class="inner-div">
-                <h3>{{ player.name }}</h3>
-                <a class="underline-button">{{ player.club }}</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        {% endfor %}
-      </div>
-    </div>
-
-    <div class="container other">
-      <h2 class="heading">Other Staff</h2>
-      <div class="row">
-        {% for staff in other_staff %}
-        <div class="col-lg-3">
-          <div class="team-member">
-            <img src="{{ staff.photo.url }}" alt="{{ staff.name }} Photo" class="img-fluid" />
-            <div>
-              <div class="inner-div">
-                <h3>{{ staff.name }}</h3>
-                <a class="underline-button">{{ staff.role }}</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        {% endfor %}
-      </div>
-    </div>
-
-                
-  </section>
-    
-    
-<!-- Matches section content -->
-<section class="matches" id="matches">
-  <h2 class="heading">Fixtures & Results</h2>
-  <nav class="navbar2">
-      <a class="active" href="#fixtures-section" id="fixtures-link">Fixtures</a></li>
-      <a href="#results-section" id="results-link">Results</a></li>
-  </nav>
-  <div id="fixtures-section" class="content-section">
-    <div id="fixtures-container" class="fixtures-container">
-      <!-- Fixtures for Team 1 -->
-      <div class="team-fixtures" id="team1-fixtures">
-          <div class="fixture">
-              <div class="fixture-date"><span class="team-comp">Competition Name - </span>SUN 05 MAY 2025, 10:30am</div>
-              <div class="fixture-opponent">Team X</div>
-              <div class="fixture-venue">Stadium A</div>
-          </div>
-          <div class="fixture" data-competition="ligi-open">
-              <div class="fixture-date"><span class="team-comp">Competition Name - </span>WED 08 MAY 2025, 12:30pm</div>
-              <div class="fixture-opponent">Team Y</div>
-              <div class="fixture-venue">Stadium B</div>
-          </div>
-          <div class="fixture" data-competition="competition-2">
-              <div class="fixture-date"><span class="team-comp">Competition Name - </span>SUN 10 MAY 2025, 3:30pm</div>
-              <div class="fixture-opponent">Team Z</div>
-              <div class="fixture-venue">Stadium C</div>
-          </div>
-      </div> 
-    </div>
-  
-  </div>
-  
-  <div class="results-section" id="results-section">
-    <div class="container">          
-      <!-- Fixture 1 -->
-      <div class="fixture">
-        <div class="date">
-          <p class="date-fix">Thu January 1 2025</p>
-          <p class="comp">Competition</p>
-        </div>
-        <div class="inner-team">
-          <div class="team">
-            <img src="{% static 'images/logo-1.jpg' %}" alt="Team A Logo">
-
-            <span class="team-name">Team A</span>
-          </div>
-          <div class="demo">
-            <div class="vs">3 - 4</div>
-            <p class="venue">Venue</p>
-          </div>
-          <div class="team">
-            <img src="{% static 'images/logo-1.jpg' %}" alt="Team B Logo">
-
-            <span class="team-name">Team B</span>
-          </div>
-        </div>
-        <div class="goal-details">
-          <div class="home">
-            <p>M. Cucurella 4' <i class="fa-solid fa-futbol"></i></p>
-            <p>Rogers 42' <i class="fa-solid fa-futbol"></i></p>
-            <p>Ogbona 52' <i class="fa-solid fa-futbol"></i></p>
-          </div>
-          <div class="away">
-            <p>James 7' <i class="fa-solid fa-futbol"></i></p>
-            <p>Lukaku 67' <i class="fa-solid fa-futbol"></i></p>
-            <p>Musa 70' <i class="fa-solid fa-futbol"></i></p>
-            <p>Messi 85' <i class="fa-solid fa-futbol"></i></p>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Fixture 2 -->
-      <div class="fixture">
-        <div class="date">
-          <p class="date-fix">Sat December 17 2024</p>
-          <p class="comp">Competition</p>
-        </div>
-        <div class="inner-team">
-          <div class="team">
-            <img src="{% static 'images/logo-1.jpg' %}" alt="Team A Logo">
-
-            <span class="team-name">Team A</span>
-          </div>
-          <div class="demo">
-            <div class="vs">1 - 0</div>
-            <p class="venue">Venue</p>
-          </div>
-          <div class="team">
-            <img src="{% static 'images/logo-1.jpg' %}" alt="Team B Logo">
-
-            <span class="team-name">Team c</span>
-          </div>
-        </div>
-        <div class="goal-details">
-          <div class="home">
-            <p>M. Cucurella 50' <i class="fa-solid fa-futbol"></i></p>
-          </div>
-          <div class="away"></div>
-        </div>
-      </div>   
-      
-    </div>
-  </div>
-</section>
-
-
-      
-  
-<div class="teams">
-
-  <!-- stats -->
-  <section class="stats" id="stats">
-    <h2 class="heading">Overall stats</h2>
-    <div class="table-wrapper">
-      <table id="player-stats">
-        <thead>
-            <tr>
-                <th>Player</th>
-                <th>Position</th>
-                <!--<th>Club</th>
-                <th>Team</th>-->
-                <th>CM</th>
-                <th>KG</th>
-                <th>Apps</th>
-                <th>Mins</th>
-                <th>Goals</th>
-                <th>Assists</th>
-                <th>Yel</th>
-                <th>Red</th>
-                <th>MotM</th>
-                <th>Rating</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for player in players %}
-            <tr>
-                <td>
-                    <!-- {{ player.id }}. {{ player.name }}
-                    <img src="{{ player.photo.url }}" alt="{{ player.name }} Photo" style="width: 50px; height: 50px;"> -->
-
-                    <!--<span style="display: inline-block;">
-                      <img src="{{ player.photo.url }}" alt="{{ player.name }} Photo" style="width: 80px; height: 80px; object-fit: contain;">
-                  </span>-->
-                  <span style="display: inline-block;">
-                      {{ player.id }}. {{ player.name }}
-                  </span>
-
-                </td>
-
-                <td>{{ player.position }}</td>
-                <!--<td>{{ player.club }}</td>
-                <td>{{ player.team }}</td>-->
-                <td>{{ player.height_cm }}</td>
-                <td>{{ player.weight_kg }}</td>
-                <td>{{ player.apps }}</td>
-                <td>{{ player.mins }}</td>
-                <td>{{ player.goals }}</td>
-                <td>{{ player.assists }}</td>
-                <td>{{ player.yellow_cards }}</td>
-                <td>{{ player.red_cards }}</td>
-                <td>{{ player.motm }}</td>
-                <td>{{ player.rating }}</td>
-            </tr>
             {% endfor %}
-        </tbody>
-    </table>
-    </div>
-  </section>
+          </div>
+        </div>
 
-  <section class="footer">
-    <div class="box-container">
-      <div class="box bottom-nav">
-        <h3>{{ club.name }}</h3>
-        <img src="{{ club.photo.url }}" alt="{{ club.name }} Photo" class="logo"/>
-        <a href="https://maps.google.com/?q=YOUR_ADDRESS">Home ground: {{ club.stadium }}</a> 
-        <a href="https://maps.google.com/?q=YOUR_ADDRESS">Location: {{ club.location }}</a> 
+        <div class="container other">
+          <h2 class="heading">Players</h2>
+          <div class="row">
+            {% for player in players %}
+            <div class="col-lg-3 players">
+              <div class="team-member">
+                <img src="{{ player.photo.url }}" alt="{{ player.name }} Photo" class="img-fluid" />
+                <div>
+                  <div class="inner-div">
+                    <h3>{{ player.name }}</h3>
+                    <a class="underline-button">{{ player.club }}</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+
+        <div class="container other">
+          <h2 class="heading">Other Staff</h2>
+          <div class="row">
+            {% for staff in other_staff %}
+            <div class="col-lg-3">
+              <div class="team-member">
+                <img src="{{ staff.photo.url }}" alt="{{ staff.name }} Photo" class="img-fluid" />
+                <div>
+                  <div class="inner-div">
+                    <h3>{{ staff.name }}</h3>
+                    <a class="underline-button">{{ staff.role }}</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+
+                    
+      </section>
+    
+    
+    <!-- Matches section content -->
+    <section class="matches" id="matches">
+      <h2 class="heading">Fixtures & Results</h2>
+      <nav class="navbar2">
+          <a class="active" href="#fixtures-section" id="fixtures-link">Fixtures</a></li>
+          <a href="#results-section" id="results-link">Results</a></li>
+      </nav>
+      <div id="fixtures-section" class="content-section">
+        <div id="fixtures-container" class="fixtures-container">
+          <!-- Fixtures for Team 1 -->
+          <div class="team-fixtures" id="team1-fixtures">
+              <div class="fixture">
+                <div class="holder">
+                  <div class="fixture-date"><span class="team-comp">Competition Name - </span>SUN 05 MAY 2025, 10:30am</div>
+                  <div class="fixture-opponent">Team X</div>
+                  <div class="fixture-venue">Stadium A</div>
+                </div>
+                <!--<a href="#" target="_blank" class="ticket">Buy tickets <i class="fa-solid fa-square-up-right"></i></a>-->
+              </div>
+              <div class="fixture">
+                <div class="holder">
+                  <div class="fixture-date"><span class="team-comp">Competition Name - </span>SUN 05 MAY 2025, 10:30am</div>
+                  <div class="fixture-opponent">Team X</div>
+                  <div class="fixture-venue">Stadium A</div>
+                </div>
+                <!--<a href="#" target="_blank" class="ticket">Buy tickets <i class="fa-solid fa-square-up-right"></i></a>-->
+              </div>
+              <div class="fixture">
+                <div class="holder">
+                  <div class="fixture-date"><span class="team-comp">Competition Name - </span>SUN 05 MAY 2025, 10:30am</div>
+                  <div class="fixture-opponent">Team X</div>
+                  <div class="fixture-venue">Stadium A</div>
+                </div>
+                <!--<a href="#" target="_blank" class="ticket">Buy tickets <i class="fa-solid fa-square-up-right"></i></a>-->
+              </div>
+          </div> 
+        </div>
+      
       </div>
-  
-      <div class="box">
-        <h3>More Info</h3>
-        <a href="">Established: {{ club.established_date }}</a>
-        <a href="tel:+254702664629">Contact us</a>
+      
+      <div class="results-section" id="results-section">
+        <div class="container">          
+          <!-- Fixture 1 -->
+          <div class="fixture">
+            <div class="date">
+              <p class="date-fix">Thu January 1 2025</p>
+              <p class="comp">Competition</p>
+            </div>
+            <div class="inner-team">
+              <div class="team">
+                <img src="{% static 'images/logo-1.jpg' %}" alt="Team A Logo">
+
+                <span class="team-name">Team A</span>
+              </div>
+              <div class="demo">
+                <div class="vs">3 - 4</div>
+                <p class="venue">Venue</p>
+              </div>
+              <div class="team">
+                <img src="{% static 'images/logo-1.jpg' %}" alt="Team B Logo">
+
+                <span class="team-name">Team B</span>
+              </div>
+            </div>
+            <div class="goal-details">
+              <div class="home">
+                <p>M. Cucurella 4' <i class="fa-solid fa-futbol"></i></p>
+                <p>Rogers 42' <i class="fa-solid fa-futbol"></i></p>
+                <p>Ogbona 52' <i class="fa-solid fa-futbol"></i></p>
+              </div>
+              <div class="away">
+                <p>James 7' <i class="fa-solid fa-futbol"></i></p>
+                <p>Lukaku 67' <i class="fa-solid fa-futbol"></i></p>
+                <p>Musa 70' <i class="fa-solid fa-futbol"></i></p>
+                <p>Messi 85' <i class="fa-solid fa-futbol"></i></p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Fixture 2 -->
+          <div class="fixture">
+            <div class="date">
+              <p class="date-fix">Sat December 17 2024</p>
+              <p class="comp">Competition</p>
+            </div>
+            <div class="inner-team">
+              <div class="team">
+                <img src="{% static 'images/logo-1.jpg' %}" alt="Team A Logo">
+
+                <span class="team-name">Team A</span>
+              </div>
+              <div class="demo">
+                <div class="vs">1 - 0</div>
+                <p class="venue">Venue</p>
+              </div>
+              <div class="team">
+                <img src="{% static 'images/logo-1.jpg' %}" alt="Team B Logo">
+
+                <span class="team-name">Team c</span>
+              </div>
+            </div>
+            <div class="goal-details">
+              <div class="home">
+                <p>M. Cucurella 50' <i class="fa-solid fa-futbol"></i></p>
+              </div>
+              <div class="away"></div>
+            </div>
+          </div>   
+          
+        </div>
       </div>
-  
-      <div class="box">
-        <h3>Follow us</h3>
-        <a href="#" target="_blank">Twitter</a>
-        <a href="#" target="_blank">Facebook</a>
+    </section>
+
+    <!-- stats -->
+    <section class="stats" id="stats">
+      <h2 class="heading">Overall stats</h2>
+      <div class="table-wrapper">
+        <table id="player-stats">
+          <thead>
+              <tr>
+                  <th>Player</th>
+                  <th>Position</th>
+                  <!--<th>Club</th>
+                  <th>Team</th>-->
+                  <th>CM</th>
+                  <th>KG</th>
+                  <th>Apps</th>
+                  <th>Mins</th>
+                  <th>Goals</th>
+                  <th>Assists</th>
+                  <th>Yel</th>
+                  <th>Red</th>
+                  <th>MotM</th>
+                  <th>Rating</th>
+              </tr>
+          </thead>
+          <tbody>
+              {% for player in players %}
+              <tr>
+                  <td>
+                      <!-- {{ player.id }}. {{ player.name }}
+                      <img src="{{ player.photo.url }}" alt="{{ player.name }} Photo" style="width: 50px; height: 50px;"> -->
+
+                      <!--<span style="display: inline-block;">
+                        <img src="{{ player.photo.url }}" alt="{{ player.name }} Photo" style="width: 80px; height: 80px; object-fit: contain;">
+                    </span>-->
+                    <span style="display: inline-block;">
+                        {{ player.id }}. {{ player.name }}
+                    </span>
+
+                  </td>
+
+                  <td>{{ player.position }}</td>
+                  <!--<td>{{ player.club }}</td>
+                  <td>{{ player.team }}</td>-->
+                  <td>{{ player.height_cm }}</td>
+                  <td>{{ player.weight_kg }}</td>
+                  <td>{{ player.apps }}</td>
+                  <td>{{ player.mins }}</td>
+                  <td>{{ player.goals }}</td>
+                  <td>{{ player.assists }}</td>
+                  <td>{{ player.yellow_cards }}</td>
+                  <td>{{ player.red_cards }}</td>
+                  <td>{{ player.motm }}</td>
+                  <td>{{ player.rating }}</td>
+              </tr>
+              {% endfor %}
+          </tbody>
+      </table>
       </div>
-    </div>
-  
-    <div class="credit">
-      <p>&copy; 2024 {{ club.name }}. All rights reserved. No part of this site may be reproduced without our written permission.</p>
-    </div>
-  </section>
+    </section>
+
+    <section class="footer">
+      <div class="box-container">
+        <div class="box bottom-nav">
+          <h3>{{ club.name }}</h3>
+          <img src="{{ club.photo.url }}" alt="{{ club.name }} Photo" class="logo"/>
+          <a href="https://maps.google.com/?q=YOUR_ADDRESS">Home ground: {{ club.stadium }}</a> 
+          <a href="https://maps.google.com/?q=YOUR_ADDRESS">Location: {{ club.location }}</a> 
+        </div>
+    
+        <div class="box">
+          <h3>More Info</h3>
+          <a href="">Established: {{ club.established_date }}</a>
+          <a href="tel:+254702664629">Contact us</a>
+        </div>
+    
+        <div class="box">
+          <h3>Follow us</h3>
+          <a href="#" target="_blank">Twitter</a>
+          <a href="#" target="_blank">Facebook</a>
+        </div>
+      </div>
+    
+      <div class="credit">
+        <p>&copy; 2024 {{ club.name }}. All rights reserved. No part of this site may be reproduced without our written permission.</p>
+      </div>
+    </section>
   <script src="{% static 'js/club-staff.js' %}"></script>
 </body>
 </html>

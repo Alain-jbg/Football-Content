@@ -53,15 +53,18 @@
                             <h4>Aliu Mahama Stadium</h4>
                         </div>
                         <div class="teams">
-                            <div class="team">
-                                <img src="{% static 'images/logo-2-removebg-preview.png' %}" alt="Team 1">
-                                <h3>RTU</h3>
+                            <div class="top">
+                                <div class="team">
+                                    <img src="{% static 'images/logo-2-removebg-preview.png' %}" alt="Team 1">
+                                    <h3>RTU</h3>
+                                </div>
+                                <div class="vs">VS</div>
+                                <div class="team">
+                                    <img src="{% static 'images/logo-1-removebg-preview.png' %}" alt="Team 2">
+                                    <h3>Hearts</h3>
+                                </div>
                             </div>
-                            <div class="vs">VS</div>
-                            <div class="team">
-                                <img src="{% static 'images/logo-1-removebg-preview.png' %}" alt="Team 2">
-                                <h3>Hearts</h3>
-                            </div>
+                            <a href="#" target="_blank" class="ticket">Buy tickets <i class="fa-solid fa-square-up-right"></i></a>
                         </div>
                     </div>
                     <div class="match">
@@ -70,15 +73,18 @@
                             <h4>Sultan Stadium</h4>
                         </div>
                         <div class="teams">
-                            <div class="team">
-                                <img src="{% static 'images/fut1.png' %}" alt="Team 1">
-                                <h3>Mas</h3>
+                            <div class="top">
+                                <div class="team">
+                                    <img src="{% static 'images/fut1.png' %}" alt="Team 1">
+                                    <h3>Mas</h3>
+                                </div>
+                                <div class="vs">VS</div>
+                                <div class="team">
+                                    <img src="{% static 'images/logo-1-removebg-preview.png' %}" alt="Team 2">
+                                    <h3>Hear</h3>
+                                </div>
                             </div>
-                            <div class="vs">VS</div>
-                            <div class="team">
-                                <img src="{% static 'images/logo-1-removebg-preview.png' %}" alt="Team 2">
-                                <h3>Hear</h3>
-                            </div>
+                            <a href="#" target="_blank" class="ticket">Buy tickets <i class="fa-solid fa-square-up-right"></i></a>
                         </div>
                     </div>
                     <div class="match">
@@ -87,15 +93,18 @@
                             <h4>Mahama Stadium</h4>
                         </div>
                         <div class="teams">
-                            <div class="team">
-                                <img src="{% static 'images/logo-2-removebg-preview.png' %}" alt="Team 1">
-                                <h3>RTU3</h3>
+                            <div class="top">
+                                <div class="team">
+                                    <img src="{% static 'images/logo-2-removebg-preview.png' %}" alt="Team 1">
+                                    <h3>RTU3</h3>
+                                </div>
+                                <div class="vs">VS</div>
+                                <div class="team">
+                                    <img src="{% static 'images/logo-1-removebg-preview.png' %}" alt="Team 2">
+                                    <h3>Hearts2</h3>
+                                </div>
                             </div>
-                            <div class="vs">VS</div>
-                            <div class="team">
-                                <img src="{% static 'images/logo-1-removebg-preview.png' %}" alt="Team 2">
-                                <h3>Hearts2</h3>
-                            </div>
+                            <a href="#" target="_blank" class="ticket">Buy tickets <i class="fa-solid fa-square-up-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -293,76 +302,77 @@
       </div>
     </section>
 
- <!--Fixtures section-->
- <section class="fixtures" id="fixtures">
-  <h2 class="heading">Ligi Open Fixtures & Results</h2>
+    <!--Fixtures section-->
+    <section class="fixtures" id="fixtures">
+    <h2 class="heading">Ligi Open Fixtures & Results</h2>
 
-  <nav class="navbar2">
-      <a class="active" href="#fixtures-section" id="fixtures-link">Fixtures</a></li>
-      <a href="#results-section" id="results-link">Results</a></li>
-  </nav>
+    <nav class="navbar2">
+        <a class="active" href="#fixtures-section" id="fixtures-link">Fixtures</a></li>
+        <a href="#results-section" id="results-link">Results</a></li>
+    </nav>
 
 
-  <div class="fixtures-section" id="fixtures-section">
-      <div class="container">
-          {% for fixture in fixtures %}
-          <!-- Fixture -->
-          <div class="fixture">
-              <div class="date">
-                  <p class="date-fix">{{ fixture.date }}</p>
-                  <p class="venue">{{ fixture.venue }}</p>
-                  <p class="comp">{{ fixture.competition }}</p>
-              </div>
-              <div class="inner-team">
-                  <div class="team">
-                      <img src="{{ fixture.team_a_logo.url }}" alt="{{ fixture.team_a_name }} Logo">
-                      <span class="team-name">{{ fixture.team_a_name }}</span>
-                  </div>
-                  <div class="vs">{{ fixture.time }}</div>
-                  <div class="team">
-                      <img src="{{ fixture.team_b_logo.url }}" alt="{{ fixture.team_b_name }} Logo">
-                      <span class="team-name">{{ fixture.team_b_name }}</span>
-                  </div>
-              </div>
-          </div>
-          {% endfor %}
-      </div>
-  </div>
-           
-
-  <!-- Results Section -->
-  <div class="results-section" id="results-section">
-      <div class="container">
-          {% for fixture in fixtures %}
-          <!-- Fixture -->
-          <div class="fixture">
-              <div class="date">
-                  <p class="date-fix">{{ fixture.date }}</p>
-                  <p class="comp">Competition: {{ fixture.competition }}</p>
-              </div>
-              <div class="inner-team">
-                  <div class="team">
-                      <img src="{{ fixture.team_a_logo.url }}" alt="{{ fixture.team_a_name }} Logo">
-                      <span class="team-name">{{ fixture.team_a_name }}</span>
-                  </div>
-                  <div class="demo">
-                    {% if fixture.score %}
-                        <div class="vs">{{ fixture.score }}</div>
-                    {% else %}
-                        <div class="vs">Score not available</div>
-                    {% endif %}
+    <div class="fixtures-section" id="fixtures-section">
+        <div class="container">
+            {% for fixture in fixtures %}
+            <!-- Fixture -->
+            <div class="fixture">
+                <div class="date">
+                    <p class="date-fix">{{ fixture.date }}</p>
                     <p class="venue">{{ fixture.venue }}</p>
+                    <p class="comp">{{ fixture.competition }}</p>
                 </div>
-                  <div class="team">
-                      <img src="{{ fixture.team_b_logo.url }}" alt="{{ fixture.team_b_name }} Logo">
-                      <span class="team-name">{{ fixture.team_b_name }}</span>
-                  </div>
-              </div>
-          </div>
-          {% endfor %}
-      </div>
-  </div>
-</section>
+                <div class="inner-team">
+                    <div class="team">
+                        <img src="{{ fixture.team_a_logo.url }}" alt="{{ fixture.team_a_name }} Logo">
+                        <span class="team-name">{{ fixture.team_a_name }}</span>
+                    </div>
+                    <div class="vs">{{ fixture.time }}</div>
+                    <div class="team">
+                        <img src="{{ fixture.team_b_logo.url }}" alt="{{ fixture.team_b_name }} Logo">
+                        <span class="team-name">{{ fixture.team_b_name }}</span>
+                    </div>
+                </div>
+                <a href="{% url 'tickets_pay' %}?team_a={{ fixture.team_a_name }}&team_b={{ fixture.team_b_name }}&date={{ fixture.date }}&time={{ fixture.time }}&venue={{ fixture.venue }}" target="_blank" class="ticket">Buy tickets <i class="fa-solid fa-square-up-right"></i></a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+            
+
+    <!-- Results Section -->
+    <div class="results-section" id="results-section">
+        <div class="container">
+            {% for fixture in fixtures %}
+            <!-- Fixture -->
+            <div class="fixture">
+                <div class="date">
+                    <p class="date-fix">{{ fixture.date }}</p>
+                    <p class="comp">Competition: {{ fixture.competition }}</p>
+                </div>
+                <div class="inner-team">
+                    <div class="team">
+                        <img src="{{ fixture.team_a_logo.url }}" alt="{{ fixture.team_a_name }} Logo">
+                        <span class="team-name">{{ fixture.team_a_name }}</span>
+                    </div>
+                    <div class="demo">
+                        {% if fixture.score %}
+                            <div class="vs">{{ fixture.score }}</div>
+                        {% else %}
+                            <div class="vs">Score not available</div>
+                        {% endif %}
+                        <p class="venue">{{ fixture.venue }}</p>
+                    </div>
+                    <div class="team">
+                        <img src="{{ fixture.team_b_logo.url }}" alt="{{ fixture.team_b_name }} Logo">
+                        <span class="team-name">{{ fixture.team_b_name }}</span>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    </section>
 
   
   
@@ -510,14 +520,15 @@
             </div>
 
             <div class="box">
-                <h3>Follow us</h3>
-                <a href="https://twitter.com/Jabulani_Youths" target="_blank">Twitter</a>
-            </div>
-
-            <div class="box">
               <h3>More</h3>
               <a href="{% url 'faq_page' %}" target="_blank">Frequently Asked Questions</a>
               <a href="https://docs.google.com/forms/d/e/1FAIpQLSeBRTji7N9EilFp3lmqjbNjSRPIIM_VwjiSYg6IcADWdSyOTQ/viewform?usp=sharing" target="_blank">Register Club</a>
+              <a href="{% url 'finance-sponsor' %}" target="_blank">Sponsorship</a>
+            </div>
+
+            <div class="box">
+                <h3>Follow us</h3>
+                <a href="https://twitter.com/Jabulani_Youths" target="_blank">Twitter</a>
             </div>
         </div>
 

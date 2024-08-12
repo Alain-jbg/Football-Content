@@ -1,0 +1,75 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="{% static 'images/li__1_-removebg-preview.ico' %}">
+    <title>Card Payment</title>
+    <!-- Font awesome -->
+    <script src="https://kit.fontawesome.com/456d64337e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/ticket-card.css' %}">
+</head>
+<body>
+    <!--Header section-->
+    <header>
+        <a href="{% url 'home' %}">
+            <img src="{% static 'images/li__1_-removebg-preview.png' %}" alt="logo">
+        </a>
+    </header>
+
+    <div class="container container2">
+        <div class="payment-form">
+            <h2 class="head">Payment Information</h2>
+            <form action="{% url 'ticket_qr' %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="team_a" value="{{ team_a }}">
+                <input type="hidden" name="team_b" value="{{ team_b }}">
+                <input type="hidden" name="date" value="{{ date }}">
+                <input type="hidden" name="time" value="{{ time }}">
+                <input type="hidden" name="venue" value="{{ venue }}">
+
+                <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <input type="text" class="form-control f-lab" id="firstName" name="first_name" placeholder="First Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" class="form-control f-lab" id="lastName" name="last_name" placeholder="Last Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control f-lab" id="email" name="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <label for="cardNumber">Credit or Debit Card</label>
+                    <input type="text" class="form-control f-lab" id="cardNumber" placeholder="Card number" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="expiryMonth">MM / YY</label>
+                        <input type="text" class="form-control f-lab" id="expiryMonth" placeholder="MM / YY" required>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="cvc">CVC</label>
+                        <input type="text" class="form-control f-lab" id="cvc" placeholder="CVC" required>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block my-btn">Complete Payment</button>
+            </form>
+        </div>
+
+        <div class="container mt-4">
+            <div class="order-summary">
+                <h4><i class="fa-solid fa-cart-shopping"></i> Order Summary</h4>
+                <p>General X 1 <span class="float-right">Ksh. 100.00</span></p>
+                <hr>
+                <p class="total">Total: <span class="float-right">Ksh. 100.00</span></p>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

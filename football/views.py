@@ -7,6 +7,9 @@ from django.conf import settings
 from .forms import ContactForm
 from django.contrib import messages
 from django.urls import reverse
+import qrcode
+import io
+import base64
 
 
 def home(request):
@@ -177,3 +180,100 @@ def matchday_highlights(request):
 
 def blog(request):
     return render(request, 'pages/blog.html')
+
+def tickets(request):
+    return render(request, 'pages/tickets/ticket.html')
+
+def tickets_pay(request):
+    return render(request, 'pages/tickets/ticketpay.html')
+
+def tickets_mpesa(request):
+    team_a = request.GET.get('team_a')
+    team_b = request.GET.get('team_b')
+    date = request.GET.get('date')
+    time = request.GET.get('time')
+    venue = request.GET.get('venue')
+
+    context = {
+        'team_a': team_a,
+        'team_b': team_b,
+        'date': date,
+        'time': time,
+        'venue': venue
+    }
+
+    return render(request, 'pages/tickets/ticket-mpesa.html', context)
+
+def tickets_card(request):
+    team_a = request.GET.get('team_a')
+    team_b = request.GET.get('team_b')
+    date = request.GET.get('date')
+    time = request.GET.get('time')
+    venue = request.GET.get('venue')
+
+    context = {
+        'team_a': team_a,
+        'team_b': team_b,
+        'date': date,
+        'time': time,
+        'venue': venue
+    }
+
+    return render(request, 'pages/tickets/ticket-card.html', context)
+
+def generate_unique_id():
+    import uuid
+    return str(uuid.uuid4())
+
+def ticket_qr(request):
+    if request.method == 'POST':
+        first_name = request.POST.get('first_name')
+        last_name = request.POST.get('last_name')
+        email = request.POST.get('email')
+        card_number = request.POST.get('cardNumber')
+        expiry_month = request.POST.get('expiryMonth')
+        cvc = request.POST.get('cvc')
+
+        team_a = request.POST.get('team_a')
+        team_b = request.POST.get('team_b')
+        date = request.POST.get('date')
+        time = request.POST.get('time')
+        venue = request.POST.get('venue')
+
+        unique_id = generate_unique_id()
+        qr_data = (
+                f"First Name: {first_name}\n"
+                f"Last Name: {last_name}\n"
+                f"Email: {email}\n"
+                f"ID: {unique_id}\n"
+                f"Event: {team_a} vs {team_b}\n"
+                f"Date: {date}\n"
+                f"Time: {time}\n"
+                f"Venue: {venue}"
+        )
+
+        # Generate QR code
+        qr = qrcode.QRCode(version=1, box_size=10, border=5)
+        qr.add_data(qr_data)
+        qr.make(fit=True)
+        img = qr.make_image(fill='black', back_color='white')
+        buffer = io.BytesIO()
+        img.save(buffer, 'PNG')
+        qr_code_image = buffer.getvalue()
+        qr_code_base64 = base64.b64encode(qr_code_image).decode('utf-8')
+
+        context = {
+                'first_name': first_name,
+                'last_name': last_name,
+                'email': email,
+                'unique_id': unique_id,
+                'qr_code_base64': qr_code_base64,
+                'team_a': team_a,
+                'team_b': team_b,
+                'date': date,
+                'time': time,
+                'venue': venue
+            }
+        
+        return render(request, 'pages/tickets/ticket-qr.html', context)
+    return HttpResponse("Invalid request")
