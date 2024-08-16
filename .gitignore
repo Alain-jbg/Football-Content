@@ -5,3 +5,4 @@ staticfiles/
 media/
 .vscode/
 .idea/
+/__pycache__/

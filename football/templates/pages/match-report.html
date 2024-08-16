@@ -22,37 +22,44 @@
     </header>
     <h1 class="heading">Ligi Open News & Highlights</h1>
     <div class="results-section">
-        <div class="fixture">
-            <div class="date">
-              <p class="date-fix">Thu January 1 2025</p>
-              <p class="comp">Competition</p>
-            </div>
-            <div class="inner-team">
+      {% for fixture in fixtures %}
+      <article class="fixture">
+          <div class="date">
+              <p class="date-fix">{{ fixture.date }}</p>
+              <p class="comp">{{ fixture.competition.name }}</p>
+          </div>
+          <div class="inner-team">
               <div class="team">
-                <img src="{% static 'images/logo-1-removebg-preview.png' %}" alt="Team A Logo">
-                <span class="team-name">Team A</span>
+                  <img src="{{ fixture.team_a_logo.url }}" alt="Logo of {{ fixture.home_team.name }}">
+                  <span class="team-name">{{ fixture.home_team.name }}</span>
               </div>
               <div class="demo">
-                <div class="vs">2 - 2</div>
-                <p class="venue">Venue</p>
+                  <div class="vs">{{ fixture.home_team_score }} - {{ fixture.away_team_score }}</div>
+                  <p class="venue">{{ fixture.venue }}</p>
               </div>
               <div class="team">
-                <img src="{% static 'images/logo-2-removebg-preview.png' %}" alt="Team B Logo">
-                <span class="team-name">Team B</span>
+                  <img src="{{ fixture.team_b_logo.url }}" alt="Logo of {{ fixture.away_team.name }}">
+                  <span class="team-name">{{ fixture.away_team.name }}</span>
               </div>
-            </div>
-            <div class="goal-details">
-              <div class="home">
-                <p>M. Cucurella 4' <i class="fa-solid fa-futbol"></i></p>
-                <p>Rogers 42' <i class="fa-solid fa-futbol"></i></p>
-              </div>
-              <p></p>
-              <div class="away">
-                <p>James 7' <i class="fa-solid fa-futbol"></i></p>
-                <p>Lukaku 67' <i class="fa-solid fa-futbol"></i></p>
-              </div>
-            </div>
           </div>
+          <div class="goal-details">
+              <div class="home">
+                  {% for goal in fixture.goal_details.all %}
+                      {% if goal.team == fixture.home_team %}
+                      <p>{{ goal.player_name }} {{ goal.minute }}' <i class="fa-solid fa-futbol" aria-hidden="true"></i></p>
+                      {% endif %}
+                  {% endfor %}
+              </div>
+              <div class="away">
+                  {% for goal in fixture.goal_details.all %}
+                      {% if goal.team == fixture.away_team %}
+                      <p>{{ goal.player_name }} {{ goal.minute }}' <i class="fa-solid fa-futbol" aria-hidden="true"></i></p>
+                      {% endif %}
+                  {% endfor %}
+              </div>
+          </div>
+      </article>
+      {% endfor %}
     </div>
 
     <div class="news-content">
