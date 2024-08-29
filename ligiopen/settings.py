@@ -12,9 +12,9 @@ load_dotenv(env_path)
 
 # Load SECRET_KEY
 SECRET_KEY = config('SECRET_KEY', default='default_secret_key')
-DEBUG = config('DEBUG', default=False, cast=bool)
+DEBUG = config('DEBUG', default=True, cast=bool)
 
-ALLOWED_HOSTS = ['127.0.0.1', 'ligiopen.com']
+#ALLOWED_HOSTS = ['127.0.0.1', 'ligiopen.com']
 
 # Application definition
 INSTALLED_APPS = [

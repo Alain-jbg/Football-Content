@@ -97,7 +97,7 @@ def contact_us_view(request):
     else:
         form = ContactForm()
 
-    return render(request, 'index.html', {'form': form})
+    return render(request, 'contact.html', {'form': form})
 
 
 def success_view(request):
@@ -342,3 +342,20 @@ def ticket_qr(request):
         
         return render(request, 'pages/tickets/ticket-qr.html', context)
     return HttpResponse("Invalid request")
+
+#Navbar navigation views
+def finance(request):
+    return render(request, 'finance.html')
+
+def fixtures(request):
+    fixtures = Fixture.objects.all()
+    matches = Match.objects.all()
+    return render(request, 'fixtures.html', {'fixtures': fixtures,'matches': matches})
+
+def blogs(request):
+    blogs = Blog.objects.all()
+    highlights=Highlight.objects.all()
+    return render(request, 'blog.html', {'blogs':blogs, 'highlights':highlights})
+
+def contact(request):
+    return render(request, 'contact.html')

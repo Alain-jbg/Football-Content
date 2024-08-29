@@ -90,6 +90,14 @@ urlpatterns = [
 
     #Generated ticket url
     path('ticket_qr/', views.ticket_qr, name='ticket_qr'),
+
+    #Navbar navigation urls
+    path('finance/', views.finance, name='finance'),
+
+    path('fixtures/', views.fixtures, name='fixtures'),
+
+    path('blogs/', views.blogs, name='blogs'),
+
 ]
 
 

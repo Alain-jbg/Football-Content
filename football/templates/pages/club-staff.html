@@ -16,27 +16,29 @@
 
 </head>
 <body>
-    <header>
-      <a href="{% url 'home' %}">
+  {% include '../navbar.html' %}
 
-      <img src="{% static 'images/li__1_-removebg-preview.png' %}" alt="logo">
-      </a>
+  <header>
+    <a href="{% url 'home' %}">
 
-        <!-- Navigation bar -->
-        <nav class="navbar">
+    <img src="{% static 'images/li__1_-removebg-preview.png' %}" alt="logo">
+    </a>
+
+      <!-- Navigation bar -->
+      <nav class="navbar">
 
 
-            <a class="active" href="#team">Team</a>
-            <a href="#matches">Matches</a> 
-            <a href="#stats">Stats</a>
+          <a class="active" href="#team">Team</a>
+          <a href="#matches">Matches</a> 
+          <a href="#stats">Stats</a>
 
-            <!-- <a href="#careers">Careers</a>            -->
-            
-        </nav>
-        <div class="icons">         
-          <i class="fas fa-bars" id="menu-bars"></i>
-        </div>
-    </header>
+          <!-- <a href="#careers">Careers</a>            -->
+          
+      </nav>
+      <div class="icons">         
+        <i class="fas fa-bars" id="menu-bars"></i>
+      </div>
+  </header>
 
     <section class="team live" id="team">
       <div class="top-logo">

@@ -30,24 +30,8 @@ body {
     background-color: #eee;
 }
 
-/*Header section */
-header {
-    top: 0;
-    left: 0;
-    right: 0;
-    background: #fff;
-    padding: 1rem 7%;
-    z-index: 1000;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
-    text-transform: capitalize;
-}
-
-header img {
-    width: 70px;
-    height: 70px;
-}
-
 iframe {
+    padding-top: 8%;
 }
 
 div {

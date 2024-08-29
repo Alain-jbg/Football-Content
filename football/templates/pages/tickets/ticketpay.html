@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="{% static 'css/payment-type.css' %}">
 </head>
 <body>
+  {% include 'navbar.html' %}
+    
     <div class="container">
         <h1>Select Payment Method</h1>
         <div class="payment-methods">
@@ -27,5 +29,7 @@
             </a>
         </div>
     </div>
+  {% include 'footer.html' %}
+
 </body>
 </html>
