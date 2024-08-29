@@ -22,7 +22,7 @@
             <a class="active" href="#home">Home</a>
             <a href="#financing">Finance</a>
             <a href="#fixtures">Fixtures</a>
-            <a href="#highlights">Highlights</a>
+            <a href="#highlights">Blogs</a>
             <a href="#order">Contact us</a>
         </nav>
         <div class="icons">
@@ -306,37 +306,38 @@
 
   <!-- Results Section -->
   <div class="results-section" id="results-section">
-      <div class="container">
-          {% for fixture in fixtures %}
-          <!-- Fixture -->
-          <div class="fixture">
-              <div class="date">
-                  <p class="date-fix">{{ fixture.date }}</p>
-                  <p class="comp">Competition: {{ fixture.competition }}</p>
-              </div>
-              <div class="inner-team">
-                  <div class="team">
-                      <img src="{{ fixture.team_a_logo.url }}" alt="{{ fixture.team_a_name }} Logo">
-                      <span class="team-name">{{ fixture.team_a_name }}</span>
-                  </div>
-                  <div class="demo">
-                    {% if fixture.score %}
-                        <div class="vs">{{ fixture.score }}</div>
+    <div class="container">
+        {% for fixture_result in fixtures_results %}
+        <!-- Fixture -->
+        <div class="fixture">
+            <div class="date">
+                <p class="date-fix">{{ fixture_result.fixture.date }}</p>
+                <p class="comp">Competition: {{ fixture_result.fixture.competition }}</p>
+            </div>
+            <div class="inner-team">
+                <div class="team">
+                    <img src="{{ fixture_result.fixture.team_a_logo.url }}" alt="{{ fixture_result.fixture.team_a_name }} Logo">
+                    <span class="team-name">{{ fixture_result.fixture.team_a_name }}</span>
+                </div>
+                <div class="demo">
+                    {% if fixture_result.score %}
+                        <div class="vs">{{ fixture_result.score }}</div>
                     {% else %}
                         <div class="vs">Score not available</div>
                     {% endif %}
-                    <p class="venue">{{ fixture.venue }}</p>
+                    <p class="venue">{{ fixture_result.fixture.venue }}</p>
                 </div>
-                  <div class="team">
-                      <img src="{{ fixture.team_b_logo.url }}" alt="{{ fixture.team_b_name }} Logo">
-                      <span class="team-name">{{ fixture.team_b_name }}</span>
-                  </div>
-              </div>
-          </div>
-          {% endfor %}
-      </div>
-  </div>
+                <div class="team">
+                    <img src="{{ fixture_result.fixture.team_b_logo.url }}" alt="{{ fixture_result.fixture.team_b_name }} Logo">
+                    <span class="team-name">{{ fixture_result.fixture.team_b_name }}</span>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
 </section>
+
 
   
   
@@ -344,13 +345,13 @@
     <!-- Highlights section content -->
   <!-- Highlights section content -->
   <section class="highlights" id="highlights">
-    <h2 class="heading">Gameweek highlights & Blogs</h2>
+    <h2 class="heading"> Blogs</h2>
 
-    <nav class="navbar3">
-      <a class="active" href="#highlights-section" id="games-link">Game Highlights</a></li>
-      <a href="#blogs-section" id="blogs-link">Blogs</a></li>
-    </nav>
-    <div class="container highlights-section" id="highlights-section">
+    <!-- <nav class="navbar3"> -->
+      <!-- <a class="active" href="#highlights-section" id="games-link">Game Highlights</a></li> -->
+      <!-- <a href="#blogs-section" id="blogs-link">Blogs</a></li> -->
+    <!-- </nav> -->
+    <!-- <div class="container highlights-section" id="highlights-section">
       {% for highlight in highlights %}
       <div class="news-card">
           <div class="news-image-container">
@@ -367,7 +368,7 @@
           </div>
       </div>
       {% endfor %}
-  </div>
+  </div> -->
 
     <div class="container blogs-section" id="blogs-section">
       {% for blog in blogs %}
