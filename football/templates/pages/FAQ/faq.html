@@ -10,31 +10,32 @@
     <link rel="stylesheet" href="{% static 'css/faq.css' %}">
 </head>
 <body>
-    <header>
-        <a href="{% url 'home' %}">
-            <img src="{% static 'images/li__1_-removebg-preview.png' %}" alt="logo">
-        </a>
-    </header>
+    {% include 'navbar.html' %}
 
-    <div class="top-text">
-        <h1>Frequently Asked Questions</h1>
-        <p>Select one of the areas below for answers to frequently asked questions.</p>
+    <div class="cont">
+        <div class="top-text">
+            <h1>Frequently Asked Questions</h1>
+            <p>Select one of the areas below for answers to frequently asked questions.</p>
+        </div>
+    
+        <div class="faq-section">
+            <ul>
+                <li onclick="redirectTo(`{% url 'website_page' %}`)">Website</li>
+                <li onclick="redirectTo(`{% url 'about_us_page' %}`)">About Us</li>
+                <li onclick="redirectTo(`{% url 'financial_page' %}`)">Financial Transactions</li>
+                <li onclick="redirectTo(`{% url 'tickets_page' %}`)">Tickets</li>
+            </ul>
+    
+            <ul>
+                <li onclick="redirectTo(`{% url 'support_page' %}`)">Support & Troubleshooting</li>
+                <li onclick="redirectTo(`{% url 'data_privacy_page' %}`)">Data and Privacy</li>
+                <li onclick="redirectTo(`{% url 'clubs_page' %}`)">Clubs</li>
+            </ul>
+        </div>
     </div>
 
-    <div class="faq-section">
-        <ul>
-            <li onclick="redirectTo(`{% url 'website_page' %}`)">Website</li>
-            <li onclick="redirectTo(`{% url 'about_us_page' %}`)">About Us</li>
-            <li onclick="redirectTo(`{% url 'financial_page' %}`)">Financial Transactions</li>
-            <li onclick="redirectTo(`{% url 'tickets_page' %}`)">Tickets</li>
-        </ul>
+  {% include 'footer.html' %}
 
-        <ul>
-            <li onclick="redirectTo(`{% url 'support_page' %}`)">Support & Troubleshooting</li>
-            <li onclick="redirectTo(`{% url 'data_privacy_page' %}`)">Data and Privacy</li>
-            <li onclick="redirectTo(`{% url 'clubs_page' %}`)">Clubs</li>
-        </ul>
-    </div>
 
 
     <script>
