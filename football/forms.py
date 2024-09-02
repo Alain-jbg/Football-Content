@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import get_user_model
-from .models import Club, Player, CoachingStaff
+from .models import Club, Player, Staff
 
 
 
@@ -87,9 +87,9 @@ class PlayerForm(forms.ModelForm):
         model = Player
         fields = ['name', 'team', 'date_of_birth', 'nationality', 'club', 'photo']
 
-class CoachingStaffForm(forms.ModelForm):
+class StaffForm(forms.ModelForm):
     class Meta:
-        model = CoachingStaff
+        model = Staff
         fields = ['name', 'role', 'experience', 'nationality', 'club']
 
 
@@ -100,6 +100,10 @@ class CoachingStaffForm(forms.ModelForm):
 #     message = forms.CharField(widget=forms.Textarea)
 
 class ContactForm(forms.Form):
-    name = forms.CharField(max_length=100)
-    email = forms.EmailField()
-    issue = forms.CharField(widget=forms.Textarea)
+    name = forms.CharField(max_length=100, required=True)
+    email = forms.EmailField(required=True)
+    issue = forms.CharField(widget=forms.Textarea,required=True)
+
+
+
+

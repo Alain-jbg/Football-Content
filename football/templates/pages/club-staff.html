@@ -16,59 +16,54 @@
 
 </head>
 <body>
-    <header>
-      <a href="{% url 'home' %}">
+  {% include '../navbar.html' %}
 
-      <img src="{% static 'images/li__1_-removebg-preview.png' %}" alt="logo">
-      </a>
+  <header>
+    <a href="{% url 'home' %}">
 
-        <!-- Navigation bar -->
-        <nav class="navbar">
+    <img src="{% static 'images/li__1_-removebg-preview.png' %}" alt="logo">
+    </a>
+
+      <!-- Navigation bar -->
+      <nav class="navbar">
 
 
-            <a class="active" href="#team">Team</a>
-            <a href="#matches">Matches</a> 
-            <a href="#stats">Stats</a>
+          <a class="active" href="#team">Team</a>
+          <a href="#matches">Matches</a> 
+          <a href="#stats">Stats</a>
 
-            <!-- <a href="#careers">Careers</a>            -->
-            
-        </nav>
-        <div class="icons">         
-          <i class="fas fa-bars" id="menu-bars"></i>
-        </div>
-    </header>
-    
-    
-      
-  
+          <!-- <a href="#careers">Careers</a>            -->
+          
+      </nav>
+      <div class="icons">         
+        <i class="fas fa-bars" id="menu-bars"></i>
+      </div>
+  </header>
 
-<!-- player_profiles.html -->
-<!-- club_detail.html -->
-
-<section class="team live" id="team">
-  <div class="top-logo">
-    <img src="{{ club.photo.url }}" alt="{{ club.name }} Photo" class="logo">
-  </div>
-  <h1 class="sub-heading">{{ club.name }}</h1>
-  <div class="teams">
-    <div class="container">
-      <h2 class="heading">Coaching Staff</h2>
-      <div class="row">
-        {% for staff in coaching_staff %}
-        <div class="col-lg-3">
-          <div class="team-member">
-            <img src="{{ staff.photo.url }}" alt="{{ staff.name }} Photo" class="img-fluid" />
-            <div>
-              <div class="inner-div">
-                <h3>{{ staff.name }}</h3>
-                <a class="underline-button">{{ staff.role }}</a>
+    <section class="team live" id="team">
+      <div class="top-logo">
+        <img src="{{ club.photo.url }}" alt="{{ club.name }} Photo" class="logo">
+      </div>
+      <h1 class="sub-heading">{{ club.name }}</h1>
+      <div class="teams">
+        <div class="container">
+          <h2 class="heading">Coaching Staff</h2>
+          <div class="row">
+            {% for staff in coaching_staff %}
+            <div class="col-lg-3">
+              <div class="team-member">
+                <img src="{{ staff.photo.url }}" alt="{{ staff.name }} Photo" class="img-fluid" />
+                <div>
+                  <div class="inner-div">
+                    <h3>{{ staff.name }}</h3>
+                    <a class="underline-button">{{ staff.role }}</a>
+                  </div>
+                </div>
               </div>
             </div>
+            {% endfor %}
           </div>
         </div>
-        {% endfor %}
-      </div>
-    </div>
 
     <div class="container other">
       <h2 class="heading">Players</h2>
@@ -89,27 +84,27 @@
       </div>
     </div>
 
-    <div class="container other">
-      <h2 class="heading">Other Staff</h2>
-      <div class="row">
-        {% for staff in other_staff %}
-        <div class="col-lg-3">
-          <div class="team-member">
-            <img src="{{ staff.photo.url }}" alt="{{ staff.name }} Photo" class="img-fluid" />
-            <div>
-              <div class="inner-div">
-                <h3>{{ staff.name }}</h3>
-                <a class="underline-button">{{ staff.role }}</a>
+        <div class="container other">
+          <h2 class="heading">Other Staff</h2>
+          <div class="row">
+            {% for staff in other_staff %}
+            <div class="col-lg-3">
+              <div class="team-member">
+                <img src="{{ staff.photo.url }}" alt="{{ staff.name }} Photo" class="img-fluid" />
+                <div>
+                  <div class="inner-div">
+                    <h3>{{ staff.name }}</h3>
+                    <a class="underline-button">{{ staff.role }}</a>
+                  </div>
+                </div>
               </div>
             </div>
+            {% endfor %}
           </div>
         </div>
-        {% endfor %}
-      </div>
-    </div>
 
-                
-  </section>
+                    
+      </section>
     
     
 <!-- Matches section content -->
@@ -177,91 +172,91 @@
   
 <div class="teams">
 
-  <!-- stats -->
-  <section class="stats" id="stats">
-    <h2 class="heading">Overall stats</h2>
-    <div class="table-wrapper">
-      <table id="player-stats">
-        <thead>
-            <tr>
-                <th>Player</th>
-                <th>Position</th>
-                <!--<th>Club</th>
-                <th>Team</th>-->
-                <th>CM</th>
-                <th>KG</th>
-                <th>Apps</th>
-                <th>Mins</th>
-                <th>Goals</th>
-                <th>Assists</th>
-                <th>Yel</th>
-                <th>Red</th>
-                <th>MotM</th>
-                <th>Rating</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for player in players %}
-            <tr>
-                <td>
-                    <!-- {{ player.id }}. {{ player.name }}
-                    <img src="{{ player.photo.url }}" alt="{{ player.name }} Photo" style="width: 50px; height: 50px;"> -->
+    <!-- stats -->
+    <section class="stats" id="stats">
+      <h2 class="heading">Overall stats</h2>
+      <div class="table-wrapper">
+        <table id="player-stats">
+          <thead>
+              <tr>
+                  <th>Player</th>
+                  <th>Position</th>
+                  <!--<th>Club</th>
+                  <th>Team</th>-->
+                  <th>CM</th>
+                  <th>KG</th>
+                  <th>Apps</th>
+                  <th>Mins</th>
+                  <th>Goals</th>
+                  <th>Assists</th>
+                  <th>Yel</th>
+                  <th>Red</th>
+                  <th>MotM</th>
+                  <th>Rating</th>
+              </tr>
+          </thead>
+          <tbody>
+              {% for player in players %}
+              <tr>
+                  <td>
+                      <!-- {{ player.id }}. {{ player.name }}
+                      <img src="{{ player.photo.url }}" alt="{{ player.name }} Photo" style="width: 50px; height: 50px;"> -->
 
-                    <!--<span style="display: inline-block;">
-                      <img src="{{ player.photo.url }}" alt="{{ player.name }} Photo" style="width: 80px; height: 80px; object-fit: contain;">
-                  </span>-->
-                  <span style="display: inline-block;">
-                      {{ player.id }}. {{ player.name }}
-                  </span>
+                      <!--<span style="display: inline-block;">
+                        <img src="{{ player.photo.url }}" alt="{{ player.name }} Photo" style="width: 80px; height: 80px; object-fit: contain;">
+                    </span>-->
+                    <span style="display: inline-block;">
+                        {{ player.id }}. {{ player.name }}
+                    </span>
 
-                </td>
+                  </td>
 
-                <td>{{ player.position }}</td>
-                <!--<td>{{ player.club }}</td>
-                <td>{{ player.team }}</td>-->
-                <td>{{ player.height_cm }}</td>
-                <td>{{ player.weight_kg }}</td>
-                <td>{{ player.apps }}</td>
-                <td>{{ player.mins }}</td>
-                <td>{{ player.goals }}</td>
-                <td>{{ player.assists }}</td>
-                <td>{{ player.yellow_cards }}</td>
-                <td>{{ player.red_cards }}</td>
-                <td>{{ player.motm }}</td>
-                <td>{{ player.rating }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    </div>
-  </section>
-
-  <section class="footer">
-    <div class="box-container">
-      <div class="box bottom-nav">
-        <h3>{{ club.name }}</h3>
-        <img src="{{ club.photo.url }}" alt="{{ club.name }} Photo" class="logo"/>
-        <a href="https://maps.google.com/?q=YOUR_ADDRESS">Home ground: {{ club.stadium }}</a> 
-        <a href="https://maps.google.com/?q=YOUR_ADDRESS">Location: {{ club.location }}</a> 
+                  <td>{{ player.position }}</td>
+                  <!--<td>{{ player.club }}</td>
+                  <td>{{ player.team }}</td>-->
+                  <td>{{ player.height_cm }}</td>
+                  <td>{{ player.weight_kg }}</td>
+                  <td>{{ player.apps }}</td>
+                  <td>{{ player.mins }}</td>
+                  <td>{{ player.goals }}</td>
+                  <td>{{ player.assists }}</td>
+                  <td>{{ player.yellow_cards }}</td>
+                  <td>{{ player.red_cards }}</td>
+                  <td>{{ player.motm }}</td>
+                  <td>{{ player.rating }}</td>
+              </tr>
+              {% endfor %}
+          </tbody>
+      </table>
       </div>
-  
-      <div class="box">
-        <h3>More Info</h3>
-        <a href="">Established: {{ club.established_date }}</a>
-        <a href="tel:+254702664629">Contact us</a>
+    </section>
+
+    <section class="footer">
+      <div class="box-container">
+        <div class="box bottom-nav">
+          <h3>{{ club.name }}</h3>
+          <img src="{{ club.photo.url }}" alt="{{ club.name }} Photo" class="logo"/>
+          <a href="https://maps.google.com/?q=YOUR_ADDRESS">Home ground: {{ club.stadium }}</a> 
+          <a href="https://maps.google.com/?q=YOUR_ADDRESS">Location: {{ club.location }}</a> 
+        </div>
+    
+        <div class="box">
+          <h3>More Info</h3>
+          <a href="">Established: {{ club.established_date }}</a>
+          <a href="tel:+254702664629">Contact us</a>
+        </div>
+    
+        <div class="box">
+          <h3>Follow us</h3>
+          <a href="#" target="_blank">Twitter</a>
+          <a href="#" target="_blank">Facebook</a>
+        </div>
       </div>
-  
-      <div class="box">
-        <h3>Follow us</h3>
-        <a href="#" target="_blank">Twitter</a>
-        <a href="#" target="_blank">Facebook</a>
+    
+      <div class="credit">
+        <p>&copy; 2024 {{ club.name }}. All rights reserved. No part of this site may be reproduced without our written permission.</p>
       </div>
-    </div>
-  
-    <div class="credit">
-      <p>&copy; 2024 {{ club.name }}. All rights reserved. No part of this site may be reproduced without our written permission.</p>
-    </div>
-  </section>
+    </section>
   <script src="{% static 'js/club-staff.js' %}"></script>
 </body>
 </html>

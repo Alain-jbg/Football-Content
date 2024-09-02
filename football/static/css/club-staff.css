@@ -211,13 +211,32 @@ section {
     display: flex;
     flex-direction: column;
 }
-
   
 .fixture {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     background-color: white;
     border-radius: 5px;
     padding: 10px;
     margin-bottom: 10px;
+}
+
+.ticket {
+    margin-top: 20px;
+    margin-right: 20px;
+    color: var(--green);
+    font-size: 2.2rem;
+    text-transform: uppercase;
+    font-style: italic;
+}
+
+.ticket:hover {
+    letter-spacing: .1rem;
+}
+
+.ticket i {
+    margin-left: 20px;
 }
 
 .fixture .team-comp {
@@ -692,6 +711,19 @@ section {
     .results-section .goal-details {
         padding: 0 5%;
         font-size: 1.2rem;
+    }
+
+    .fixture {
+        flex-direction: column;
+    }
+
+    .fixture .holder {
+        align-self: flex-start;
+    }
+
+    .ticket {
+        margin-right: 0;
+        font-size: 2rem;
     }
 
 }

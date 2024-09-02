@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap');
+
+:root {
+    --green: #27ae60;
+    --black: #192a56;
+    --light-color: grey;
+    --white: #F6F2F2;
+    --box-shadow: 0.5rem 1.5rem rgba(0,0,0,.1);
+}
+
+* {
+    font-family: 'Nunito', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    transition: color .2s linear, border-color .2s linear; /* Transition only color and border-color */
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 5.5rem;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #eee;
+}
+
+/*Header section */
+header {
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    padding: 1rem 7%;
+    z-index: 1000;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    text-transform: capitalize;
+}
+
+header img {
+    width: 70px;
+    height: 70px;
+}
+
+.container2 {
+    width: 800px;
+    display: flex;
+    gap: 1rem;
+    font-size: 1.5rem;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.head {
+    color: var(--green);
+    align-self: left;
+}
+
+.payment-form {
+    width: 800px;
+}
+
+.payment-form h2 {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.order-summary {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    margin-left: 20px;
+    height: fit-content;
+    font-size: 1.2rem;
+}
+
+.order-summary h4 {
+    color: var(--green);
+    font-size: 1.5rem;
+    border-bottom: .1rem solid #eee;
+    padding-bottom: 8px;
+}
+
+.total {
+    font-weight: bold;
+}
+
+label {
+    font-weight: bold;
+}
+
+.f-lab {
+    height: 40px;
+    font-size: 1.3rem;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.my-btn {
+    background-color: var(--black);
+    border: none;
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
+
+.my-btn:hover {
+    background-color: var(--green);
+    letter-spacing: .1rem;
+}
