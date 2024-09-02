@@ -1,0 +1,86 @@
+{% load static %}
+
+<!-- navbar.html -->
+<head>
+    <!-- Font awesome -->
+    <script src="https://kit.fontawesome.com/456d64337e.js" crossorigin="anonymous"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+</head>
+<div class="footer">
+    <div class="box-container">
+        <div class="box bottom-nav">
+            <h3>Quick Links</h3>
+            <a href="{% url 'home' %}" class="{% if request.path == '/' %}active{% endif %}">Home</a>
+            <a href="{% url 'finance' %}" class="{% if 'finance' in request.path %}active{% endif %}">Finance</a>
+            <a href="{% url 'fixtures' %}" class="{% if 'fixture' in request.path %}active{% endif %}">Fixtures</a>
+            <a href="{% url 'blogs' %}" class="{% if 'blog' in request.path %}active{% endif %}">Blogs</a>
+            <a href="{% url 'contact_us' %}" class="{% if 'contact' in request.path %}active{% endif %}">Contact us</a>
+        </div>
+
+        <div class="box">
+            <h3>Contact Info</h3>
+            <a href="mailto:info@jay4t.org">info@jay4t.org</a>
+            <a href="#">Kisumu, Kenya</a>
+        </div>
+
+        <div class="box">
+          <h3>More</h3>
+          <a href="{% url 'faq_page' %}" target="_blank">Frequently Asked Questions</a>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSeBRTji7N9EilFp3lmqjbNjSRPIIM_VwjiSYg6IcADWdSyOTQ/viewform?usp=sharing" target="_blank">Register Club</a>
+          <a href="{% url 'finance-sponsor' %}" target="_blank">Sponsorship</a>
+        </div>
+
+        <div class="box">
+            <h3>Follow us</h3>
+            <a href="https://twitter.com/Jabulani_Youths" target="_blank">Twitter</a>
+        </div>
+    </div>
+
+    <div class="credit">copyright &copy; 2024 by <span>Jabulani Youths For Transformation</span></div>
+</div>
+
+
+<script>
+    let menu = document.querySelector('#menu-bars');
+    let navbar = document.querySelector('.navbar');
+    var links = document.querySelectorAll('.navbar a');
+    var sections = document.querySelectorAll('section');
+
+    menu.onclick = () => {
+        menu.classList.toggle('fa-times');
+        navbar.classList.toggle('active');
+    }
+
+    links.forEach(function(link) {
+        link.addEventListener('click', function(event) {
+            //event.preventDefault(); 
+
+            links.forEach(function(link) {
+                link.classList.remove('active');
+            });
+            // sections.forEach(function(section) {
+            //     section.classList.remove('live');
+            // });
+
+            this.classList.add('active');
+            
+            // Extract the section ID from href
+            // var targetSectionId = this.getAttribute('href').split('#')[1];
+            // var targetSection = document.querySelector('#' + targetSectionId);
+            
+            // if (targetSection) {
+            //     targetSection.classList.add('live');
+            // }
+
+            // Scroll to the top of the page
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // Close the navbar after a link is clicked
+            menu.classList.remove('fa-times');
+            navbar.classList.remove('active');
+        });
+    });
+</script>
+

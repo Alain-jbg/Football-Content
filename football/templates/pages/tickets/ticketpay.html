@@ -1,0 +1,35 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="{% static 'images/li__1_-removebg-preview.ico' %}">
+    <title>Select Payment Method</title>
+    <link rel="stylesheet" href="{% static 'css/payment-type.css' %}">
+</head>
+<body>
+  {% include 'navbar.html' %}
+    
+    <div class="container">
+        <h1>Select Payment Method</h1>
+        <div class="payment-methods">
+            <a href="{% url 'tickets_mpesa' %}?team_a={{ request.GET.team_a }}&team_b={{ request.GET.team_b }}&date={{ request.GET.date }}&time={{ request.GET.time }}&venue={{ request.GET.venue }}">
+                <div class="payment-method" id="mpesa">
+                    <img src="{% static 'images/mpesa-logo.png' %}" alt="M-Pesa Icon">
+                    <p>M-Pesa</p>
+                </div>
+            </a>
+            <a href="{% url 'tickets_card' %}?team_a={{ request.GET.team_a }}&team_b={{ request.GET.team_b }}&date={{ request.GET.date }}&time={{ request.GET.time }}&venue={{ request.GET.venue }}">
+                <div class="payment-method" id="credit-card">
+                    <img src="{% static 'images/other-payment.jpg' %}" alt="Other payment Card Icon">
+                    <p>Credit Card</p>
+                </div>
+            </a>
+        </div>
+    </div>
+  {% include 'footer.html' %}
+
+</body>
+</html>

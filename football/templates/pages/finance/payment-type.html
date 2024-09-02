@@ -10,22 +10,27 @@
     <link rel="stylesheet" href="{% static 'css/payment-type.css' %}">
 </head>
 <body>
-    <div class="container">
-        <h1>Select Payment Method</h1>
-        <div class="payment-methods">
-            <a href="{% url 'mpesa_donate' %}">
-                <div class="payment-method" id="mpesa">
-                    <img src="{% static 'images/mpesa-logo.png' %}" alt="M-Pesa Icon">
-                    <p>M-Pesa</p>
-                </div>
-            </a>
-            <a href="{% url 'other_donate' %}">
-                <div class="payment-method" id="credit-card">
-                    <img src="{% static 'images/other-payment.jpg' %}" alt="Other payment Card Icon">
-                    <p>Credit Card</p>
-                </div>
-            </a>
+    {% include 'navbar.html' %}
+    <div class="holder">
+        <div class="container">
+            <h1>Select Payment Method</h1>
+            <div class="payment-methods">
+                <a href="{% url 'mpesa_donate' %}">
+                    <div class="payment-method" id="mpesa">
+                        <img src="{% static 'images/mpesa-logo.png' %}" alt="M-Pesa Icon">
+                        <p>M-Pesa</p>
+                    </div>
+                </a>
+                <a href="{% url 'other_donate' %}">
+                    <div class="payment-method" id="credit-card">
+                        <img src="{% static 'images/other-payment.jpg' %}" alt="Other payment Card Icon">
+                        <p>Credit Card</p>
+                    </div>
+                </a>
+            </div>
         </div>
     </div>
+    {% include 'footer.html' %}
+
 </body>
 </html>

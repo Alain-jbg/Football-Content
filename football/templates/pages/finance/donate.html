@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="{% static 'css/donate.css' %}">
 </head>
 <body>
+    {% include 'navbar.html' %}
+
     <div class="container">
         <h1 class="heading">Donate now</h1>
         <div class="payment">
@@ -69,6 +71,8 @@
             </section>
         </div>
     </div>
+    {% include 'footer.html' %}
+
 
     <script src="{% static 'js/donate.js' %}"></script>
 </body>

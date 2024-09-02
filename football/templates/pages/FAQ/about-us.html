@@ -10,11 +10,8 @@
     <link rel="stylesheet" href="{% static 'css/faq-sections.css' %}" />
 </head>
 <body>
-    <header>
-        <a href="{% url 'home' %}">
-            <img src="{% static 'images/li__1_-removebg-preview.png' %}" alt="logo">
-        </a>
-    </header>
+    {% include 'navbar.html' %}
+
     <section>
         <h2 class="title">About Us FAQ</h2>
 
@@ -26,7 +23,7 @@
                 </svg>
             </div>
             <div class="answer">
-                <p>Ligi Open is a platform dedicated to providing funding and support to local grassroots football clubs in Kenya. Our aim is to develop and sustain football in Kenya through Open Financing which helps in ensuring financial support, transparency, and community involvement.</p>
+                <p>Ligi Open is a platform dedicated to providing funding and support to local grassroots football clubs in Kenya. Our aim is to develop and sustain football in Kenya through Open Financing which helps in ensuring financial support, transparency, and community involvement. You can learn more about LigiOpen from the home page.</p>
             </div>
         </div>
 
@@ -63,6 +60,9 @@
             </div>
         </div>
     </section>
+
+    {% include 'footer.html' %}
+
     <script src="{% static 'js/website.js' %}"></script>
 </body>
 </html>
