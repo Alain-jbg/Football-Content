@@ -32,10 +32,13 @@
         body {
             font-family: 'Nunito', sans-serif;
             line-height: 1.6;
-            margin: 20px;
             color: #333;
             background-color: #F6F2F2;
+        }
+
+        .cont {
             padding: 0 5%;
+            
         }
 
         .heading {
@@ -155,46 +158,51 @@
 <body>
     {% include 'navbar.html' %}
 
-    <div class="top section">
-        <h1 class="heading">UK Football Success</h1>
-        <p>The success of the UK in football can be attributed to a combination of factors including a long history and culture of the sport, investment in infrastructure and youth development, passionate fan base, competitive leagues, and a strong tradition of coaching and talent development. Additionally, the UK's historical influence on the global spread of football has contributed to its ongoing success in the sport.</p>
+    <div class="cont">
+        <div class="top section">
+            <h1 class="heading">UK Football Success</h1>
+            <p>The success of the UK in football can be attributed to a combination of factors including a long history and culture of the sport, investment in infrastructure and youth development, passionate fan base, competitive leagues, and a strong tradition of coaching and talent development. Additionally, the UK's historical influence on the global spread of football has contributed to its ongoing success in the sport.</p>
+        </div>
+    
+        <div class="section">
+            <h2 >Steps for Kenya to Achieve Football Success</h2>
+            <p>For Kenya to match or surpass the UK in football success, several key steps can be taken:</p>
+            <ul>
+                <li><strong>Investment in infrastructure and youth development:</strong> Building state-of-the-art facilities and investing in grassroots programs to identify and nurture young talent is crucial. This includes establishing academies and providing quality coaching at all levels.</li>
+                <li><strong>Focus on education:</strong> Encouraging players to prioritize education alongside football ensures a well-rounded development and provides opportunities beyond the sport.</li>
+                <li><strong>Professional leagues:</strong> Developing competitive domestic leagues with strong financial backing attracts talent and provides a platform for players to showcase their skills.</li>
+                <li><strong>International exposure:</strong> Participating in international tournaments, friendlies, and club competitions exposes players to different styles of play and raises the profile of Kenyan football globally.</li>
+                <li><strong>Strong governance and administration:</strong> Ensuring transparent and efficient management of football associations helps in the effective implementation of development programs and fosters trust within the football community.</li>
+                <li><strong>Support from government and corporate sponsors:</strong> Securing funding and support from government bodies and corporate sponsors can significantly boost the resources available for football development initiatives.</li>
+                <li><strong>Community involvement and support:</strong> Engaging local communities and fostering a culture of support for football at all levels creates a sustainable ecosystem for the sport to thrive.</li>
+            </ul>
+            <p>By addressing these areas, Kenya can work towards closing the gap with football powerhouses like the UK and achieve greater success on the international stage. We as Ligi Open are taking the first step, through Open Financing to ensure football success in Kenya.</p>
+        </div>
+    
+        <div class="section">
+            <h2>Open Financing</h2>
+            <p>Open financing at Ligi Open involves transparent funding mechanisms that allow various stakeholders, including fans, investors, and sponsors, to contribute financially and have a say in the league’s operations. It includes crowdfunding campaigns, equity investment opportunities, and revenue-sharing models, fostering a more inclusive and community-driven approach to funding and governance within the league.</p>
+            <ul>
+                <li><strong>Established Governance Structure:</strong> We have a clear governance structure that outlines how decisions regarding financing will be made, including representation from different stakeholders such as clubs, fans, investors, and sponsors.</li>
+                <li><strong>Transparency:</strong> We have transparent financial reporting mechanisms to ensure that all financial transactions and decisions are publicly accessible.</li>
+                <li><strong>Crowdfunding Campaigns:</strong> We have various crowdfunding campaigns to allow fans to contribute financially to the league.</li>
+                <li><strong>Equity Investment Opportunities:</strong> We offer equity investment opportunities to interested parties, such as private investors or consortiums which allows investors to have a stake in the league's success and potentially share in its financial returns.</li>
+                <li><strong>Revenue-Sharing Models:</strong> We have implemented revenue-sharing models that distribute income generated by the league among stakeholders, ensuring that all parties involved in the league's success benefit proportionately.</li>
+                <li><strong>Partnerships and Sponsorships:</strong> We have forged partnerships with corporate sponsors and brands that align with the values and objectives of the league. These partnerships provide additional funding and resources while also enhancing the league's visibility and credibility.</li>
+                <li><strong>Regulatory Compliance:</strong> We guarantee compliance with relevant financial regulations and standards to maintain transparency and legitimacy in all financial activities.</li>
+                <li><strong>Continuous Communication:</strong> We foster open communication channels with stakeholders to gather feedback, address concerns, and keep them informed about financial matters and the overall progress of the league.</li>
+                <li><strong>Evaluation and Adaptation:</strong> Our teams continuously evaluate the effectiveness of the open financing model and make adjustments as needed to improve its efficiency and alignment with the league's goals and values.</li>
+            </ul>
+        </div>
+    
+        <div class="bottom">
+            <p class="sub-heading more-info">Want to sponsor us and be a part of the Kenyan football revolution?</p>
+            <a href="{% url 'finance-sponsor' %}" target="_blank" class="btn">Click here</a>
+        </div>
     </div>
 
-    <div class="section">
-        <h2 >Steps for Kenya to Achieve Football Success</h2>
-        <p>For Kenya to match or surpass the UK in football success, several key steps can be taken:</p>
-        <ul>
-            <li><strong>Investment in infrastructure and youth development:</strong> Building state-of-the-art facilities and investing in grassroots programs to identify and nurture young talent is crucial. This includes establishing academies and providing quality coaching at all levels.</li>
-            <li><strong>Focus on education:</strong> Encouraging players to prioritize education alongside football ensures a well-rounded development and provides opportunities beyond the sport.</li>
-            <li><strong>Professional leagues:</strong> Developing competitive domestic leagues with strong financial backing attracts talent and provides a platform for players to showcase their skills.</li>
-            <li><strong>International exposure:</strong> Participating in international tournaments, friendlies, and club competitions exposes players to different styles of play and raises the profile of Kenyan football globally.</li>
-            <li><strong>Strong governance and administration:</strong> Ensuring transparent and efficient management of football associations helps in the effective implementation of development programs and fosters trust within the football community.</li>
-            <li><strong>Support from government and corporate sponsors:</strong> Securing funding and support from government bodies and corporate sponsors can significantly boost the resources available for football development initiatives.</li>
-            <li><strong>Community involvement and support:</strong> Engaging local communities and fostering a culture of support for football at all levels creates a sustainable ecosystem for the sport to thrive.</li>
-        </ul>
-        <p>By addressing these areas, Kenya can work towards closing the gap with football powerhouses like the UK and achieve greater success on the international stage. We as Ligi Open are taking the first step, through Open Financing to ensure football success in Kenya.</p>
-    </div>
-
-    <div class="section">
-        <h2>Open Financing</h2>
-        <p>Open financing at Ligi Open involves transparent funding mechanisms that allow various stakeholders, including fans, investors, and sponsors, to contribute financially and have a say in the league’s operations. It includes crowdfunding campaigns, equity investment opportunities, and revenue-sharing models, fostering a more inclusive and community-driven approach to funding and governance within the league.</p>
-        <ul>
-            <li><strong>Established Governance Structure:</strong> We have a clear governance structure that outlines how decisions regarding financing will be made, including representation from different stakeholders such as clubs, fans, investors, and sponsors.</li>
-            <li><strong>Transparency:</strong> We have transparent financial reporting mechanisms to ensure that all financial transactions and decisions are publicly accessible.</li>
-            <li><strong>Crowdfunding Campaigns:</strong> We have various crowdfunding campaigns to allow fans to contribute financially to the league.</li>
-            <li><strong>Equity Investment Opportunities:</strong> We offer equity investment opportunities to interested parties, such as private investors or consortiums which allows investors to have a stake in the league's success and potentially share in its financial returns.</li>
-            <li><strong>Revenue-Sharing Models:</strong> We have implemented revenue-sharing models that distribute income generated by the league among stakeholders, ensuring that all parties involved in the league's success benefit proportionately.</li>
-            <li><strong>Partnerships and Sponsorships:</strong> We have forged partnerships with corporate sponsors and brands that align with the values and objectives of the league. These partnerships provide additional funding and resources while also enhancing the league's visibility and credibility.</li>
-            <li><strong>Regulatory Compliance:</strong> We guarantee compliance with relevant financial regulations and standards to maintain transparency and legitimacy in all financial activities.</li>
-            <li><strong>Continuous Communication:</strong> We foster open communication channels with stakeholders to gather feedback, address concerns, and keep them informed about financial matters and the overall progress of the league.</li>
-            <li><strong>Evaluation and Adaptation:</strong> Our teams continuously evaluate the effectiveness of the open financing model and make adjustments as needed to improve its efficiency and alignment with the league's goals and values.</li>
-        </ul>
-    </div>
-
-    <div class="bottom">
-        <p class="sub-heading more-info">Want to sponsor us and be a part of the Kenyan football revolution?</p>
-        <a href="{% url 'finance-sponsor' %}" target="_blank" class="btn">Click here</a>
-    </div>
+  {% include 'footer.html' %}
+    
 
 </body>
 </html>

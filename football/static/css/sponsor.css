@@ -31,15 +31,16 @@ body {
 }
 
 iframe {
-    padding-top: 8%;
+    padding-top: 5%;
 }
 
-div {
-    padding-left: 5%;
+.download {
+    margin-top: 20px;
+    padding-left: 8%;
     font-size: 1.5rem;
 }
 
-div a {
+.download a {
     color: var(--black);
     border-bottom: 2px solid transparent; 
     transition: color 0.3s, border-color 0.3s;
