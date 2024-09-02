@@ -10,21 +10,16 @@
     <link rel="stylesheet" href="{% static 'css/sponsor.css' %}">
 </head>
 <body>
-    <header>
-        <a href="{% url 'home' %}">
-            <img src="{% static 'images/li__1_-removebg-preview.png' %}" alt="logo">
-        </a>
-    </header>
+    {% include 'navbar.html' %}
 
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScvM1DBB-EqRIJUE3IWCg0XiI2wxwOS1J35s1WQJNHYG91QgA/viewform?embedded=true" width="100%" height="520" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScvM1DBB-EqRIJUE3IWCg0XiI2wxwOS1J35s1WQJNHYG91QgA/viewform?embedded=true" width="100%" height="620" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
 
     <div>
         <h2>Download the Form</h2>
         <!-- Link to the downloadable PDF version of the form -->
         <a href="https://drive.google.com/file/d/1quJi3q3lq8uLZtyEhKxNJz5c4M6VY8Cs/view?usp=sharing" target="_blank">Download Form as PDF</a>
     </div>
-
-    <script src="{% static 'js/sponsor.js' %}"></script>
 
 </body>
 </html>

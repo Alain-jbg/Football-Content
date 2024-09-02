@@ -62,8 +62,31 @@ urlpatterns = [
     #Matchday highlights url
     path('pages/matchday-highlights', views.matchday_highlights, name='matchday_highlights'),
 
-    #Custom bloh url
+    #Custom blog url
     path('pages/blog', views.blog, name='blog'),
+
+    #Tickets url
+    path('pages/tickets', views.tickets, name='tickets'),
+
+    #Tickets info url
+    path('pages/tickets-pay', views.tickets_pay, name='tickets_pay'),
+
+    #Tickets mpesa url
+    path('pages/tickets-mpesa', views.tickets_mpesa, name='tickets_mpesa'),
+
+    #Tickets card url
+    path('pages/tickets-card', views.tickets_card, name='tickets_card'),
+
+    #Generated ticket url
+    path('ticket_qr/', views.ticket_qr, name='ticket_qr'),
+
+    #Navbar navigation urls
+    path('finance/', views.finance, name='finance'),
+
+    path('fixtures/', views.fixtures, name='fixtures'),
+
+    path('blogs/', views.blogs, name='blogs'),
+
 ]
 
 

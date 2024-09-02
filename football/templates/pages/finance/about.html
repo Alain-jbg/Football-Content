@@ -35,66 +35,33 @@
             margin: 20px;
             color: #333;
             background-color: #F6F2F2;
+            padding: 0 5%;
         }
 
         .heading {
             color: var(--black);
-        }
-
-        .top-header div button {
-            background-color: white;
-            color: var(--black);
-            border: none;
-            border-radius: 50%;
-            font-size: 20px;
-            padding: 10px;
-        }
-
-        .top-header div button:hover {
-            color: white;
-            background-color: var(--green);
+            font-size: 3rem;
         }
 
         h1, h2 {
             color: var(--black);
+            font-size: 2.5rem;
             margin-bottom: 0;
         }
 
         p {
             margin-bottom: 15px;
-            font-size: 1.2rem;
+            font-size: 2rem;
         }
 
         ul {
             margin-bottom: 20px;
             margin-left: 20px;
-            font-size: 1.2rem;
+            font-size: 1.9rem;
         }
 
         li {
             margin-bottom: 10px;
-        }
-
-        /*Header section */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            margin-bottom: 10px;
-            background: #fff;
-            padding: 1rem 1%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            z-index: 1000;
-            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
-            text-transform: capitalize;
-        }
-
-        header img {
-            width: 70px;
-            height: 70px;
         }
         
         .btn {
@@ -186,11 +153,7 @@
     </style>
 </head>
 <body>
-    <header>
-        <a href="{% url 'home' %}">
-            <img src="{% static 'images/li__1_-removebg-preview.png' %}" alt="logo">
-        </a>
-    </header>
+    {% include 'navbar.html' %}
 
     <div class="top section">
         <h1 class="heading">UK Football Success</h1>

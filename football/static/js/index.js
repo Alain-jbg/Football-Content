@@ -1,37 +1,42 @@
-let menu = document.querySelector('#menu-bars');
-let navbar = document.querySelector('.navbar');
-var links = document.querySelectorAll('.navbar a');
-var sections = document.querySelectorAll('section');
+// let menu = document.querySelector('#menu-bars');
+// let navbar = document.querySelector('.navbar');
+// var links = document.querySelectorAll('.navbar a');
+// var sections = document.querySelectorAll('section');
 
-menu.onclick = () => {
-    menu.classList.toggle('fa-times');
-    navbar.classList.toggle('active');
-}
+// menu.onclick = () => {
+//     menu.classList.toggle('fa-times');
+//     navbar.classList.toggle('active');
+// }
 
-links.forEach(function(link) {
-    link.addEventListener('click', function(event) {
-        event.preventDefault(); 
+// links.forEach(function(link) {
+//     link.addEventListener('click', function(event) {
+//         event.preventDefault(); 
 
-        links.forEach(function(link) {
-            link.classList.remove('active');
-        });
-        sections.forEach(function(section) {
-            section.classList.remove('live');
-        });
+//         links.forEach(function(link) {
+//             link.classList.remove('active');
+//         });
+//         sections.forEach(function(section) {
+//             section.classList.remove('live');
+//         });
 
-        this.classList.add('active');
-        var targetSectionClass = this.getAttribute('href').substring(1);
-        var targetSection = document.querySelector('.' + targetSectionClass);
-        targetSection.classList.add('live');
+//         this.classList.add('active');
+        
+//         // Extract the section ID from href
+//         var targetSectionId = this.getAttribute('href').split('#')[1];
+//         var targetSection = document.querySelector('#' + targetSectionId);
+        
+//         if (targetSection) {
+//             targetSection.classList.add('live');
+//         }
 
-        // Scroll to the top of the page
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+//         // Scroll to the top of the page
+//         window.scrollTo({ top: 0, behavior: 'smooth' });
 
-        // Close the navbar after a link is clicked
-        menu.classList.remove('fa-times');
-        navbar.classList.remove('active');
-    });
-});
+//         // Close the navbar after a link is clicked
+//         menu.classList.remove('fa-times');
+//         navbar.classList.remove('active');
+//     });
+// });
 
 //Match poster sliding effect
 var matches = document.querySelectorAll('.slider .match');
