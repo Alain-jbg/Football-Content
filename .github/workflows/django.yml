@@ -15,23 +15,25 @@ jobs:
       matrix:
         python-version: [3.11, 3.12]
 
-    steps:
-    - uses: actions/checkout@v4
-      
+     steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v3
+      uses: actions/setup-python@v4
       with:
         python-version: ${{ matrix.python-version }}
-      
-    - name: Install Dependencies
+
+    - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-      
-    - name: Run Migrations
-      run: |
-        python manage.py migrate
-      
-    - name: Run Tests
-      run: |
-        python manage.py test
+
+    - name: Set environment variables
+      run: echo "EMAIL_HOST_USER=<your_email_user>" >> $GITHUB_ENV
+
+    - name: Run migrations
+      run: python manage.py migrate
+
+    - name: Run tests
+      run: python manage.py test
