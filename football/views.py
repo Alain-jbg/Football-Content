@@ -359,3 +359,7 @@ def blogs(request):
 
 def contact(request):
     return render(request, 'contact.html')
+
+def clubs(request):
+    clubs = Club.objects.all()
+    return render(request, 'clubs.html', {'clubs': clubs})
