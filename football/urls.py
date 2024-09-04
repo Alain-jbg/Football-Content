@@ -3,20 +3,7 @@ from . import views
 from .views import player_stats_view
 # from .views import fixtures_view 
 from .views import contact_us_view, success_view
-from .views import club_fixtures_results
 from .views import match_report
-
-
-
-
-
-
-
-
-
-
-
-
 
 urlpatterns = [
     path('', views.home, name='home'),
@@ -24,18 +11,20 @@ urlpatterns = [
     path('fixtures', views.fixtures_view, name='fixtures'),
     path('pages/club-staff.html', views.club_staff_view, name='club_staff_page'),
     path('player-stats', views.player_stats_view, name='player_stats'),
+    path('contact/', contact_us_view, name='contact_us'),
     path('pages/success.html', views.success_view, name='success'),
-    path('contact', views.contact_us_view, name='contact_us'),
-    path('contact/success', views.success_view, name='success'),
+
     path('club', views.club_list_view, name='club_list'),
     path('club/<int:club_id>/', views.club_detail_view, name='club_detail'),
     path('club/<int:club_id>', views.club_staff_view, name='club_staff_view'),
     path('pages/all-players', views.player_list, name='player_list'),
     path('pages/blog', views.blog_list, name='blog_list'),
     path('highlights/', views.highlight_list, name='highlight_list'),
-    path('club/<int:club_id>/fixtures-results/', club_fixtures_results, name='club_fixtures_results'),
 
     path('pages/matchday-highlights', match_report, name='match_report'),
+    path('match-report/<int:match_id>/', match_report, name='match_report'),
+
+
 
 
 

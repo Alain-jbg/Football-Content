@@ -1,100 +1,145 @@
 from django.db import models
 from django.utils import timezone
-import datetime
+
+def upload_to(instance, filename):
+    """Generate dynamic upload paths based on instance and file type."""
+    upload_paths = {
+        Club: 'club_photos/',
+        Player: 'players/',
+        Staff: 'staff/',
+        Team: 'team_logos/',
+        FixtureResult: 'team_logos/',
+        Match: 'match_logos/',
+        Blog: 'blog_images/',
+        BlogPost: 'blogpost_images/',
+        ClubMatch: 'club_logos/',
+    }
+    return upload_paths.get(type(instance), '') + filename
 
 class Club(models.Model):
     name = models.CharField(max_length=100)
-    location = models.CharField(max_length=100, default='')
+    location = models.CharField(max_length=100, blank=True, null=True)
     established_date = models.DateField(default=timezone.now)
-    stadium = models.CharField(max_length=100, default='')
-    photo = models.ImageField(upload_to='club_photos/', default='default.jpg')
+    stadium = models.CharField(max_length=100, blank=True, null=True)
+    photo = models.ImageField(upload_to=upload_to, blank=True, null=True)
     coach_name = models.CharField(max_length=100, blank=True, null=True)
-    coach_photo = models.ImageField(upload_to='coach_photos/', default='coach_photos/default.jpg')
+    coach_photo = models.ImageField(upload_to=upload_to, blank=True, null=True)
 
-    
     def __str__(self):
         return self.name
 
 class Player(models.Model):
     name = models.CharField(max_length=100)
-    position = models.CharField(max_length=100, null=True)
-    height_cm = models.PositiveIntegerField(null=True, blank=True)  
-    weight_kg = models.PositiveIntegerField(null=True, blank=True)
-    date_of_birth = models.DateField(default=datetime.date(2000, 1, 1))
-    nationality = models.CharField(max_length=50, default='')
+    position = models.CharField(max_length=100, blank=True, null=True)
+    height_cm = models.PositiveIntegerField(blank=True, null=True)
+    weight_kg = models.PositiveIntegerField(blank=True, null=True)
+    date_of_birth = models.DateField(default=timezone.now)
+    nationality = models.CharField(max_length=50, blank=True, null=True)
     club = models.ForeignKey(Club, on_delete=models.CASCADE, related_name='players')
     team = models.CharField(max_length=100, blank=True, null=True)
-    photo = models.ImageField(upload_to='photos/players/', default='photos/players/default.jpg')
-    apps = models.IntegerField(default=0)
-    mins = models.IntegerField(default=0)
-    goals = models.IntegerField(default=0)
-    assists = models.IntegerField(default=0)
-    yellow_cards = models.IntegerField(default=0, verbose_name='')
-    red_cards = models.IntegerField(default=0, verbose_name='')
-    motm = models.IntegerField(default=0, verbose_name='')
-    rating = models.FloatField(default=0.0)
-    
+    photo = models.ImageField(upload_to=upload_to, blank=True, null=True)
+    apps = models.IntegerField()
+    mins = models.IntegerField()
+    goals = models.IntegerField()
+    assists = models.IntegerField()
+    yellow_cards = models.IntegerField()
+    red_cards = models.IntegerField()
+    motm = models.IntegerField()
+
+    RATING_CHOICES = [
+        ('⭐', '1 Star'),
+        ('⭐⭐', '2 Stars'),
+        ('⭐⭐⭐', '3 Stars'),
+        ('⭐⭐⭐⭐', '4 Stars'),
+        ('⭐⭐⭐⭐⭐', '5 Stars'),
+    ]
+
+    rating = models.CharField(
+        max_length=6,
+        choices=RATING_CHOICES,
+        blank=True,
+        null=True,
+        help_text="Emoji rating (e.g., ⭐⭐⭐⭐, ⭐⭐⭐⭐⭐)"
+    )
+
     def __str__(self):
         return self.name
 
-class OtherStaff(models.Model):
-    name = models.CharField(max_length=100)
-    role = models.CharField(max_length=100, default='')
-    nationality = models.CharField(max_length=100, default='')
-    experience = models.CharField(max_length=50, default='')
-    club = models.ForeignKey(Club, related_name='other_staff', on_delete=models.CASCADE)
-    photo = models.ImageField(upload_to='photos/staff/', default='photos/staff/default.jpg')
-    
-    def __str__(self):
-        return self.name
 
-class CoachingStaff(models.Model):
+
+class Staff(models.Model):
+    STAFF_ROLES = [
+        ('Coaching Staff', 'Coaching Staff'),
+        ('Other Staff', 'Other Staff'),
+        ('Club Match Staff', 'Club Match Staff'),
+    ]
+
+    ROLE_CHOICES = [
+        ('Head Coach', 'Head Coach'),
+        ('Assistant Coach', 'Assistant Coach'),
+        ('Physiotherapist', 'Physiotherapist'),
+        ('Team Manager', 'Team Manager'),
+        ('Scout', 'Scout'),
+    ]
     name = models.CharField(max_length=100)
-    role = models.CharField(max_length=100, default='')
-    nationality = models.CharField(max_length=100, default='')
-    experience = models.CharField(max_length=50, default='')
-    club = models.ForeignKey(Club, related_name='coaching_staff', on_delete=models.CASCADE)
-    photo = models.ImageField(upload_to='photos/staff/', default='photos/staff/default.jpg')
-    
+    role = models.CharField(max_length=100, choices=ROLE_CHOICES)
+    staff_type = models.CharField(max_length=100, choices=STAFF_ROLES)
+    nationality = models.CharField(max_length=100, blank=True, null=True)
+    experience = models.CharField(max_length=50, blank=True, null=True)
+    club = models.ForeignKey(Club, related_name='staff', on_delete=models.CASCADE)
+    photo = models.ImageField(upload_to=upload_to, blank=True, null=True)
+
     def __str__(self):
-        return self.name
-        
+        return f"{self.name} ({self.staff_type})"
+
 class Team(models.Model):
     name = models.CharField(max_length=100)
-    logo = models.ImageField(upload_to='team_logos/', blank=True, null=True)
+    logo = models.ImageField(upload_to=upload_to, blank=True, null=True)
     coach = models.CharField(max_length=100, blank=True, null=True)
     home_ground = models.CharField(max_length=100, blank=True, null=True)
-    
+    lineup = models.TextField(blank=True, null=True)
+    substitutes = models.TextField(blank=True, null=True)
+    booked = models.CharField(max_length=255, blank=True, null=True)
+    goalscorers = models.CharField(max_length=255, blank=True, null=True)
+
     def __str__(self):
         return self.name
 
-class Result(models.Model):
-    score = models.CharField(max_length=100, default='')
-    minute = models.IntegerField(default=0)
-    is_home_team = models.BooleanField(default=True)
-    fixture = models.ForeignKey('Fixture', related_name='goals', on_delete=models.CASCADE)
-    photo = models.ImageField(upload_to='goal_photos/', blank=True, null=True)
-    
-    def __str__(self):
-        return f"{self.scorer} - {self.minute} min"
+# class Result(models.Model):
+#     score = models.CharField(max_length=100, blank=True, null=True)
+#     minute = models.IntegerField(default=0)
+#     is_home_team = models.BooleanField(default=True)
+#     fixture = models.ForeignKey('Fixture', related_name='results', on_delete=models.CASCADE)
+#     photo = models.ImageField(upload_to=upload_to, blank=True, null=True)
+
+#     def __str__(self):
+#         return f"{self.score} - {self.minute} min"
 
 
 class Fixture(models.Model):
     date = models.DateField()
-    time = models.TimeField()
+    time = models.TimeField(blank=True, null=True)
     competition = models.CharField(max_length=255)
     venue = models.CharField(max_length=255)
-    score = models.CharField(max_length=20, blank=True, null=True)
-    team_a_name = models.CharField(max_length=255, null=True)
-    team_a_logo = models.ImageField(upload_to='team_logos/', null=True)
-    team_b_name = models.CharField(max_length=255, null=True)
-    team_b_logo = models.ImageField(upload_to='team_logos/', null=True)
-    club = models.ForeignKey(Club, related_name='fixtures', on_delete=models.CASCADE,null=True)
+    team_a_name = models.CharField(max_length=255)
+    team_a_logo = models.ImageField(upload_to='team_logos/', blank=True, null=True)
+    team_b_name = models.CharField(max_length=255)
+    team_b_logo = models.ImageField(upload_to='team_logos/', blank=True, null=True)
 
-    
-    
     def __str__(self):
         return f"{self.team_a_name} vs {self.team_b_name} on {self.date}"
+
+
+class FixtureResult(models.Model):
+    fixture = models.OneToOneField(Fixture, related_name='result', on_delete=models.CASCADE, blank=True, null=True)  # Allow null initially
+    score = models.CharField(max_length=20, default=0)
+    minute = models.IntegerField(blank=True, null=True)
+    result_photo = models.ImageField(upload_to='result_photos/', blank=True, null=True)
+
+    def __str__(self):
+        if self.fixture:  
+         return f"Result: {self.fixture.team_a_name} vs {self.fixture.team_b_name} on {self.fixture.date} - Score: {self.score or 'No score'}"
+        return "Result with no associated fixture"
 
 
 class Stadium(models.Model):
@@ -108,22 +153,21 @@ class Match(models.Model):
     stadium = models.ForeignKey(Stadium, on_delete=models.CASCADE)
     home_team = models.ForeignKey(Club, related_name='home_matches', on_delete=models.CASCADE)
     away_team = models.ForeignKey(Club, related_name='away_matches', on_delete=models.CASCADE)
-    home_team_logo = models.ImageField(upload_to='match_logos/', blank=True, null=True)
-    away_team_logo = models.ImageField(upload_to='match_logos/', blank=True, null=True)
+    home_team_logo = models.ImageField(upload_to=upload_to, blank=True, null=True)
+    away_team_logo = models.ImageField(upload_to=upload_to, blank=True, null=True)
+    summary = models.TextField(blank=True, null=True)
+    first_half_summary = models.TextField(blank=True, null=True)
+    second_half_summary = models.TextField(blank=True, null=True)
+    referee_name = models.CharField(max_length=100, blank=True, null=True)
+    author_name = models.CharField(max_length=100, blank=True, null=True)
 
     def __str__(self):
-        return f"{self.home_team.name} vs {self.away_team.name} - {self.date_time.strftime('%b %d, %Y | %I:%M %p')}"
-    
-
-
+        return f"{self.home_team.name} vs {self.away_team.name} on {self.date_time.strftime('%B %d, %Y')}"
 
 class Blog(models.Model):
     headline = models.CharField(max_length=200)
     description = models.TextField()
-    image = models.ImageField(upload_to='blog_images/',null=True,blank=True)
-
-
-
+    image = models.ImageField(upload_to=upload_to, blank=True, null=True)
 
     def __str__(self):
         return self.headline
@@ -133,33 +177,19 @@ class BlogPost(models.Model):
     title = models.CharField(max_length=200)
     author = models.CharField(max_length=100)
     date_published = models.DateField()
-    day = models.CharField(max_length=20, null=True,blank=True) 
+    day = models.CharField(max_length=20, blank=True, null=True)
     content = models.TextField()
-    image = models.ImageField(upload_to='blogpost_images/', null=True,blank=True)
-    author_image = models.ImageField(upload_to='author_images/', null=True, blank=True)
+    image = models.ImageField(upload_to=upload_to, blank=True, null=True)
+    author_image = models.ImageField(upload_to=upload_to, blank=True, null=True)
 
-
-    
-    
     def __str__(self):
         return self.title
-
-
-
-class Highlight(models.Model):
-    headline = models.CharField(max_length=200)
-    description = models.TextField()
-    image = models.ImageField(upload_to='highlights/',null=True,blank=True)
-
-
-    def __str__(self):
-        return self.headline
-
-
+        
+        
 
 class ClubMatch(models.Model):
     name = models.CharField(max_length=100)
-    logo = models.ImageField(upload_to='club_logos/')
+    logo = models.ImageField(upload_to=upload_to)
 
     def __str__(self):
         return self.name

@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import CoachingStaff, Player, Club, Fixture, Result,OtherStaff
+from .models import Staff, Player, Club, FixtureResult, Fixture
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponse
 from django.core.mail import send_mail 
@@ -10,8 +10,7 @@ from django.urls import reverse
 from .models import Match
 from .models import Blog
 from .models import BlogPost
-from .models import Highlight
-from .models import Club, Result
+from .models import Club
 
 
 
@@ -24,29 +23,32 @@ import base64
 def home(request):
     clubs = Club.objects.all()
     fixtures = Fixture.objects.all()
+
+    fixtures_results = FixtureResult.objects.all()
     matches = Match.objects.all()
     blogs = Blog.objects.all()
-    highlights=Highlight.objects.all()
-    return render(request, 'index.html', {'clubs': clubs, 'fixtures': fixtures,'matches': matches,'blogs':blogs, 'highlights':highlights})
+    return render(request, 'index.html', {'clubs': clubs, 'fixtures_results': fixtures_results,'fixtures': fixtures,'matches': matches,'blogs':blogs})
 
 
 def club_staff_view(request, club_id):
     club = get_object_or_404(Club, id=club_id)
-    coaching_staff = CoachingStaff.objects.filter(club=club)
+    coaching_staff = Staff.objects.filter(club=club, staff_type='Coaching Staff')
+    other_staff = Staff.objects.filter(club=club, staff_type='Other Staff')
+    club_match_staff = Staff.objects.filter(club=club, staff_type='Club Match Staff')
     players = Player.objects.filter(club=club)
-    other_staff = OtherStaff.objects.filter(club=club)
     
     context = {
         'club': club,
         'coaching_staff': coaching_staff,
-        'players': players,
         'other_staff': other_staff,
-        
-        }
+        'club_match_staff': club_match_staff,
+        'players': players,
+    }
+    
     return render(request, 'pages/club-staff.html', context)
     
     
-    def player_detail_view(request, slug):
+def player_detail_view(request, slug):
      club = get_object_or_404(Club, slug=slug)
      players = Player.objects.filter(club=club)
 
@@ -82,10 +84,10 @@ def contact_us_view(request):
             # Send email
             try:
                 send_mail(
-                    f'Message from {name}', 
-                    issue,  
-                    email,  
-                    ['wangarraakoth@gmail.com'],  
+                    subject=f'Message from {name}',
+                    message=issue,
+                    from_email=email,
+                    recipient_list=['akothdorothy@gmail.com'],
                     fail_silently=False,
                 )
                 messages.success(request, 'Your message has been sent successfully!')
@@ -101,9 +103,8 @@ def contact_us_view(request):
 
 
 def success_view(request):
-    email = request.GET.get('email')
+    email = request.GET.get('email', '')  # Default value if email is not provided
     return render(request, 'pages/success.html', {'email': email})
-
 
 def results_view(request):
     results = Result.objects.all()
@@ -118,8 +119,12 @@ def club_list_view(request):
 def club_detail_view(request, club_id):
     club = get_object_or_404(Club, id=club_id)
     players = club.players.all()
+    fixtures = club.fixtures.all()
+    results = Result.objects.filter(fixture__club=club)
+
+     
     
-    return render(request, 'pages/club-staff.html', {'club': club, 'players': players})
+    return render(request, 'pages/club-staff.html', {'club': club, 'players': players,'fixtures':fixtures,'results':results})
 
 
 
@@ -157,25 +162,6 @@ def matchday_highlights(request):
     return render(request, 'pages/match-report.html', {'fixtures': fixtures})
 
 
-
-def club_fixtures_results(request, club_id):
-    club = get_object_or_404(Club, pk=club_id)
-    fixtures = club.fixtures.all()
-    results = Result.objects.filter(fixture__club=club)
-
-
-    # Debugging output
-    print(f"Club: {club}")
-    print(f"Fixtures: {fixtures}")
-    print(f"Results: {results}")
-
-
-    context = {
-        'club': club,
-        'fixtures': fixtures,
-        'results': results,
-    }
-    return render(request, 'pages/club-staff.html', context)
 
 def match_report(request):
     fixtures = Fixture.objects.all()
@@ -354,8 +340,8 @@ def fixtures(request):
 
 def blogs(request):
     blogs = Blog.objects.all()
-    highlights=Highlight.objects.all()
-    return render(request, 'blog.html', {'blogs':blogs, 'highlights':highlights})
+    # highlights=Highlight.objects.all()
+    return render(request, 'blog.html', {'blogs':blogs})
 
 def contact(request):
     return render(request, 'contact.html')

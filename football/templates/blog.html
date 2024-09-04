@@ -16,51 +16,29 @@
 </head>
 <body>
   {% include 'navbar.html' %}
-  <!-- Highlights section content -->
-  <section class="highlights" id="highlights">
-    <h2 class="heading">Gameweek highlights & Blogs</h2>
+  <div class="container blogs-section" id="blogs-section">
+    {% for blog in blogs %}
+    <div class="news-card">
+        <div class="news-image-container">
+            <img src="{{ blog.image.url }}" alt="news-image" />
+        </div>
+        <div class="news-content">
+            <div class="news-title">{{ blog.headline }}</div>
+            <div class="news-description">{{ blog.description|truncatewords:20 }}</div>
+            <a href="{% url 'blog' %}" target="_blank" class="btn">Read More</a>
 
-    <nav class="navbar3">
-      <a class="active" href="#highlights-section" id="games-link">Game Highlights</a></li>
-      <a href="#blogs-section" id="blogs-link">Blogs</a></li>
-    </nav>
-    <div class="container highlights-section" id="highlights-section">
-      {% for highlight in highlights %}
-      <div class="news-card">
-          <div class="news-image-container">
-            <img src="{{ highlight.image.url }}" alt="news-image" />
-
+            
           </div>
-          <div class="news-content">
-              <div class="news-title">{{ highlight.headline }}</div>
-              <div class="news-description">{{ highlight.description }}</div>
-              <a href="{% url 'matchday_highlights' %}" target="_blank" class="btn">Read More</a>
+    </div>
+    </div>
+    {% endfor %}
+</div>
+</div>
+</section>
+{% include 'footer.html' %}
 
+<script src="{% static 'js/blog.js' %}"></script>
 
-
-          </div>
-      </div>
-      {% endfor %}
-  </div>
-
-    <div class="container blogs-section" id="blogs-section">
-      {% for blog in blogs %}
-      <div class="news-card">
-          <div class="news-image-container">
-              <img src="{{ blog.image.url }}" alt="news-image" />
-          </div>
-          <div class="news-content">
-              <div class="news-title">{{ blog.headline }}</div>
-              <div class="news-description">{{ blog.description|truncatewords:20 }}</div>
-              <a href="{% url 'blog' %}" target="_blank" class="btn">Read More</a>
-
-              
-            </div>
-      </div>
-      {% endfor %}
-  </div>
-  </section>
-    
-    
 </body>
 </html>
+    
