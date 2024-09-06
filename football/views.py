@@ -11,10 +11,6 @@ from .models import Match
 from .models import Blog
 from .models import BlogPost
 from .models import Club
-
-
-
-
 import qrcode
 import io
 import base64
