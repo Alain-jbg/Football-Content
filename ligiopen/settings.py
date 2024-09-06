@@ -10,7 +10,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 env_path = BASE_DIR / '.env'
 load_dotenv(env_path)
 
-# Load SECRET_KEY
+# Load SECRET_KEY and DEBUG settings
 SECRET_KEY = config('SECRET_KEY', default='default_secret_key')
 DEBUG = config('DEBUG', default=True, cast=bool)
 
@@ -41,7 +41,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-
 ROOT_URLCONF = 'ligiopen.urls'
 
 TEMPLATES = [
@@ -62,7 +61,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'ligiopen.wsgi.application'
 
-
+# Database configuration
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -92,11 +91,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
@@ -113,4 +109,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = '/admin/dashboard/'
 
-# Email settings
+# Remove all email settings
+# EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+# EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+# EMAIL_HOST = config('EMAIL_HOST', default='smtp.example.com')
+# EMAIL_PORT = config('EMAIL_PORT', default=587, cast=int)
+# EMAIL_USE_TLS = config('EMAIL_USE_TLS', default=True, cast=bool)
