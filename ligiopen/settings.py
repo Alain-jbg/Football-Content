@@ -14,9 +14,6 @@ load_dotenv(env_path)
 SECRET_KEY = config('SECRET_KEY', default='default_secret_key')
 DEBUG = config('DEBUG', default=True, cast=bool)
 
-# ALLOWED_HOSTS = ['127.0.0.1', 'ligiopen.com']
-# ALLOWED_HOSTS = ['127.0.0.1', 'ligiopen.com']
-
 # Application definition
 INSTALLED_APPS = [
     "admin_interface",
@@ -109,9 +106,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = '/admin/dashboard/'
 
-# Remove all email settings
-# EMAIL_HOST_USER = config('EMAIL_HOST_USER')
-# EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
-# EMAIL_HOST = config('EMAIL_HOST', default='smtp.example.com')
-# EMAIL_PORT = config('EMAIL_PORT', default=587, cast=int)
-# EMAIL_USE_TLS = config('EMAIL_USE_TLS', default=True, cast=bool)
+# Email settings
+EMAIL_HOST_USER = config('EMAIL_HOST_USER', default='')
