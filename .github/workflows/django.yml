@@ -28,10 +28,6 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    # Remove or update this section if not using email
-    # - name: Set environment variables
-    #   run: echo "EMAIL_HOST_USER=<your_email_user>" >> $GITHUB_ENV
-
     - name: Run migrations
       run: python manage.py migrate
 
