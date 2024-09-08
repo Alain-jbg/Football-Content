@@ -11,19 +11,18 @@ jobs:
     runs-on: ubuntu-latest
     services:
       mysql:
-        image: mysql:5.7 # You can specify a MySQL version here
-        options: > 
+        image: mysql:5.7  # You can specify a MySQL version here
+        options: >-
           --health-cmd="mysqladmin ping" 
           --health-interval=10s 
-          --health-timeout=5s 
+          --health-timeout=10s  # Updated to 10s as per your second 'options' entry
           --health-retries=3
         env:
           MYSQL_ROOT_PASSWORD: rootpassword
           MYSQL_DATABASE: ligiopen
         ports:
           - 3306:3306
-        # Wait for the MySQL service to start
-        options: --health-timeout=10s
+        # Wait for the MySQL service to start (comment can stay here)
 
     strategy:
       max-parallel: 4
