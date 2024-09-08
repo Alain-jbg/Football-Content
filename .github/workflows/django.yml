@@ -15,14 +15,14 @@ jobs:
         options: >-
           --health-cmd="mysqladmin ping" 
           --health-interval=10s 
-          --health-timeout=10s  # Updated to 10s as per your second 'options' entry
+          --health-timeout=10s
           --health-retries=3
         env:
           MYSQL_ROOT_PASSWORD: ""
           MYSQL_DATABASE: ligiopen
         ports:
           - 3306:3306
-        # Wait for the MySQL service to start (comment can stay here)
+        # Wait for the MySQL service to start
 
     strategy:
       max-parallel: 4
