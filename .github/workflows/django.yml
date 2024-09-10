@@ -22,9 +22,9 @@ jobs:
           - 3306:3306
         env:
           MYSQL_ROOT_PASSWORD: root
-          MYSQL_DATABASE: mydatabase
+          MYSQL_DATABASE: ligiopen
           MYSQL_USER: user
-          MYSQL_PASSWORD: password
+          MYSQL_PASSWORD: ""
         options: --health-cmd "mysqladmin ping --silent" --health-interval 10s --health-timeout 5s --health-retries 3
 
     steps:
@@ -47,10 +47,18 @@ jobs:
 
     - name: Run migrations
       env:
-        DATABASE_URL: mysql://user:password@localhost:3306/mydatabase
+        DATABASE_NAME: ligiopen
+        DATABASE_USER: user
+        DATABASE_PASSWORD: ""
+        DATABASE_HOST: localhost
+        DATABASE_PORT: 3306
       run: python manage.py migrate
 
     - name: Run tests
       env:
-        DATABASE_URL: mysql://user:password@localhost:3306/mydatabase
+        DATABASE_NAME: ligiopen
+        DATABASE_USER: user
+        DATABASE_PASSWORD: ""
+        DATABASE_HOST: localhost
+        DATABASE_PORT: 3306
       run: python manage.py test
