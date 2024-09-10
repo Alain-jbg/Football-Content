@@ -258,7 +258,54 @@ section .home {
     display: flex;
 }
 
-.home .player-view {
+.holding {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 5% 7%;
+    background-color: #eee;
+}
+
+.wrapper-div {
+    background: #fff;
+    width: 800px;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.4);
+}
+
+.wrapper-div h2{
+    text-align: center;
+}
+
+.wrapper-div .members{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.wrapper-div .team-mem{
+    margin: 8px;
+    text-align: center;
+}
+
+.wrapper-div img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 10px;
+}
+
+.wrapper-div h4, .wrapper-div p{
+    text-align: center;
+    font-size: 12px;
+    margin: 7px;
+}
+
+.player-view {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -266,7 +313,7 @@ section .home {
     margin-top: 20px;
 }
 
-.home .player-view .more-info {
+.player-view .more-info {
     font-size: 2rem;
 }
 
@@ -369,7 +416,7 @@ section .home {
 }
 
 /*Financing section*/
-#dashboard, #crowdfunding, #transparency {
+#dashboard, #transparency {
     text-align: center;
     font-size: 2rem;
     padding: 3% 0;
@@ -407,7 +454,7 @@ section .home {
 #dashboard {
     height: max-content;
     padding: 4rem 20px;
-    background-color: #eee;
+    background-color: white;
     width: 100%;
 }
 
@@ -1044,6 +1091,14 @@ section .home {
         width: 40%;
         object-fit: cover;
     }
+
+    .wrapper-div {
+        width: 90%;
+    }
+
+    .wrapper-div .members .team-mem {
+        flex-grow: 1;
+    }
 }
 
 @media (max-width: 768px) {
@@ -1255,6 +1310,11 @@ section .home {
 
     .ticket {
         font-size: 2.0rem;
+    }
+
+    #hero div {
+        border: 2px solid black;
+        text-align: center;
     }
     
 }

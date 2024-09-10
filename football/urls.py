@@ -57,7 +57,7 @@ urlpatterns = [
     path('pages/finance/crowdfund-other', views.crowdfund_other, name='crowdfund_other'),
     
     # View all players URL...
-    path('pages/all-players', views.all_players, name='all_players'),
+    path('pages/clubs/all-players', views.all_players_view, name='all_players'),
 
     #Matchday highlights url
     path('pages/matchday-highlights', views.matchday_highlights, name='matchday_highlights'),
@@ -86,6 +86,11 @@ urlpatterns = [
     path('fixtures/', views.fixtures, name='fixtures'),
 
     path('blogs/', views.blogs, name='blogs'),
+
+    path('clubs/', views.clubs, name='clubs'),
+
+    #Feedback url
+    path('feedback/', views.feedback, name='feedback'),
 
 ]
 

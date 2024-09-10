@@ -21,7 +21,7 @@
 
         <div class="box">
             <h3>Contact Info</h3>
-            <a href="mailto:info@jay4t.org">info@jay4t.org</a>
+            <a href="mailto:info@ligiopen.com">info@ligiopen.com</a>
             <a href="#">Kisumu, Kenya</a>
         </div>
 
@@ -30,15 +30,19 @@
           <a href="{% url 'faq_page' %}" target="_blank">Frequently Asked Questions</a>
           <a href="https://docs.google.com/forms/d/e/1FAIpQLSeBRTji7N9EilFp3lmqjbNjSRPIIM_VwjiSYg6IcADWdSyOTQ/viewform?usp=sharing" target="_blank">Register Club</a>
           <a href="{% url 'finance-sponsor' %}" target="_blank">Sponsorship</a>
+          <a href="{% url 'feedback' %}" target="_blank">Feedback</a>
         </div>
 
         <div class="box">
             <h3>Follow us</h3>
-            <a href="https://twitter.com/Jabulani_Youths" target="_blank">Twitter</a>
+            <a href="https://www.instagram.com/ligiopen" target="_blank">Instagram</a>
+            <a href="https://www.linkedin.com/company/ligiopen/" target="_blank">LinkedIn</a>
+           #<a href="https://www.facebook.com/ligiopen" target="_blank">Facebook</a>
+            <a href="https://www.twitter.com/ligiopen" target="_blank">Twitter</a>
         </div>
     </div>
 
-    <div class="credit">copyright &copy; 2024 by <span>Jabulani Youths For Transformation</span></div>
+    <div class="credit">copyright &copy; 2024 by <span>LigiOpen</span></div>
 </div>
 
 
@@ -46,7 +50,6 @@
     let menu = document.querySelector('#menu-bars');
     let navbar = document.querySelector('.navbar');
     var links = document.querySelectorAll('.navbar a');
-    var sections = document.querySelectorAll('section');
 
     menu.onclick = () => {
         menu.classList.toggle('fa-times');

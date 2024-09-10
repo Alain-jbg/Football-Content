@@ -103,76 +103,51 @@
           </div>
         </div>
 
-        <div class="teams">
-            <div class="container">
-              <h2 class="heading text-center mb-4">Our Clubs</h2>
-              <p class="text-center mb-5 desc" style="font-size: 2rem; text-align: center;">
-                Click on any club to learn more about their history, players, and achievements.
-              </p>
-              <br>
-              <br>
-              <div class="row">
-                {% for club in clubs %}
-                <div class="col-lg-3">
-                  <!-- <a href="{% url 'club_detail' club.id %}" target="_blank">  -->
-                    <a href="{% url 'club_staff_view' club.id %}"target="_blank">
+        <div class="holding">
+            <h1 class="heading">Ligi Open Staff</h1>
 
-                    
-                    <div class="team-member">
-                      <img src="{{ club.photo.url }}" alt="{{ club.name }} Logo"/>
-                      <div>
-                        <div class="inner-div">
-                          <h3>{{ club.name }}</h3>
-                        </div>
-                      </div>
+            <div class="wrapper-div">
+                <div class="members">
+                    <div class="team-mem">
+                        <img src="{% static 'images/news-demo/avatar-mark-webber.webp' %}" alt="Ligi Open staff">
+                        <h4>Mrs. Johanssen</h4>
+                        <p>Graphic Designer</p>
                     </div>
-                  </a>
+                    <div class="team-mem">
+                        <img src="{% static 'images/news-demo/avatar-mark-webber.webp' %}" alt="Ligi Open staff">
+                        <h4>Mr. David</h4>
+                        <p>Soft - Engineer</p>
+                    </div>
+                    <div class="team-mem">
+                        <img src="{% static 'images/news-demo/avatar-mark-webber.webp' %}" alt="Ligi Open staff">
+                        <h4>Mr. Liam</h4>
+                        <p>Web Developer</p>
+                    </div>
+                    <div class="team-mem">
+                        <img src="{% static 'images/news-demo/avatar-mark-webber.webp' %}" alt="Ligi Open staff">
+                        <h4>Mrs. Sophia</h4>
+                        <p>Product Manager</p>
+                    </div>
+                    <div class="team-mem">
+                        <img src="{% static 'images/news-demo/avatar-mark-webber.webp' %}" alt="Ligi Open staff">
+                        <h4>Mrs. Emma</h4>
+                        <p>Graphic Designer</p>
+                    </div>
+                    <div class="team-mem">
+                        <img src="{% static 'images/news-demo/avatar-mark-webber.webp' %}" alt="Ligi Open staff">
+                        <h4>Mr. David</h4>
+                        <p>Soft - Engineer</p>
+                    </div>
                 </div>
-                {% endfor %}
-              </div>
-            </div>
-            <div class="player-view">
-                <p class="more-info">Want to checkout registered players in the league?</p>
-                <a href="{% url 'all_players' %}" target="_blank" class="btn">Click here</a>
-            </div>
-          </div>
-    </section>       
-        
-      
- <!--Footer section-->
-    <div class="footer">
-        <div class="box-container">
-            <div class="box bottom-nav">
-                <h3>Quick Links</h3>
-                <a href="#home">Home</a>
-                <a href="#financing">Financing</a>
-                <a href="#fixtures">Fixtures</a>
-                <a href="#highlights">Highlights</a>
-
-                <a href="#order">Contact us</a>
-            </div>
-
-            <div class="box">
-                <h3>Contact Info</h3>
-                <a href="mailto:info@jay4t.org">info@jay4t.org</a>
-                <a href="#">Kisumu, Kenya</a>
-            </div>
-
-            <div class="box">
-              <h3>More</h3>
-              <a href="{% url 'faq_page' %}" target="_blank">Frequently Asked Questions</a>
-              <a href="https://docs.google.com/forms/d/e/1FAIpQLSeBRTji7N9EilFp3lmqjbNjSRPIIM_VwjiSYg6IcADWdSyOTQ/viewform?usp=sharing" target="_blank">Register Club</a>
-              <a href="{% url 'finance-sponsor' %}" target="_blank">Sponsorship</a>
-            </div>
-
-            <div class="box">
-                <h3>Follow us</h3>
-                <a href="https://twitter.com/Jabulani_Youths" target="_blank">Twitter</a>
-            </div>
+            </div> 
         </div>
+    </section>       
+    
 
-        <div class="credit">copyright &copy; 2024 by <span>Jabulani Youths For Transformation</span></div>
-    </div>
+  </section>
+ <!--Footer section-->
+ {% include 'footer.html' %}
+
     <script src="{% static 'js/index.js' %}"></script>
 
 </body>
