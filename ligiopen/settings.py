@@ -3,6 +3,8 @@ from pathlib import Path
 from dotenv import load_dotenv
 from decouple import config
 
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -69,7 +71,7 @@ DATABASES = {
         'NAME': config('DATABASE_NAME', default='ligiopen'),
         'USER': config('DATABASE_USER', default='root'),
         'PASSWORD': config('DATABASE_PASSWORD', default=''),
-        'HOST': config('DATABASE_HOST', default='127.0.0.1 '),
+        'HOST': config('DATABASE_HOST', default='localhost'),
         'PORT': config('DATABASE_PORT', default='3306'),
     }
 }
