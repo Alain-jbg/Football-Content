@@ -1,13 +1,15 @@
-on: 
+on:
   push:
     branches:
       - main
 
 name: 🚀 Deploy website on push
+
 jobs:
   web-deploy:
     name: 🎉 Deploy
     runs-on: ubuntu-latest
+
     steps:
     - name: 🚚 Get latest code
       uses: actions/checkout@v4
@@ -16,5 +18,5 @@ jobs:
       uses: SamKirkland/FTP-Deploy-Action@v4
       with:
         server: ftp.ligiopen.com
-        username: ${{ secrets.ftp_username }}  # Ensure this secret is defined
-        password: ${{ secrets.ftp_password }}  # Ensure this secret is defined
+        username: ${{ secrets.ftp_username }}
+        password: ${{ secrets.ftp_password }}
