@@ -349,3 +349,6 @@ def contact(request):
 def clubs(request):
     clubs = Club.objects.all()
     return render(request, 'clubs.html', {'clubs': clubs})
+
+def feedback(request):
+    return render(request, 'pages/feedback/feedback.html')

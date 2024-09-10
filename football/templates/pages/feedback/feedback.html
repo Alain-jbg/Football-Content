@@ -1,0 +1,73 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="{% static 'images/li__1_-removebg-preview.ico' %}">
+    <title>Feedback </title>
+
+    <!-- Font awesome -->
+    <script src="https://kit.fontawesome.com/456d64337e.js" crossorigin="anonymous"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'css/feedback.css' %}">
+</head>
+<body>
+  {% include 'navbar.html' %}
+
+  <div class="body">
+    <div class="top-text">
+      <h1 class="heading">RATE US</h1>
+      <h1 class="sub-heading">Help us know how we can improve our website.</h1>
+    </div>
+    <div class="container">
+      <div class="post">
+        <div class="text">Thanks for rating us!</div>
+      </div>
+      <div class="star-widget">
+        <input type="radio" name="rate" id="rate-5">
+        <label for="rate-5" class="fas fa-star"></label>
+        <input type="radio" name="rate" id="rate-4">
+        <label for="rate-4" class="fas fa-star"></label>
+        <input type="radio" name="rate" id="rate-3">
+        <label for="rate-3" class="fas fa-star"></label>
+        <input type="radio" name="rate" id="rate-2">
+        <label for="rate-2" class="fas fa-star"></label>
+        <input type="radio" name="rate" id="rate-1">
+        <label for="rate-1" class="fas fa-star"></label>
+        <form action="#">
+          <span class="header"></span>
+          <div class="textarea">
+            <textarea cols="30" placeholder="Describe your experience on our website..." required></textarea>
+          </div>
+          <button class="btn" type="submit">Send</button>
+        </form>
+      </div>
+  </div>
+  </div>
+  
+  {% include 'footer.html' %}
+
+  <script>
+    const btn = document.querySelector("button");
+    const post = document.querySelector(".post");
+    const widget = document.querySelector(".star-widget");
+    const textarea = document.querySelector("textarea");
+    btn.onclick = ()=>{
+      if (textarea.value.trim() == "") {
+        alert("Input is required!")
+      } 
+      else {
+        widget.style.display = "none";
+        post.style.display = "block";
+
+      }
+
+      return false;
+    }
+  </script>
+
+</body>
+</html>

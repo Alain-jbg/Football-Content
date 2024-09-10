@@ -30,6 +30,7 @@
           <a href="{% url 'faq_page' %}" target="_blank">Frequently Asked Questions</a>
           <a href="https://docs.google.com/forms/d/e/1FAIpQLSeBRTji7N9EilFp3lmqjbNjSRPIIM_VwjiSYg6IcADWdSyOTQ/viewform?usp=sharing" target="_blank">Register Club</a>
           <a href="{% url 'finance-sponsor' %}" target="_blank">Sponsorship</a>
+          <a href="{% url 'feedback' %}" target="_blank">Feedback</a>
         </div>
 
         <div class="box">
@@ -46,7 +47,6 @@
     let menu = document.querySelector('#menu-bars');
     let navbar = document.querySelector('.navbar');
     var links = document.querySelectorAll('.navbar a');
-    var sections = document.querySelectorAll('section');
 
     menu.onclick = () => {
         menu.classList.toggle('fa-times');

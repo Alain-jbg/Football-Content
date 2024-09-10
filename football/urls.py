@@ -89,6 +89,8 @@ urlpatterns = [
 
     path('clubs/', views.clubs, name='clubs'),
 
+    #Feedback url
+    path('feedback/', views.feedback, name='feedback'),
 
 ]
 

@@ -53,6 +53,7 @@ a {
 .payment-method {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     border: 1px solid #ccc;
     padding: 20px;
@@ -103,7 +104,7 @@ a {
 @media (max-width: 501px) {
 
     html {
-        font-size: 50%;
+        font-size: 45%;
     }
 }
 
@@ -111,6 +112,10 @@ a {
     .payment-method {
         width: 100px;
         height: 100px;
+    }
+
+    p {
+        width: 100%;
     }
 }
 
