@@ -31,6 +31,13 @@ body {
     background-color: var(--white);
 }
 
+.body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
 .btn {
     margin-top: 1rem;
     display: inline-block;
@@ -75,121 +82,55 @@ body {
     background: var(--green);
 }
 
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 20px;    
-}
-
-.payment {
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-    text-align: center;
-    padding: 2%;
+.donation-container {
+    border: 1px solid #ccc;
+    padding: 20px;
+    max-width: 600px;
     background-color: white;
-    border-radius: 25px;
-    font-size: 2rem;
-    width: 500px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
-    margin-bottom: 5%;
 }
 
-section {
-    display: none;
-}
-
-section.live {
+.donation-header {
     display: flex;
-    flex-direction: column;
-    margin-top: 9%;
-}
-
-.pay-option {
-    display: flex;
-    justify-content: space-between;
     align-items: center;
-    gap: 2.5rem;
-    background-color: #192a56cc;
-    color: white;
-    height: 60px;
+    margin-bottom: 15px;
+}
+
+.mpesa-logo {
+    width: 100px;
+    margin-right: 15px;
+}
+
+h3 {
+    font-size: 2rem;
+    margin: 0;
+    color: var(--black);
+}
+
+p {
     font-size: 1.5rem;
-    padding-left: 10px;
+    margin-bottom: 15px;
+    color: black;
+}
+
+ol {
+    margin-left: 20px;
+    color: black;
+    font-size: 1.3rem;
+}
+
+ol li {
     margin-bottom: 10px;
 }
 
-.pay-option:hover {
-    background-color: #192a56;
+strong {
+    color: #2b5876;
 }
 
-
-.pay-option div span {
-    font-size: 2rem;
-    font-weight: bolder;
-}
-
-.pay-option div p {
-    font-size: 1.0rem;
-}
-
-.pay-option .text {
-    flex-grow: 1;
-    text-align: left;
-}
-
-.pay-option .icon {
-    padding: 10px;
-    background-color: #192a56ad;
-    height: 100%;
-    display: flex;
-    align-items: center;
-}
-
-.pay-option .icon:hover {
-    background-color: #192a56;
-}
-
-.instructions {
-    color: red;
-    font-size: 1.3rem;
-    font-weight: bold;
-}
-
-.enter-amt {
-    width: 100%;
-    height: 50px;
-    font-size: 2rem;
-    background-color: var(--white);
-    border: .1rem solid var(--black);
-    margin-top: 5px;
-}
-
-form {
-    text-align: left;
-}
-
-form input {
-    padding: 0 10px;
-}
-
-.dola {
-    color: var(--black);
-    font-weight: bold;
-}
-
-.enter-amt:focus {
-    border: .1rem solid var(--green);
-}
 
 @media (max-width: 991px) {
 
     html {
         font-size: 55%;
-    }
-
-    .payment {
-        width: 450px;
     }
 }
 
@@ -197,20 +138,5 @@ form input {
 
     html {
         font-size: 50%;
-    }
-
-    .payment {
-        padding: 3%;
-    }
-}
-
-@media (max-width: 480px) {
-
-    .payment {
-        width: fit-content;
-    }
-
-    .btn {
-        margin-bottom: 20px;
     }
 }

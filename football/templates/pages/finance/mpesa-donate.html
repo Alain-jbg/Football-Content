@@ -12,52 +12,26 @@
     <link rel="stylesheet" href="{% static 'css/mpesa-donate.css' %}">
 </head>
 <body>
-    <div class="container">
-        <h1 class="heading">Donate now</h1>
-        <div class="payment">
-            <nav class="navbar2">
-                <a class="active" href="#once" id="once-link">Donate Once</a>
-                <a href="#monthly" id="monthly-link">Donate Monthly</a>
-            </nav>
-            <section class="once live" id="once">
-                <a class="pay-option" href=""><div><span>1300</span><p>KSH</p></div><div class="text">will provide one football to one club</div> <div class="icon"><i class="fa-solid fa-angle-right"></i></div></i></a>
-                <a class="pay-option" href=""><div><span>3250</span><p>KSH</p></div><div class="text">will provide a pair of football boots to one player </div><div class="icon"><i class="fa-solid fa-angle-right"></i></div></i></a>
-                <a class="pay-option" href=""><div><span>6500</span><p>KSH</p></div><div class="text">will provide football jersey to 2 players</div><div class="icon"><i class="fa-solid fa-angle-right"></i></div></i></a>
-                <a class="pay-option" href=""><div><span>19500</span><p>KSH</p></div><div class="text">will contribute to the tournament awards</div><div class="icon"><i class="fa-solid fa-angle-right"></i></div></i></a>
-                <a class="pay-option" href=""><div><span>65000</span><p>KSH</p></div><div class="text">will provide training equipment for one club</div><div class="icon"><i class="fa-solid fa-angle-right"></i></div></i></a>
-            
-                <p class="sub-heading">Custom donation?</p>
-                <p class="instructions">Enter any amount you wish to contribute.</p>
-
-                <!-- GlobalGiving Custom Donation form for LigiOpen platform for youth footballers in Kenya -->
-                <form action="" method="post">
-                    <label class="dola" for="phonenumber">Phone number:</label>
-                    <input class="enter-amt" placeholder="Enter phone number" name="phonenumber" type="number" length="10" required/>
-                    <label class="dola" for="amount">Amount:</label>
-                    <input class="enter-amt" placeholder="Enter amount" name="amount" type="number" required/>
-                    <input class="btn" name="Donate" type="submit" value="Donate"/>
-                </form>
-            </section>
-    
-            <section class="monthly" id="monthly">
-                <a class="pay-option" href="" rel="nofollow"><div><span>1300</span><p>KSH</p></div><div class="text">will maintain the football grounds</div> <div class="icon"><i class="fa-solid fa-angle-right"></i></div></i></a>
-                <a class="pay-option" href="" rel="nofollow"><div><span>11700</span><p>KSH</p></div><div class="text">will provide coaching to a club every month</div><div class="icon"><i class="fa-solid fa-angle-right"></i></div></i></a>
-                <a class="pay-option" href="" rel="nofollow"><div><span>26000</span><p>KSH</p></div><div class="text">maintaining the web platform every month</div><div class="icon"><i class="fa-solid fa-angle-right"></i></div></i></a>
-                
-                <p class="sub-heading">Custom donation?</p>
-                <p class="instructions">Enter any amount you wish to contribute.</p>
-
-                <form action="" method="post">
-                    <label class="dola" for="amount">Phone number:</label>
-                    <input class="enter-amt" name="amount" placeholder="Enter phone number" length="10" required/>
-                    <label class="dola" for="amount">Amount:</label>
-                    <input class="enter-amt" name="amount" placeholder="Enter amount" type="number" required/>
-                    <input class="btn" name="Donate" type="submit" value="Donate"/>
-                </form>
-            </section>
+    {% include 'navbar.html' %}
+    <div class="body">
+        <div class="donation-container">
+            <div class="donation-header">
+                <img src="{% static 'images/mpesa-logo.png' %}" alt="M-Pesa Logo" class="mpesa-logo">
+                <h3>Donate by M-Pesa via M-Changa</h3>
+            </div>
+            <p>This project is eligible to accept Kenyan Shilling (KES) donations via M-Pesa through a partnership with <strong>M-Changa</strong>.</p>
+            <ol>
+                <li>Select <strong>“Pay Bill”</strong> from the M-Pesa menu.</li>
+                <li>Enter the <strong>M-Changa business number 891300</strong></li>
+                <li>Enter your new GlobalGiving account number <strong>GG63586</strong></li>
+                <li>Enter the <strong>amount</strong> you wish to pay</li>
+                <li>Enter your <strong>M-Pesa PIN</strong></li>
+                <li><strong>Confirm</strong> that all details are correct</li>
+                <li>You will receive a confirmation of the transaction via <strong>SMS</strong></li>
+            </ol>
         </div>
     </div>
+    {% include 'footer.html' %}
 
-    <script src="{% static 'js/donate.js' %}"></script>
 </body>
 </html>
