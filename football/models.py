@@ -72,6 +72,11 @@ class Staff(models.Model):
         ('Coaching Staff', 'Coaching Staff'),
         ('Other Staff', 'Other Staff'),
         ('Club Match Staff', 'Club Match Staff'),
+        ('Software Developer', 'Software Developer'),
+        ('Director','Director'),
+        ('Project Manager','Project Manager'),
+        ('Community Engager', 'Community Engager'),
+        ('Contributors','Contributors')
     ]
 
     ROLE_CHOICES = [
@@ -88,6 +93,8 @@ class Staff(models.Model):
     experience = models.CharField(max_length=50, blank=True, null=True)
     club = models.ForeignKey(Club, related_name='staff', on_delete=models.CASCADE)
     photo = models.ImageField(upload_to=upload_to, blank=True, null=True)
+    image = models.ImageField(upload_to='staff_images/', default='default-image.jpg')
+
 
     def __str__(self):
         return f"{self.name} ({self.staff_type})"

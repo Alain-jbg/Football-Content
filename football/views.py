@@ -23,7 +23,8 @@ def home(request):
     fixtures_results = FixtureResult.objects.all()
     matches = Match.objects.all()
     blogs = Blog.objects.all()
-    return render(request, 'index.html', {'clubs': clubs, 'fixtures_results': fixtures_results,'fixtures': fixtures,'matches': matches,'blogs':blogs})
+    staffs = Staff.objects.all()  # Fetch all staff members
+    return render(request, 'index.html', {'clubs': clubs, 'fixtures_results': fixtures_results,'fixtures': fixtures,'matches': matches,'blogs':blogs,'staffs':staffs})
 
 
 def club_staff_view(request, club_id):
@@ -32,6 +33,7 @@ def club_staff_view(request, club_id):
     other_staff = Staff.objects.filter(club=club, staff_type='Other Staff')
     club_match_staff = Staff.objects.filter(club=club, staff_type='Club Match Staff')
     players = Player.objects.filter(club=club)
+    staff=Staff.objects.filter()
     
     context = {
         'club': club,
@@ -39,9 +41,13 @@ def club_staff_view(request, club_id):
         'other_staff': other_staff,
         'club_match_staff': club_match_staff,
         'players': players,
+        'staff':staff,
     }
     
-    return render(request, 'pages/club-staff.html', context)
+    if return_index:
+        return render(request, 'index.html', context)
+    else:
+        return render(request, 'pages/club-staff.html', context)
     
     
 def player_detail_view(request, slug):
