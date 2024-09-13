@@ -26,7 +26,7 @@
         <section class="home live" id="home">
             <div class="background-image">
                 <div>
-                    <h1 class="heading">Welcome to LIGI OPEN!</h1>
+                    <h1 class="heading">Welcome to LigiOpen!</h1>
                     <a href="https://docs.google.com/forms/d/e/1FAIpQLSeBRTji7N9EilFp3lmqjbNjSRPIIM_VwjiSYg6IcADWdSyOTQ/viewform?usp=sharing" target="_blank" class="btn">Register Club</a>
                 </div>
             </div>
@@ -77,7 +77,9 @@
                   <div class="text">
                     <div class="top">
                       <div class="para">
-                        <p>At Ligi Open, we believe in revolutionizing the way football is funded and supported. Our Open Financing Initiative represents a groundbreaking approach to sustaining and developing the sport we all love, football. With open financing, we're not just asking for financial support; we're inviting you to be an integral part of our journey. This initiative is about more than just money; it's about transparency, community involvement, and the collective passion that drives us forward. Join us in building a brighter future for football in kenya.</p>        
+                        <p> 
+                            LigiOpen is supports small sports clubs in organising leagues, managing revenue and resourcing equipment and facilities to improve the income ofyouth footballers and their families and create entrepreneurship opportunities for more young people.
+                        </p>        
                     </div>
                     </div>
                   </div>
@@ -146,8 +148,39 @@
 
   </section>
  <!--Footer section-->
- {% include 'footer.html' %}
+    <div class="footer">
+        <div class="box-container">
+            <div class="box bottom-nav">
+                <h3>Quick Links</h3>
+                <a href="#home">Home</a>
+                <a href="#financing">Financing</a>
+                <a href="#fixtures">Fixtures</a>
+                <a href="#highlights">Highlights</a>
 
+                <a href="#order">Contact us</a>
+            </div>
+
+            <div class="box">
+                <h3>Contact Info</h3>
+                <a href="mailto:info@jay4t.org">info@jay4t.org</a>
+                <a href="#">Kisumu, Kenya</a>
+            </div>
+
+            <div class="box">
+              <h3>More</h3>
+              <a href="{% url 'faq_page' %}" target="_blank">Frequently Asked Questions</a>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSeBRTji7N9EilFp3lmqjbNjSRPIIM_VwjiSYg6IcADWdSyOTQ/viewform?usp=sharing" target="_blank">Register Club</a>
+              <a href="{% url 'finance-sponsor' %}" target="_blank">Sponsorship</a>
+            </div>
+
+            <div class="box">
+                <h3>Follow us</h3>
+                <a href="https://twitter.com/Jabulani_Youths" target="_blank">Twitter</a>
+            </div>
+        </div>
+
+        <div class="credit">copyright &copy; 2024 by <span>Jabulani Youths For Transformation</span></div>
+    </div>
     <script src="{% static 'js/index.js' %}"></script>
 
 </body>
