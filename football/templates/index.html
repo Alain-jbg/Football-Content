@@ -148,39 +148,8 @@
 
   </section>
  <!--Footer section-->
-    <div class="footer">
-        <div class="box-container">
-            <div class="box bottom-nav">
-                <h3>Quick Links</h3>
-                <a href="#home">Home</a>
-                <a href="#financing">Financing</a>
-                <a href="#fixtures">Fixtures</a>
-                <a href="#highlights">Highlights</a>
+ {% include 'footer.html' %}
 
-                <a href="#order">Contact us</a>
-            </div>
-
-            <div class="box">
-                <h3>Contact Info</h3>
-                <a href="mailto:info@jay4t.org">info@jay4t.org</a>
-                <a href="#">Kisumu, Kenya</a>
-            </div>
-
-            <div class="box">
-              <h3>More</h3>
-              <a href="{% url 'faq_page' %}" target="_blank">Frequently Asked Questions</a>
-              <a href="https://docs.google.com/forms/d/e/1FAIpQLSeBRTji7N9EilFp3lmqjbNjSRPIIM_VwjiSYg6IcADWdSyOTQ/viewform?usp=sharing" target="_blank">Register Club</a>
-              <a href="{% url 'finance-sponsor' %}" target="_blank">Sponsorship</a>
-            </div>
-
-            <div class="box">
-                <h3>Follow us</h3>
-                <a href="https://twitter.com/Jabulani_Youths" target="_blank">Twitter</a>
-            </div>
-        </div>
-
-        <div class="credit">copyright &copy; 2024 by <span>Jabulani Youths For Transformation</span></div>
-    </div>
     <script src="{% static 'js/index.js' %}"></script>
 
 </body>
