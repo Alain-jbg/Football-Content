@@ -44,10 +44,8 @@ def club_staff_view(request, club_id):
         'staff':staff,
     }
     
-    if return_index:
-        return render(request, 'index.html', context)
-    else:
-        return render(request, 'pages/club-staff.html', context)
+    
+    return render(request, 'pages/club-staff.html', context)
     
     
 def player_detail_view(request, slug):
@@ -66,7 +64,7 @@ def player_stats_view(request):
     stats = Stat.objects.all()
     players = Player.objects.all()
 
-    return render(request, 'club-staff.html', {'stats': stats,'players':player})
+    return render(request, 'pages/club-staff.html', {'stats': stats, 'players': players})
 
 
 

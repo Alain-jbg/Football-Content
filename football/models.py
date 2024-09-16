@@ -42,25 +42,12 @@ class Player(models.Model):
     mins = models.IntegerField()
     goals = models.IntegerField()
     assists = models.IntegerField()
-    yellow_cards = models.IntegerField()
-    red_cards = models.IntegerField()
+    yellow_card_image = models.ImageField(upload_to='yellow_cards/', blank=True, null=True)
+    red_card_image = models.ImageField(upload_to='red_cards/', blank=True, null=True)
+    
     motm = models.IntegerField()
 
-    RATING_CHOICES = [
-        ('⭐', '1 Star'),
-        ('⭐⭐', '2 Stars'),
-        ('⭐⭐⭐', '3 Stars'),
-        ('⭐⭐⭐⭐', '4 Stars'),
-        ('⭐⭐⭐⭐⭐', '5 Stars'),
-    ]
-
-    rating = models.CharField(
-        max_length=6,
-        choices=RATING_CHOICES,
-        blank=True,
-        null=True,
-        help_text="Emoji rating (e.g., ⭐⭐⭐⭐, ⭐⭐⭐⭐⭐)"
-    )
+   
 
     def __str__(self):
         return self.name
@@ -72,19 +59,18 @@ class Staff(models.Model):
         ('Coaching Staff', 'Coaching Staff'),
         ('Other Staff', 'Other Staff'),
         ('Club Match Staff', 'Club Match Staff'),
-        ('Software Developer', 'Software Developer'),
-        ('Director','Director'),
-        ('Project Manager','Project Manager'),
-        ('Community Engager', 'Community Engager'),
-        ('Contributors','Contributors')
+        ('ligiopen staff', 'ligiopen staff')
+        
     ]
 
     ROLE_CHOICES = [
         ('Head Coach', 'Head Coach'),
         ('Assistant Coach', 'Assistant Coach'),
-        ('Physiotherapist', 'Physiotherapist'),
-        ('Team Manager', 'Team Manager'),
-        ('Scout', 'Scout'),
+        ('Director', 'Diretor'),
+        ('Project Manager', 'Project Manager'),
+        ('Community Engager', 'Community Engager'),
+        ('Backend Developer','Backend Developer'),
+        ('Frontend Developer','Frontend Developer')
     ]
     name = models.CharField(max_length=100)
     role = models.CharField(max_length=100, choices=ROLE_CHOICES)
@@ -92,7 +78,6 @@ class Staff(models.Model):
     nationality = models.CharField(max_length=100, blank=True, null=True)
     experience = models.CharField(max_length=50, blank=True, null=True)
     club = models.ForeignKey(Club, related_name='staff', on_delete=models.CASCADE)
-    photo = models.ImageField(upload_to=upload_to, blank=True, null=True)
     image = models.ImageField(upload_to='staff_images/', default='default-image.jpg')
 
 
