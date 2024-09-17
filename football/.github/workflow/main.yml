@@ -3,24 +3,29 @@ name: Deploy to cPanel
 on:
   push:
     branches:
-      - main 
+      - main
 
-      
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+    - name: Checkout code
+      uses: actions/checkout@v3
 
-      - name: Upload files to cPanel via FTP
-        uses: SamKirkland/FTP-Deploy-Action@4.3.0
-        with:
-          server: ${{ secrets.CPANEL_HOST }}
-          username: ${{ secrets.CPANEL_USERNAME }}
-          password: ${{ secrets.CPANEL_PASSWORD }}
-          port: ${{ secrets.CPANEL_PORT }} 
-          local-dir: ./  
-          server-dir: ${{ secrets.CPANEL_PATH }}  
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: [3.11,3.12]
 
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+
+    - name: Deploy to cPanel
+      env:
+        CPANEL_USER: ${{ secrets.CPANEL_USER }}
+        CPANEL_PASS: ${{ secrets.CPANEL_PASS }}
+        CPANEL_HOST: ${{ secrets.CPANEL_HOST }}
+      run: |
+        curl -u $CPANEL_USER:$CPANEL_PASS "https://$CPANEL_HOST:2083/frontend/x3/filemanager/upload.html?dir=public_html" -F "file=@path/to/your/application.zip"
