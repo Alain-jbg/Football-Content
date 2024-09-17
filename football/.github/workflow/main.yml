@@ -3,9 +3,9 @@ name: Deploy to cPanel
 on:
   push:
     branches:
-      - main  
+      - main 
 
-
+      
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -21,6 +21,6 @@ jobs:
           username: ${{ secrets.CPANEL_USERNAME }}
           password: ${{ secrets.CPANEL_PASSWORD }}
           port: ${{ secrets.CPANEL_PORT }} 
-          local-dir: ./ 
+          local-dir: ./  
           server-dir: ${{ secrets.CPANEL_PATH }}  
 
