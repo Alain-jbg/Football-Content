@@ -451,154 +451,61 @@ section .home {
     margin: 1rem;
 }
 
-#dashboard {
-    height: max-content;
-    padding: 4rem 20px;
-    background-color: white;
-    width: 100%;
+.dashboard {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-#dashboard img {
-    padding: 0 5%;
-}
-
-#dashboard .slideshow-container {
-    width: 100%;
-    position: relative;
-}
-
-#dashboard .mySlides {
-    width: 100%;
-    display: none;
-}
-
-#dashboard .prev, #dashboard .next {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    width: auto;
-    padding: 16px;
-    color: white;
-    background-color: var(--black);
-    font-weight: bold;
-    font-size: 18px;
-    transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
-    user-select: none;
-    transform: translateY(-50%);
-}
-
-#dashboard .next {
-    right: 0;
-    border-radius: 3px 0 0 3px;
-}
-
-#dashboard .prev {
-    left: 0;
-    border-radius: 3px 0 0 3px;
-}
-
-#dashboard .prev:hover, #dashboard .next:hover {
-    background-color: var(--green);
-    letter-spacing: .1rem;
-}
-
-#dashboard .text {
-    color: var(--green);
-    font-size: 15px;
-    padding: 8px 12px;
-    position: relative;
-    bottom: 8px;
-    width: 100%;
+.header {
     text-align: center;
+    margin-bottom: 20px;
 }
 
-#dashboard .numbertext {
-    color: var(--black);
-    font-size: 12px;
-    padding: 8px 12px;
-    position: absolute;
-    top: -30px;
-    font-weight: bold;
-}
-
-#dashboard .dot {
-    cursor: pointer;
-    height: 15px;
-    width: 15px;
-    margin: 0 2px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-    transition: background-color 0.6s ease;
-}
-
-#dashboard .active, #dashboard .dot:hover {
-    background-color: #717171;
-}
-
-.fade {
-    animation-name: fade;
-    animation-duration: 1.5s;
-}
-
-@keyframes fade {
-    from {opacity: .4}
-    to {opacity: 1}
-}
-
-
-.campaigns {
+.metrics {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-around;
+    margin-bottom: 40px;
 }
 
-.campaign {
+.metric-card {
+    background-color: #eee;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    background: white;
-    padding: 1rem;
-    margin: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    width: 300px;
     text-align: center;
+    align-items: center;
+    border-radius: 8px;
+    width: 30%;
 }
 
-.campaign img {
-    width: 100%;
-    height: 100px;
-    object-fit: cover;
+.metric-card h3 {
+    margin-bottom: 10px;
+    color: var(--green);
+    font-size: 1.6rem;
 }
 
-.campaign h3 {
-    margin-bottom: 0.5rem;
+.metric-card p {
+    font-size: 24px;
+    font-weight: bold;
     color: var(--black);
 }
 
-.campaign .progress-bar {
-    background: #ddd;
-    border-radius: 5px;
-    overflow: hidden;
-    margin: 0.5rem 0;
-    height: 20px;
+.chart-container {
+    background-color: #eee;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-bottom: 50px;
 }
 
-.campaign .progress {
-    background: #4caf50;
-    height: 100%;
-}
-
-.campaign .raised {
-    margin-bottom: 0.5rem;
-    color: var(--green);
-    font-size: 1.5rem;
-}
 
 #transparency {
     background-color: #eee;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
 }
 
 #transparency .top {
@@ -610,11 +517,6 @@ section .home {
 
 #transparency .data-collection-verification, #transparency .commitment-accountability {
     padding: 0 7%;
-}
-
-#transparency .trans {
-    width: 30%;
-    height: auto;
 }
 
 #transparency ul {
@@ -637,6 +539,39 @@ section .home {
 
 .more-info {
     margin-top: 20px;
+}
+
+#transparency .trans {
+    width: 30%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+#transparency ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#transparency ul li {
+    margin-bottom: 15px;
+    padding-left: 20px;
+    position: relative;
+    font-size: 1.05em;
+}
+
+#transparency ul li:before {
+    content: "✔";
+    color: var(--green);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+#transparency strong {
+    color: var(--green);
+    font-weight: bold;
 }
 
 /*Fixtures section*/
@@ -1260,6 +1195,15 @@ section .home {
 
     .table table {
         font-size: 1.3rem;
+    }
+
+    #transparency .data-collection-verification, #transparency .commitment-accountability {
+        padding: 0;
+    }
+
+    #transparency ul {
+    
+        margin-left: 10px;
     }
 }
 
