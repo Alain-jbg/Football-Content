@@ -1,22 +1,26 @@
+name: Deploy to cPanel
+
 on:
   push:
     branches:
-      - main
+      - main  
 
-name: 🚀 Deploy website on push
 
 jobs:
-  web-deploy:
-    name: 🎉 Deploy
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - name: 🚚 Get latest code
-      uses: actions/checkout@v4
-    
-    - name: 📂 Sync files
-      uses: SamKirkland/FTP-Deploy-Action@v4
-      with:
-        server: ftp.ligiopen.com
-        username: ${{ secrets.ftp_username }}
-        password: ${{ secrets.ftp_password }}
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Upload files to cPanel via FTP
+        uses: SamKirkland/FTP-Deploy-Action@4.3.0
+        with:
+          server: ${{ secrets.CPANEL_HOST }}
+          username: ${{ secrets.CPANEL_USERNAME }}
+          password: ${{ secrets.CPANEL_PASSWORD }}
+          port: ${{ secrets.CPANEL_PORT }} 
+          local-dir: ./ 
+          server-dir: ${{ secrets.CPANEL_PATH }}  
+
