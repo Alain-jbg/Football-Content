@@ -28,4 +28,5 @@ jobs:
           CPANEL_USER: ${{ secrets.CPANEL_USER }}
           CPANEL_PASS: ${{ secrets.CPANEL_PASS }}
           CPANEL_HOST: ${{ secrets.CPANEL_HOST }}
-       
+        run: |
+          curl -u "$CPANEL_USER:$CPANEL_PASS" "https://$CPANEL_HOST:2083/frontend/x3/filemanager/upload.html?dir=public_html" -F "file=@path/to/your/application.zip"
