@@ -16,6 +16,7 @@ jobs:
 
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@v4
+        with:
           server: ftp.ligiopen.com
           username: ${{ secrets.ftp_username }}
           password: ${{ secrets.ftp_password }}
