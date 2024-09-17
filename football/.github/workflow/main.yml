@@ -1,32 +1,22 @@
-name: Deploy to cPanel
-
 on:
   push:
     branches:
       - main
 
+name: 🚀 Deploy website on push
+
 jobs:
-  deploy:
+  web-deploy:
+    name: 🎉 Deploy
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.12'
-
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-
-      - name: Deploy to cPanel
-        env:
-          CPANEL_USER: ${{ secrets.CPANEL_USER }}
-          CPANEL_PASS: ${{ secrets.CPANEL_PASS }}
-          CPANEL_HOST: ${{ secrets.CPANEL_HOST }}
-        run: |
-          curl -u "$CPANEL_USER:$CPANEL_PASS" "https://$CPANEL_HOST:2083/frontend/x3/filemanager/upload.html?dir=public_html" -F "file=@path/to/your/application.zip"
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v4
+    
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@v4
+      with:
+        server: ftp.ligiopen.com
+        username: ${{ secrets.ftp_username }}
+        password: ${{ secrets.ftp_password }}
