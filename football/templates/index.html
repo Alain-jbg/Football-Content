@@ -111,38 +111,16 @@
 
             <div class="wrapper-div">
                 <div class="members">
-                    <div class="team-mem">
-                        <img src="{% static 'images/news-demo/avatar-mark-webber.webp' %}" alt="Ligi Open staff">
-                        <h4>Mrs. Johanssen</h4>
-                        <p>Graphic Designer</p>
-                    </div>
-                    <div class="team-mem">
-                        <img src="{% static 'images/news-demo/avatar-mark-webber.webp' %}" alt="Ligi Open staff">
-                        <h4>Mr. David</h4>
-                        <p>Soft - Engineer</p>
-                    </div>
-                    <div class="team-mem">
-                        <img src="{% static 'images/news-demo/avatar-mark-webber.webp' %}" alt="Ligi Open staff">
-                        <h4>Mr. Liam</h4>
-                        <p>Web Developer</p>
-                    </div>
-                    <div class="team-mem">
-                        <img src="{% static 'images/news-demo/avatar-mark-webber.webp' %}" alt="Ligi Open staff">
-                        <h4>Mrs. Sophia</h4>
-                        <p>Product Manager</p>
-                    </div>
-                    <div class="team-mem">
-                        <img src="{% static 'images/news-demo/avatar-mark-webber.webp' %}" alt="Ligi Open staff">
-                        <h4>Mrs. Emma</h4>
-                        <p>Graphic Designer</p>
-                    </div>
-                    <div class="team-mem">
-                        <img src="{% static 'images/news-demo/avatar-mark-webber.webp' %}" alt="Ligi Open staff">
-                        <h4>Mr. David</h4>
-                        <p>Soft - Engineer</p>
-                    </div>
+                    {% for staff in staffs %}
+                        <div class="team-mem">
+                            <img src="{{ staff.image.url }}" alt="Ligi Open staff">
+                            <h4>{{ staff.name }}</h4>
+                            <p>{{ staff.role }}</p>
+                        </div>
+                    {% endfor %}
                 </div>
-            </div> 
+            </div>
+            
         </div>
     </section>       
     

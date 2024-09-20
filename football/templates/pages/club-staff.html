@@ -27,11 +27,10 @@
       <nav class="navbar">
 
 
-          <a class="active" href="#team">Team</a>
-          <a href="#matches">Matches</a> 
-          <a href="#stats">Stats</a>
-
-          <!-- <a href="#careers">Careers</a>            -->
+        <a href="#team" class="{% if 'team' in request.path %}active{% endif %}">Team</a>
+        <a href="#matches" class="{% if 'matches' in request.path %}active{% endif %}">Matches</a>
+        <a href="#stats" class="{% if 'stats' in request.path %}active{% endif %}">Stats</a>
+          
           
       </nav>
       <div class="icons">         
@@ -173,6 +172,7 @@
 
     <!-- stats -->
     <section class="stats" id="stats">
+ 
       <h2 class="heading">Overall stats</h2>
       <div class="table-wrapper">
         <table id="player-stats">
@@ -191,7 +191,6 @@
                   <th>Yel</th>
                   <th>Red</th>
                   <th>MotM</th>
-                  <th>Rating</th>
               </tr>
           </thead>
           <tbody>
@@ -222,7 +221,6 @@
                   <td>{{ player.yellow_cards }}</td>
                   <td>{{ player.red_cards }}</td>
                   <td>{{ player.motm }}</td>
-                  <td>{{ player.rating }}</td>
               </tr>
               {% endfor %}
           </tbody>
