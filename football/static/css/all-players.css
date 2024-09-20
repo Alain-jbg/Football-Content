@@ -232,3 +232,15 @@ td img {
         width: 100%;
     }
 }
+
+@media (max-width: 370px) {
+    .container-all {
+        margin: 0;
+    }
+}
+
+@media (max-width: 335px) {
+    .container-all {
+        padding-left: 10px;
+    }
+}
