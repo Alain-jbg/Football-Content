@@ -92,6 +92,9 @@ urlpatterns = [
     #Feedback url
     path('feedback/', views.feedback, name='feedback'),
 
+    #Ligi Open about url
+    path('home/ligiopen-about/', views.ligiopen, name='ligiopen'),
+
 ]
 
 

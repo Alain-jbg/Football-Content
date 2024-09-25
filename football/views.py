@@ -352,3 +352,8 @@ def clubs(request):
 
 def feedback(request):
     return render(request, 'pages/feedback/feedback.html')
+
+def ligiopen(request):
+    staffs = Staff.objects.all()  # Fetch all staff members
+
+    return render(request, 'pages/ligiopen.html', {'staffs':staffs})
