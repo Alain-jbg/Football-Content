@@ -86,8 +86,8 @@ def contact_us_view(request):
                 send_mail(
                     subject=f'Message from {name}',
                     message=issue,
-                    from_email=email,
-                    recipient_list=['akothdorothy@gmail.com'],
+                    from_email='info@ligiopen.com',  # Use a valid email address here
+                    recipient_list=['akothdorothy29@gmail.com'],
                     fail_silently=False,
                 )
                 messages.success(request, 'Your message has been sent successfully!')
@@ -100,7 +100,6 @@ def contact_us_view(request):
         form = ContactForm()
 
     return render(request, 'contact.html', {'form': form})
-
 
 def success_view(request):
     email = request.GET.get('email', '')  # Default value if email is not provided
