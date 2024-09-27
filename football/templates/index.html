@@ -82,7 +82,7 @@
                         </p>        
                     </div>
                     </div>
-                    <a href="{% url 'finance-payment-type' %}" target="_blank" class="btn">Read More</a>
+                    <a href="{% url 'ligiopen' %}" target="_blank" class="btn">Read More</a>
                   </div>
                 </div>  
             </div>
@@ -107,19 +107,6 @@
         </div>
 
         <div class="holding">
-            <h1 class="heading">Ligi Open Staff</h1>
-
-            <div class="wrapper-div">
-                <div class="members">
-                    {% for staff in staffs %}
-                        <div class="team-mem">
-                            <img src="{{ staff.image.url }}" alt="Ligi Open staff">
-                            <h4>{{ staff.name }}</h4>
-                            <p>{{ staff.role }}</p>
-                        </div>
-                    {% endfor %}
-                </div>
-            </div>
             
         </div>
     </section>       
