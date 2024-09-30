@@ -65,39 +65,6 @@ function changeSlide(n) {
 
 var timer = setInterval(() => changeSlide(), interval);
 
-// Bottom footer navbar toggling
-let footerLinks = document.querySelectorAll('.bottom-nav a');
-
-footerLinks.forEach(function(footerLink) {
-    footerLink.addEventListener('click', function(event) {
-        event.preventDefault(); 
-
-        var targetSectionId = this.getAttribute('href');
-        var targetSection = document.querySelector(targetSectionId);
-
-        sections.forEach(function(section) {
-            section.classList.remove('live');
-        });
-
-        if (targetSection) {
-            targetSection.classList.add('live');
-        }
-
-        links.forEach(function(navbarLink) {
-            navbarLink.classList.remove('active');
-        });
-
-        links.forEach(function(navbarLink) {
-            if (navbarLink.getAttribute('href') === targetSectionId) {
-                navbarLink.classList.add('active');
-            }
-        });
-
-        // Scroll to the top of the page
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-});
-
 let slideIndex = 1;
 showSlides(slideIndex);
 

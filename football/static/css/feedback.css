@@ -69,16 +69,6 @@ html, body {
   font-weight: 500;
 }
 
-.container .edit{
-  position: absolute;
-  right: 10px;
-  top: 5px;
-  font-size: 16px;
-  color: #666;
-  font-weight: 500;
-  cursor: pointer;
-}
-
 .container .star-widget input{
   display: none;
 }
@@ -190,4 +180,26 @@ form .btn button{
   
 form .btn button:hover{
   background: var(--green);
+}
+
+@media (max-width: 991px) {
+
+  html {
+      font-size: 55%;
+  }
+}
+
+@media (max-width: 450px) {
+
+  html {
+      font-size: 50%;
+  }
+
+  .container {
+    width: 300px;
+  }
+
+  .star-widget label{
+    font-size: 2.7rem;
+  }
 }
