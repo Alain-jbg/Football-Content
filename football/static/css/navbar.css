@@ -26,23 +26,6 @@ html {
     scroll-behavior: smooth;
 }
 
-.center-button-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .btn-custom {
-      padding: 10px 20px;
-      font-size: 18px;
-      background-color: #007bff;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      text-decoration: none;
-    }
-    .btn-custom:hover {
-      background-color: #0056b3;
-    }
 .btn {
     margin-top: 1rem;
     display: inline-block;
@@ -61,7 +44,7 @@ html {
 }
 
 body {
-    padding-top: 90px; /* Adjust this value to match the height of your navbar */
+    padding-top: 90px; 
 }
 
 /*Header section */

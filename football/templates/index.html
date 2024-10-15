@@ -15,14 +15,7 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    {% include 'navbar.html' %}
-    <!-- Header section -->
-
-    <!--LigiOpen Day  section-->
-    <!-- templates/home.html -->
-
-
-   
+    {% include 'navbar.html' %}   
         <section class="home live" id="home">
             <div class="background-image">
                 <div>
@@ -45,25 +38,28 @@
                                 <h4>{{ match.stadium.name }}</h4>
                             </div>
                             <div class="teams">
-                                <div class="team">
-                                    <img src="{{ match.home_team_logo.url }}" alt="{{ match.home_team.name }} Logo">
-                                    <h3>{{ match.home_team.name }}</h3>
+                                <div class="top">
+                                    <div class="team">
+                                        <img src="{{ match.home_team_logo.url }}" alt="{{ match.home_team.name }} Logo">
+                                        <h3>{{ match.home_team.name }}</h3>
+                                    </div>
+                                    <div class="vs">VS</div>
+                                    <div class="team">
+                                        <img src="{{ match.away_team_logo.url }}" alt="{{ match.away_team.name }} Logo">
+                                        <h3>{{ match.away_team.name }}</h3>
+                                    </div>
                                 </div>
-                                <div class="vs">VS</div>
-                                <div class="team">
-                                    <img src="{{ match.away_team_logo.url }}" alt="{{ match.away_team.name }} Logo">
-                                    <h3>{{ match.away_team.name }}</h3>
-                                </div>
+                                <a href="#" target="_blank" class="ticket">Buy tickets <i class="fa-solid fa-square-up-right"></i></a>
                             </div>
                         </div>
                         {% endfor %}
                     </div>
                 </div>
                 <div class="navigation-button">
-                    <span class="dot active" onclick="changeSlide(0)"></span>
-                    <span class="dot" onclick="changeSlide(1)"></span>
-                    <span class="dot" onclick="changeSlide(2)"></span>
-                </div>
+                    {% for match in matches %}
+                        <span class="dot {% if forloop.first %}active{% endif %}" data-slide="{{ forloop.counter0 }}"></span>
+                    {% endfor %}
+                </div>                               
             </div>
         
         

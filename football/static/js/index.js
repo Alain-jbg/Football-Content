@@ -1,98 +1,36 @@
-// let menu = document.querySelector('#menu-bars');
-// let navbar = document.querySelector('.navbar');
-// var links = document.querySelectorAll('.navbar a');
-// var sections = document.querySelectorAll('section');
-
-// menu.onclick = () => {
-//     menu.classList.toggle('fa-times');
-//     navbar.classList.toggle('active');
-// }
-
-// links.forEach(function(link) {
-//     link.addEventListener('click', function(event) {
-//         event.preventDefault(); 
-
-//         links.forEach(function(link) {
-//             link.classList.remove('active');
-//         });
-//         sections.forEach(function(section) {
-//             section.classList.remove('live');
-//         });
-
-//         this.classList.add('active');
-        
-//         // Extract the section ID from href
-//         var targetSectionId = this.getAttribute('href').split('#')[1];
-//         var targetSection = document.querySelector('#' + targetSectionId);
-        
-//         if (targetSection) {
-//             targetSection.classList.add('live');
-//         }
-
-//         // Scroll to the top of the page
-//         window.scrollTo({ top: 0, behavior: 'smooth' });
-
-//         // Close the navbar after a link is clicked
-//         menu.classList.remove('fa-times');
-//         navbar.classList.remove('active');
-//     });
-// });
-
-//Match poster sliding effect
-var matches = document.querySelectorAll('.slider .match');
+// Match poster sliding effect
 var dots = document.querySelectorAll('.dot');
+var matches = document.querySelectorAll('.slider .match');
 var currentMatch = 0; // index of the first match 
-const interval = 3000; // duration(speed) of the slide
+const interval = 3000; // duration (speed) of the slide
+
+// Change slide based on the dot clicked
+dots.forEach(dot => {
+    dot.addEventListener('click', function () {
+        clearInterval(timer); // Stop automatic sliding
+        currentMatch = Array.from(dots).indexOf(dot); // Find the index of the clicked dot
+        changeSlide(currentMatch); // Show corresponding slide
+        timer = setInterval(() => changeSlide(), interval); // Restart the timer
+    });
+});
 
 function changeSlide(n) {
     if (n !== undefined) {
-        clearInterval(timer);
-        currentMatch = n;
-        timer = setInterval(() => changeSlide(), interval);
+        currentMatch = n; // Use the provided index
     } else {
-        currentMatch = (currentMatch + 1) % matches.length; // update the index number
+        currentMatch = (currentMatch + 1) % matches.length; // Move to the next slide in the loop
     }
 
     var slides = document.querySelector('.slides');
-    slides.style.transform = `translateX(-${currentMatch * 100}%)`;
+    slides.style.transform = `translateX(-${currentMatch * 100}%)`; // Shift slides horizontally
 
-    for (var i = 0; i < dots.length; i++) { // reset dots
-        dots[i].className = dots[i].className.replace(' active', '');
-    }
-
-    dots[currentMatch].className += ' active';
+    // Update active dot
+    dots.forEach(dot => dot.classList.remove('active'));
+    dots[currentMatch].classList.add('active'); // Highlight the active dot
 }
 
+// Start automatic sliding
 var timer = setInterval(() => changeSlide(), interval);
-
-let slideIndex = 1;
-showSlides(slideIndex);
-
-// Next/previous controls
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-
-// Thumbnail image controls
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-  let i;
-  let slides = document.getElementsByClassName("mySlides");
-  let dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
-}
 
 //Contact us
 let submitForm = document.getElementById("submit-form");
