@@ -7,9 +7,9 @@ from django.conf import settings
 from .forms import ContactForm
 from django.contrib import messages
 from django.urls import reverse
-from .models import Match
-from .models import Blog
-from .models import BlogPost
+from .models import Matchday
+# from .models import Blog
+# from .models import BlogPost
 from .models import Club
 import qrcode
 import io
@@ -18,13 +18,28 @@ import base64
 
 def home(request):
     clubs = Club.objects.all()
+    matchdays = Matchday.objects.all()
+    staffs = Staff.objects.all()  # Fetch all staff members
     fixtures = Fixture.objects.all()
 
-    fixtures_results = FixtureResult.objects.all()
-    matches = Match.objects.all()
-    blogs = Blog.objects.all()
-    staffs = Staff.objects.all()  # Fetch all staff members
-    return render(request, 'index.html', {'clubs': clubs, 'fixtures_results': fixtures_results,'fixtures': fixtures,'matches': matches,'blogs':blogs,'staffs':staffs})
+
+    return render(request, 'index.html', {
+        'clubs': clubs,
+        'matchdays': matchdays,
+        'staffs': staffs,
+        'fixtures': fixtures
+
+    })
+
+def fixtures_view(request):
+    fixtures_results = FixtureResult.objects.all()  # Fixture results will be handled here
+    fixtures = Fixture.objects.all()
+
+    
+    return render(request, 'fixtures.html', {
+        'fixtures_results': fixtures_results, 'fixtures':fixtures
+    })
+
 
 
 def club_staff_view(request, club_id):
@@ -68,9 +83,7 @@ def player_stats_view(request):
 
 
 
-def fixtures_view(request):
-    fixtures = Fixture.objects.all()
-    return render(request, 'index.html', {'fixtures': fixtures})
+
 
 
 def contact_us_view(request):
@@ -78,23 +91,34 @@ def contact_us_view(request):
         form = ContactForm(request.POST)
         if form.is_valid():
             name = form.cleaned_data['name']
-            email = form.cleaned_data['email']
-            issue = form.cleaned_data['issue']
+            email = form.cleaned_data['email']  # Sender's email
+            issue = form.cleaned_data['issue']  # Message from the form
 
-            # Send email
             try:
+                # 1. Send email to admin (info@ligiopen.com)
                 send_mail(
-                    subject=f'Message from {name}',
-                    message=issue,
-                    from_email='info@ligiopen.com',  # Use a valid email address here
-                    recipient_list=['akothdorothy29@gmail.com'],
+                    subject=f"Message from {name}",
+                    message=f"Issue: {issue}\n\nFrom: {name}\nEmail: {email}",
+                    from_email='info@ligiopen.com',
+                    recipient_list=['info@ligiopen.com'],
                     fail_silently=False,
                 )
+
+                # 2. Send confirmation email to the sender
+                send_mail(
+                    subject="Thank you for contacting us",
+                    message=f"Hi {name},\n\nThank you for reaching out! We have received your message:\n\n{issue}\n\nWe will get back to you shortly.\n\nBest regards,\nLigi Open Team",
+                    from_email='info@ligiopen.com',
+                    recipient_list=[email],  # Send to the sender's email
+                    fail_silently=False,
+                )
+
+                # Success message and redirection
                 messages.success(request, 'Your message has been sent successfully!')
                 success_url = reverse('success') + f'?email={email}'
                 return redirect(success_url)
             except Exception as e:
-                messages.error(request, f'An error occurred: {str(e)}')
+                messages.error(request, f'An error occurred while sending your message: {str(e)}')
                 return redirect('contact_us')
     else:
         form = ContactForm()
@@ -102,8 +126,10 @@ def contact_us_view(request):
     return render(request, 'contact.html', {'form': form})
 
 def success_view(request):
-    email = request.GET.get('email', '')  # Default value if email is not provided
+    email = request.GET.get('email', '')
     return render(request, 'pages/success.html', {'email': email})
+
+
 
 def results_view(request):
     results = Result.objects.all()
@@ -168,8 +194,19 @@ def match_report(request):
 
 
 
+def feedback_view(request):
+    if request.method == 'POST':
+        form = FeedbackForm(request.POST)
+        if form.is_valid():
+            form.save()  # Save the feedback in the database
+            return redirect('feedback_success')  # Redirect to success page after submission
+    else:
+        form = FeedbackForm()
 
+    return render(request, 'feedback/feedback.html', {'form': form})
 
+def feedback_success_view(request):
+    return render(request, 'feedback/feedback_success.html')
 
 #FAQ Section views
 def faq_page(request):
@@ -334,8 +371,8 @@ def finance(request):
 
 def fixtures(request):
     fixtures = Fixture.objects.all()
-    matches = Match.objects.all()
-    return render(request, 'fixtures.html', {'fixtures': fixtures,'matches': matches})
+    matchdays = Matchday.objects.all()
+    return render(request, 'fixtures.html', {'fixtures': fixtures,'matchdays': matchdays})
 
 def blogs(request):
     blogs = Blog.objects.all()
