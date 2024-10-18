@@ -57,6 +57,7 @@ body {
 }
 
 .heading {
+    padding-top: 3%;
     text-align: center;
     color: var(--black);
     font-size: 3rem;

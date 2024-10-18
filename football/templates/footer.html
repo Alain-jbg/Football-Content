@@ -15,7 +15,7 @@
             <a href="{% url 'home' %}" class="{% if request.path == '/' %}active{% endif %}">Home</a>
             <a href="{% url 'finance' %}" class="{% if 'finance' in request.path %}active{% endif %}">Finance</a>
             <a href="{% url 'fixtures' %}" class="{% if 'fixture' in request.path %}active{% endif %}">Fixtures</a>
-            <a href="{% url 'blogs' %}" class="{% if 'blog' in request.path %}active{% endif %}">Blogs</a>
+            <a href="{% url 'clubs' %}" class="{% if 'club' in request.path %}active{% endif %}">Clubs</a>
             <a href="{% url 'contact_us' %}" class="{% if 'contact' in request.path %}active{% endif %}">Contact us</a>
         </div>
 
@@ -47,35 +47,44 @@
 
 
 <script>
+    /**
+     * Toggles the navigation menu visibility and handles link activation state.
+     *
+     * This script controls the behavior of a navbar and its links. It includes:
+     * - Toggling the 'active' class on the navbar when the menu icon is clicked.
+     * - Adding and removing the 'active' class on the links to highlight the current selection.
+     * - Ensuring smooth scrolling to the top of the page when a link is clicked.
+     * - Closing the navbar when a link is clicked.
+     */
     let menu = document.querySelector('#menu-bars');
     let navbar = document.querySelector('.navbar');
     var links = document.querySelectorAll('.navbar a');
 
+    /**
+     * Toggles the 'fa-times' class for the menu icon and the 'active' class for the navbar.
+     * This function is triggered when the menu icon is clicked.
+     */
     menu.onclick = () => {
         menu.classList.toggle('fa-times');
         navbar.classList.toggle('active');
     }
 
+    /**
+     * Loops through each link in the navbar and attaches an event listener to handle
+     * link clicks. It:
+     * - Removes the 'active' class from all links.
+     * - Adds the 'active' class to the clicked link to visually indicate the selection.
+     * - Scrolls to the top of the page when the link is clicked.
+     * - Closes the navbar by removing the 'active' class and changing the menu icon.
+     */
     links.forEach(function(link) {
         link.addEventListener('click', function(event) {
-            //event.preventDefault(); 
 
             links.forEach(function(link) {
                 link.classList.remove('active');
             });
-            // sections.forEach(function(section) {
-            //     section.classList.remove('live');
-            // });
 
             this.classList.add('active');
-            
-            // Extract the section ID from href
-            // var targetSectionId = this.getAttribute('href').split('#')[1];
-            // var targetSection = document.querySelector('#' + targetSectionId);
-            
-            // if (targetSection) {
-            //     targetSection.classList.add('live');
-            // }
 
             // Scroll to the top of the page
             window.scrollTo({ top: 0, behavior: 'smooth' });

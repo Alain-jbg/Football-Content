@@ -104,66 +104,101 @@
 <!-- Matches section content -->
 <!-- club-staff.html -->
 <section class="matches" id="matches">
-  <h2 class="heading">{{ club.name }} - Fixtures & Results</h2>
+  <h2 class="heading">Club Name - Fixtures & Results</h2>
   <nav class="navbar2">
     <a class="active" href="#fixtures-section" id="fixtures-link">Fixtures</a>
     <a href="#results-section" id="results-link">Results</a>
   </nav>
+  
+  <!-- Fixtures Section -->
   <div id="fixtures-section" class="content-section">
     <div id="fixtures-container" class="fixtures-container">
-      {% for fixture in fixtures %}
-        <div class="team-fixtures" id="team{{ forloop.counter }}-fixtures">
-          <div class="fixture" data-competition="{{ fixture.competition }}">
-            <div class="fixture-date"><span class="team-comp">{{ fixture.competition }} - </span>{{ fixture.date }} {{ fixture.time }}</div>
-            <div class="fixture-opponent">{{ fixture.team_b_name }}</div>
-            <div class="fixture-venue">{{ fixture.venue }}</div>
-          </div>
+      <!-- Example Fixture 1 -->
+      <div class="team-fixtures" id="team1-fixtures">
+        <div class="fixture" data-competition="Premier League">
+          <div class="fixture-date"><span class="team-comp">Premier League - </span>01/10/2024 14:00</div>
+          <div class="fixture-opponent">Team B</div>
+          <div class="fixture-venue">Stadium Name</div>
         </div>
-      {% endfor %}
+      </div>
+      <!-- Example Fixture 2 -->
+      <div class="team-fixtures" id="team2-fixtures">
+        <div class="fixture" data-competition="Champions League">
+          <div class="fixture-date"><span class="team-comp">Champions League - </span>05/10/2024 18:00</div>
+          <div class="fixture-opponent">Team C</div>
+          <div class="fixture-venue">Another Stadium</div>
+        </div>
+      </div>
     </div>
   </div>
 
+  <!-- Results Section -->
   <div class="results-section" id="results-section">
     <div class="container">
-      {% for result in results %}
-        <div class="fixture">
-          <div class="date">
-            <p class="date-fix">{{ result.fixture.date }}</p>
-            <p class="comp">{{ result.fixture.competition }}</p>
+      <!-- Example Result 1 -->
+      <div class="fixture">
+        <div class="date">
+          <p class="date-fix">28/09/2024</p>
+          <p class="comp">Premier League</p>
+        </div>
+        <div class="inner-team">
+          <div class="team">
+            <img src="team-a-logo.png" alt="Team A Logo">
+            <span class="team-name">Team A</span>
           </div>
-          <div class="inner-team">
-            <div class="team">
-              <img src="{{ result.fixture.team_a_logo.url }}" alt="{{ result.fixture.team_a_name }} Logo">
-              <span class="team-name">{{ result.fixture.team_a_name }}</span>
-            </div>
-            <div class="demo">
-              <div class="vs">{{ result.home_team_score }} - {{ result.away_team_score }}</div>
-              <p class="venue">{{ result.fixture.venue }}</p>
-            </div>
-            <div class="team">
-              <span class="team-name">{{ result.fixture.team_b_name }}</span>
-              <img src="{{ result.fixture.team_b_logo.url }}" alt="{{ result.fixture.team_b_name }} Logo">
-            </div>
+          <div class="demo">
+            <div class="vs">2 - 1</div>
+            <p class="venue">Stadium Name</p>
           </div>
-          <div class="goal-details">
-            <div class="home">
-              {% for goal in result.home_team_goals.splitlines %}
-                <p>{{ goal }} <i class="fa-solid fa-futbol"></i></p>
-              {% endfor %}
-            </div>
-            <div class="away">
-              {% for goal in result.away_team_goals.splitlines %}
-                <p>{{ goal }} <i class="fa-solid fa-futbol"></i></p>
-              {% endfor %}
-            </div>
+          <div class="team">
+            <span class="team-name">Team B</span>
+            <img src="team-b-logo.png" alt="Team B Logo">
           </div>
         </div>
-      {% endfor %}
+        <div class="goal-details">
+          <div class="home">
+            <p>Player 1 <i class="fa-solid fa-futbol"></i></p>
+            <p>Player 2 <i class="fa-solid fa-futbol"></i></p>
+          </div>
+          <div class="away">
+            <p>Player 3 <i class="fa-solid fa-futbol"></i></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Example Result 2 -->
+      <div class="fixture">
+        <div class="date">
+          <p class="date-fix">22/09/2024</p>
+          <p class="comp">Champions League</p>
+        </div>
+        <div class="inner-team">
+          <div class="team">
+            <img src="team-a-logo.png" alt="Team A Logo">
+            <span class="team-name">Team A</span>
+          </div>
+          <div class="demo">
+            <div class="vs">1 - 1</div>
+            <p class="venue">Another Stadium</p>
+          </div>
+          <div class="team">
+            <span class="team-name">Team C</span>
+            <img src="team-c-logo.png" alt="Team C Logo">
+          </div>
+        </div>
+        <div class="goal-details">
+          <div class="home">
+            <p>Player 4 <i class="fa-solid fa-futbol"></i></p>
+          </div>
+          <div class="away">
+            <p>Player 5 <i class="fa-solid fa-futbol"></i></p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-  
 <div class="teams">
 
     <!-- stats -->
