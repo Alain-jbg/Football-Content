@@ -8,7 +8,7 @@ from .views import match_report
 urlpatterns = [
     path('', views.home, name='home'),
 
-    path('fixtures', views.fixtures_view, name='fixtures'),
+    path('fixtures/', views.fixtures_view, name='fixtures'),
     path('pages/club-staff.html', views.club_staff_view, name='club_staff_page'),
     path('player-stats', views.player_stats_view, name='player_stats'),
     path('contact/', contact_us_view, name='contact_us'),
@@ -23,9 +23,8 @@ urlpatterns = [
 
     path('pages/matchday-highlights', match_report, name='match_report'),
     path('match-report/<int:match_id>/', match_report, name='match_report'),
-
-
-
+    path('feedback/feedback/', views.feedback_view, name='feedback'),
+    path('feedback/feedback_success/', views.feedback_success_view, name='feedback_success'),
 
 
 

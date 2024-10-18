@@ -31,22 +31,22 @@
                 </div>
                 <div class="slider">
                     <div class="slides">
-                        {% for match in matches %}
+                        {% for matchday in matches %}
                         <div class="match">
                             <div class="match-info">
-                                <h3>{{ match.date_time|date:"M d, Y | h:iA" }}</h3>
-                                <h4>{{ match.stadium.name }}</h4>
+                                <h3>{{ matchday.date_time|date:"M d, Y | h:iA" }}</h3>
+                                <h4>{{ matchday.stadium.name }}</h4>
                             </div>
                             <div class="teams">
                                 <div class="top">
                                     <div class="team">
-                                        <img src="{{ match.home_team_logo.url }}" alt="{{ match.home_team.name }} Logo">
-                                        <h3>{{ match.home_team.name }}</h3>
+                                        <img src="{{ matchday.home_team_logo.url }}" alt="{{ matchday.home_team.name }} Logo">
+                                        <h3>{{ matchday.home_team.name }}</h3>
                                     </div>
                                     <div class="vs">VS</div>
                                     <div class="team">
-                                        <img src="{{ match.away_team_logo.url }}" alt="{{ match.away_team.name }} Logo">
-                                        <h3>{{ match.away_team.name }}</h3>
+                                        <img src="{{ matchday.away_team_logo.url }}" alt="{{ matchday.away_team.name }} Logo">
+                                        <h3>{{ matchday.away_team.name }}</h3>
                                     </div>
                                 </div>
                                 <a href="#" target="_blank" class="ticket">Buy tickets <i class="fa-solid fa-square-up-right"></i></a>

@@ -21,30 +21,31 @@
     <h1 class="heading">Ask here</h1>
 
     <form action="" method="post" id="submit-form">
-      <div class="inputBox">
-          <div class="input">
-              <span>your name <span id="name-invalid" class="invalid-message">Name is required</span></span>
-              <input type="text" placeholder="Enter your name" name="name" id="name-textbox">
-          </div>
-      </div>
-  
-      <div class="inputBox">
-          <div class="input">
-              <span>Email address <span id="email-invalid" class="invalid-message">Valid email required</span></span>
-              <input type="text" id="email-textbox" placeholder="Enter email address" name="email">
-          </div>
-      </div>
-  
-      <div class="inputBox">
-          <div class="input">
-              <span>your issue <span id="issue-invalid" class="invalid-message">Issue description is required</span></span>
-              <textarea name="issue" placeholder="Enter your message" id="issue-textarea" cols="30" rows="10"></textarea>
-          </div>
-      </div>
-  
-      <input type="submit" value="submit" class="btn">
+        {% csrf_token %}
+        <div class="inputBox">
+            <div class="input">
+                <span>your name <span id="name-invalid" class="invalid-message">Name is required</span></span>
+                <input type="text" placeholder="Enter your name" name="name" id="name-textbox">
+            </div>
+        </div>
+    
+        <div class="inputBox">
+            <div class="input">
+                <span>Email address <span id="email-invalid" class="invalid-message">Valid email required</span></span>
+                <input type="text" id="email-textbox" placeholder="Enter email address" name="email">
+            </div>
+        </div>
+    
+        <div class="inputBox">
+            <div class="input">
+                <span>your issue <span id="issue-invalid" class="invalid-message">Issue description is required</span></span>
+                <textarea name="issue" placeholder="Enter your message" id="issue-textarea" cols="30" rows="10"></textarea>
+            </div>
+        </div>
+    
+        <input type="submit" value="submit" class="btn">
     </form>
-  
+    
 
 </section>
 {% include 'footer.html' %}

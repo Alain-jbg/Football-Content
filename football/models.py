@@ -9,7 +9,7 @@ def upload_to(instance, filename):
         Staff: 'staff/',
         Team: 'team_logos/',
         FixtureResult: 'team_logos/',
-        Match: 'match_logos/',
+        Matchday: 'match_logos/',
         Blog: 'blog_images/',
         BlogPost: 'blogpost_images/',
         ClubMatch: 'club_logos/',
@@ -125,7 +125,7 @@ class Fixture(models.Model):
 class FixtureResult(models.Model):
     fixture = models.OneToOneField(Fixture, related_name='result', on_delete=models.CASCADE, blank=True, null=True)  # Allow null initially
     score = models.CharField(max_length=20, default=0)
-    minute = models.IntegerField(blank=True, null=True)
+    time_taken = models.TimeField(null=True, blank=True)  # Time taken for the result
     result_photo = models.ImageField(upload_to='result_photos/', blank=True, null=True)
 
     def __str__(self):
@@ -140,7 +140,7 @@ class Stadium(models.Model):
     def __str__(self):
         return self.name
 
-class Match(models.Model):
+class Matchday(models.Model):
     date_time = models.DateTimeField()
     stadium = models.ForeignKey(Stadium, on_delete=models.CASCADE)
     home_team = models.ForeignKey(Club, related_name='home_matches', on_delete=models.CASCADE)
@@ -188,3 +188,19 @@ class ClubMatch(models.Model):
 
 
 
+
+class Feedback(models.Model):
+    RATING_CHOICES = [
+        (1, '1 Star'),
+        (2, '2 Stars'),
+        (3, '3 Stars'),
+        (4, '4 Stars'),
+        (5, '5 Stars'),
+    ]
+    rating = models.IntegerField(choices=RATING_CHOICES, default=5)  # Set a default value, e.g., 3 stars
+
+    feedback_text = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'{self.rating} - {self.feedback_text[:50]}'
