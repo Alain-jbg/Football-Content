@@ -31,7 +31,7 @@
                 </div>
                 <div class="slider">
                     <div class="slides">
-                        {% for matchday in matches %}
+                        {% for matchday in matchdays %}
                         <div class="match">
                             <div class="match-info">
                                 <h3>{{ matchday.date_time|date:"M d, Y | h:iA" }}</h3>
@@ -42,11 +42,13 @@
                                     <div class="team">
                                         <img src="{{ matchday.home_team_logo.url }}" alt="{{ matchday.home_team.name }} Logo">
                                         <h3>{{ matchday.home_team.name }}</h3>
+                                        
                                     </div>
                                     <div class="vs">VS</div>
                                     <div class="team">
                                         <img src="{{ matchday.away_team_logo.url }}" alt="{{ matchday.away_team.name }} Logo">
                                         <h3>{{ matchday.away_team.name }}</h3>
+                                        
                                     </div>
                                 </div>
                                 <a href="#" target="_blank" class="ticket">Buy tickets <i class="fa-solid fa-square-up-right"></i></a>
@@ -56,7 +58,7 @@
                     </div>
                 </div>
                 <div class="navigation-button">
-                    {% for matchday in matches %}
+                    {% for matchday in matchdays %}
                         <span class="dot {% if forloop.first %}active{% endif %}" data-slide="{{ forloop.counter0 }}"></span>
                     {% endfor %}
                 </div>                               
