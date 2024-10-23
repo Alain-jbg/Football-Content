@@ -54,40 +54,41 @@
             </div>
         </div>
                 
-    
-        <!-- Results Section -->
-  <div class="results-section" id="results-section">
-    <div class="container">
-        {% for fixture_result in fixtures_results %}
-        <!-- Fixture -->
-        <div class="fixture">
-            <div class="date">
-                <p class="date-fix">{{ fixture_result.fixture.date }}</p>
-                <p class="comp">Competition: {{ fixture_result.fixture.competition }}</p>
-            </div>
-            <div class="inner-team">
-                <div class="team">
-                    <img src="{{ fixture_result.fixture.team_a_logo.url }}" alt="{{ fixture_result.fixture.team_a_name }} Logo">
-                    <span class="team-name">{{ fixture_result.fixture.team_a_name }}</span>
+        <div class="results-section" id="results-section">
+            <div class="container">
+                {% for fixture_result in fixtures_results %}
+                <!-- Fixture -->
+                <div class="fixture">
+                    <div class="date">
+                        <p class="date-fix">{{ fixture_result.fixture.date }}</p>
+                        <p class="comp">{{ fixture_result.fixture.competition }}</p>
+                        <p class="time">{{ fixture_result.fixture.time }}</p>
+                    </div>
+                    <div class="inner-team">
+                        <div class="team">
+                            <img src="{{ fixture_result.fixture.team_a_logo.url }}" alt="{{ fixture_result.fixture.team_a_name }} Logo">
+                            <span class="team-name">{{ fixture_result.fixture.team_a_name }}</span>
+                        </div>
+                        <div class="demo">
+                            {% if fixture_result.score %}
+                                <div class="vs">{{ fixture_result.score }}</div>
+                            {% else %}
+                                <div class="vs">Score not available</div>
+                            {% endif %}
+                            <p class="venue">{{ fixture_result.fixture.venue }}</p>
+                        </div>
+                        <div class="team">
+                            <img src="{{ fixture_result.fixture.team_b_logo.url }}" alt="{{ fixture_result.fixture.team_b_name }} Logo">
+                            <span class="team-name">{{ fixture_result.fixture.team_b_name }}</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="demo">
-                    {% if fixture_result.score %}
-                        <div class="vs">{{ fixture_result.score }}</div>
-                    {% else %}
-                        <div class="vs">Score not available</div>
-                    {% endif %}
-                    <p class="venue">{{ fixture_result.fixture.venue }}</p>
-                </div>
-                <div class="team">
-                    <img src="{{ fixture_result.fixture.team_b_logo.url }}" alt="{{ fixture_result.fixture.team_b_name }} Logo">
-                    <span class="team-name">{{ fixture_result.fixture.team_b_name }}</span>
-                </div>
+                {% endfor %}
             </div>
         </div>
-        {% endfor %}
-    </div>
-</div>
-</section>
+        </section>
+        
+       
 
   {% include 'footer.html' %}
 
