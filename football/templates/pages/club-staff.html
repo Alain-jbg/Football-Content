@@ -99,165 +99,123 @@
 
                     
       </section>
-    
-    
-<!-- Matches section content -->
-<!-- club-staff.html -->
-<section class="matches" id="matches">
-  <h2 class="heading">Club Name - Fixtures & Results</h2>
-  <nav class="navbar2">
-    <a class="active" href="#fixtures-section" id="fixtures-link">Fixtures</a>
-    <a href="#results-section" id="results-link">Results</a>
-  </nav>
-  
-  <!-- Fixtures Section -->
-  <div id="fixtures-section" class="content-section">
-    <div id="fixtures-container" class="fixtures-container">
-      <!-- Example Fixture 1 -->
-      <div class="team-fixtures" id="team1-fixtures">
-        <div class="fixture" data-competition="Premier League">
-          <div class="fixture-date"><span class="team-comp">Premier League - </span>01/10/2024 14:00</div>
-          <div class="fixture-opponent">Team B</div>
-          <div class="fixture-venue">Stadium Name</div>
+      
+      <section class="matches" id="matches">
+        <h2 class="heading"> Fixtures & Results</h2>
+        <nav class="navbar2">
+            <a class="active" href="team_fixtures_link" id="fixtures-link">Fixtures</a>
+            <a href="team_results_link" id="results-link">Results</a>
+        </nav>
+        
+        <div id="fixtures-section" class="content-section">
+            <div id="fixtures-container" class="fixtures-container">
+                <div class="team-fixtures">
+                    <div class="fixture" data-competition="Competition Name">
+                        <div class="fixture-date">
+                            <span class="team-comp">Competition Name - </span>01/01/2024 20:00
+                        </div>
+                        <div class="fixture-opponent">Opponent Name</div>
+                        <div class="fixture-venue">Venue Name</div>
+                    </div>
+                </div>
+                <!-- Repeat the above block for additional fixtures -->
+            </div>
         </div>
-      </div>
-      <!-- Example Fixture 2 -->
-      <div class="team-fixtures" id="team2-fixtures">
-        <div class="fixture" data-competition="Champions League">
-          <div class="fixture-date"><span class="team-comp">Champions League - </span>05/10/2024 18:00</div>
-          <div class="fixture-opponent">Team C</div>
-          <div class="fixture-venue">Another Stadium</div>
+        
+        <div class="results-section" id="results-section">
+            <div class="container">
+                <div class="fixture">
+                    <div class="date">
+                        <p class="date-fix">01/01/2024</p>
+                        <p class="comp">Competition Name</p>
+                    </div>
+                    <div class="inner-team">
+                        <div class="team">
+                            <a href="team_fixtures_link">
+                                <img src="team_logo_url" alt="Team Name Logo">
+                                <span class="team_individual-name">Team Name</span>
+                            </a>
+                        </div>
+                        <div class="demo">
+                            <div class="vs">2 - 1</div>
+                            <p class="venue">Venue Name</p>
+                        </div>
+                        <div class="team">
+                            <span class="team-name">Opponent Name</span>
+                        </div>
+                    </div>
+                    <div class="goal-details">
+                        <div class="home">
+                            <p>Scorer Name <i class="fa-solid fa-futbol"></i></p>
+                            <!-- Repeat for additional scorers -->
+                        </div>
+                        <div class="away">
+                            <p>Scorer Name <i class="fa-solid fa-futbol"></i></p>
+                            <!-- Repeat for additional scorers -->
+                        </div>
+                    </div>
+                </div>
+                <!-- Repeat the above block for additional results -->
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Results Section -->
-  <div class="results-section" id="results-section">
-    <div class="container">
-      <!-- Example Result 1 -->
-      <div class="fixture">
-        <div class="date">
-          <p class="date-fix">28/09/2024</p>
-          <p class="comp">Premier League</p>
-        </div>
-        <div class="inner-team">
-          <div class="team">
-            <img src="team-a-logo.png" alt="Team A Logo">
-            <span class="team-name">Team A</span>
-          </div>
-          <div class="demo">
-            <div class="vs">2 - 1</div>
-            <p class="venue">Stadium Name</p>
-          </div>
-          <div class="team">
-            <span class="team-name">Team B</span>
-            <img src="team-b-logo.png" alt="Team B Logo">
-          </div>
-        </div>
-        <div class="goal-details">
-          <div class="home">
-            <p>Player 1 <i class="fa-solid fa-futbol"></i></p>
-            <p>Player 2 <i class="fa-solid fa-futbol"></i></p>
-          </div>
-          <div class="away">
-            <p>Player 3 <i class="fa-solid fa-futbol"></i></p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Example Result 2 -->
-      <div class="fixture">
-        <div class="date">
-          <p class="date-fix">22/09/2024</p>
-          <p class="comp">Champions League</p>
-        </div>
-        <div class="inner-team">
-          <div class="team">
-            <img src="team-a-logo.png" alt="Team A Logo">
-            <span class="team-name">Team A</span>
-          </div>
-          <div class="demo">
-            <div class="vs">1 - 1</div>
-            <p class="venue">Another Stadium</p>
-          </div>
-          <div class="team">
-            <span class="team-name">Team C</span>
-            <img src="team-c-logo.png" alt="Team C Logo">
-          </div>
-        </div>
-        <div class="goal-details">
-          <div class="home">
-            <p>Player 4 <i class="fa-solid fa-futbol"></i></p>
-          </div>
-          <div class="away">
-            <p>Player 5 <i class="fa-solid fa-futbol"></i></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="teams">
-
-    <!-- stats -->
-    <section class="stats" id="stats">
- 
-      <h2 class="heading">Overall stats</h2>
-      <div class="table-wrapper">
-        <table id="player-stats">
-          <thead>
-              <tr>
-                  <th>Player</th>
-                  <th>Position</th>
-                  <!--<th>Club</th>
-                  <th>Team</th>-->
-                  <th>CM</th>
-                  <th>KG</th>
-                  <th>Apps</th>
-                  <th>Mins</th>
-                  <th>Goals</th>
-                  <th>Assists</th>
-                  <th>Yel</th>
-                  <th>Red</th>
-                  <th>MotM</th>
-              </tr>
-          </thead>
-          <tbody>
-              {% for player in players %}
-              <tr>
-                  <td>
-                      <!-- {{ player.id }}. {{ player.name }}
-                      <img src="{{ player.photo.url }}" alt="{{ player.name }} Photo" style="width: 50px; height: 50px;"> -->
-
-                      <!--<span style="display: inline-block;">
-                        <img src="{{ player.photo.url }}" alt="{{ player.name }} Photo" style="width: 80px; height: 80px; object-fit: contain;">
-                    </span>-->
-                    <span style="display: inline-block;">
-                        {{ player.id }}. {{ player.name }}
-                    </span>
-
-                  </td>
-
-                  <td>{{ player.position }}</td>
-                  <!--<td>{{ player.club }}</td>
-                  <td>{{ player.team }}</td>-->
-                  <td>{{ player.height_cm }}</td>
-                  <td>{{ player.weight_kg }}</td>
-                  <td>{{ player.apps }}</td>
-                  <td>{{ player.mins }}</td>
-                  <td>{{ player.goals }}</td>
-                  <td>{{ player.assists }}</td>
-                  <td>{{ player.yellow_cards }}</td>
-                  <td>{{ player.red_cards }}</td>
-                  <td>{{ player.motm }}</td>
-              </tr>
-              {% endfor %}
-          </tbody>
-      </table>
-      </div>
     </section>
+    
+     
+      
+
+
+
+    <div class="teams">
+
+      <div class="teams">
+        <!-- stats -->
+        <section class="stats" id="stats">
+            <h2 class="heading">Overall Stats for {{ club.name }}</h2>
+            <div class="table-wrapper">
+                <table id="player-stats">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Player</th>
+                            <th>Position</th>
+                            <th>CM</th>
+                            <th>KG</th>
+                            <th>Apps</th>
+                            <th>Mins</th>
+                            <th>Goals</th>
+                            <th>Assists</th>
+                            <th>Yel</th>
+                            <th>Red</th>
+                            <th>MotM</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for player in players %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>
+                                <span style="display: inline-block;">
+                                    {{ player.name }}
+                                </span>
+                            </td>
+                            <td>{{ player.position }}</td>
+                            <td>{{ player.height_cm }}</td>
+                            <td>{{ player.weight_kg }}</td>
+                            <td>{{ player.apps }}</td>
+                            <td>{{ player.mins }}</td>
+                            <td>{{ player.goals }}</td>
+                            <td>{{ player.assists }}</td>
+                            <td>{{ player.yellow_cards }}</td>
+                            <td>{{ player.red_cards }}</td>
+                            <td>{{ player.motm }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+  
 
     <section class="footer">
       <div class="box-container">
