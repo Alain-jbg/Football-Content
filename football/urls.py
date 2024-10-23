@@ -26,7 +26,8 @@ urlpatterns = [
     path('feedback/feedback/', views.feedback_view, name='feedback'),
     path('feedback/feedback_success/', views.feedback_success_view, name='feedback_success'),
 
-
+    path('team/<int:team_id>/fixtures/', views.team_fixtures, name='team_fixtures'),
+    path('team/<int:team_id>/results/', views.team_results, name='team_results'),
 
 
 

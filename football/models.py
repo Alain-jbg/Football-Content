@@ -204,3 +204,32 @@ class Feedback(models.Model):
 
     def __str__(self):
         return f'{self.rating} - {self.feedback_text[:50]}'
+
+
+class TeamIndividual(models.Model):
+    name = models.CharField(max_length=100)
+    logo = models.ImageField(upload_to='team_logos/', blank=True, null=True)
+
+    def __str__(self):
+        return self.name
+
+
+class FixtureTeam(models.Model):
+    competition = models.CharField(max_length=100)
+    date = models.DateTimeField()
+    opponent = models.CharField(max_length=100)
+    venue = models.CharField(max_length=100)
+    team = models.ForeignKey(TeamIndividual, on_delete=models.CASCADE)  
+
+    def __str__(self):
+        return f'{self.team.name} vs {self.opponent}'
+
+
+class ResultTeam(models.Model):
+    fixture_team = models.OneToOneField(FixtureTeam, on_delete=models.CASCADE)
+    home_score = models.IntegerField()
+    away_score = models.IntegerField()
+    home_goal_scorers = models.TextField() 
+    away_goal_scorers = models.TextField()  
+    def __str__(self):
+        return f'{self.fixture_team.team.name} {self.home_score} - {self.away_score} {self.fixture_team.opponent}'

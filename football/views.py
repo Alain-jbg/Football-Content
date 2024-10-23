@@ -8,6 +8,8 @@ from .forms import ContactForm
 from django.contrib import messages
 from django.urls import reverse
 from .models import Matchday
+from .models import Team, Fixture
+
 # from .models import Blog
 # from .models import BlogPost
 from .models import Club
@@ -31,8 +33,11 @@ def home(request):
 
     })
 
+
+ 
+
 def fixtures_view(request):
-    fixtures_results = FixtureResult.objects.all()  # Fixture results will be handled here
+    fixtures_results = FixtureResult.objects.all() 
     fixtures = Fixture.objects.all()
 
     
@@ -204,6 +209,26 @@ def feedback_view(request):
         form = FeedbackForm()
 
     return render(request, 'feedback/feedback.html', {'form': form})
+
+
+def team_fixtures(request, team_id):
+    team = get_object_or_404(Team, id=team_id)  # Fetch the team object
+    fixtures = Fixture.objects.filter(opponent=team).order_by('date')
+    context = {
+        'fixtures': fixtures,
+        'team': team,  # Pass the team object to the context
+    }
+    return render(request, 'pages/club-staff.html', context)
+
+def team_results(request, team_id):
+    team = get_object_or_404(Team, id=team_id)  # Fetch the team object
+    fixtures_with_results = Fixture.objects.filter(opponent=team).select_related('result').order_by('date')
+    context = {
+        'fixtures_with_results': fixtures_with_results,
+        'team': team,  # Pass the team object to the context
+    }
+    return render(request, 'pages/club-staff.html', context)
+
 
 def feedback_success_view(request):
     return render(request, 'feedback/feedback_success.html')
