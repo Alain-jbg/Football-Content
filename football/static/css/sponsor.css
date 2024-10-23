@@ -46,7 +46,7 @@ iframe {
     transition: color 0.3s, border-color 0.3s;
 }
 
-div a:hover {
+div .tag:hover {
     cursor: pointer;
     color: var(--green);
     border-bottom: 2px solid var(--green); 

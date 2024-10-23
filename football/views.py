@@ -7,7 +7,7 @@ from django.conf import settings
 from .forms import ContactForm
 from django.contrib import messages
 from django.urls import reverse
-from .models import Match
+from .models import Matchday
 from .models import Blog
 from .models import BlogPost
 from .models import Club
@@ -21,10 +21,10 @@ def home(request):
     fixtures = Fixture.objects.all()
 
     fixtures_results = FixtureResult.objects.all()
-    matches = Match.objects.all()
+    matchdays = Matchday.objects.all()
     blogs = Blog.objects.all()
     staffs = Staff.objects.all()  # Fetch all staff members
-    return render(request, 'index.html', {'clubs': clubs, 'fixtures_results': fixtures_results,'fixtures': fixtures,'matches': matches,'blogs':blogs,'staffs':staffs})
+    return render(request, 'index.html', {'clubs': clubs, 'fixtures_results': fixtures_results,'fixtures': fixtures,'matchdays': matchdays,'blogs':blogs,'staffs':staffs})
 
 
 def club_staff_view(request, club_id):

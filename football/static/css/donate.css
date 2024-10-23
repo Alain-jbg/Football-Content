@@ -182,6 +182,20 @@ section.live {
     }
 }
 
+@media (max-width: 931px) {
+
+    .heading {
+        padding-top: 5%;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .heading {
+        padding-top: 7%;
+    }
+}
+
 @media (max-width: 501px) {
 
     html {
@@ -201,5 +215,12 @@ section.live {
 
     .btn {
         margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 450px) {
+
+    .heading {
+        padding-top: 9%;
     }
 }

@@ -9,7 +9,7 @@ def upload_to(instance, filename):
         Staff: 'staff/',
         Team: 'team_logos/',
         FixtureResult: 'team_logos/',
-        Match: 'match_logos/',
+        Matchday: 'match_logos/',
         Blog: 'blog_images/',
         BlogPost: 'blogpost_images/',
         ClubMatch: 'club_logos/',
@@ -140,7 +140,7 @@ class Stadium(models.Model):
     def __str__(self):
         return self.name
 
-class Match(models.Model):
+class Matchday(models.Model):
     date_time = models.DateTimeField()
     stadium = models.ForeignKey(Stadium, on_delete=models.CASCADE)
     home_team = models.ForeignKey(Club, related_name='home_matches', on_delete=models.CASCADE)
