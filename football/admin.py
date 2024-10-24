@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import Staff, Player, Club, Staff
-from .models import Team, FixtureResult, Fixture, Matchday, Stadium
+from .models import Team, FixtureResult, Fixture, Matchday, Stadium, TeamIndividual,FixtureTeam,ResultTeam
 # from .models import Blog
 # from .models import BlogPost
 from .models import Feedback
@@ -17,7 +17,9 @@ admin.site.register(Club)
 admin.site.register(Team)
 admin.site.register(Matchday)
 admin.site.register(Stadium)
-
+admin.site.register(TeamIndividual)
+admin.site.register(FixtureTeam)
+admin.site.register(ResultTeam)
 
 
 
