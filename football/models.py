@@ -44,8 +44,8 @@ class Player(models.Model):
     mins = models.IntegerField()
     goals = models.IntegerField()
     assists = models.IntegerField()
-    yellow_card = models.IntegerField(default=0)
-    red_card = models.IntegerField(default=0)
+    yellow_cards = models.IntegerField(default=0)
+    red_cards = models.IntegerField(default=0)
 
     motm = models.IntegerField()
 
