@@ -42,8 +42,8 @@ class Player(models.Model):
     mins = models.IntegerField()
     goals = models.IntegerField()
     assists = models.IntegerField()
-    yellow_card_image = models.ImageField(upload_to='yellow_cards/', blank=True, null=True)
-    red_card_image = models.ImageField(upload_to='red_cards/', blank=True, null=True)
+    yellow_cards = models.IntegerField(default=0)
+    red_cards = models.ImageField(default=0)
     
     motm = models.IntegerField()
 
