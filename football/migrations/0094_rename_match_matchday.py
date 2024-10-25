@@ -9,9 +9,5 @@ class Migration(migrations.Migration):
         ('football', '0093_delete_feedback'),
     ]
 
-    operations = [
-        migrations.RenameModel(
-            old_name='Match',
-            new_name='Matchday',
-        ),
-    ]
+   
+    

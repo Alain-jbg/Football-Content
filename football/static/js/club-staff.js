@@ -64,39 +64,3 @@ resultsLink.addEventListener("click", function(event) {
 
 // By default, show fixtures section
 toggleSection(fixturesSection);
-
-// Job listings
-/* const jobSearchInput = document.querySelector(".job-search");
-const jobsContainer = document.querySelector(".jobs");
-const noMatch = document.getElementById("no-match");
-
-jobSearchInput.addEventListener("input", (e) => {
-    const searchTerm = e.target.value.toLowerCase().trim();
-
-    const jobs = Array.from(jobsContainer.querySelectorAll(".job"));
-    let matchFound = false; 
-
-    jobs.forEach((job) => {
-        const title = job.querySelector(".job-title").textContent.toLowerCase();
-
-        if (title.includes(searchTerm)) {
-            job.style.display = "flex";
-            matchFound = true; 
-        } else {
-            job.style.display = "none";
-        }
-    });
-
-    // Display "no match" message if no jobs match the search term
-    if (!matchFound) {
-        noMatch.style.display = "block";
-    } else {
-        noMatch.style.display = "none";
-    }
-}); */
-
-
-/* function redirectToStaffPage(jobTitle) {
-    // Redirect to job details page with job title as a parameter
-    window.location.href = `job-listing/club1-job.html?job=${encodeURIComponent(jobTitle)}`;
-} */

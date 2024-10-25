@@ -21,9 +21,10 @@ class Club(models.Model):
     location = models.CharField(max_length=100, blank=True, null=True)
     established_date = models.DateField(default=timezone.now)
     stadium = models.CharField(max_length=100, blank=True, null=True)
-    photo = models.ImageField(upload_to=upload_to, blank=True, null=True)
+    photo = models.ImageField(upload_to=upload_to, blank=True, null=True, default='defaults/club_placeholder.png')
+    coach_photo = models.ImageField(upload_to=upload_to, blank=True, null=True, default='defaults/coach_placeholder.png')
+
     coach_name = models.CharField(max_length=100, blank=True, null=True)
-    coach_photo = models.ImageField(upload_to=upload_to, blank=True, null=True)
 
     def __str__(self):
         return self.name
@@ -37,13 +38,14 @@ class Player(models.Model):
     nationality = models.CharField(max_length=50, blank=True, null=True)
     club = models.ForeignKey(Club, on_delete=models.CASCADE, related_name='players')
     team = models.CharField(max_length=100, blank=True, null=True)
-    photo = models.ImageField(upload_to=upload_to, blank=True, null=True)
+    photo = models.ImageField(upload_to=upload_to, blank=True, null=True, default='defaults/player_placeholder.png')
+
     apps = models.IntegerField()
     mins = models.IntegerField()
     goals = models.IntegerField()
     assists = models.IntegerField()
     yellow_cards = models.IntegerField(default=0)
-    red_cards = models.ImageField(default=0)
+    red_cards = models.IntegerField(default=0)
     
     motm = models.IntegerField()
 
@@ -78,7 +80,8 @@ class Staff(models.Model):
     nationality = models.CharField(max_length=100, blank=True, null=True)
     experience = models.CharField(max_length=50, blank=True, null=True)
     club = models.ForeignKey(Club, related_name='staff', on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='staff_images/', default='default-image.jpg')
+    image = models.ImageField(upload_to='staff_images/', default='defaults/staff_placeholder.png')
+
 
 
     def __str__(self):
@@ -204,3 +207,32 @@ class Feedback(models.Model):
 
     def __str__(self):
         return f'{self.rating} - {self.feedback_text[:50]}'
+
+
+class TeamIndividual(models.Model):
+    name = models.CharField(max_length=100)
+    logo = models.ImageField(upload_to='team_logos/', blank=True, null=True)
+
+    def __str__(self):
+        return self.name
+
+
+class FixtureTeam(models.Model):
+    competition = models.CharField(max_length=100)
+    date = models.DateTimeField()
+    opponent = models.CharField(max_length=100)
+    venue = models.CharField(max_length=100)
+    team = models.ForeignKey(TeamIndividual, on_delete=models.CASCADE)  
+
+    def __str__(self):
+        return f'{self.team.name} vs {self.opponent}'
+
+
+class ResultTeam(models.Model):
+    fixture_team = models.OneToOneField(FixtureTeam, on_delete=models.CASCADE)
+    home_score = models.IntegerField()
+    away_score = models.IntegerField()
+    home_goal_scorers = models.TextField() 
+    away_goal_scorers = models.TextField()  
+    def __str__(self):
+        return f'{self.fixture_team.team.name} {self.home_score} - {self.away_score} {self.fixture_team.opponent}'

@@ -8,6 +8,8 @@ from .forms import ContactForm
 from django.contrib import messages
 from django.urls import reverse
 from .models import Matchday
+from .models import Team, Fixture
+
 # from .models import Blog
 # from .models import BlogPost
 from .models import Club
@@ -31,8 +33,11 @@ def home(request):
 
     })
 
+
+ 
+
 def fixtures_view(request):
-    fixtures_results = FixtureResult.objects.all()  # Fixture results will be handled here
+    fixtures_results = FixtureResult.objects.all() 
     fixtures = Fixture.objects.all()
 
     
@@ -40,39 +45,21 @@ def fixtures_view(request):
         'fixtures_results': fixtures_results, 'fixtures':fixtures
     })
 
-
-
-def club_staff_view(request, club_id):
-    club = get_object_or_404(Club, id=club_id)
+def club_staff_view(request, club_name):
+    club = get_object_or_404(Club, name=club_name)  # or use 'slug' if you're using slugs
     coaching_staff = Staff.objects.filter(club=club, staff_type='Coaching Staff')
     other_staff = Staff.objects.filter(club=club, staff_type='Other Staff')
     club_match_staff = Staff.objects.filter(club=club, staff_type='Club Match Staff')
     players = Player.objects.filter(club=club)
-    staff=Staff.objects.filter()
-    
+
     context = {
         'club': club,
         'coaching_staff': coaching_staff,
         'other_staff': other_staff,
         'club_match_staff': club_match_staff,
         'players': players,
-        'staff':staff,
     }
-    
-    
     return render(request, 'pages/club-staff.html', context)
-    
-    
-def player_detail_view(request, slug):
-     club = get_object_or_404(Club, slug=slug)
-     players = Player.objects.filter(club=club)
-
-     context = {
-         'club': club,
-         'players': players,
-     }
-     
-     return render(request, 'pages/club-staff.html', context)
 
 
 def player_stats_view(request):
@@ -204,6 +191,26 @@ def feedback_view(request):
         form = FeedbackForm()
 
     return render(request, 'feedback/feedback.html', {'form': form})
+
+
+def team_fixtures(request, team_id):
+    team = get_object_or_404(Team, id=team_id)  # Fetch the team object
+    fixtures = Fixture.objects.filter(opponent=team).order_by('date')
+    context = {
+        'fixtures': fixtures,
+        'team': team,  # Pass the team object to the context
+    }
+    return render(request, 'pages/club-staff.html', context)
+
+def team_results(request, team_id):
+    team = get_object_or_404(Team, id=team_id)  # Fetch the team object
+    fixtures_with_results = Fixture.objects.filter(opponent=team).select_related('result').order_by('date')
+    context = {
+        'fixtures_with_results': fixtures_with_results,
+        'team': team,  # Pass the team object to the context
+    }
+    return render(request, 'pages/club-staff.html', context)
+
 
 def feedback_success_view(request):
     return render(request, 'feedback/feedback_success.html')
