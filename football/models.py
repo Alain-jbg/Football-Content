@@ -46,7 +46,6 @@ class Player(models.Model):
     assists = models.IntegerField()
     yellow_cards = models.IntegerField(default=0)
     red_cards = models.IntegerField(default=0)
-    
     motm = models.IntegerField()
 
    
